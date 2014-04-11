@@ -21,15 +21,12 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
+Bundle 'tomasr/molokai'
 
 filetype plugin on
 
 " vundle settings --------------------------------------------------
 
-"colorscheme inkpot
-"colorscheme eclipse
-colorscheme ekvoli
-"colorscheme taqua
 "let g:Powerline_symbols = 'fancy'
 
 " abbreviations ----------------------------------------------------
@@ -113,3 +110,5 @@ au FocusLost * :wa<CR>
 if has('mouse')
   set mouse=a
 endif
+
+colorscheme molokai

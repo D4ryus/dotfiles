@@ -44,9 +44,15 @@ extract() {
 
 archey3
 
-PS1="┌─[\e[0;32m\u\e[0m]-[\e[0;33m@\H\e[0m]-[\t]-[\e[0;34m\w\e[0m]\n└──[ "
+# PS1="┌─[\e[0;32m\u\e[0m \w]-[@\e[0;33m\H\e[0m]-[\e[0;34m\t\e[0m]\n└── "
+# escape non printing characters: with \[  \]
+#    \033[0;34m  [\u@\h:\w]   \033[ m
+#  \[\033[0;34m\][\u@\h:\w]$\[\033[0m\]
+
+PS1="[\033[0;32m\u\033[0m \w] "
 
 if [ -f ~/.bashrc ]
     then
         source ~/.bashrc
 fi
+
