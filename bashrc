@@ -30,9 +30,9 @@ extract() {
       *.xz)        unxz $1        ;;
       *.exe)       cabextract $1  ;;
       *)           echo "\`$1': unrecognized file compression" ;;
-      esac
-    else
-      echo "\`$1' is not a valid file"
+    esac
+  else
+    echo "\`$1' is not a valid file"
   fi
 }
 
