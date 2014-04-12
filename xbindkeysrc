@@ -1,53 +1,95 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
 #
-# /etc/bash.bashrc
+# Version: 1.8.6
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# The release modifier is not a standard X modifier, but you can
+# use it if you want to catch release events instead of press events
 
-[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
+# By defaults, xbindkeys does not pay attention with the modifiers
+# NumLock, CapsLock and ScrollLock.
+# Uncomment the lines above if you want to pay attention to them.
 
-export EDITOR=/usr/bin/vim
-export PATH=$PATH:/home/d4ryus/bin
-export vrc=~/.vim/.vimrc
-export brc=/etc/bash.bashrc
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
 
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-alias dmesg="dmesg --color"
 
-#Estract Files
-extract() {
-  if [ -f $1 ] ; then
-      case $1 in
-          *.tar.bz2)   tar xvjf $1    ;;
-          *.tar.gz)    tar xvzf $1    ;;
-          *.tbz2)      tar xvjf $1    ;;
-          *.tgz)       tar xvzf $1    ;;
-          *.tar)       tar xvf $1     ;;
-          *.tar.xz)    tar xvJf $1    ;;
-          *.Z)         uncompress $1  ;;
-          *.rar)       unrar x $1     ;;
-          *.zip)       unzip $1       ;;
-          *.gz)        gunzip $1      ;;
-          *.bz2)       bunzip2 $1     ;;
-          *.7z)        7z x $1        ;;
-          *.xz)        unxz $1        ;;
-          *.exe)       cabextract $1  ;;
-          *)           echo "\`$1': unrecognized file compression" ;;
-      esac
-  else
-      echo "\`$1' is not a valid file"
-  fi
-}
+# alt + F2 to start programms, using urxvt for it
+#"urxvt -geometry 80x3 -name 'bashrun' -e sh -c '/bin/bash -i -t'"
+"dmenu_run -fn '-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*'"
+  m:0x8 + c:68
+  Alt + F2
 
-if [[ $EUID -ne 0 ]]; 
-    then
-        # user = color = green
-        PS1='\[[\033[0;32m\]\u\[\033[0m\] \w] '
-    else
-        # root = color = red
-        PS1='\[[\033[0;31m\]\u\[\033[0m\] \w] '
-        # update vim
-        rsync -rth --delete --progress /home/d4ryus/.vim/ ~/.vim/
-fi
+# fn + F3
+"slock"
+  XF86ScreenSaver
+
+# fn + F4
+"systemctl suspend" 
+  XF86WakeUp
+#also XF86Sleep
+
+# audio keys to controll the volume
+"amixer set Master 5%-"
+  XF86AudioLowerVolume
+
+"amixer set Master 5%+ unmute"
+  XF86AudioRaiseVolume
+
+"amixer set Master toggle"
+  XF86AudioMute
+
+
+# not used keys
+
+#""
+#  XF86AudioMicMute
+
+#""
+#  XF86Launch1
+
+
+# Examples of commands:
+
+# set directly keycode (here control + f with my keyboard)
+#"xterm"
+#  c:41 + m:0x4
+
+# specify a mouse button
+#"xterm"
+#  control + b:2
+
+#"xterm -geom 50x20+20+20"
+#   Shift+Mod2+alt + s
+
+# Control+Shift+a  release event starts rxvt
+#"rxvt"
+#  release+control+shift + a
+
+# Control + mouse button 2 release event starts rxvt
+#"rxvt"
+#  Control + b:2 + Release
