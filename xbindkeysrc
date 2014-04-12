@@ -1,3 +1,9 @@
+# file: ~/.xbindkeysrc
+# author: d4ryus - https://github.com/d4ryus/
+# vim:ts=2:ai:sw=2:
+
+# file copyed from /etc/skel
+
 # For the benefit of emacs users: -*- shell-script -*-
 ###########################
 # xbindkeys configuration #

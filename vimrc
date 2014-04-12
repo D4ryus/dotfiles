@@ -1,3 +1,7 @@
+" file: vimrc
+" author: d4ryus - https://github.com/d4ryus/
+" vim:ts=2:sw=2:
+
 " vundle ----------------------------------------------------------
 
 set nocompatible
@@ -25,7 +29,7 @@ filetype plugin on
 
 " abbreviations ----------------------------------------------------
 
-iabbr -email- w.wackerbauer@yahoo.de
+iabbr author author: d4ryus - https://github.com/d4ryus/
 iabbr #i #include
 iabbr #d #define
 
