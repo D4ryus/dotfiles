@@ -13,7 +13,6 @@ export vrc=~/.vim/.vimrc
 export brc=/etc/bash.bashrc
 
 alias ls="ls --color=auto"
-alias dir="dir --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 
@@ -42,17 +41,13 @@ extract() {
   fi
 }
 
-archey3
-
-# PS1="┌─[\e[0;32m\u\e[0m \w]-[@\e[0;33m\H\e[0m]-[\e[0;34m\t\e[0m]\n└── "
-# escape non printing characters: with \[  \]
-#    \033[0;34m  [\u@\h:\w]   \033[ m
-#  \[\033[0;34m\][\u@\h:\w]$\[\033[0m\]
-
-PS1="[\033[0;32m\u\033[0m \w] "
-
-if [ -f ~/.bashrc ]
+if [[ $EUID -ne 0 ]]; 
     then
-        source ~/.bashrc
+        # user = color = green
+        PS1='\[[\033[0;32m\]\u\[\033[0m\] \w] '
+    else
+        # root = color = red
+        PS1='\[[\033[0;31m\]\u\[\033[0m\] \w] '
+        # update vim
+        rsync -rth --delete --progress /home/d4ryus/.vim/ ~/.vim/
 fi
-
