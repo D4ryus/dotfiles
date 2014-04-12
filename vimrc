@@ -6,9 +6,6 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" alternatively, pass a path where Vundle should install bundles
-" let path = '~/some/path/here'
-" call vundle#rc(path)
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
@@ -25,24 +22,18 @@ Bundle 'tomasr/molokai'
 
 filetype plugin on
 
-" vundle settings --------------------------------------------------
-
-"let g:Powerline_symbols = 'fancy'
 
 " abbreviations ----------------------------------------------------
 
 iabbr -email- w.wackerbauer@yahoo.de
-iabbr -name- Wackerbauer Wolfgang
 iabbr #i #include
 iabbr #d #define
 
-" switches ---------------------------------------------------------
-
-syntax on
 
 " setter -----------------------------------------------------------
 
-set cm=blowfish
+syntax on                       " enable syntax highlighting
+set cm=blowfish                 " use blowfish as encryption (X)
 set autoindent                  " always set autoindenting on
 set history=82                  " keep 82 lines of command line history
 set ruler                       " show the cursor position all the time
@@ -55,12 +46,12 @@ set relativenumber              " set a relative number scale on left side
 set expandtab                   " use spaces instead of tabs
 set autoread                    " autoread file when changed from outside
 set tabstop=4                   " amout of spaces per tab
-set shiftwidth=4
+set shiftwidth=4                " number of spaces used by autoindent
 set listchars=tab:>~,nbsp:_,trail:.
 set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
-set backspace=indent,eol,start  "allow backspacing over everything in insert mode
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
 set laststatus=2                " always show statusbar, since its powerline
 set t_Co=256                    " set Terminal color to 256
@@ -69,7 +60,7 @@ set nowrap                      " do not insert line break
 
 
 " mapings ----------------------------------------------------------
-"
+
 let mapleader=','
 
 map :haw :0r ~/.vim/license/haw.txt
@@ -89,14 +80,9 @@ imap jk <Esc>
 
 inoremap <C-U> <C-G>u<C-U>
 
-vmap  <expr>  <Left>   DVB_Drag('left') 
-vmap  <expr>  <Right>  DVB_Drag('right')
-vmap  <expr>  <Down>   DVB_Drag('down') 
-vmap  <expr>  <Up>     DVB_Drag('up')   
-vmap  <expr>  .        DVB_Duplicate()  
-
 vnoremap < <gv
 vnoremap > >gv
+
 
 " random ----------------------------------------------------------
 
