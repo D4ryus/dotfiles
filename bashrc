@@ -1,6 +1,6 @@
 # file: ~/.bashrc
 # author: d4ryus - https://github.com/d4ryus/
-# vim:ts=2:sw=2:ai:
+# vim:ts=2:sw=2:ai:ft=sh:
 
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin

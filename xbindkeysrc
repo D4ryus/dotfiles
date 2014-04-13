@@ -1,6 +1,6 @@
 # file: ~/.xbindkeysrc
 # author: d4ryus - https://github.com/d4ryus/
-# vim:ts=2:ai:sw=2:
+# vim:ts=2:ai:sw=2:ft=sh:
 
 # file copyed from /etc/skel
 
@@ -56,8 +56,9 @@
 
 # fn + F4
 "systemctl suspend" 
-  XF86WakeUp
+  XF86Sleep
 #also XF86Sleep
+# handle by systemd -> /etc/systemd/logind.conf
 
 # audio keys to controll the volume
 "amixer set Master 5%-"

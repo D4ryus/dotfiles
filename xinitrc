@@ -1,6 +1,6 @@
 # file: ~/.xinitrc
 # author: d4ryus - https://github.com/d4ryus/
-# vim:ts=2:sw=2:
+# vim:ts=2:sw=2:ft=sh:
 
 #!/bin/sh
 
@@ -20,14 +20,9 @@ do
     TEMP="$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))C"
     RAM=$(free -m | awk '/cache:/ { print $3"M" }')
     VOL=$(amixer get Master | tail -1 | awk '{print $6 " " $4}' | sed -e 's/\[//g' -e 's/\]//g')
-    if acpi -a | grep off-line > /dev/null
-    then
-        BAT="$(acpi -b | awk '{ print $4 }' | tr -d ',')"
-        xsetroot -name "[ip: $IP] [bat: $BAT] [vol: $VOL] [temp: $TEMP] [ram: $RAM] [$LOCALTIME]"
-    else
-        xsetroot -name "[ip: $IP] [vol: $VOL] [temp: $TEMP] [ram: $RAM] [$LOCALTIME]"
-    fi
-    sleep 10s
+    BAT="$(acpi -b | awk '{ print $3 " " $4 }' | tr -d ',')"
+    xsetroot -name "[ip: $IP] [bat: $BAT] [vol: $VOL] [temp: $TEMP] [ram: $RAM] [$LOCALTIME]"
+    sleep 5s
 done &
 
 # turn of that 1981 bell :/
