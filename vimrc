@@ -20,7 +20,6 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-surround'
 Bundle 'tomasr/molokai'
 
