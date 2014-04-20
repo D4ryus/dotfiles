@@ -59,7 +59,6 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 set encoding=UTF-8              " use UTF-8 as encoding
 set laststatus=2                " always show statusbar, since its powerline
 set t_Co=256                    " set Terminal color to 256
-set background=dark             " set Terminal background dark, so that molokai looks pretty
 set nowrap                      " do not insert line break
 
 
@@ -101,4 +100,8 @@ if has('mouse')
   set mouse=a
 endif
 
+set background=dark             " set Terminal background dark, so that molokai looks pretty
 colorscheme molokai
+
+" open NERDTree if no file is specified
+autocmd vimenter * if !argc() | NERDTree | endif
