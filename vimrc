@@ -29,6 +29,7 @@ filetype plugin on
 " abbreviations ----------------------------------------------------
 
 iabbr author author: d4ryus - https://github.com/d4ryus/
+iabbr file: file: <c-r>%
 iabbr #i #include
 iabbr #d #define
 
