@@ -34,6 +34,11 @@ iabbr #i #include
 iabbr #d #define
 
 
+" registers --------------------------------------------------------
+
+let @f = 'zt,,f{azfa{j'
+
+
 " setter -----------------------------------------------------------
 
 syntax on                       " enable syntax highlighting
