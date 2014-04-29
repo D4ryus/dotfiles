@@ -11,6 +11,9 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 
+# git autocompletion
+source ~/.git-completion-bash
+
 #Estract Files
 extract() {
   if [ -f $1 ] ; then
@@ -46,3 +49,4 @@ if [[ $EUID -ne 0 ]];
     # update vim
     rsync -rth --delete --progress /home/d4ryus/.vim/ ~/.vim/
 fi
+
