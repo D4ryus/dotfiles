@@ -82,10 +82,16 @@ map <Leader>l <Esc>:tabnext<CR>
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Tab> %
 
+nmap <Up> :res +1<CR>
+nmap <Down> :res -1<CR>
+nmap <Left> :vertical res -1<CR>
+nmap <Right> :vertical res +1<CR>
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 nnoremap <Leader>m :noh<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 
