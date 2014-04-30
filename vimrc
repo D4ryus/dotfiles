@@ -16,7 +16,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'vim-scripts/taglist.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'dhruvasagar/vim-table-mode'
@@ -36,8 +35,12 @@ iabbr #d #define
 
 " registers --------------------------------------------------------
 
-let @z = 'zt,,f{azfa{j'
-
+" recursive fold macro
+map :fts    zt,,f{azfa{j
+" insert license
+map :chaw   :0r ~/.vim/license/haw.txt
+" i dont wanna fix this shit - macro
+map :idwtfts "lyy<CR>O/* --warning-- */<ESC>"lpi/* <ESC>d2f\|A */<ESC>==:<CR>:w<CR>
 
 " setter -----------------------------------------------------------
 
@@ -71,7 +74,6 @@ set nowrap                      " do not insert line break
 
 let mapleader=','
 
-map :haw :0r ~/.vim/license/haw.txt
 map <Tab> %
 map <Leader>h <Esc>:tabprevious<CR>
 map <Leader>l <Esc>:tabnext<CR>
