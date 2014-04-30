@@ -36,10 +36,12 @@ iabbr #d #define
 " registers --------------------------------------------------------
 
 " recursive fold macro
-map :fts    zt,,f{azfa{j
+map :fts zt,,f{azfa{j
+
 " insert license
-map :chaw   :0r ~/.vim/license/haw.txt
-" i dont wanna fix this shit - macro
+map :chaw :0r ~/.vim/license/haw.txt<CR>
+
+" i dont want to fix this shit - macro
 map :idwtfts "lyy<CR>O/* --warning-- */<ESC>"lpi/* <ESC>d2f\|A */<ESC>==:<CR>:w<CR>
 
 " setter -----------------------------------------------------------
@@ -74,10 +76,11 @@ set nowrap                      " do not insert line break
 
 let mapleader=','
 
-map <Tab> %
+map <Leader> <Plug>(easymotion-prefix)
 map <Leader>h <Esc>:tabprevious<CR>
 map <Leader>l <Esc>:tabnext<CR>
 map <Leader>n <Esc>:NERDTreeToggle<CR>
+map <Tab> %
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -100,15 +103,9 @@ vnoremap > >gv
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
-" save files when focus is lost
-au FocusLost * :wa<CR>
-
 if has('mouse')
   set mouse=a
 endif
 
 set background=dark             " set Terminal background dark, so that molokai looks pretty
 colorscheme molokai
-
-" open NERDTree if no file is specified
-autocmd vimenter * if !argc() | NERDTree | endif
