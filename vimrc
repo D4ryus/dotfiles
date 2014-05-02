@@ -60,6 +60,8 @@ set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
 set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline
+set laststatus=2                " statusline option
+set statusline=%{fugitive#statusline()} " fugitive statusline
 " mapings {{{1
 let mapleader=','
 " map {{{2
