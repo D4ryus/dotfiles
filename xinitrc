@@ -34,7 +34,8 @@ xset -b
 xset +fp /usr/share/fonts/local/
 xset fp rehash
 
-hsetroot -fill ~/wallpaper/rocks.jpg
+# hsetroot -fill ~/wallpaper/rocks.jpg
+hsetroot -fill ~/wallpaper/arviwm.png
 
 # use x keybindings as defined in ~/.xbindkeysrc
 xbindkeys
