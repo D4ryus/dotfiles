@@ -44,35 +44,36 @@
 #keystate_scrolllock= enable
 
 
-# alt + F2 to start programms, using urxvt for it
-#"urxvt -geometry 80x3 -name 'bashrun' -e sh -c '/bin/bash -i -t'"
+# alt + F2 to open dmenu
 "dmenu_run -fn '-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*'"
   m:0x8 + c:68
   Alt + F2
 
-# fn + F3
+# fn + F3 lock screen
 "slock"
   XF86ScreenSaver
 
-# fn + F4
+# fn + F4 suspend
 "systemctl suspend" 
   XF86Sleep
 #also XF86Sleep
 # handle by systemd -> /etc/systemd/logind.conf
 
 # audio keys to controll the volume
+# lower volume
 "amixer set Master 5%-"
   XF86AudioLowerVolume
 
+# raise volume, also unmute
 "amixer set Master 5%+ unmute"
   XF86AudioRaiseVolume
 
+# mute volumne
 "amixer set Master toggle"
   XF86AudioMute
 
 
 # not used keys
-
 #""
 #  XF86AudioMicMute
 
