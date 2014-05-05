@@ -20,7 +20,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
-Bundle 'altercation/solarized'
 filetype plugin on
 " abbreviations {{{1
 iabbr author author: d4ryus - https://github.com/d4ryus/
@@ -100,5 +99,10 @@ if has('mouse')
   set mouse=a
 endif
 " colorscheme {{{2
-set background=dark             " set Terminal background dark, so that molokai looks pretty
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+
 colorscheme molokai
