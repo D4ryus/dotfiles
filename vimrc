@@ -20,6 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
+Bundle 'altercation/solarized'
 filetype plugin on
 " abbreviations {{{1
 iabbr author author: d4ryus - https://github.com/d4ryus/
