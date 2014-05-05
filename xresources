@@ -1,9 +1,9 @@
-# file ~/.Xdefaults
-# author: d4ryus - https://github.com/d4ryus/
-# vim:
+!! file ~/.Xdefaults
+!! author: d4ryus - https://github.com/d4ryus/
+!! vim:
 
-#xterm*faceName:            DejaVu Sans Mono:style=Book:antialias=true
-#xterm*font:                txft:Bitstream Vera Sans Mono:pixelsize=12
+!! xterm*faceName:            DejaVu Sans Mono:style=Book:antialias=true
+!! xterm*font:                txft:Bitstream Vera Sans Mono:pixelsize=12
 xterm*termName:             xterm-256color
 xterm*faceName:             Bitstream Vera Sans Mono:style=Book:antialias=true
 xterm*faceNameDoublesize:   WenQuanYi Bitmap Song
@@ -19,7 +19,7 @@ URxvt.scrollBar:            false
 URxvt.foreground:           white
 URxvt.background:           black
 
-# clickable urls
+!! clickable urls
 URxvt.perl-ext-common:      default,matcher
 URxvt.url-launcher:         /usr/bin/firefox
 URxvt.matcher.button:       1
