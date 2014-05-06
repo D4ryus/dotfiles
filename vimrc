@@ -49,7 +49,7 @@ set expandtab                   " use spaces instead of tabs
 set autoread                    " autoread file when changed from outside
 set tabstop=4                   " amout of spaces per tab
 set shiftwidth=4                " number of spaces used by autoindent
-set listchars=tab:>~,nbsp:_,trail:.
+set listchars=tab:>-,nbsp:_,trail:.
 set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
@@ -62,6 +62,7 @@ set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline
 set laststatus=2                " statusline option
 set statusline=%{fugitive#statusline()} " fugitive statusline
+let g:EclimLoggingDisabled=1    " disable Eclim logging
 " mapings {{{1
 let mapleader=','
 " map {{{2
@@ -101,3 +102,4 @@ endif
 " colorscheme {{{2
 set background=light
 colorscheme molokai
+
