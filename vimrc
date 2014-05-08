@@ -20,6 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/LustyJuggler'
 filetype plugin on
 " abbreviations {{{1
 iabbr author author: d4ryus - https://github.com/d4ryus/
@@ -67,11 +68,10 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 let mapleader=','
 " map {{{2
 map <Leader> <Plug>(easymotion-prefix)
-map <Leader>h <Esc>:tabprevious<CR>
-map <Leader>l <Esc>:tabnext<CR>
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Tab> %
 " nmap {{{2
+nmap <Leader>b :LustyJuggler<CR>
 nmap <Up> :res +1<CR>
 nmap <Down> :res -1<CR>
 nmap <Left> :vertical res -1<CR>
@@ -83,7 +83,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 nnoremap <Leader>m :noh<CR>
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
 " imap {{{2
 imap jk <Esc>
 " inoremap {{{2
