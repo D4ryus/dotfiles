@@ -45,25 +45,29 @@ set incsearch                   " do incremental searching
 set hlsearch                    " highlight search
 set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
+set number                      " set linenumber on left side
 set relativenumber              " set a relative number scale on left side
 set expandtab                   " use spaces instead of tabs
-set autoread                    " autoread file when changed from outside
 set tabstop=4                   " amout of spaces per tab
 set shiftwidth=4                " number of spaces used by autoindent
+set autoread                    " autoread file when changed from outside
 set listchars=tab:>-,nbsp:_,trail:.
 set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
-set laststatus=2                " always show statusbar, since its powerline
 set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
 set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline
-set laststatus=2                " statusline option
+set laststatus=2                " allways show statusline, since its powerline
 set statusline=%{fugitive#statusline()} " fugitive statusline
+set spelllang=en_us,de          " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
+" autocmd {{{1
+autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
+autocmd FileType gitcommit set spell " enable spellchecking on gitcommits
 " mapings {{{1
 let mapleader=','
 " map {{{2
@@ -101,4 +105,3 @@ endif
 " colorscheme {{{2
 set background=light
 colorscheme molokai
-
