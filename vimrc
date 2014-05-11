@@ -3,12 +3,16 @@
 " vim:ts=2:sw=2:foldmethod=marker:
 
 " vundle {{{1
+
 " settings {{{2
+
 filetype off
 set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 " Bundle's {{{2
+
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
@@ -22,17 +26,26 @@ Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/LustyJuggler'
 filetype plugin on
+
 " abbreviations {{{1
+
 iabbr author author: d4ryus - https://github.com/d4ryus/
 iabbr file: file: <c-r>%
 iabbr #i #include
 iabbr #d #define
+
 " macros {{{1
+
 " recursive fold macro {{{2
+
 map :fts zt,,f{azfa{j
+
 " insert license {{{2
+
 map :haw :0r ~/.vim/license/haw.txt<CR>
+
 " setter {{{1
+
 syntax on                       " enable syntax highlighting
 set cm=blowfish                 " use blowfish as encryption (X)
 set autoindent                  " always set autoindenting on
@@ -63,49 +76,72 @@ set laststatus=2                " allways show statusline, since its powerline
 set statusline=%{fugitive#statusline()} " fugitive statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
+
 " autocmd {{{1
+
 autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
-" functions {{{1
+
+" registers {{{1
+
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */:w'
-" command Fixme "lyyO/* --fixme-- */"lpd2f|i/*A */:w
 
-
-"map :idwtfts         "lyy<CR>O/* --fixme-- */<ESC>"lpi/* <ESC>d2f\|A */<ESC>==:<CR>:w<CR>
 " mapings {{{1
+
 let mapleader=','
+
 " map {{{2
-map <Leader> <Plug>(easymotion-prefix)
+
+map <Leader>  <Plug>(easymotion-prefix)
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
-map <Tab> %
+map <Tab>     %
+
 " nmap {{{2
+
 nmap <Leader>b :LustyJuggler<CR>
-nmap <Up> :res +1<CR>
-nmap <Down> :res -1<CR>
-nmap <Left> :vertical res -1<CR>
-nmap <Right> :vertical res +1<CR>
+nmap <Up>      :res +1<CR>
+nmap <Down>    :res -1<CR>
+nmap <Left>    :vertical res -1<CR>
+nmap <Right>   :vertical res +1<CR>
+
 " nnoremap {{{2
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 nnoremap <Leader>m :Ant magic<CR>
+
+" kill ex mode
+nnoremap Q <nop>
+
 " imap {{{2
+
 imap jk <Esc>
+
 " inoremap {{{2
+
 inoremap <C-U> <C-G>u<C-U>
+
 " vnoremap {{{2
+
 vnoremap < <gv
 vnoremap > >gv
+
 " random {{{1
+
 " make 81st column stand out {{{2
 highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%80v', 100)
+
 " mouse {{{2
+
 if has('mouse')
   set mouse=a
 endif
+
 " colorscheme {{{2
+
 set background=light
 colorscheme molokai
