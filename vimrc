@@ -32,8 +32,6 @@ iabbr #d #define
 map :fts zt,,f{azfa{j
 " insert license {{{2
 map :chaw :0r ~/.vim/license/haw.txt<CR>
-" i dont want to fix this shit - macro {{{2
-map :idwtfts "lyy<CR>O/* --warning-- */<ESC>"lpi/* <ESC>d2f\|A */<ESC>==:<CR>:w<CR>
 " setter {{{1
 syntax on                       " enable syntax highlighting
 set cm=blowfish                 " use blowfish as encryption (X)
@@ -68,11 +66,18 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 " autocmd {{{1
 autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
 autocmd FileType gitcommit set spell " enable spellchecking on gitcommits
+" functions {{{1
+let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */:w'
+" command Fixme "lyyO/* --fixme-- */"lpd2f|i/*A */:w
+
+
+"map :idwtfts         "lyy<CR>O/* --fixme-- */<ESC>"lpi/* <ESC>d2f\|A */<ESC>==:<CR>:w<CR>
 " mapings {{{1
 let mapleader=','
 " map {{{2
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader>n <Esc>:NERDTreeToggle<CR>
+map <Leader>p <Esc>:ProjectProblems<CR>
 map <Tab> %
 " nmap {{{2
 nmap <Leader>b :LustyJuggler<CR>
@@ -86,7 +91,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <Leader>m :noh<CR>
+nnoremap <Leader>m :Ant magic<CR>
 " imap {{{2
 imap jk <Esc>
 " inoremap {{{2
