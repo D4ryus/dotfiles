@@ -7,7 +7,7 @@ export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vim/.vimrc
 export brc=/etc/bash.bashrc
 
-alias ls="ls --color=auto"
+alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 
