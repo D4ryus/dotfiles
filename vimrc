@@ -31,7 +31,7 @@ iabbr #d #define
 " recursive fold macro {{{2
 map :fts zt,,f{azfa{j
 " insert license {{{2
-map :chaw :0r ~/.vim/license/haw.txt<CR>
+map :haw :0r ~/.vim/license/haw.txt<CR>
 " setter {{{1
 syntax on                       " enable syntax highlighting
 set cm=blowfish                 " use blowfish as encryption (X)
@@ -61,11 +61,10 @@ set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline
 set laststatus=2                " allways show statusline, since its powerline
 set statusline=%{fugitive#statusline()} " fugitive statusline
-set spelllang=en_us,de          " set spelling language to english and german
+set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 " autocmd {{{1
 autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
-autocmd FileType gitcommit set spell " enable spellchecking on gitcommits
 " functions {{{1
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */:w'
 " command Fixme "lyyO/* --fixme-- */"lpd2f|i/*A */:w
