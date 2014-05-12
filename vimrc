@@ -83,7 +83,7 @@ autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt f
 
 " registers {{{1
 
-let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */:w'
+let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
 
 " mapings {{{1
 
@@ -92,9 +92,11 @@ let mapleader=','
 " map {{{2
 
 map <Leader>  <Plug>(easymotion-prefix)
+map <Tab>     %
+
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
-map <Tab>     %
+map <Leader>m :Ant magic<CR>
 
 " nmap {{{2
 
@@ -110,8 +112,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-nnoremap <Leader>m :Ant magic<CR>
 
 " kill ex mode
 nnoremap Q <nop>
@@ -145,3 +145,4 @@ endif
 
 set background=light
 colorscheme molokai
+
