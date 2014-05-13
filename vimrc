@@ -77,6 +77,13 @@ set statusline=%{fugitive#statusline()} " fugitive statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 
+" commands {{{1
+
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
+
 " autocmd {{{1
 
 autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
@@ -113,9 +120,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" kill ex mode
-nnoremap Q <nop>
-
 " imap {{{2
 
 imap jk <Esc>
@@ -145,4 +149,3 @@ endif
 
 set background=light
 colorscheme molokai
-
