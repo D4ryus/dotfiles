@@ -25,6 +25,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/LustyJuggler'
+Bundle 'vim-scripts/taglist.vim'
 filetype plugin on
 
 " abbreviations {{{1
@@ -104,6 +105,7 @@ map <Tab>     %
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
 map <Leader>m :Ant magic<CR>
+map <Leader>t :TlistToggle<CR>
 
 " nmap {{{2
 
@@ -138,12 +140,6 @@ vnoremap > >gv
 " make 81st column stand out {{{2
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v', 100)
-
-" mouse {{{2
-
-if has('mouse')
-  set mouse=a
-endif
 
 " colorscheme {{{2
 
