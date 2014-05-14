@@ -3,6 +3,7 @@
 # vim:ts=2:sw=2:ai:ft=sh:
 
 export EDITOR=/usr/bin/vim
+export PAGER=vimpager
 export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vim/.vimrc
 export brc=/etc/bash.bashrc
@@ -10,6 +11,8 @@ export brc=/etc/bash.bashrc
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
+alias less=$PAGER
+alias zless=$PAGER
 
 # git autocompletion
 source ~/.git-completion-bash
