@@ -92,6 +92,7 @@ autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt f
 " registers {{{1
 
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
+let @l='2fl"udwxxll"upa, jk'
 
 " mapings {{{1
 
