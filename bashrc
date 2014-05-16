@@ -3,16 +3,25 @@
 # vim:ts=2:sw=2:ai:ft=sh:
 
 export EDITOR=/usr/bin/vim
-export PAGER=vimpager
 export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vim/.vimrc
 export brc=/etc/bash.bashrc
 
+export PAGER=vimpager
+alias less=$PAGER
+alias zless=$PAGER
+
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
-alias less=$PAGER
-alias zless=$PAGER
+alias pg="ps -efa | grep "
+alias il="ip link"
+alias wu="ip link set wlp3s0 up"
+alias wd="ip link set wlp3s0 down"
+alias wi="dhcpcd wlp3s0"
+alias eu="ip link set enp0s25 up"
+alias ed="ip link set enp0s25 down"
+alias ei="dhcpcd enp0s25"
 
 # git autocompletion
 source ~/.git-completion-bash
