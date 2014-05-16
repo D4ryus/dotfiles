@@ -18,13 +18,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tomasr/molokai'
-Bundle 'vim-scripts/LustyJuggler'
 Bundle 'vim-scripts/taglist.vim'
 filetype plugin on
 
@@ -73,8 +72,8 @@ set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
 set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline
-set laststatus=2                " allways show statusline, since its powerline
-set statusline=%{fugitive#statusline()} " fugitive statusline
+set laststatus=2                " allways show statusline
+"set statusline=%{fugitive#statusline()} " fugitive statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 
@@ -142,7 +141,7 @@ vnoremap > >gv
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v', 100)
 
-" colorscheme {{{2
-
+" colorscheme/airline {{{2
 set background=light
 colorscheme molokai
+let g:airline_theme='serene'
