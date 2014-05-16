@@ -84,9 +84,7 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 :command! W w
 :command! Q q
 
-" autocmd {{{1
 
-autocmd BufRead,BufNewFile *.txt setlocal spell " enable spellchecking on .txt files
 
 " registers {{{1
 
@@ -106,6 +104,10 @@ map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
 map <Leader>m :Ant magic<CR>
 map <Leader>t :TlistToggle<CR>
+
+map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 
 " nmap {{{2
 
@@ -145,3 +147,8 @@ call matchadd('ColorColumn', '\%80v', 100)
 set background=light
 colorscheme molokai
 let g:airline_theme='serene'
+
+" autocmd {{{1
+
+" enable spellchecking on .txt files
+autocmd BufRead,BufNewFile *.txt setlocal spell
