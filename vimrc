@@ -10,8 +10,7 @@ filetype off
 set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" Bundle's {{{2
+" }}}2
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
@@ -22,10 +21,10 @@ Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
-Bundle 'dhruvasagar/vim-table-mode'
+Bundle 'godlygeek/tabular'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/taglist.vim'
-filetype plugin on
+Bundle 'sjl/gundo.vim'
 
 " abbreviations {{{1
 
@@ -36,17 +35,13 @@ iabbr #d #define
 
 " macros {{{1
 
-" recursive fold macro {{{2
-
 map :fts zt,,f{azfa{j
-
-" insert license {{{2
-
 map :haw :0r ~/.vim/license/haw.txt<CR>
 
 " setter {{{1
 
 syntax on                       " enable syntax highlighting
+filetype plugin on              " enable filetype plugin
 set cm=blowfish                 " use blowfish as encryption (X)
 set autoindent                  " always set autoindenting on
 set history=82                  " keep 82 lines of command line history
@@ -71,9 +66,8 @@ set encoding=UTF-8              " use UTF-8 as encoding
 set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
 set foldcolumn=3                " foldcolumn on the left side
-set modelines=40                " search first/last 40 lines for vim modeline
+set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
-"set statusline=%{fugitive#statusline()} " fugitive statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 
@@ -83,7 +77,6 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 :command! Wq wq
 :command! W w
 :command! Q q
-
 
 
 " registers {{{1
@@ -97,13 +90,13 @@ let mapleader=','
 
 " map {{{2
 
-map <Leader>  <Plug>(easymotion-prefix)
-map <Tab>     %
+map <Tab> %
 
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
 map <Leader>m :Ant magic<CR>
 map <Leader>t :TlistToggle<CR>
+map <Leader>u :GundoToggle<CR>
 
 map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
@@ -111,7 +104,6 @@ map <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 
 " nmap {{{2
 
-nmap <Leader>b :LustyJuggler<CR>
 nmap <Up>      :res +1<CR>
 nmap <Down>    :res -1<CR>
 nmap <Left>    :vertical res -1<CR>
@@ -131,24 +123,35 @@ imap jk <Esc>
 " inoremap {{{2
 
 inoremap <C-U> <C-G>u<C-U>
+inoremap <silent><Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 " vnoremap {{{2
 
 vnoremap < <gv
 vnoremap > >gv
 
-" random {{{1
+" color stuff {{{1
 
 " make 81st column stand out {{{2
+
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v', 100)
 
 " colorscheme/airline {{{2
+
 set background=light
 colorscheme molokai
 let g:airline_theme='serene'
 
-" autocmd {{{1
+" functions {{{1
 
-" enable spellchecking on .txt files
-autocmd BufRead,BufNewFile *.txt setlocal spell
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
