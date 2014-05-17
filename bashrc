@@ -4,7 +4,7 @@
 
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
-export vrc=~/.vim/.vimrc
+export vrc=~/.vimrc
 export brc=/etc/bash.bashrc
 
 export PAGER=vimpager
