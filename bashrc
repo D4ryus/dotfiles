@@ -11,6 +11,7 @@ export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
 
+alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
