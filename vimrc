@@ -10,6 +10,7 @@ filetype off
 set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 " }}}2
 
 Bundle 'gmarik/vundle'
@@ -78,7 +79,6 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 :command! W w
 :command! Q q
 
-
 " registers {{{1
 
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
@@ -132,12 +132,8 @@ vnoremap > >gv
 
 " color stuff {{{1
 
-" make 81st column stand out {{{2
-
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v', 100)
-
-" colorscheme/airline {{{2
 
 set background=light
 colorscheme molokai
