@@ -19,7 +19,6 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'godlygeek/tabular'
@@ -137,7 +136,12 @@ call matchadd('ColorColumn', '\%80v', 100)
 
 set background=light
 colorscheme molokai
-let g:airline_theme='serene'
+
+let g:airline_theme='simple'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
 
 " functions {{{1
 
