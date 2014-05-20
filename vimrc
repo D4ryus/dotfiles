@@ -25,6 +25,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'edkolev/tmuxline.vim'
 
 " abbreviations {{{1
 
@@ -70,6 +71,7 @@ set modelines=40                " search first/last 40 lines for vim modeline op
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
+let g:tmuxline_powerline_separators=0
 
 " commands {{{1
 
