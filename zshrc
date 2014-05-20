@@ -72,8 +72,8 @@ setopt PROMPT_SUBST;
 if [[ $EUID -ne 0 ]]; 
   then
     # user = color = green
-    PROMPT="[%{$fg[green]%}%n%{$reset_color%} %~$(__git_ps1 " (%s)")] "
+    PROMPT='[%{$fg[green]%}%n%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}]\$ '
   else
     # root = color = red
-    PROMPT="[%{$fg[red]%}%n%{$reset_color%} %~$(__git_ps1 " (%s)")] "
+    PROMPT='[%{$fg[red]%}%n%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}]\$ '
 fi
