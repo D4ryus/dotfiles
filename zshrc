@@ -69,7 +69,7 @@ extract() {
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 setopt PROMPT_SUBST;
-if [[ $EUID -ne 0 ]]; 
+if [[ $EUID -ne 0 ]];
   then
     # user = color = green
     PROMPT='[%{$fg[green]%}%n%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}] '
