@@ -26,6 +26,7 @@ Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'edkolev/tmuxline.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " abbreviations {{{1
 
@@ -157,3 +158,5 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+:echom ">^.^<"
