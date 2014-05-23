@@ -1,8 +1,8 @@
 [user]
-    email = w.wackerbauer@yahoo.de
-    name = d4ryus
+    email   = w.wackerbauer@yahoo.de
+    name    = d4ryus
 [core]
-    editor = vim
+    editor  = vim
 [alias]
     unstage = reset HEAD --
     dftool  = difftool --cached
@@ -10,10 +10,10 @@
     df      = diff --cached
     lg      = log --graph
 [merge]
-    tool = vimdiff
+    tool    = vimdiff
 [diff]
-    tool = vimdiff
+    tool    = vimdiff
 [difftool]
-    prompt = false
+    prompt  = false
 [github]
-    user = d4ryus
+    user    = d4ryus
