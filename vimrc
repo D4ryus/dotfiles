@@ -31,7 +31,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 " abbreviations {{{1
 
 iabbr author author: d4ryus - https://github.com/d4ryus/
-iabbr file: file: <c-r>%
+iabbr file file: <c-r>%
 iabbr #i #include
 iabbr #d #define
 
@@ -151,3 +151,8 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" autocmd {{{1
+
+" remove all trailing whitespace's
+autocmd BufWritePre * :%s/\s\+$//e
