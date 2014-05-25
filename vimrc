@@ -15,7 +15,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'bling/vim-airline'
@@ -27,6 +26,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'SirVer/ultisnips'
 
 " abbreviations {{{1
 
@@ -73,6 +73,8 @@ set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:tmuxline_powerline_separators=0
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/dotfiles/UltiSnips"
 
 " commands {{{1
 
@@ -89,6 +91,10 @@ let @l='2fl"udwxxll"upa, jk'
 " mapings {{{1
 
 let mapleader=','
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " map {{{2
 
