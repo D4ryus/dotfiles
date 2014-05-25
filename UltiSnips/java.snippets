@@ -1,173 +1,92 @@
+snippet c
+/**
+ * $0
+ */
+endsnippet
+
 snippet main
-	public static void main (String... args)
-	{
-		${1:/* code */}
-	}
-snippet pu
-	public
-snippet po
-	protected
-snippet pr
-	private
-snippet st
-	static
-snippet fi
-	final
-snippet ab
-	abstract
-snippet re
-	return
-snippet br
-	break;
-snippet de
-	default:
-		${1}
-snippet ca
-	catch(${1:Exception} ${2:e})
-	{
-		${3}
-	}
-snippet th
-	throw
-snippet sy
-	synchronized
-snippet im
-	import
-snippet imp
-	implements
-snippet ext
-	extends
-snippet j.u
-	java.util
-snippet j.i
-	java.io.
-snippet j.b
-	java.beans.
-snippet j.n
-	java.net.
-snippet j.m
-	java.math.
+public static void main (String... args)
+{
+	$0
+}
+endsnippet
+
+snippet catch
+catch(${1:Exception} ${2:e})
+{
+	$0
+}
+endsnippet
+
 snippet fore
-	for (${1} : ${2}) ${3}
-snippet sw
-	switch (${1}) ${2}
-snippet cs
-	case ${1}:
-		${2}
-	${3}
-snippet tc
-	public class ${1:`Filename()`} extends ${2:TestCase}
-snippet t
-	public void test${1:Name}() throws Exception ${2}
-snippet cl
-	class ${1:`Filename("", "untitled")`} ${2}
-snippet in
-	interface ${1:`Filename("", "untitled")`} ${2:extends Parent}${3}
-snippet m
-	${1:void} ${2:method}(${3}) ${4:throws }${5}
-snippet v
-	${1:String} ${2:var}${3: = null}${4};${5}
-snippet co
-	static public final ${1:String} ${2:var} = ${3};${4}
-snippet cos
-	static public final String ${1:var} = "${2}";${3}
-snippet as
-	assert ${1:test} : "${2:Failure message}";${3}
+for ($1 : $2) $3
+endsnippet
+
 snippet try
-	try
-	{
-		${3}
-	} catch(${1:Exception} ${2:e}) {
-	}
-snippet tryf
-	try {
-		${3}
-	}
-	catch(${1:Exception} ${2:e})
-	{
-	}
-	finally
-	{
-	}
-snippet rst
-	ResultSet ${1:rst}${2: = null}${3};${4}
+try
+{
+	$3
+}
+catch(${1:Exception} ${2:e})
+{
+	$0
+}
+endsnippet
 
-
-# If Condition
 snippet if
-	if (${1:/* condition */})
-	{
-		${2:/* code */}
-	}
-snippet el
-	else
-	{
-		${1}
-	}
-# Do While Loop
+if ($1)
+{
+	$2
+}
+$0
+endsnippet
+
+snippet else
+else
+{
+	$1
+}
+$0
+endsnippet
+
 snippet do
-	do
-	{
-		${2:/* code */}
-	} while (${1:/* condition */});
-# While Loop
-snippet wh
-	while (${1:/* condition */})
-	{
-		${2:/* code */}
-	}
-# For Loop
+do
+{
+	$0
+} while ($1);
+endsnippet
+
+snippet while
+while ($1)
+{
+	$0
+}
+endsnippet
+
 snippet for
-	for (${2:i} = 0; $2 < ${1:count}; $2${3:++})
-	{
-		${4:/* code */}
-	}
-# Custom For Loop
-snippet forr
-	for (${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++})
-	{
-		${5:/* code */}
-	}
-# Function
+for (${1:int} ${2:i} = ${3:0}; $2 < $4; $2${5:++})
+{
+	$0
+}
+endsnippet
+
 snippet fun
-	${1:public}
-	${2:void}
-	${3:function_name}(${4})
-	{
-		${5:/* code */}
-	}
-# Function Declaration
-snippet fund
-	${1:void} ${2:function_name}(${3});${4}
-# Typedef
-snippet td
-	typedef ${1:int} ${2:MyCustomType};${3}
-# Struct
-snippet st
-	struct ${1:`Filename('$1_t', 'name')`}
-	{
-		${2:/* data */}
-	}${3: /* optional variable list */};${4}
-# Typedef struct
-snippet tds
-	typedef struct ${2:_$1 }
-	{
-		${3:/* data */}
-	} ${1:`Filename('$1_t', 'name')`};
-# Typdef enum
-snippet tde
-	typedef enum
-	{
-		${1:/* data */}
-	} ${2:foo};
-# printf
-# unfortunately version this isn't as nice as TextMates's, given the lack of a
-# dynamic `...`
-snippet pr
-	printf("${1:%s}\n"${2});${3}
-# fprintf (again, this isn't as nice as TextMate's version, but it works)
-snippet fpr
-	fprintf(${1:stderr}, "${2:%s}\n"${3});${4}
-# This is kind of convenient
-snippet .
-	[${1}]${2}
+${1:public}
+${2:void}
+$3($4)
+{
+	$0
+}
+endsnippet
+
+snippet printf
+printf("$1\n"$2);
+$0
+endsnippet
+
+snippet class
+${1:public} class
+{
+	$0
+}
+endsnippet
