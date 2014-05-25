@@ -1,22 +1,29 @@
 # Global snippets
-
 snippet head
-	/*
-	 * author${1}
-	 * file${2}
-	 * vim:${3}:
-	 */
-	 ${4}
+/*
+ * author: ${1:`echo $USER` https://github.com/`echo $USER`}
+ * file: ${2:`echo %`}
+ * vim:$3:
+ */
+$0
+endsnippet
+
 snippet {
 
-	{
-		${1}
-	}
+{
+	$1
+}
+endsnippet
+
 # (c) holds no legal value ;)
 snippet c)
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
+endsnippet
+
 snippet date
 	`strftime("%Y-%m-%d")`
+endsnippet
+
 snippet ddate
 	`strftime("%B %d, %Y")`
-
+endsnippet
