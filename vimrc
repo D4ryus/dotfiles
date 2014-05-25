@@ -28,13 +28,6 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 
-" abbreviations {{{1
-
-iabbr author author: d4ryus - https://github.com/d4ryus/
-iabbr file file: <c-r>%
-iabbr #i #include
-iabbr #d #define
-
 " macros {{{1
 
 map :fts zt,,f{azfa{j
@@ -74,7 +67,7 @@ set spelllang=en,de             " set spelling language to english and german
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:tmuxline_powerline_separators=0
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/dotfiles/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 " commands {{{1
 
@@ -97,8 +90,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " map {{{2
-
-map <Tab> %
 
 map <Leader>n <Esc>:NERDTreeToggle<CR>
 map <Leader>p <Esc>:ProjectProblems<CR>
