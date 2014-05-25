@@ -1,3 +1,9 @@
+snippet c
+/*
+ * $0
+ */
+endsnippet
+
 snippet mainn
 int main(int argc, const char *argv[])
 {
@@ -9,7 +15,7 @@ endsnippet
 snippet main
 int main()
 {
-	$1
+	$0
 	return 0;
 }
 endsnippet
@@ -39,7 +45,7 @@ if ($1)
 $0
 endsnippet
 
-snippet el
+snippet else
 else
 {
 	$1
@@ -58,7 +64,7 @@ do
 } while ($1);
 endsnippet
 
-snippet wh
+snippet while
 while ($1)
 {
 	$0
@@ -98,14 +104,14 @@ typedef $1 $2;
 $0
 endsnippet
 
-snippet st
+snippet struct
 typedef struct ${2:_$1}
 {
 	$0
 } $1};
 endsnippet
 
-snippet tde
+snippet enum
 typedef enum
 {
 	$1
@@ -113,7 +119,7 @@ typedef enum
 $0
 endsnippet
 
-snippet pr
+snippet printf
 printf("$1\n"$2);
 $0
 endsnippet
