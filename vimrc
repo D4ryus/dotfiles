@@ -60,7 +60,6 @@ set backspace=indent,eol,start  " allow backspacing over everything in insert mo
 set encoding=UTF-8              " use UTF-8 as encoding
 set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
-set foldcolumn=3                " foldcolumn on the left side
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
