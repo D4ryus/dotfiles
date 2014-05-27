@@ -1,6 +1,6 @@
 snippet c
 /**
- * $0
+ * ${VISUAL}$0
  */
 endsnippet
 
@@ -14,7 +14,7 @@ endsnippet
 snippet catch
 catch(${1:Exception} ${2:e})
 {
-	$0
+	${VISUAL}$0
 }
 endsnippet
 
@@ -25,7 +25,7 @@ endsnippet
 snippet try
 try
 {
-	$3
+	${VISUAL}$3
 }
 catch(${1:Exception} ${2:e})
 {
@@ -36,7 +36,7 @@ endsnippet
 snippet if
 if ($1)
 {
-	$2
+	${VISUAL}$2
 }
 $0
 endsnippet
@@ -44,7 +44,7 @@ endsnippet
 snippet else
 else
 {
-	$1
+	${VISUAL}$1
 }
 $0
 endsnippet
@@ -52,21 +52,21 @@ endsnippet
 snippet do
 do
 {
-	$0
+	${VISUAL}$0
 } while ($1);
 endsnippet
 
 snippet while
 while ($1)
 {
-	$0
+	${VISUAL}$0
 }
 endsnippet
 
 snippet for
 for (${1:int} ${2:i} = ${3:0}; $2 < $4; $2${5:++})
 {
-	$0
+	${VISUAL}$0
 }
 endsnippet
 
@@ -75,7 +75,7 @@ ${1:public}
 ${2:void}
 $3($4)
 {
-	$0
+	${VISUAL}$0
 }
 endsnippet
 
@@ -87,6 +87,6 @@ endsnippet
 snippet class
 ${1:public} class
 {
-	$0
+	${VISUAL}$0
 }
 endsnippet

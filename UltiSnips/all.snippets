@@ -1,7 +1,7 @@
 # Global snippets
 snippet fixme "fixme snippet" b
 /* --fixme-- */
- * $0 */
+ * ${VISUAL}$0 */
 endsnippet
 
 snippet head "header snippet" b
@@ -12,10 +12,10 @@ snippet head "header snippet" b
  */
 endsnippet
 
-snippet { "open and closing braces"
+snippet { "braces" b
 
 {
-	$1
+	${VISUAL}$0
 }
 endsnippet
 
@@ -23,4 +23,3 @@ endsnippet
 snippet c) "copyright" b
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
 endsnippet
-
