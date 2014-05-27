@@ -30,11 +30,19 @@ snippet Inc
 $0
 endsnippet
 
-snippet Def
-#ifndef $1_H
-#define $1_H
+snippet guard "header guard" b
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+	snip.rv = ('%s_H' % (name)).upper()
+else:
+	snip.rv = snip.c`}
+#define $1
+
 $0
-#endif /* end of include guard: $1_H */
+
+#endif /* end of include guard: $1 */
 endsnippet
 
 snippet if
