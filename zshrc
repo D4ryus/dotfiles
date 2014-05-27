@@ -27,7 +27,7 @@ export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
 
-alias dark="xset dpms force off"
+alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
 alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"

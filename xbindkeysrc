@@ -54,10 +54,18 @@
   XF86ScreenSaver
 
 # fn + F4 suspend
-"systemctl suspend" 
+"systemctl suspend"
   XF86Sleep
 #also XF86Sleep
 # handle by systemd -> /etc/systemd/logind.conf
+
+# fn + F8 brightness up
+"xbacklight -inc 20"
+  XF86MonBrightnessUp
+
+# fn + F8 brightness down
+"xbacklight -dec 20"
+  XF86MonBrightnessDown
 
 # audio keys to controll the volume
 # lower volume
