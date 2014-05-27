@@ -50,7 +50,7 @@
   Alt + F2
 
 # fn + F3 lock screen
-"slock"
+"sleep 1 && xset dpms force off && slock"
   XF86ScreenSaver
 
 # fn + F4 suspend
