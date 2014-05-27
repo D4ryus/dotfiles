@@ -11,6 +11,7 @@ export PAGER=vimpager
 alias less=$PAGER
 alias zless=$PAGER
 
+alias dark="xset dpms force off"
 alias tmux="tmux -2"
 alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"
@@ -53,7 +54,7 @@ extract() {
   fi
 }
 
-if [[ $EUID -ne 0 ]]; 
+if [[ $EUID -ne 0 ]];
   then
     # user = color = green
     PS1='[\[\033[0;32m\]\u\[\033[0m\] \w] '
