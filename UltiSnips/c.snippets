@@ -49,16 +49,14 @@ snippet if
 if ($1)
 {
 	${VISUAL}$2
-}
-$0
+}$0
 endsnippet
 
 snippet else
 else
 {
 	${VISUAL}$1
-}
-$0
+}$0
 endsnippet
 
 snippet t
@@ -103,13 +101,11 @@ $2($3)
 endsnippet
 
 snippet fund
-${1:void} $2($3);
-$0
+${1:void} $2($3);$0
 endsnippet
 
 snippet td
-typedef $1 $2;
-$0
+typedef $1 $2;$0
 endsnippet
 
 snippet struct
@@ -128,6 +124,5 @@ $0
 endsnippet
 
 snippet printf
-printf("$1\n"$2);
-$0
+printf("$1\n"$2);$0
 endsnippet
