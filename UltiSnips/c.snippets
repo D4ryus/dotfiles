@@ -5,7 +5,8 @@ snippet c
 endsnippet
 
 snippet mainn
-int main(int argc, const char *argv[])
+int
+main(int argc, const char *argv[])
 {
 	$0
 	return 0;
@@ -13,7 +14,8 @@ int main(int argc, const char *argv[])
 endsnippet
 
 snippet main
-int main()
+int
+main()
 {
 	$0
 	return 0;
@@ -108,11 +110,12 @@ snippet td
 typedef $1 $2;$0
 endsnippet
 
-snippet struct
-typedef struct ${2:_$1}
+snippet st
+typedef struct
+_$1
 {
 	$0
-} $1};
+} $1;
 endsnippet
 
 snippet enum
@@ -123,6 +126,6 @@ typedef enum
 $0
 endsnippet
 
-snippet printf
+snippet p
 printf("$1\n"$2);$0
 endsnippet
