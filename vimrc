@@ -88,30 +88,26 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" map {{{2
+" noremap {{{2
 
-map <Leader>n <Esc>:NERDTreeToggle<CR>
-map <Leader>p <Esc>:ProjectProblems<CR>
-map <Leader>m :Ant magic<CR>
-map <Leader>t :TlistToggle<CR>
-map <Leader>u :GundoToggle<CR>
+noremap <Leader>n <Esc>:NERDTreeToggle<CR>
+noremap <Leader>p <Esc>:ProjectProblems<CR>
+noremap <Leader>m :Ant magic<CR>
+noremap <Leader>t :TlistToggle<CR>
+noremap <Leader>u :GundoToggle<CR>
 
-map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-map <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 
-" nmap {{{2
-
-nmap <Up>      :res +1<CR>
-nmap <Down>    :res -1<CR>
-nmap <Left>    :vertical res -1<CR>
-nmap <Right>   :vertical res +1<CR>
-
-" imap {{{2
-
-imap jk <Esc>
+nnoremap <Up>      :res +1<CR>
+nnoremap <Down>    :res -1<CR>
+nnoremap <Left>    :vertical res -1<CR>
+nnoremap <Right>   :vertical res +1<CR>
 
 " inoremap {{{2
+"
+inoremap jk <Esc>
 
 inoremap <C-U> <C-G>u<C-U>
 inoremap <silent><Bar> <Bar><Esc>:call <SID>align()<CR>a
@@ -151,4 +147,6 @@ endfunction
 " autocmd {{{1
 
 " remove all trailing whitespace's
-autocmd BufWritePre * :%s/\s\+$//e
+augroup whitespaces
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
