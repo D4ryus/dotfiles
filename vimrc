@@ -65,6 +65,7 @@ set nowrap                      " do not insert line break
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
+set directory=~/.vim/swap       " set swap directory
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:tmuxline_powerline_separators=0
 let g:UltiSnipsEditSplit="vertical"
