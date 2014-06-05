@@ -45,7 +45,6 @@ set history=82                  " keep 82 lines of command line history
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
-set hlsearch                    " highlight search
 set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
 set number                      " set linenumber on left side
@@ -65,7 +64,7 @@ set nowrap                      " do not insert line break
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
-set directory=~/.vim/swap       " set swap directory
+set directory=~/.vim/swap       " directory where all swap files will be
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:tmuxline_powerline_separators=0
 let g:UltiSnipsEditSplit="vertical"
