@@ -146,6 +146,23 @@ function! s:align()
   endif
 endfunction
 
+function! MyFold()
+  let thisline = getline(v:lnum)
+  if     match(thisline, '^\d\.\d\.\d\.\d\.\d') >= 0
+    return ">5"
+  elseif match(thisline, '^\d\.\d\.\d\.\d') >= 0
+    return ">4"
+  elseif match(thisline, '^\d\.\d\.\d') >= 0
+    return ">3"
+  elseif match(thisline, '^\d\.\d') >= 0
+    return ">2"
+  elseif match(thisline, '^\d') >= 0
+    return ">1"
+  else
+    return "="
+  endif
+endfunction
+
 " autocmd {{{1
 
 " remove all trailing whitespace's
