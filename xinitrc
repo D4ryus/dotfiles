@@ -2,7 +2,7 @@
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=2:sw=2:ft=sh:
 
-#!/bin/sh
+#!/bin/zsh
 
 # Executed by startx (run your window manager from here)
 
