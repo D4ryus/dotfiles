@@ -25,7 +25,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'edkolev/tmuxline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 Bundle 'kien/ctrlp.vim'
@@ -67,7 +66,6 @@ set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
 let g:EclimLoggingDisabled=1    " disable Eclim logging
-let g:tmuxline_powerline_separators=0
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
@@ -128,7 +126,7 @@ call matchadd('ColorColumn', '\%80v', 100)
 set background=light
 colorscheme molokai
 
-let g:airline_theme='simple'
+let g:airline_theme='d4ryus'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 "let g:airline_left_sep = '▶'
