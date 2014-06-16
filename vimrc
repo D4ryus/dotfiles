@@ -59,12 +59,13 @@ set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
-set t_Co=256                    " set Terminal color to 256
+" set t_Co=256                    " set Terminal color to 256
 set nowrap                      " do not insert line break
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
+set foldtext=getline(v:foldstart) " dont show how much lines are folded
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
@@ -123,8 +124,8 @@ vnoremap > >gv
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v', 100)
 
-set background=light
-colorscheme molokai
+set background=dark
+colorscheme molokai_updated
 
 let g:airline_theme='d4ryus'
 let g:airline_left_sep=''
