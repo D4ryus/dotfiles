@@ -1,12 +1,12 @@
 let g:airline#themes#d4ryus#palette = {}
 
 let s:black  = 16
-let s:green  = 82
-let s:yellow = 220
+let s:green  = 10
+let s:yellow = 11
 let s:cyan   = 6
 let s:white  = 15
-let s:red    = 160
-let s:blue   = 21
+let s:red    = 9
+let s:blue   = 4
 
 " normal    <----------gui--------->|<------terminal------>
 let s:N1  = [ '#080808' , '#00dfff' , s:black  , s:cyan   ] " black  on cyan
