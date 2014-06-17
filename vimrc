@@ -121,11 +121,11 @@ vnoremap > >gv
 
 " color stuff {{{1
 
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=grey
 call matchadd('ColorColumn', '\%80v', 100)
 
 set background=dark
-colorscheme molokai_updated
+colorscheme d4ryus
 
 let g:airline_theme='d4ryus'
 let g:airline_left_sep=''
