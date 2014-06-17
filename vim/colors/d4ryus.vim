@@ -1,113 +1,110 @@
 " Vim color file
 
 hi clear
-
-if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+if exists("syntax_on")
+    syntax reset
 endif
 
-let g:colors_name="molokai_minimal"
-"
-" Support for 256-color terminal
-"
-if &t_Co > 15
-   hi Normal          ctermfg=7   ctermbg=8
-   hi CursorLine                  ctermbg=8   cterm=none
-   hi CursorLineNr    ctermfg=10              cterm=none
-   hi Boolean         ctermfg=6               cterm=bold
-   hi Character       ctermfg=6               cterm=bold
-   hi Number          ctermfg=6               cterm=bold
-   hi String          ctermfg=6               cterm=bold
-   hi Conditional     ctermfg=2               cterm=bold
-   hi Constant        ctermfg=5               cterm=bold
-   hi Cursor          ctermfg=16  ctermbg=7
-   hi Debug           ctermfg=13              cterm=bold
-   hi Define          ctermfg=14
-   hi Delimiter       ctermfg=8
+let g:colors_name="d4ryus"
 
-   hi DiffAdd                     ctermbg=12
-   hi DiffChange      ctermfg=5   ctermbg=8
-   hi DiffDelete      ctermfg=5   ctermbg=9
-   hi DiffText                    ctermbg=8   cterm=bold
+" 0 = black
+" 1 = red
+" 2 = green
+" 3 = yellow
+" 4 = blue
+" 5 = pink
+" 6 = cyan
+" 7 = white
 
-   hi Directory       ctermfg=10              cterm=bold
-   hi Error           ctermfg=13  ctermbg=9
-   hi ErrorMsg        ctermfg=13  ctermbg=16  cterm=bold
-   hi Exception       ctermfg=10              cterm=bold
-   hi Float           ctermfg=6               cterm=bold
-   hi FoldColumn      ctermfg=14  ctermbg=16
-   hi Folded          ctermfg=15  ctermbg=8
-   hi Function        ctermfg=10
-   hi Identifier      ctermfg=11              cterm=none
-   hi Ignore          ctermfg=8   ctermbg=16
-   hi IncSearch       ctermfg=7   ctermbg=16
+hi Normal         ctermfg=7   ctermbg=0
+hi CursorLine                 ctermbg=0
+hi CursorLineNr   ctermfg=2
+hi Boolean        ctermfg=6
+hi Character      ctermfg=6
+hi Number         ctermfg=6
+hi String         ctermfg=6
+hi Conditional    ctermfg=2
+hi Constant       ctermfg=5
+hi Cursor         ctermfg=0   ctermbg=7
+hi Debug          ctermfg=5
+hi Define         ctermfg=6
+hi Delimiter      ctermfg=7
 
-   hi keyword         ctermfg=2               cterm=bold
-   hi Label           ctermfg=7               cterm=none
-   hi Macro           ctermfg=7
-   hi SpecialKey      ctermfg=14
+hi DiffAdd                    ctermbg=4
+hi DiffChange     ctermfg=5   ctermbg=0
+hi DiffDelete     ctermfg=5   ctermbg=1
+hi DiffText                   ctermbg=0
 
-   hi MatchParen      ctermfg=16  ctermbg=3   cterm=bold
-   hi ModeMsg         ctermfg=7
-   hi MoreMsg         ctermfg=7
-   hi Operator        ctermfg=2
+hi Directory      ctermfg=2
+hi Error          ctermfg=5   ctermbg=1
+hi ErrorMsg       ctermfg=5   ctermbg=0
+hi Exception      ctermfg=2
+hi Float          ctermfg=6
+hi FoldColumn     ctermfg=6   ctermbg=0
+hi Folded         ctermfg=7   ctermbg=0
+hi Function       ctermfg=2
+hi Identifier     ctermfg=3
+hi Ignore         ctermfg=7   ctermbg=0
+hi IncSearch      ctermfg=7   ctermbg=0
 
-   " complete menu
-   hi Pmenu           ctermfg=6   ctermbg=16
-   hi PmenuSel        ctermfg=7   ctermbg=8
-   hi PmenuSbar                   ctermbg=16
-   hi PmenuThumb      ctermfg=6
+hi keyword        ctermfg=2
+hi Label          ctermfg=7
+hi Macro          ctermfg=7
+hi SpecialKey     ctermfg=6
 
-   hi PreCondit       ctermfg=10              cterm=bold
-   hi PreProc         ctermfg=10
-   hi Question        ctermfg=6
-   hi Repeat          ctermfg=2               cterm=bold
-   hi Search          ctermfg=15  ctermbg=8   cterm=NONE
+hi MatchParen     ctermfg=0   ctermbg=7
+hi ModeMsg        ctermfg=7
+hi MoreMsg        ctermfg=7
+hi Operator       ctermfg=2
 
-   " marks column
-   hi SignColumn      ctermfg=10  ctermbg=8
-   hi SpecialChar     ctermfg=2               cterm=bold
-   hi SpecialComment  ctermfg=8               cterm=bold
-   hi Special         ctermfg=6
-   if has("spell")
-       hi SpellBad                ctermbg=1
-       hi SpellCap                ctermbg=4
-       hi SpellLocal              ctermbg=4
-       hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
-   endif
-   hi Statement       ctermfg=2               cterm=bold
-   hi StatusLine      ctermfg=8   ctermbg=7
-   hi StatusLineNC    ctermfg=7   ctermbg=16
-   hi StorageClass    ctermfg=2
-   hi Structure       ctermfg=6
-   hi Tag             ctermfg=2
-   hi Title           ctermfg=11
-   hi Todo            ctermfg=15  ctermbg=16  cterm=bold
+" complete menu
+hi Pmenu          ctermfg=6   ctermbg=0
+hi PmenuSel       ctermfg=7   ctermbg=0
+hi PmenuSbar                  ctermbg=0
+hi PmenuThumb     ctermfg=6
 
-   hi Typedef         ctermfg=6
-   hi Type            ctermfg=11              cterm=none
-   hi Underlined      ctermfg=7               cterm=underline
+hi PreCondit      ctermfg=2
+hi PreProc        ctermfg=2
+hi Question       ctermfg=6
+hi Repeat         ctermfg=2
+hi Search         ctermfg=7   ctermbg=0
 
-   hi VertSplit       ctermfg=7   ctermbg=16 cterm=bold
-   hi VisualNOS                   ctermbg=8
-   hi Visual                      ctermbg=8
-   hi WarningMsg      ctermfg=15  ctermbg=8   cterm=bold
-   hi WildMenu        ctermfg=6   ctermbg=16
+" marks column
+hi SignColumn     ctermfg=2   ctermbg=0
+hi SpecialChar    ctermfg=2
+hi SpecialComment ctermfg=7
+hi Special        ctermfg=6
 
-   hi Comment         ctermfg=8
-   hi CursorColumn                ctermbg=8
-   hi ColorColumn                 ctermbg=8
-   hi LineNr          ctermfg=7   ctermbg=8
-   hi NonText         ctermfg=8
+hi Statement      ctermfg=2
+hi StatusLine     ctermfg=0   ctermbg=7
+hi StatusLineNC   ctermfg=7   ctermbg=0
+hi StorageClass   ctermfg=2
+hi Structure      ctermfg=6
+hi Tag            ctermfg=2
+hi Title          ctermfg=3
+hi Todo           ctermfg=7   ctermbg=0
 
-   hi SpecialKey      ctermfg=8
-end
+hi Typedef        ctermfg=6
+hi Type           ctermfg=3
+hi Underlined     ctermfg=7
 
-" Must be at the end, because of ctermbg=234 bug.
-" https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
-set background=dark
+hi VertSplit      ctermfg=7   ctermbg=0
+hi VisualNOS                  ctermbg=0
+hi Visual                     ctermbg=0
+hi WarningMsg     ctermfg=7   ctermbg=0
+hi WildMenu       ctermfg=6   ctermbg=0
+
+hi Comment        ctermfg=7
+hi CursorColumn               ctermbg=0
+hi ColorColumn                ctermbg=0
+hi LineNr         ctermfg=6   ctermbg=0
+hi NonText        ctermfg=0
+
+hi SpecialKey     ctermfg=0
+
+if has("spell")
+   hi SpellBad                 ctermbg=1
+   hi SpellCap                 ctermbg=4
+   hi SpellLocal               ctermbg=4
+   hi SpellRare    ctermfg=none ctermbg=none cterm=reverse
+endif
