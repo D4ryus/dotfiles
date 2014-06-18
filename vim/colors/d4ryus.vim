@@ -30,9 +30,9 @@ hi Debug          ctermfg=5
 hi Define         ctermfg=6
 hi Delimiter      ctermfg=7
 
-hi DiffAdd                    ctermbg=4
+hi DiffAdd                    ctermbg=2
 hi DiffChange     ctermfg=5   ctermbg=0
-hi DiffDelete     ctermfg=5   ctermbg=1
+hi DiffDelete     ctermfg=0   ctermbg=1
 hi DiffText                   ctermbg=0
 
 hi Directory      ctermfg=2
@@ -88,7 +88,7 @@ hi Typedef        ctermfg=6
 hi Type           ctermfg=3
 hi Underlined     ctermfg=7
 
-hi VertSplit      ctermfg=7   ctermbg=0
+hi VertSplit      ctermfg=2   ctermbg=2
 hi VisualNOS                  ctermbg=0
 hi Visual                     ctermbg=0
 hi WarningMsg     ctermfg=7   ctermbg=0
