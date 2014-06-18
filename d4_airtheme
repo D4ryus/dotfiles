@@ -10,29 +10,35 @@ let s:cyan   = 6
 let s:white  = 7
 
 " normal    <-fg-------gui------bg->|<-fg---terminal---bg->
-let s:N1  = [ '#080808' , '#00dfff' , s:white  , s:cyan   ] " black  on cyan
-let s:N2  = [ '#5fff00' , '#1c1c1c' , s:yellow , s:green  ] " yellow on black
-let s:N3  = [ '#767676' , '#080808' , s:blue   , s:green  ] " green  on black
+let s:N1  = [ '#080808' , '#00dfff' , s:white  , s:blue   ]
+let s:N2  = [ '#5fff00' , '#1c1c1c' , s:blue   , s:green  ]
+let s:N3  = [ '#767676' , '#080808' , s:blue   , s:green  ]
 
 " insert
-let s:I1  = [ '#080808' , '#5fff00' , s:black  , s:green  ] " black  on green
-let s:I2  = [ '#5fff00' , '#1c1c1c' , s:yellow , s:green  ] " yellow on black
-let s:I3  = [ '#767676' , '#080808' , s:green  , s:green  ] " green  on black
+let s:I1  = [ '#080808' , '#5fff00' , s:red    , s:cyan   ]
+let s:I2  = [ '#5fff00' , '#1c1c1c' , s:blue   , s:green  ]
+let s:I3  = [ '#767676' , '#080808' , s:green  , s:green  ]
 
 " visual
-let s:V1  = [ '#080808' , '#dfdf00' , s:red    , s:yellow ] " black  on yellow
-let s:V2  = [ '#5fff00' , '#1c1c1c' , s:yellow , s:green  ] " yellow on black
-let s:V3  = [ '#767676' , '#080808' , s:green  , s:green  ] " green  on black
+let s:V1  = [ '#080808' , '#dfdf00' , s:red    , s:yellow ]
+let s:V2  = [ '#5fff00' , '#1c1c1c' , s:blue   , s:green  ]
+let s:V3  = [ '#767676' , '#080808' , s:green  , s:green  ]
+
+" replace
+let s:R1  = [ '#080808' , '#dfdf00' , s:black  , s:red    ]
+let s:R2  = [ '#5fff00' , '#1c1c1c' , s:blue   , s:green  ]
+let s:R3  = [ '#767676' , '#080808' , s:green  , s:green  ]
 
 " inactive
-let s:IA  = [ '#4e4e4e' , '#080808' , s:blue , s:green , '' ]
-let s:IA2 = [ '#4e4e4e' , '#1c1c1c' , s:blue , s:green , '' ]
+let s:IA  = [ '#4e4e4e' , '#080808' , s:blue   , s:green  ]
+let s:IA2 = [ '#4e4e4e' , '#1c1c1c' , s:blue   , s:green  ]
 
 let g:airline#themes#d4ryus#palette.normal       = airline#themes#generate_color_map(s:N1 , s:N2  , s:N3)
 let g:airline#themes#d4ryus#palette.insert       = airline#themes#generate_color_map(s:I1 , s:I2  , s:I3)
 let g:airline#themes#d4ryus#palette.visual       = airline#themes#generate_color_map(s:V1 , s:V2  , s:V3)
+let g:airline#themes#d4ryus#palette.replace      = airline#themes#generate_color_map(s:R1 , s:R2  , s:R3)
 let g:airline#themes#d4ryus#palette.inactive     = airline#themes#generate_color_map(s:IA , s:IA2 , s:IA2)
-let g:airline#themes#d4ryus#palette.replace      = {'airline_a': [ s:I1[0] , '#af0000' , s:I1[2] , s:red  , '' ] , }
+
 let g:airline#themes#d4ryus#palette.insert_paste = {'airline_a': [ s:I1[0] , '#d78700' , s:I1[2] , s:blue , '' ] , }
 
 let g:airline#themes#d4ryus#palette.normal_modified   = {'airline_c': [ '#df0000', '#080808', s:red, s:black , ''], }
