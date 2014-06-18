@@ -98,12 +98,13 @@ hi Comment        ctermfg=7
 hi CursorColumn               ctermbg=0
 hi ColorColumn                ctermbg=0
 hi LineNr         ctermfg=6   ctermbg=0
-hi NonText        ctermfg=0
+hi NonText        ctermfg=6   ctermbg=0
 
-hi SpecialKey     ctermfg=0
+" trailing whitespaces
+hi SpecialKey     ctermfg=5   ctermbg=0
 
 if has("spell")
-   hi SpellBad                 ctermbg=1
+   hi SpellBad                 ctermbg=5
    hi SpellCap                 ctermbg=4
    hi SpellLocal               ctermbg=4
    hi SpellRare    ctermfg=none ctermbg=none cterm=reverse
