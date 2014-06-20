@@ -90,7 +90,6 @@ hi Underlined     ctermfg=7
 
 hi VertSplit      ctermfg=2   ctermbg=2
 hi VisualNOS                  ctermbg=0
-hi Visual                     ctermbg=0
 hi WarningMsg     ctermfg=7   ctermbg=0
 hi WildMenu       ctermfg=6   ctermbg=0
 
