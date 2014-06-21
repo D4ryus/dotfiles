@@ -84,8 +84,6 @@ let @l='2fl"udwxxll"upa, jk'
 
 " mapings {{{1
 
-let mapleader=','
-
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -102,10 +100,10 @@ noremap <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 
-nnoremap <Up>      :res +1<CR>
-nnoremap <Down>    :res -1<CR>
-nnoremap <Left>    :vertical res -1<CR>
-nnoremap <Right>   :vertical res +1<CR>
+nnoremap <Up>    :res +1<CR>
+nnoremap <Down>  :res -1<CR>
+nnoremap <Left>  :vertical res -1<CR>
+nnoremap <Right> :vertical res +1<CR>
 
 " inoremap {{{2
 "
