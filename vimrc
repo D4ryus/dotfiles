@@ -14,7 +14,6 @@ call vundle#rc()
 " }}}2
 
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'bling/vim-airline'
@@ -90,7 +89,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " noremap {{{2
 
-noremap <Leader>n <Esc>:NERDTreeToggle<CR>
 noremap <Leader>p <Esc>:ProjectProblems<CR>
 noremap <Leader>m :Ant magic<CR>
 noremap <Leader>t :TlistToggle<CR>
