@@ -36,7 +36,7 @@ hi DiffDelete     ctermfg=0   ctermbg=1
 hi DiffText                   ctermbg=0
 
 hi Directory      ctermfg=2
-hi Error          ctermfg=5   ctermbg=1
+hi Error                      ctermbg=1
 hi ErrorMsg       ctermfg=5   ctermbg=0
 hi Exception      ctermfg=2
 hi Float          ctermfg=6
