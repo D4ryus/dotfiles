@@ -158,9 +158,24 @@ function! MyFold()
   endif
 endfunction
 
-" autocmd {{{1
+function! CodeStyle()
 
-" remove all trailing whitespace's
-augroup whitespaces
-  autocmd BufWritePre * :%s/\s\+$//e
-augroup END
+  " fix else
+  g:^\s*else$:norm! kJJ
+
+  " fix if/while/for/...
+  g:^\s*{$:norm! kJ
+
+  " fix function
+  %s:\(^\w\+\s\+\**\s*\w\+(.*)\)\(.*\){:\1\2\r{
+
+  " remove all trailing whitespace's
+  %s/\s\+$//e
+
+  retab
+
+endfunction
+
+function! RW()
+  %s/\s\+$//e
+endfunction
