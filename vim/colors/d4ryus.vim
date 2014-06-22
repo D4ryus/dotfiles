@@ -67,7 +67,7 @@ hi PreCondit      ctermfg=2
 hi PreProc        ctermfg=2
 hi Question       ctermfg=6
 hi Repeat         ctermfg=2
-hi Search         ctermfg=7   ctermbg=0
+hi Search                                cterm=reverse
 
 " marks column
 hi SignColumn     ctermfg=2   ctermbg=0
