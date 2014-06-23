@@ -130,17 +130,6 @@ let g:airline_right_sep=''
 
 " functions {{{1
 
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
 function! MyFold()
   let thisline = getline(v:lnum)
   if     match(thisline, '^\d\.\d\.\d\.\d\.\d') >= 0
@@ -158,24 +147,24 @@ function! MyFold()
   endif
 endfunction
 
-function! CodeStyle()
+function! ApplyCodeStyle()
 
   " fix else
-  g:^\s*else$:norm! kJJ
-
+  silent! g:^\s*else$:-1j
   " fix if/while/for/...
-  g:^\s*{$:norm! kJ
-
+  silent!  g:^\s*{$:-1j
   " fix function
-  %s:\(^\w\+\s\+\**\s*\w\+(.*)\)\(.*\){:\1\2\r{
-
+  silent!  %s:\(^\w\+\s\+\**\s*\w\+(.*)\)\(.*\){:\1\2\r{
   " remove all trailing whitespace's
-  %s/\s\+$//e
-
+  silent!  %s/\s\+$//e
   retab
 
 endfunction
 
-function! RW()
-  %s/\s\+$//e
+command! Codestyle call ApplyCodeStyle()
+
+function! RemoveTrailingWhitespaces()
+  silent! %s/\s\+$//e
 endfunction
+
+command! Rtw call RemoveTrailingWhitespaces()
