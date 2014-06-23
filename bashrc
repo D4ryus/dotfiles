@@ -5,11 +5,6 @@
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vimrc
-export brc=/etc/bash.bashrc
-
-export PAGER=vimpager
-alias less=$PAGER
-alias zless=$PAGER
 
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
