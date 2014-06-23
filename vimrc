@@ -16,7 +16,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
@@ -119,14 +119,11 @@ vnoremap > >gv
 highlight ColorColumn ctermbg=grey
 call matchadd('ColorColumn', '\%80v', 100)
 
-set background=dark
-colorscheme d4ryus
-
-let g:airline_theme='d4ryus'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '◀'
+if &term =~ "xterm" || &term =~ "screen" || &term =~ "urxvt"
+  colorscheme d4ryus_256
+else
+  colorscheme d4ryus_8
+endif
 
 " functions {{{1
 
