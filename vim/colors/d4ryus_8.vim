@@ -5,7 +5,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name="d4ryus"
+let g:colors_name="d4ryus_8"
 
 " 0 = black
 " 1 = red
