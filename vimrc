@@ -119,7 +119,7 @@ vnoremap > >gv
 highlight ColorColumn ctermbg=grey
 call matchadd('ColorColumn', '\%80v', 100)
 
-if &term =~ "xterm" || &term =~ "screen" || &term =~ "urxvt"
+if &term =~ "xterm" || &term =~ "screen" || &term =~ "urxvt" || &term =~ "rxvt-unicode-256color"
   colorscheme d4ryus_256
 else
   colorscheme d4ryus_8
