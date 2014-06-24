@@ -16,7 +16,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-" Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
@@ -57,8 +56,7 @@ set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
-" set t_Co=256                    " set Terminal color to 256
-set nowrap                      " do not insert line break
+set wrap                        " do not insert line break
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
