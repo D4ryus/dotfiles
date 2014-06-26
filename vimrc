@@ -91,10 +91,6 @@ noremap <Leader>m :Ant magic<CR>
 noremap <Leader>t :TlistToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
 
-noremap <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-noremap <Leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-noremap <Leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
 nnoremap <Left>  :vertical res -1<CR>
@@ -103,9 +99,6 @@ nnoremap <Right> :vertical res +1<CR>
 " inoremap {{{2
 "
 inoremap jk <Esc>
-
-inoremap <C-U> <C-G>u<C-U>
-inoremap <silent><Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 " vnoremap {{{2
 
