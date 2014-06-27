@@ -69,7 +69,6 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " commands {{{1
 
 :command! WQ wq
-:command! wQ wq
 :command! Wq wq
 :command! W w
 :command! Q q
