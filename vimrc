@@ -61,7 +61,7 @@ set modelines=40                " search first/last 40 lines for vim modeline op
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
-set foldtext=getline(v:foldstart) " dont show how much lines are folded
+set foldtext=NeatFoldText()
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
@@ -118,7 +118,20 @@ endif
 
 " functions {{{1
 
-function! MyFold()
+function! NeatFoldText() "{{{2
+" got this function from http://dhruvasagar.com/tag/vim thanks alot :)
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+" }}}2
+
+function! MyFold() "{{{2
   let thisline = getline(v:lnum)
   if     match(thisline, '^\d\.\d\.\d\.\d\.\d') >= 0
     return ">5"
@@ -133,9 +146,9 @@ function! MyFold()
   else
     return "="
   endif
-endfunction
+endfunction "}}}2
 
-function! ApplyCodeStyle()
+function! ApplyCodeStyle() "{{{2
   " fix else
   silent! g:^\s*else$:-1j
   " fix if/while/for/...
@@ -145,12 +158,12 @@ function! ApplyCodeStyle()
   " remove all trailing whitespace's
   silent!  %s/\s\+$//e
   retab
-endfunction
+endfunction "}}}2
 
 command! Codestyle call ApplyCodeStyle()
 
-function! RemoveTrailingWhitespaces()
+function! RemoveTrailingWhitespaces() "{{{2
   silent! %s/\s\+$//e
-endfunction
+endfunction "}}}2
 
 command! Rtw call RemoveTrailingWhitespaces()
