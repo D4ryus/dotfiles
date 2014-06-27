@@ -36,9 +36,6 @@ map :haw :0r ~/.vim/license/haw.txt<CR>
 
 syntax on                       " enable syntax highlighting
 filetype plugin on              " enable filetype plugin
-set cm=blowfish                 " use blowfish as encryption (X)
-set autoindent                  " always set autoindenting on
-set history=82                  " keep 82 lines of command line history
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
@@ -46,17 +43,20 @@ set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
 set number                      " set linenumber on left side
 set relativenumber              " set a relative number scale on left side
-set expandtab                   " use spaces instead of tabs
-set tabstop=4                   " amout of spaces per tab
-set shiftwidth=4                " number of spaces used by autoindent
 set autoread                    " autoread file when changed from outside
-set listchars=tab:>-,nbsp:_,trail:.
+set autoindent                  " always set autoindenting on
 set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
+set wrap                        " do not insert line break
+set expandtab                   " use spaces instead of tabs
+set tabstop=4                   " amout of spaces per tab
+set shiftwidth=4                " number of spaces used by autoindent
+set cm=blowfish                 " use blowfish as encryption (X)
+set history=82                  " keep 82 lines of command line history
+set listchars=tab:>-,nbsp:_,trail:.
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
-set wrap                        " do not insert line break
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
@@ -69,6 +69,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " commands {{{1
 
 :command! WQ wq
+:command! wQ wq
 :command! Wq wq
 :command! W w
 :command! Q q
@@ -136,7 +137,6 @@ function! MyFold()
 endfunction
 
 function! ApplyCodeStyle()
-
   " fix else
   silent! g:^\s*else$:-1j
   " fix if/while/for/...
@@ -146,7 +146,6 @@ function! ApplyCodeStyle()
   " remove all trailing whitespace's
   silent!  %s/\s\+$//e
   retab
-
 endfunction
 
 command! Codestyle call ApplyCodeStyle()
