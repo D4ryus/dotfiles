@@ -27,6 +27,15 @@ alias ei="dhcpcd enp0s25"
 # git autocompletion
 source ~/.git-completion-bash
 
+# ping and pipe into statusbar
+pong() {
+  while true
+  do
+    ping -c 1 8.8.8.8 | sed -z s/\.\*time=// | stat_msg
+    sleep 1
+  done
+}
+
 #Estract Files
 extract() {
   if [ -f $1 ] ; then
