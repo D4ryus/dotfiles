@@ -24,7 +24,7 @@ syntax keyword structuredTextIdentifier BOOL INT SINT TON WORD TIME REAL BYTE
 syntax keyword structuredTextIdentifier LREAL DINT LINT USINT UINT UDINT ULINT
 syntax keyword structuredTextIdentifier LREAL DATE STRING LWORD DWORD WSTRING
 
-syntax match structuredTextNumber "\m\W\.\@<!\zs\d\+"
+syntax match structuredTextNumber "\m[ =#]\zs\d\+\ze[^a-zA-Z]"
 
 syntax match structuredTextComment "\m(\*.*\*)"
 
