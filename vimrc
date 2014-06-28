@@ -157,14 +157,12 @@ endfunction "}}}2
 
 function! ApplyCodeStyle() "{{{2
   " fix else
-  silent! g:^\s*else$:-1j
-  " fix if/while/for/...
-  silent!  g:^\s*{$:-1j
+  silent! %s/}[\r\n]else[\r\n]{/} else {/g
   " fix function
-  silent!  %s:\(^\w\+\s\+\**\s*\w\+(.*)\)\(.*\){:\1\2\r{
+  silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
   " remove all trailing whitespace's
   silent!  %s/\s\+$//e
-  retab
+  " retab
 endfunction "}}}2
 
 command! Codestyle call ApplyCodeStyle()
