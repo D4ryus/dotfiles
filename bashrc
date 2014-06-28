@@ -29,11 +29,12 @@ source ~/.git-completion-bash
 
 # ping and pipe into statusbar
 pong() {
-  while true
+  for ((i=0;i<10;i++))
   do
     ping -c 1 8.8.8.8 | sed -z s/\.\*time=// | stat_msg
     sleep 1
   done
+  stat_msg 0
 }
 
 #Estract Files
