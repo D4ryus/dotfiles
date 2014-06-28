@@ -105,6 +105,13 @@ inoremap jk <Esc>
 vnoremap < <gv
 vnoremap > >gv
 
+"}}}2
+
+" abbrev {{{1
+
+iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
+iabbrev file- <c-r>%<cr>
+
 " color stuff {{{1
 
 highlight ColorColumn ctermbg=grey
