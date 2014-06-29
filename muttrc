@@ -3,14 +3,14 @@
 
 source "gpg2 -dq $HOME/.mutt/my_mutt.gpg |"
 set folder           = imaps://imap.mail.yahoo.com
-set imap_user        = w.wackerbauer@yahoo.de
-set imap_pass        = $my_yahoo_pass
+set imap_user        = $my_mail
+set imap_pass        = $my_pass
 set imap_keepalive   = 300
 set mail_check       = 120
-set smtp_url         = smtps://$imap_user:$my_yahoo_pass@smtp.mail.yahoo.com:465
+set smtp_url         = smtps://$my_mail:$my_pass@smtp.mail.yahoo.com:465
 set editor           = "vim"
-set realname         = 'Wolfgang Wackerbauer'
-set from             = $imap_user
+set realname         = $my_name
+set from             = $my_mail
 set use_from         = yes
 set ssl_force_tls    = yes
 set header_cache     = ~/.mutt/cache
