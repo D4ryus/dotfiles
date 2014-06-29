@@ -17,7 +17,7 @@
 [github]
     user    = d4ryus
 [color]
-	status = auto
-	branch = auto
+    status  = auto
+    branch  = auto
 [push]
-	default = matching
+    default = matching
