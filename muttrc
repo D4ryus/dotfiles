@@ -1,3 +1,6 @@
+# author: d4ryus https://github.com/d4ryus
+# file: ~/.muttrc
+
 source "gpg2 -dq $HOME/.mutt/my_mutt.gpg |"
 set folder           = imaps://imap.mail.yahoo.com
 set imap_user        = w.wackerbauer@yahoo.de
