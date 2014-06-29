@@ -1,0 +1,18 @@
+source "gpg2 -dq $HOME/.mutt/my_mutt.gpg |"
+set folder           = imaps://imap.mail.yahoo.com
+set imap_user        = w.wackerbauer@yahoo.de
+set imap_pass        = $my_yahoo_pass
+unset imap_passive
+set imap_keepalive   = 300
+set mail_check       = 120
+#set smtp_url         = smtps://w.wackerbauer@smtp.mail.yahoo.com:465
+mailboxes            = INBOX
+set spoolfile        = +INBOX
+set header_cache     = ~/.mutt/cache
+set message_cachedir = ~/.mutt/cache
+set mailcap_path     = ~/.mutt/mailcap
+set editor = "vim"
+alternative_order text/palin text/html
+auto_view text/html
+
+source $HOME/.mutt/my_colorscheme
