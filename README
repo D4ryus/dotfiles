@@ -11,3 +11,4 @@ ln -s dotfiles/gitconfig     ~/.gitconfig
 ln -s dotfiles/eclimrc       ~/.eclimrc
 ln -s dotfiles/bashrc        ~/.bashrc
 ln -s dotfiles/pentadactylrc ~/.pentadactylrc
+ln -s dotfiles/muttrc        ~/.muttrc
