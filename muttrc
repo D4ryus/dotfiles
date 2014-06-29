@@ -1,26 +1,31 @@
-# author: d4ryus https://github.com/d4ryus
 # file: ~/.muttrc
+# author: d4ryus https://github.com/d4ryus
 
 source "gpg2 -dq $HOME/.mutt/my_mutt.gpg |"
+source $HOME/.mutt/my_colorscheme
+
+set ssl_force_tls    = yes
+set header_cache     = ~/.mutt/cache
+set message_cachedir = ~/.mutt/cache
+set mailcap_path     = ~/.mutt/mailcap
+auto_view         text/html
+alternative_order text/palin text/html
+unset record
+bind index "u" imap-fetch-mail"
+
+# imap settings
 set folder           = imaps://imap.mail.yahoo.com
 set imap_user        = $my_mail
 set imap_pass        = $my_pass
+mailboxes            = INBOX
+set spoolfile        = +INBOX
 set imap_keepalive   = 300
 set mail_check       = 120
+unset imap_passive
+
+# smtp settings
 set smtp_url         = smtps://$my_mail:$my_pass@smtp.mail.yahoo.com:465
 set editor           = "vim"
 set realname         = $my_name
 set from             = $my_mail
 set use_from         = yes
-set ssl_force_tls    = yes
-set header_cache     = ~/.mutt/cache
-set message_cachedir = ~/.mutt/cache
-set mailcap_path     = ~/.mutt/mailcap
-mailboxes            = INBOX
-set spoolfile        = +INBOX
-unset record
-unset imap_passive
-alternative_order text/palin text/html
-auto_view text/html
-bind index "u" imap-fetch-mail"
-source $HOME/.mutt/my_colorscheme
