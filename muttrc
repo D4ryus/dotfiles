@@ -11,7 +11,7 @@ set mailcap_path     = ~/.mutt/mailcap
 auto_view         text/html
 alternative_order text/palin text/html
 unset record
-bind index "u" imap-fetch-mail"
+bind index "u" imap-fetch-mail
 
 # imap settings
 set folder           = imaps://imap.mail.yahoo.com
