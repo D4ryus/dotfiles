@@ -66,22 +66,14 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
-" commands {{{1
-
-:command! WQ wq
-:command! Wq wq
-:command! W w
-:command! Q q
-
-command! Codestyle call ApplyCodeStyle()
-command! Rtw call RemoveTrailingWhitespaces()
-
 " registers {{{1
 
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
 let @l='2fl"udwxxll"upa, jk'
 
 " mapings {{{1
+
+" plugins {{{2
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -120,11 +112,15 @@ iabbrev file- <c-r>%<cr>
 highlight ColorColumn ctermbg=grey
 call matchadd('ColorColumn', '\%80v', 100)
 
+" colorscheme {{{2
+
 if &term =~ "xterm" || &term =~ "screen" || &term =~ "urxvt" || &term =~ "rxvt-unicode-256color"
   colorscheme d4ryus_256
 else
   colorscheme d4ryus_8
 endif
+
+"}}}2
 
 " functions {{{1
 
@@ -138,26 +134,23 @@ function! NeatFoldText() "{{{2
   let foldtextend      = lines_count_text . repeat(foldchar, 8)
   let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-" }}}2
-
-function! MyFold() "{{{2
+endfunction " }}}2
+function! NumberFold() "{{{2
   let thisline = getline(v:lnum)
-  if     match(thisline, '^\d\.\d\.\d\.\d\.\d') >= 0
+  if     match(thisline, '^\s*\d\.\d\.\d\.\d\.\d\s\+') >= 0
     return ">5"
-  elseif match(thisline, '^\d\.\d\.\d\.\d') >= 0
+  elseif match(thisline, '^\s*\d\.\d\.\d\.\d\s\+') >= 0
     return ">4"
-  elseif match(thisline, '^\d\.\d\.\d') >= 0
+  elseif match(thisline, '^\s*\d\.\d\.\d\s\+') >= 0
     return ">3"
-  elseif match(thisline, '^\d\.\d') >= 0
+  elseif match(thisline, '^\s*\d\.\d\s\+') >= 0
     return ">2"
-  elseif match(thisline, '^\d') >= 0
+  elseif match(thisline, '^\s*\d\.\s\+') >= 0
     return ">1"
   else
     return "="
   endif
 endfunction "}}}2
-
 function! ApplyCodeStyle() "{{{2
   " fix else
   silent! %s/}[\r\n]else[\r\n]{/} else {/g
@@ -165,9 +158,17 @@ function! ApplyCodeStyle() "{{{2
   silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
   " remove all trailing whitespace's
   silent!  %s/\s\+$//e
-  " retab
 endfunction "}}}2
-
 function! RemoveTrailingWhitespaces() "{{{2
   silent! %s/\s\+$//e
 endfunction "}}}2
+
+" commands {{{1
+
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
+
+command! Codestyle call ApplyCodeStyle()
+command! Rtw call RemoveTrailingWhitespaces()
