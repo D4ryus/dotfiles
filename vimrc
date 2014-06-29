@@ -61,7 +61,7 @@ set modelines=40                " search first/last 40 lines for vim modeline op
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
-set foldtext=NeatFoldText()
+set foldtext=NeatFoldText()     " set foldtext to function below
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
@@ -72,6 +72,9 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 :command! Wq wq
 :command! W w
 :command! Q q
+
+command! Codestyle call ApplyCodeStyle()
+command! Rtw call RemoveTrailingWhitespaces()
 
 " registers {{{1
 
@@ -127,13 +130,13 @@ endif
 
 function! NeatFoldText() "{{{2
 " got this function from http://dhruvasagar.com/tag/vim thanks alot :)
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  let line             = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count      = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%9s", lines_count . ' lines') . ' |'
+  let foldchar         = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart    = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend      = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 " }}}2
@@ -165,10 +168,6 @@ function! ApplyCodeStyle() "{{{2
   " retab
 endfunction "}}}2
 
-command! Codestyle call ApplyCodeStyle()
-
 function! RemoveTrailingWhitespaces() "{{{2
   silent! %s/\s\+$//e
 endfunction "}}}2
-
-command! Rtw call RemoveTrailingWhitespaces()
