@@ -12,3 +12,5 @@ ln -s dotfiles/eclimrc       ~/.eclimrc
 ln -s dotfiles/bashrc        ~/.bashrc
 ln -s dotfiles/pentadactylrc ~/.pentadactylrc
 ln -s dotfiles/muttrc        ~/.muttrc
+ln -s dotfiles/mutt          ~/.mutt
+ln -s dotfiles/irssi         ~/.irssi
