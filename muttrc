@@ -2,7 +2,7 @@
 # author: d4ryus https://github.com/d4ryus
 
 source "gpg2 -dq $HOME/.mutt/my_mutt.gpg |"
-source $HOME/.mutt/my_colorscheme
+source $HOME/.mutt/colorscheme
 
 set ssl_force_tls    = yes
 set header_cache     = ~/.mutt/cache
