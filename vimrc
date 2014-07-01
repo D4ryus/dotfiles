@@ -114,7 +114,7 @@ call matchadd('ColorColumn', '\%80v', 100)
 
 " colorscheme {{{2
 
-if &term =~ "xterm" || &term =~ "screen" || &term =~ "urxvt" || &term =~ "rxvt-unicode-256color"
+if &term =~ "xterm" || &term =~ "screen-256color" || &term =~ "urxvt" || &term =~ "rxvt-unicode-256color"
   colorscheme d4ryus_256
 else
   colorscheme d4ryus_8
