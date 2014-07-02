@@ -50,8 +50,8 @@ set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set wrap                        " do not insert line break
 set expandtab                   " use spaces instead of tabs
-set tabstop=4                   " amout of spaces per tab
-set shiftwidth=4                " number of spaces used by autoindent
+set tabstop=8                   " amout of spaces per tab
+set shiftwidth=8                " number of spaces used by autoindent
 set cm=blowfish                 " use blowfish as encryption (X)
 set history=82                  " keep 82 lines of command line history
 set listchars=tab:>-,nbsp:_,trail:.
@@ -62,9 +62,6 @@ set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
-let g:EclimLoggingDisabled=1    " disable Eclim logging
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 " registers {{{1
 
@@ -79,10 +76,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+let g:EclimLoggingDisabled=1    " disable Eclim logging
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+
 " noremap {{{2
 
-noremap <Leader>p <Esc>:ProjectProblems<CR>
-noremap <Leader>m :Ant magic<CR>
 noremap <Leader>t :TlistToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
 
