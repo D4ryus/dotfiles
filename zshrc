@@ -7,6 +7,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000000
 setopt appendhistory autocd extendedglob notify
+# vim keys
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -15,6 +16,8 @@ zstyle :compinstall filename '/home/d4ryus/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+set -o vi mode
 
 source ~/.git-prompt.sh
 
