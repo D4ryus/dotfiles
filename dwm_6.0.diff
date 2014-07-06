@@ -1370,7 +1370,3 @@ index 1d78655..eba6938 100644
  /* There's no way to check accesses to destroyed windows, thus those cases are
   * ignored (especially on UnmapNotify's).  Other types of errors call Xlibs
   * default error handler, which may call exit.  */
-diff --git a/dwm.png b/dwm.png
-deleted file mode 100644
-index b1f9ba7..0000000
-Binary files a/dwm.png and /dev/null differ
