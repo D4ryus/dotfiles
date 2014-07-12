@@ -19,7 +19,7 @@ alias il="ip a"
 alias wu="ip link set wlp3s0 up"
 alias wd="ip link set wlp3s0 down"
 alias we="iwconfig wlp3s0 essid "
-alias ws="iwlist scan | grep 'ESSID:' | awk {'print $1'}"
+alias ws="iwlist scan | grep 'ESSID:'"
 alias ww="wpa_supplicant -i wlp3s0 -B -c "
 alias wi="dhcpcd wlp3s0"
 alias eu="ip link set enp0s25 up"
@@ -39,7 +39,7 @@ pong() {
   stat_msg 0
 }
 
-#Estract Files
+# Extract Files
 extract() {
   if [ -f $1 ] ; then
     case $1 in
@@ -68,11 +68,7 @@ if [[ $EUID -ne 0 ]];
   then
     # user = color = green
     PS1='[\[\033[0;32m\]\u\[\033[0m\] \w] '
-    # PS1='[\u \w] '
   else
     # root = color = red
     PS1='[\[\033[0;31m\]\u\[\033[0m\] \w] '
-    # update vim/bashrc
-    rsync -rth --delete --progress /home/d4ryus/.vim/ ~/.vim/
-    rsync -rth          --progress /home/d4ryus/.bashrc ~/.bashrc
 fi

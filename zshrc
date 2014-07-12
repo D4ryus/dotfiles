@@ -36,7 +36,7 @@ alias il="ip a"
 alias wu="ip link set wlp3s0 up"
 alias wd="ip link set wlp3s0 down"
 alias we="iwconfig wlp3s0 essid "
-alias ws="iwlist scan | grep 'ESSID:' | awk {'print $1'}"
+alias ws="iwlist scan | grep 'ESSID:'"
 alias ww="wpa_supplicant -i wlp3s0 -B -c "
 alias wi="dhcpcd wlp3s0"
 alias eu="ip link set enp0s25 up"
@@ -53,7 +53,7 @@ pong() {
   stat_msg 0
 }
 
-#Estract Files
+# Extract Files
 extract() {
   if [ -f $1 ] ; then
     case $1 in
