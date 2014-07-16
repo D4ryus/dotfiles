@@ -66,7 +66,6 @@ set foldtext=NeatFoldText()     " set foldtext to function below
 " registers {{{1
 
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
-let @l='2fl"udwxxll"upa, jk'
 
 " mapings {{{1
 
@@ -84,6 +83,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 noremap <Leader>t :TlistToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
+noremap zv zMzv
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
@@ -108,12 +108,17 @@ iabbrev file- <c-r>%<cr>
 
 " color stuff {{{1
 
-highlight ColorColumn ctermbg=grey
+"highlight ColorColumn ctermbg=grey
+highlight ColorColumn ctermbg=238 cterm=NONE
 call matchadd('ColorColumn', '\%80v', 100)
 
 " colorscheme {{{2
 
-if &term =~ "xterm" || &term =~ "screen-256color" || &term =~ "urxvt" || &term =~ "rxvt-unicode-256color"
+if &term =~ "xterm"                 ||
+\  &term =~ "urxvt"                 ||
+\  &term =~ "xterm-256color"        ||
+\  &term =~ "screen-256color"       ||
+\  &term =~ "rxvt-unicode-256color"
   colorscheme d4ryus_256
 else
   colorscheme d4ryus_8
@@ -136,15 +141,15 @@ function! NeatFoldText() "{{{2
 endfunction " }}}2
 function! NumberFold() "{{{2
   let thisline = getline(v:lnum)
-  if     match(thisline, '^\s*\d\.\d\.\d\.\d\.\d\s\+') >= 0
+  if     match(thisline, '^\d\.\d\.\d\.\d\.\d\s\+') >= 0
     return ">5"
-  elseif match(thisline, '^\s*\d\.\d\.\d\.\d\s\+') >= 0
+  elseif match(thisline, '^\d\.\d\.\d\.\d\s\+') >= 0
     return ">4"
-  elseif match(thisline, '^\s*\d\.\d\.\d\s\+') >= 0
+  elseif match(thisline, '^\d\.\d\.\d\s\+') >= 0
     return ">3"
-  elseif match(thisline, '^\s*\d\.\d\s\+') >= 0
+  elseif match(thisline, '^\d\.\d\s\+') >= 0
     return ">2"
-  elseif match(thisline, '^\s*\d\.\s\+') >= 0
+  elseif match(thisline, '^\d\.\s\+') >= 0
     return ">1"
   else
     return "="
