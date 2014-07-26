@@ -4,6 +4,7 @@
 
 set -o vi mode
 
+export PAGER=less
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vimrc
