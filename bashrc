@@ -30,6 +30,14 @@ alias ei="dhcpcd enp0s25"
 # git autocompletion
 source ~/.git-completion-bash
 
+# show 256 colors
+show_colors() {
+  for i in {0..255}
+  do
+    printf "\x1b[38;5;${i}mcolour${i}\n"
+  done
+}
+
 # ping and pipe into statusbar
 pong() {
   for ((i=0;i<10;i++))
