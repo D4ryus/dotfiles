@@ -11,7 +11,6 @@ set mailcap_path     = ~/.mutt/mailcap
 auto_view         text/html
 alternative_order text/palin text/html
 unset record
-bind index "u" imap-fetch-mail
 
 # imap settings
 set folder           = imaps://imap.mail.yahoo.com
@@ -19,8 +18,8 @@ set imap_user        = $my_mail
 set imap_pass        = $my_pass
 mailboxes            = INBOX
 set spoolfile        = +INBOX
-set imap_keepalive   = 300
-set mail_check       = 120
+set imap_keepalive   = 60
+set mail_check       = 60
 unset imap_passive
 
 # smtp settings
