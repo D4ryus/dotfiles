@@ -81,3 +81,8 @@ if [[ $EUID -ne 0 ]];
     # root = color = red
     PS1='[\[\033[0;31m\]\h\[\033[0m\] \w] '
 fi
+
+if [[ "$TERM" != "screen-256color" ]]
+then
+  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+fi

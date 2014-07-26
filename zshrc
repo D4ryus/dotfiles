@@ -21,6 +21,7 @@ set -o vi mode
 
 source ~/.git-prompt.sh
 
+export LOAD_TMUX=true
 export PAGER=less
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
@@ -97,4 +98,9 @@ if [[ $EUID -ne 0 ]];
   else
     # root = color = red
     PROMPT='[%{$fg[red]%}%M%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}] '
+fi
+
+if [[ "$TERM" != "screen-256color" ]]
+then
+  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 fi
