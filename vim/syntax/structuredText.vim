@@ -26,7 +26,7 @@ syntax keyword structuredTextIdentifier LREAL DATE STRING LWORD DWORD WSTRING
 
 syntax match structuredTextNumber "\m[ =#]\zs\d\+\ze[^a-zA-Z]"
 
-syntax match structuredTextComment "\m(\*.*\*)"
+syntax match structuredTextComment "\m(\*\_.\{-}\*)"
 
 syntax match structuredTextString "\m\".\{-}\""
 
