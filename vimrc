@@ -106,7 +106,14 @@ vnoremap > >gv
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 iabbrev file- <c-r>%<cr>
 
-" colorscheme {{{1
+" appearance {{{1
+
+" statusline {{{2
+
+set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]%=\ [pos:\ %l/%L:%c\ %p%%]
+
+" }}}2
+" colorscheme {{{2
 
 if &term =~ "xterm"                 ||
 \  &term =~ "urxvt"                 ||
@@ -118,11 +125,15 @@ else
   colorscheme d4ryus_8
 endif
 
+" }}}2
+" overlength {{{2
+
 highlight OverLength ctermbg=235 guibg=#592929
 match OverLength /\%81v.\+/
 
-"}}}1
+" }}}2
 
+"}}}1
 " functions {{{1
 
 function! NeatFoldText() "{{{2
