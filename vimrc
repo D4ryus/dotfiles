@@ -105,13 +105,7 @@ vnoremap > >gv
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 iabbrev file- <c-r>%<cr>
 
-" color stuff {{{1
-
-"highlight ColorColumn ctermbg=grey
-highlight ColorColumn ctermbg=238 cterm=NONE
-call matchadd('ColorColumn', '\%80v', 100)
-
-" colorscheme {{{2
+" colorscheme {{{1
 
 if &term =~ "xterm"                 ||
 \  &term =~ "urxvt"                 ||
@@ -123,7 +117,10 @@ else
   colorscheme d4ryus_8
 endif
 
-"}}}2
+highlight OverLength ctermbg=235 guibg=#592929
+match OverLength /\%81v.\+/
+
+"}}}1
 
 " functions {{{1
 
