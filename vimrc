@@ -25,6 +25,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'SirVer/ultisnips'
 Bundle 'kien/ctrlp.vim'
+Bundle 'dhruvasagar/vim-table-mode'
 
 " macros {{{1
 
