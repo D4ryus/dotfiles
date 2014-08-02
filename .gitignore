@@ -1,0 +1,10 @@
+irssi/config
+mutt/cache
+mutt/my_mutt.gpg
+vim/plugin
+vim/bundle
+vim/eclim
+vim/plugin
+vim/swap
+vim/.netrwhist
+*.spl
