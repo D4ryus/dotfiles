@@ -5,6 +5,6 @@ vim/plugin
 vim/bundle
 vim/eclim
 vim/plugin
-vim/swap
+vim/swap/*
 vim/.netrwhist
 *.spl
