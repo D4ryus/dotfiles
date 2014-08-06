@@ -30,6 +30,8 @@ xbindkeys
 # source .xresources
 xrdb ~/.xresources
 
+pulseaudio --start
+
 # start dwm_statusbar
 dwm_statusbar &
 
