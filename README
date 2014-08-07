@@ -10,6 +10,7 @@ ln -s dotfiles/gtkrc-2.0     ~/.gtkrc-2.0
 ln -s dotfiles/gitconfig     ~/.gitconfig
 ln -s dotfiles/eclimrc       ~/.eclimrc
 ln -s dotfiles/bashrc        ~/.bashrc
+ln -s dotfiles/bashrc        ~/.bash_profile (tmux wont source .bashrc)
 ln -s dotfiles/pentadactylrc ~/.pentadactylrc
 ln -s dotfiles/muttrc        ~/.muttrc
 ln -s dotfiles/mutt          ~/.mutt
