@@ -10,7 +10,6 @@ set message_cachedir = ~/.mutt/cache
 set mailcap_path     = ~/.mutt/mailcap
 auto_view         text/html
 alternative_order text/palin text/html
-unset record
 
 # imap settings
 set folder           = imaps://imap.mail.yahoo.com
@@ -28,3 +27,4 @@ set editor           = "vim"
 set realname         = $my_name
 set from             = $my_mail
 set use_from         = yes
+set record           = +Sent
