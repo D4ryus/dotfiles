@@ -23,9 +23,12 @@ Bundle 'tpope/vim-git'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'SirVer/ultisnips'
 Bundle 'kien/ctrlp.vim'
 Bundle 'dhruvasagar/vim-table-mode'
+
+if has("python") || has("python3")
+  Bundle 'SirVer/ultisnips'
+endif
 
 " macros {{{1
 
