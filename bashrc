@@ -53,7 +53,7 @@ pong() {
 
 # Extract Files
 extract() {
-  if [ -f $1 ] ; then
+  if [ -f $1 ]; then
     case $1 in
       *.tar.bz2)   tar xvjf $1    ;;
       *.tar.gz)    tar xvzf $1    ;;
@@ -76,8 +76,7 @@ extract() {
   fi
 }
 
-if [[ $EUID -ne 0 ]];
-  then
+if [[ $EUID -ne 0 ]]; then
     # user = color = green
     PS1='[\[\033[0;32m\]\h\[\033[0m\] \w] '
   else
@@ -85,7 +84,6 @@ if [[ $EUID -ne 0 ]];
     PS1='[\[\033[0;31m\]\h\[\033[0m\] \w] '
 fi
 
-if [[ "$TERM" != "screen-256color" ]]
-then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+if [[ "$TERM" != "screen-256color" ]]; then
+  tmux attach-session -t "d4ryus" || tmux new-session -s "d4ryus"
 fi

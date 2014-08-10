@@ -27,7 +27,7 @@ export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
 export vrc=~/.vimrc
 if [[ -z "$GOPATH" ]]; then
-  esport GOPATH=/home/d4ryus/gocode
+  export GOPATH=/home/d4ryus/gocode
 fi
 
 alias lock="sleep 1 && xset dpms force off && slock"
@@ -68,7 +68,7 @@ pong() {
 
 # Extract Files
 extract() {
-  if [ -f $1 ] ; then
+  if [ -f $1 ]; then
     case $1 in
       *.tar.bz2) tar xvjf $1   ;;
       *.tar.gz)  tar xvzf $1   ;;
@@ -94,8 +94,7 @@ extract() {
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 setopt PROMPT_SUBST;
-if [[ $EUID -ne 0 ]];
-  then
+if [[ $EUID -ne 0 ]]; then
     # user = color = green
     PROMPT='[%{$fg[green]%}%M%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}] '
   else
@@ -103,7 +102,6 @@ if [[ $EUID -ne 0 ]];
     PROMPT='[%{$fg[red]%}%M%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}] '
 fi
 
-if [[ "$TERM" != "screen-256color" ]]
-then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+if [[ "$TERM" != "screen-256color" ]] then
+  tmux attach-session -t "d4ryus" || tmux new-session -s "d4ryus"
 fi
