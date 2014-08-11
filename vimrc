@@ -25,7 +25,6 @@ Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
 Bundle 'dhruvasagar/vim-table-mode'
-"Bundle 'fatih/vim-go'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
