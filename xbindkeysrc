@@ -20,11 +20,11 @@
 # handle by systemd -> /etc/systemd/logind.conf
 
 # fn + F8 brightness up
-"xbacklight -inc 20"
+"light -A 10"
   XF86MonBrightnessUp
 
 # fn + F8 brightness down
-"xbacklight -dec 20"
+"light -U 10"
   XF86MonBrightnessDown
 
 # audio keys to controll the volume
