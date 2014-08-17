@@ -26,10 +26,33 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
+Bundle 'luxflux/vim-git-inline-diff'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
 endif
+
+" Plugin-settings {{{1
+
+" git-inline {{{2
+
+let g:git_diff_added_symbol='>'    " default +
+let g:git_diff_removed_symbol='<'  " default -
+let g:git_diff_changed_symbol='-'  " default <>
+
+" UltiSnips {{{2
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+
+" Eclim {{{2
+
+let g:EclimLoggingDisabled=1    " disable Eclim logging
+
+"}}}2
 
 " macros {{{1
 
@@ -73,16 +96,6 @@ let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
 
 " mapings {{{1
 
-" plugins {{{2
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-let g:EclimLoggingDisabled=1    " disable Eclim logging
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-
 " noremap {{{2
 
 noremap <Leader>t :TlistToggle<CR>
@@ -95,7 +108,7 @@ nnoremap <Left>  :vertical res -1<CR>
 nnoremap <Right> :vertical res +1<CR>
 
 " inoremap {{{2
-"
+
 inoremap jk <Esc>
 
 " vnoremap {{{2
@@ -137,7 +150,6 @@ match OverLength /\%81v.\+/
 
 " }}}2
 
-"}}}1
 " functions {{{1
 
 function! NeatFoldText() "{{{2
