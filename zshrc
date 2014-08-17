@@ -30,6 +30,7 @@ if [[ -z "$GOPATH" ]]; then
   export GOPATH=/home/d4ryus/gocode
 fi
 
+alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
 alias svnlog="svn log -v | vim -"
