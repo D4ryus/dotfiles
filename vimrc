@@ -101,6 +101,7 @@ let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
 noremap <Leader>t :TlistToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
+noremap tab :Tabularize /
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
