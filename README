@@ -1,17 +1,17 @@
-ln -s dotfiles/zshrc         ~/.zshrc
-ln -s dotfiles/xresources    ~/.xresources
-ln -s dotfiles/xinitrc       ~/.xinitrc
-ln -s dotfiles/xbindkeysrc   ~/.xbindkeysrc
-ln -s dotfiles/vimrc         ~/.vimrc
-ln -s dotfiles/vim           ~/.vim
-ln -s dotfiles/tmux.conf     ~/.tmux.conf
-ln -s dotfiles/README        ~/.README
-ln -s dotfiles/gtkrc-2.0     ~/.gtkrc-2.0
-ln -s dotfiles/gitconfig     ~/.gitconfig
-ln -s dotfiles/eclimrc       ~/.eclimrc
-ln -s dotfiles/bashrc        ~/.bashrc
-ln -s dotfiles/bashrc        ~/.bash_profile (tmux wont source .bashrc)
-ln -s dotfiles/pentadactylrc ~/.pentadactylrc
-ln -s dotfiles/muttrc        ~/.muttrc
-ln -s dotfiles/mutt          ~/.mutt
-ln -s dotfiles/irssi         ~/.irssi
+if [ -e ~/.zshrc         ]; then mv ~/.zshrc         ~/.zshrc.backup         ; fi && ln -s ~/.dotfiles/zshrc         ~/.zshrc
+if [ -e ~/.xresources    ]; then mv ~/.xresources    ~/.xresources.backup    ; fi && ln -s ~/.dotfiles/xresources    ~/.xresources
+if [ -e ~/.xinitrc       ]; then mv ~/.xinitrc       ~/.xinitrc.backup       ; fi && ln -s ~/.dotfiles/xinitrc       ~/.xinitrc
+if [ -e ~/.xbindkeysrc   ]; then mv ~/.xbindkeysrc   ~/.xbindkeysrc.backup   ; fi && ln -s ~/.dotfiles/xbindkeysrc   ~/.xbindkeysrc
+if [ -e ~/.vimrc         ]; then mv ~/.vimrc         ~/.vimrc.backup         ; fi && ln -s ~/.dotfiles/vimrc         ~/.vimrc
+if [ -e ~/.vim           ]; then mv ~/.vim           ~/.vim.backup           ; fi && ln -s ~/.dotfiles/vim           ~/.vim
+if [ -e ~/.tmux.conf     ]; then mv ~/.tmux.conf     ~/.tmux.conf.backup     ; fi && ln -s ~/.dotfiles/tmux.conf     ~/.tmux.conf
+if [ -e ~/.README        ]; then mv ~/.README        ~/.README.backup        ; fi && ln -s ~/.dotfiles/README        ~/.README
+if [ -e ~/.gtkrc-2.0     ]; then mv ~/.gtkrc-2.0     ~/.gtkrc-2.0.backup     ; fi && ln -s ~/.dotfiles/gtkrc-2.0     ~/.gtkrc-2.0
+if [ -e ~/.gitconfig     ]; then mv ~/.gitconfig     ~/.gitconfig.backup     ; fi && ln -s ~/.dotfiles/gitconfig     ~/.gitconfig
+if [ -e ~/.eclimrc       ]; then mv ~/.eclimrc       ~/.eclimrc.backup       ; fi && ln -s ~/.dotfiles/eclimrc       ~/.eclimrc
+if [ -e ~/.bashrc        ]; then mv ~/.bashrc        ~/.bashrc.backup        ; fi && ln -s ~/.dotfiles/bashrc        ~/.bashrc
+if [ -e ~/.bash_profile  ]; then mv ~/.bash_profile  ~/.bash_profile.backup  ; fi && ln -s ~/.dotfiles/bashrc        ~/.bash_profile
+if [ -e ~/.pentadactylrc ]; then mv ~/.pentadactylrc ~/.pentadactylrc.backup ; fi && ln -s ~/.dotfiles/pentadactylrc ~/.pentadactylrc
+if [ -e ~/.muttrc        ]; then mv ~/.muttrc        ~/.muttrc.backup        ; fi && ln -s ~/.dotfiles/muttrc        ~/.muttrc
+if [ -e ~/.mutt          ]; then mv ~/.mutt          ~/.mutt.backup          ; fi && ln -s ~/.dotfiles/mutt          ~/.mutt
+if [ -e ~/.irssi         ]; then mv ~/.irssi         ~/.irssi.backup         ; fi && ln -s ~/.dotfiles/irssi         ~/.irssi
