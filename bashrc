@@ -65,7 +65,7 @@ extract() {
       *.tar.xz)    tar xvJf $1    ;;
       *.Z)         uncompress $1  ;;
       *.rar)       unrar x $1     ;;
-      *.zip)       unzip $1       ;;
+      *.zip|*.jar) unzip $1       ;;
       *.gz)        gunzip $1      ;;
       *.bz2)       bunzip2 $1     ;;
       *.7z)        7z x $1        ;;
