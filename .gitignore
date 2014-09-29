@@ -7,4 +7,5 @@ vim/eclim
 vim/plugin
 vim/swap/*
 vim/.netrwhist
+irssi/
 *.spl
