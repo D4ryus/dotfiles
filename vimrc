@@ -20,7 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-git'
-Bundle 'vim-scripts/taglist.vim'
+"Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
@@ -147,7 +147,7 @@ endif
 " }}}2
 " overlength {{{2
 
-highlight OverLength ctermbg=235 guibg=#592929
+highlight OverLength ctermbg=233 guibg=#592929
 match OverLength /\%81v.\+/
 
 " }}}2
