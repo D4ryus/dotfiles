@@ -4,10 +4,9 @@
 
 # file copyed from /etc/skel
 
-# alt + F2 to open dmenu
+# meta + F2 to open dmenu
 "dmenu_run -fn '-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*'"
-  m:0x8 + c:68
-  Alt + F2
+  Super_L + F2
 
 # fn + F3 lock screen
 "sleep 1 && xset dpms force off && slock"
