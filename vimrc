@@ -27,6 +27,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
+Bundle 'terryma/vim-multiple-cursors'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
