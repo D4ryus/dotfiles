@@ -87,7 +87,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if [[ "$TERM" != "screen-256color" ]]; then
-  tmux attach-session -t "d4ryus" || tmux new-session -s "d4ryus"
+  tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
 fi
 
 if [ -d ~/.wikidates ]; then
