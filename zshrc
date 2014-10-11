@@ -34,6 +34,7 @@ alias io="iostat -hmd 1"
 alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
+alias tm="tmux new-session -t 'd4ryus'"
 alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
@@ -104,7 +105,8 @@ if [[ $EUID -ne 0 ]]; then
     PROMPT='[%{$fg[red]%}%M%{$reset_color%} %~%{$fg[yellow]%}$(__git_ps1 " %s")%{$reset_color%}] '
 fi
 
-if [[ "$TERM" != "screen-256color" ]]; then
+if   [[ "$TERM" != "screen-256color" ]]; then
+  && [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]];
   tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
 fi
 

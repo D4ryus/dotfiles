@@ -16,6 +16,7 @@ alias io="iostat -hmd 1"
 alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
+alias tm="tmux new-session -t 'd4ryus'"
 alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
@@ -86,10 +87,13 @@ if [[ $EUID -ne 0 ]]; then
     PS1='[\[\033[0;31m\]\h\[\033[0m\] \w] '
 fi
 
-if [[ "$TERM" != "screen-256color" ]]; then
+if   [[ "$TERM" != "screen-256color" ]] \
+  && [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]];
+then
   tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
 fi
 
 if [ -d ~/.wikidates ]; then
     cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
 fi
+
