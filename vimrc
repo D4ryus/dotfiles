@@ -191,10 +191,18 @@ endfunction "}}}2
 
 " commands {{{1
 
-:command! WQ wq
-:command! Wq wq
-:command! W w
-:command! Q q
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 command! Codestyle call ApplyCodeStyle()
 command! Rtw call RemoveTrailingWhitespaces()
+
+" autocmd {{{1
+
+autocmd FileType java setlocal ts=4 sw=4 expandtab
+autocmd FileType c    setlocal ts=8 sw=8 expandtab
+autocmd FileType cpp  setlocal ts=8 sw=8 expandtab
+autocmd FileType sh   setlocal ts=8 sw=8 expandtab
+autocmd FileType make setlocal ts=8 sw=8 noexpandtab
