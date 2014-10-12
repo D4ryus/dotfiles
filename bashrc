@@ -79,6 +79,18 @@ extract() {
   fi
 }
 
+upload() {
+  if [ -f $1 ]; then
+    if [[ $2 == "" ]]; then
+      curl --upload-file $1 http://transfer.sh/$1
+    else
+      curl --upload-file $1 http://transfer.sh/$2
+    fi
+  else
+    echo "\`$1' is not a valid file"
+  fi
+}
+
 if [[ $EUID -ne 0 ]]; then
     # user = color = green
     PS1='[\[\033[0;32m\]\h\[\033[0m\] \w] '
