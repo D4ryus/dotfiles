@@ -20,7 +20,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-git'
-"Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
@@ -28,18 +28,13 @@ Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'Valloric/YouCompleteMe'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
 endif
 
 " Plugin-settings {{{1
-
-" git-inline {{{2
-
-let g:git_diff_added_symbol='>'    " default +
-let g:git_diff_removed_symbol='<'  " default -
-let g:git_diff_changed_symbol='-'  " default <>
 
 " UltiSnips {{{2
 
@@ -52,6 +47,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " Eclim {{{2
 
 let g:EclimLoggingDisabled=1    " disable Eclim logging
+let g:EclimCompletionMethod = 'omnifunc'
 
 "}}}2
 
