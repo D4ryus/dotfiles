@@ -100,12 +100,11 @@ if [[ $EUID -ne 0 ]]; then
     PS1='[\[\033[0;31m\]\h\[\033[0m\] \w] '
 fi
 
-if   [[ "$TERM" != "screen-256color" ]] \
-  && [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]];
-then
-  tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
+if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
+  if [[ "$TERM" != "screen-256color" ]]; then
+    tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
+  fi
   if [ -d ~/.wikidates ]; then
-      cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
+    cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
   fi
 fi
-
