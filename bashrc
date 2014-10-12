@@ -32,6 +32,7 @@ alias wi="dhcpcd wlp3s0"
 alias eu="ip link set enp0s25 up"
 alias ed="ip link set enp0s25 down"
 alias ei="dhcpcd enp0s25"
+alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
 source ~/.git-completion-bash
@@ -103,9 +104,8 @@ if   [[ "$TERM" != "screen-256color" ]] \
   && [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]];
 then
   tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
-fi
-
-if [ -d ~/.wikidates ]; then
-    cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
+  if [ -d ~/.wikidates ]; then
+      cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
+  fi
 fi
 
