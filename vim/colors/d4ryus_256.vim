@@ -100,7 +100,7 @@ hi Type guifg=#b58900 guibg=NONE guisp=NONE gui=NONE ctermfg=136 ctermbg=NONE ct
 hi Underlined guifg=#6c71c4 guibg=NONE guisp=NONE gui=underline ctermfg=61 ctermbg=NONE cterm=underline
 hi Union guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi VertSplit guifg=#657b83 guibg=#121212 guisp=#121212 gui=NONE ctermfg=66 ctermbg=233 cterm=NONE
-hi Visual guifg=#ffffff guibg=#00050a guisp=#00050a gui=NONE ctermfg=15 ctermbg=17 cterm=NONE
+hi Visual guifg=#ffffff guibg=#0c1c85 guisp=#0c1c85 gui=NONE ctermfg=15 ctermbg=17 cterm=NONE
 hi VisualNOS guifg=#ffffff guibg=#00050a guisp=#00050a gui=bold ctermfg=15 ctermbg=17 cterm=bold
 hi WarningMsg guifg=#dc322f guibg=NONE guisp=NONE gui=bold ctermfg=160 ctermbg=NONE cterm=bold
 hi WildMenu guifg=#f5f5f5 guibg=#000000 guisp=#000000 gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
