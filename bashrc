@@ -92,12 +92,13 @@ upload() {
   fi
 }
 
+source git-prompt.sh
 if [[ $EUID -ne 0 ]]; then
     # user = color = green
-    PS1='[\[\033[0;32m\]\h\[\033[0m\] \w] '
+    PS1='[\[\033[0;32m\]\h\[\033[0m\] \w\[\033[0;33m\]$(__git_ps1 " (%s)")\[\033[0m\]] '
   else
     # root = color = red
-    PS1='[\[\033[0;31m\]\h\[\033[0m\] \w] '
+    PS1='[\[\033[0;31m\]\h\[\033[0m\] \w\[\033[0;33m\]$(__git_ps1 " (%s)")\[\033[0m\]] '
 fi
 
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then

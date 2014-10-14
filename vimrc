@@ -125,7 +125,7 @@ iabbrev file- <c-r>%<cr>
 
 " statusline {{{2
 
-set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]%=\ [pos:\ %l/%L:%c\ %p%%]
+set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
 
 " }}}2
 " colorscheme {{{2
