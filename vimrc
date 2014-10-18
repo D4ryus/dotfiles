@@ -29,6 +29,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'ervandew/supertab'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
@@ -47,7 +48,11 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " Eclim {{{2
 
 let g:EclimLoggingDisabled=1    " disable Eclim logging
-let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimCompletionMethod='omnifunc'
+
+" Supertab {{{2
+
+let g:SuperTabDefaultCompletionType='context'
 
 "}}}2
 
