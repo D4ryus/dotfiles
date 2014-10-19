@@ -4,6 +4,7 @@
 
 set -o vi mode
 
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:/home/d4ryus/bin
@@ -36,6 +37,9 @@ alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
 source ~/.git-completion-bash
+
+# setting to display java applications correctly
+wmname LG3D
 
 # show 256 colors
 show_colors() {
@@ -108,3 +112,6 @@ if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
     cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
   fi
 fi
+
+
+
