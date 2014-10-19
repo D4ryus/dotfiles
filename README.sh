@@ -5,9 +5,9 @@
 DOTFILES="zshrc xresources xinitrc xbindkeysrc vimrc vim tmux.conf gtkrc-2.0 \
           gitconfig eclimrc bashrc pentadactylrc muttrc mutt irssi"
 
-for i in $(DOTFILES); do
+for i in $DOTFILES; do
         if [ -a $HOME/.$i ]; then
-                mv $HOME/.$(i) $HOME/.$(i).backup;
+                mv $HOME/.$i $HOME/.$i.backup;
         fi
-        ln -s $1/$(i) $HOME/.$(i)
+        ln -s $1/$i $HOME/.$i
 done
