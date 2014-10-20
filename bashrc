@@ -107,7 +107,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
-  if [[ "$TERM" != "screen-256color" ]]; then
+  if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" ]]; then
     tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
   fi
   if [ -d ~/.wikidates ]; then
