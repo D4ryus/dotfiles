@@ -29,12 +29,17 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
+Bundle 'scrooloose/nerdtree'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
 endif
 
 " Plugin-settings {{{1
+
+" NERDtree {{{2
+
+let NERDTreeDirArrows=0
 
 " UltiSnips {{{2
 
