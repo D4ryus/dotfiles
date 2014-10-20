@@ -39,7 +39,9 @@ alias myip="curl http://myip.dnsomatic.com && echo ''"
 source ~/.git-completion-bash
 
 # setting to display java applications correctly
-wmname LG3D
+if [[ $DISPLAY != "" ]]; then
+  wmname LG3D
+fi
 
 # show 256 colors
 show_colors() {
