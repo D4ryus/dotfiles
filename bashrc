@@ -116,3 +116,11 @@ upload() {
                 echo "\`$1' is not a valid file"
         fi
 }
+
+sync() {
+        ARGS="--delete --progress --recursive --times --human-readable"
+        HOST=cub
+        FOLDER=~/sync
+
+        rsync $ARGS $HOST:$FOLDER $FOLDER
+}
