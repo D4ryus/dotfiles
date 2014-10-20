@@ -107,11 +107,13 @@ extract() {
 
 # upload files to transer.sh
 upload() {
+        ARGS="--upload-file"
+
         if [ -f $1 ]; then
                 if [[ $2 == "" ]]; then
-                        curl --upload-file $1 http://transfer.sh/$1
+                        curl $ARGS $1 http://transfer.sh/$1
                 else
-                        curl --upload-file $1 http://transfer.sh/$2
+                        curl $ARGS $1 http://transfer.sh/$2
                 fi
         else
                 echo "\`$1' is not a valid file"
@@ -127,5 +129,17 @@ sync() {
                 rsync $ARGS d4:$FOLDER $FOLDER
         else
                 rsync $ARGS cub:$FOLDER $FOLDER
+        fi
+}
+
+# push to cub
+push() {
+        ARGS="-r"
+        FOLDER=~/sync/push/
+
+        if [[ $2 != "" ]]; then
+                scp $ARGS $2 $1:$FOLDER
+        else
+                scp $ARGS $1 d4:$FOLDER
         fi
 }
