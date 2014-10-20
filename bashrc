@@ -125,7 +125,7 @@ sync() {
         ARGS="--delete --progress --recursive --times --human-readable"
         FOLDER=~/sync
 
-        if [[ $1 != "d4" ]]; then
+        if [[ $1 == "d4" ]]; then
                 rsync $ARGS d4:$FOLDER $FOLDER
         else
                 rsync $ARGS cub:$FOLDER $FOLDER
