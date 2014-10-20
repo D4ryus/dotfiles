@@ -28,7 +28,6 @@ Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'ervandew/supertab'
 
 if has("python") || has("python3")
