@@ -105,6 +105,7 @@ extract() {
         fi
 }
 
+# upload files to transer.sh
 upload() {
         if [ -f $1 ]; then
                 if [[ $2 == "" ]]; then
@@ -117,10 +118,14 @@ upload() {
         fi
 }
 
+# sync with cub
 sync() {
         ARGS="--delete --progress --recursive --times --human-readable"
-        HOST=cub
         FOLDER=~/sync
 
-        rsync $ARGS $HOST:$FOLDER $FOLDER
+        if [[ $1 != "d4" ]]
+                rsync $ARGS d4:$FOLDER $FOLDER
+        else
+                rsync $ARGS cub:$FOLDER $FOLDER
+        fi
 }
