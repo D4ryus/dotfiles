@@ -121,14 +121,14 @@ upload() {
 }
 
 # sync with cub
-sync() {
+sc() {
         ARGS="--delete --progress --recursive --times --human-readable"
         FOLDER=~/sync
 
         if [[ $1 == "d4" ]]; then
-                rsync $ARGS d4:$FOLDER $FOLDER
+                rsync $ARGS d4:$FOLDER $HOME
         else
-                rsync $ARGS cub:$FOLDER $FOLDER
+                rsync $ARGS cub:$FOLDER $HOME
         fi
 }
 
