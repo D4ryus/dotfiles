@@ -12,8 +12,9 @@ xterm*background:           rgb:00/00/00
 xterm*VT100.geometry:       99x28
 
 URxvt.termName:             rxvt-unicode-256color
-!! URxvt.font:                 xft:Bitstream Vera Sans Mono:pixelsize=5
-URxvt.font:                 xft:Bitstream Vera Sans Mono:pixelsize=12
+!!URxvt.font:               xft:Bitstream Vera Sans Mono:pixelsize=5
+!!URxvt.font:               xft:Bitstream Vera Sans Mono:pixelsize=12
+URxvt.font:                 xft:Inconsolata:pixelsize=13
 URxvt.geometry:             99x30
 URxvt.scrollBar:            false
 URxvt.foreground:           white
