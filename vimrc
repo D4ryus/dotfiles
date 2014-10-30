@@ -137,6 +137,13 @@ iabbrev file- <c-r>%<cr>
 set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
 
 " }}}2
+" }}}2
+" overlength {{{2
+
+highlight OverLength ctermbg=233 guibg=#592929
+match OverLength /\%81v.\+/
+
+" }}}2
 " colorscheme {{{2
 
 if &term =~ "xterm"                 ||
@@ -150,13 +157,6 @@ else
   colorscheme d4ryus_8
 endif
 
-" }}}2
-" overlength {{{2
-
-highlight OverLength ctermbg=233 guibg=#592929
-match OverLength /\%81v.\+/
-
-" }}}2
 
 " functions {{{1
 

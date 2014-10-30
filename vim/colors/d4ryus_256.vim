@@ -30,9 +30,9 @@ hi DefinedName guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=
 hi Define guifg=#cb4b16 guibg=NONE guisp=NONE gui=NONE ctermfg=166 ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#dc322f guibg=NONE guisp=NONE gui=NONE ctermfg=160 ctermbg=NONE cterm=NONE
 hi DiffAdd guifg=#000000 guibg=#0ec21a guisp=#0ec21a gui=bold ctermfg=NONE ctermbg=34 cterm=bold
-hi DiffChange guifg=#000000 guibg=#ccc425 guisp=#ccc425 gui=bold ctermfg=NONE ctermbg=184 cterm=bold
+hi DiffChange guifg=#000000 guibg=#ccc425 guisp=#ccc425 gui=bold ctermfg=NONE ctermbg=226 cterm=bold
 hi DiffDelete guifg=#000000 guibg=#b32424 guisp=#b32424 gui=bold ctermfg=NONE ctermbg=124 cterm=bold
-hi DiffText guifg=#2aa198 guibg=NONE guisp=NONE gui=NONE ctermfg=37 ctermbg=NONE cterm=NONE
+hi DiffText guifg=#2aa198 guibg=NONE guisp=NONE gui=NONE ctermfg=11 ctermbg=0 cterm=NONE
 hi Directory guifg=#268bd2 guibg=NONE guisp=NONE gui=NONE ctermfg=32 ctermbg=NONE cterm=NONE
 hi EnumerationName guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi EnumerationValue guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
@@ -55,7 +55,7 @@ hi Label guifg=#719e07 guibg=NONE guisp=NONE gui=NONE ctermfg=106 ctermbg=NONE c
 hi LineNr guifg=#586e75 guibg=#0a1212 guisp=#0a1212 gui=NONE ctermfg=66 ctermbg=233 cterm=NONE
 hi LocalVariable guifg=#e2e4e5 guibg=NONE guisp=NONE gui=NONE ctermfg=254 ctermbg=NONE cterm=NONE
 hi Macro guifg=#cb4b16 guibg=NONE guisp=NONE gui=NONE ctermfg=166 ctermbg=NONE cterm=NONE
-hi MatchParen guifg=#d90000 guibg=#131f1f guisp=#131f1f gui=bold ctermfg=160 ctermbg=234 cterm=bold
+hi MatchParen guifg=#d90000 guibg=#131f1f guisp=#131f1f gui=bold ctermfg=160 ctermbg=233 cterm=bold
 hi ModeMsg guifg=#268bd2 guibg=NONE guisp=NONE gui=bold ctermfg=32 ctermbg=NONE cterm=bold
 hi MoreMsg guifg=#268bd2 guibg=NONE guisp=NONE gui=NONE ctermfg=32 ctermbg=NONE cterm=NONE
 hi NonText guifg=#657b83 guibg=NONE guisp=NONE gui=bold ctermfg=66 ctermbg=NONE cterm=bold
@@ -78,7 +78,7 @@ hi SignColumn guifg=#cc0000 guibg=#121212 guisp=#121212 gui=NONE ctermfg=160 cte
 hi SpecialChar guifg=#dc322f guibg=NONE guisp=NONE gui=NONE ctermfg=160 ctermbg=NONE cterm=NONE
 hi SpecialComment guifg=#dc322f guibg=NONE guisp=NONE gui=NONE ctermfg=160 ctermbg=NONE cterm=NONE
 hi Special guifg=#dc322f guibg=NONE guisp=NONE gui=NONE ctermfg=160 ctermbg=NONE cterm=NONE
-hi SpecialKey guifg=#657b83 guibg=#121212 guisp=#121212 gui=bold ctermfg=66 ctermbg=233 cterm=bold
+hi SpecialKey guifg=#657b83 guibg=#121212 guisp=#121212 gui=bold ctermfg=236 ctermbg=0 cterm=NONE
 hi SpellBad guifg=#ff0000 guibg=#000000 guisp=#000000 gui=NONE ctermfg=196 ctermbg=NONE cterm=NONE
 hi SpellCap guifg=#0e3bc4 guibg=#000000 guisp=#000000 gui=NONE ctermfg=4 ctermbg=NONE cterm=NONE
 hi SpellLocal guifg=#e6ed1d guibg=#000000 guisp=#000000 gui=NONE ctermfg=11 ctermbg=NONE cterm=NONE
