@@ -95,6 +95,7 @@ set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
+set completeopt=longest,menuone " dont select the first match
 
 " registers {{{1
 
