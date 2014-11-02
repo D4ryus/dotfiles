@@ -210,6 +210,15 @@ command! Q q
 command! Codestyle call ApplyCodeStyle()
 command! Rtw call RemoveTrailingWhitespaces()
 
+command! Jio JavaImportOrganize
+command! Jdp JavaDocPreview
+command! Jch JavaCallHierarchy
+command! Jc  JavaCorrect
+command! Jr  JavaRename
+command! Jgs JavaGetSet
+command! Jg  JavaGet
+command! Js  JavaSet
+
 " autocmd {{{1
 
 autocmd FileType java setlocal ts=4 sw=4 expandtab
