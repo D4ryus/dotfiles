@@ -30,6 +30,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
@@ -68,7 +69,6 @@ map :haw :0r ~/.vim/license/haw.txt<CR>
 " setter {{{1
 
 syntax on                       " enable syntax highlighting
-filetype plugin on              " enable filetype plugin
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
@@ -219,10 +219,14 @@ command! Jgs JavaGetSet
 command! Jg  JavaGet
 command! Js  JavaSet
 
+command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+       \ | diffthis | wincmd p | diffthis
 " autocmd {{{1
 
-autocmd FileType java setlocal ts=4 sw=4 expandtab
-autocmd FileType c    setlocal ts=8 sw=8 expandtab
-autocmd FileType cpp  setlocal ts=8 sw=8 expandtab
-autocmd FileType sh   setlocal ts=8 sw=8 expandtab
-autocmd FileType make setlocal ts=8 sw=8 noexpandtab
+if has("autocmd")
+  filetype plugin on
+  autocmd FileType c          setlocal ts=8 sw=8 expandtab
+  autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
+  autocmd FileType sh         setlocal ts=8 sw=8 expandtab
+  autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
+endif
