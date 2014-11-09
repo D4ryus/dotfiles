@@ -29,8 +29,8 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/NERDTree'
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
@@ -58,6 +58,14 @@ let g:EclimCompletionMethod='omnifunc'
 " Supertab {{{2
 
 let g:SuperTabDefaultCompletionType='context'
+
+" Ag {{{2
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 
 "}}}2
 
@@ -96,6 +104,8 @@ set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap       " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
 set completeopt=longest,menuone " dont select the first match
+set splitright                  " open splits on the right side instead of left
+set splitbelow                  " open splits blow instead of on top
 
 " registers {{{1
 
