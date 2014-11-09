@@ -16,6 +16,9 @@ fi
 # turn of that 1981 bell :/
 xset -b
 
+# change keyboard repeat rate to 50, delay 200
+xset r rate 200 50
+
 # add archlinux font path, then rehash fonts
 xset +fp /usr/share/fonts/local/
 xset fp rehash
