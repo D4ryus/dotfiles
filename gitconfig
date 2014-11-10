@@ -9,6 +9,7 @@
     count   = rev-list HEAD --count
     df      = diff --cached
     lg      = log --graph
+    last    = diff HEAD^..HEAD
 [merge]
     tool    = vimdiff
 [diff]
