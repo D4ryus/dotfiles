@@ -28,7 +28,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/NERDTree'
 
 if executable('ctags')
@@ -186,19 +186,11 @@ function! NeatFoldText() "{{{2
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction " }}}2
 function! NumberFold() "{{{2
-  let thisline = getline(v:lnum)
-  if     match(thisline, '^\d\.\d\.\d\.\d\.\d\s\+') >= 0
-    return ">5"
-  elseif match(thisline, '^\d\.\d\.\d\.\d\s\+') >= 0
-    return ">4"
-  elseif match(thisline, '^\d\.\d\.\d\s\+') >= 0
-    return ">3"
-  elseif match(thisline, '^\d\.\d\s\+') >= 0
-    return ">2"
-  elseif match(thisline, '^\d\.\s\+') >= 0
-    return ">1"
-  else
+  let h = matchstr(getline(v:lnum), '^\d\+')
+  if empty(h)
     return "="
+  else
+    return ">" . len(h)
   endif
 endfunction "}}}2
 function! ApplyCodeStyle() "{{{2
