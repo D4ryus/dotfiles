@@ -20,7 +20,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-git'
-Bundle 'vim-scripts/taglist.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kien/ctrlp.vim'
@@ -31,6 +30,10 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/NERDTree'
+
+if executable('ctags')
+  Bundle 'vim-scripts/taglist.vim'
+endif
 
 if has("python") || has("python3")
   Bundle 'SirVer/ultisnips'
