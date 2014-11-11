@@ -231,6 +231,7 @@ command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 
 if has("autocmd")
   filetype plugin on
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
   autocmd FileType c          setlocal ts=8 sw=8 expandtab
   autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
   autocmd FileType sh         setlocal ts=8 sw=8 expandtab
