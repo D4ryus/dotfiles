@@ -235,4 +235,15 @@ if has("autocmd")
   autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
   autocmd FileType sh         setlocal ts=8 sw=8 expandtab
   autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
+
+  if executable("jshon")
+    autocmd FileType json setlocal equalprg=jshon
+  endif
+  if executable("csstidy")
+    autocmd FileType css setlocal equalprg=csstidy\ -\ --silent=true
+  endif
+  if executable("xmllint")
+    autocmd FileType xml setlocal equalprg=xmllint\ --format\ -
+  endif
+
 endif
