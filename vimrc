@@ -1,6 +1,6 @@
 " file: ~/.vimrc
 " author: d4ryus - https://github.com/d4ryus/
-" vim:ts=2:sw=2:foldmethod=marker:
+" vim:ts=8:sw=8:foldmethod=marker:
 
 " vundle {{{1
 
@@ -33,11 +33,11 @@ Bundle 'scrooloose/NERDTree'
 Bundle 'nelstrom/vim-markdown-folding'
 
 if executable('ctags')
-  Bundle 'vim-scripts/taglist.vim'
+        Bundle 'vim-scripts/taglist.vim'
 endif
 
 if has("python") || has("python3")
-  Bundle 'SirVer/ultisnips'
+        Bundle 'SirVer/ultisnips'
 endif
 
 " Plugin-settings {{{1
@@ -66,9 +66,9 @@ let g:SuperTabDefaultCompletionType='context'
 " Ag {{{2
 
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
+        set grepprg=ag\ --nogroup\ --nocolor
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+        let g:ctrlp_use_caching = 0
 endif
 
 "}}}2
@@ -167,9 +167,9 @@ if &term =~ "xterm"                 ||
 \  &term =~ "screen-256color"       ||
 \  &term =~ "rxvt-unicode-256color" ||
 \  has("gui_running")
-  colorscheme d4ryus_256
+        colorscheme d4ryus_256
 else
-  colorscheme d4ryus_8
+        colorscheme d4ryus_8
 endif
 
 
@@ -177,33 +177,33 @@ endif
 
 function! NeatFoldText() "{{{2
 " got this function from http://dhruvasagar.com/tag/vim thanks alot :)
-  let line             = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count      = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%9s", lines_count . ' lines') . ' |'
-  let foldchar         = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart    = strpart('+' . repeat(foldchar, v:foldlevel) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend      = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+        let line             = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+        let lines_count      = v:foldend - v:foldstart + 1
+        let lines_count_text = '| ' . printf("%9s", lines_count . ' lines') . ' |'
+        let foldchar         = matchstr(&fillchars, 'fold:\zs.')
+        let foldtextstart    = strpart('+' . repeat(foldchar, v:foldlevel) . line, 0, (winwidth(0)*2)/3)
+        let foldtextend      = lines_count_text . repeat(foldchar, 8)
+        let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+        return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction " }}}2
 function! NumberFold() "{{{2
-  let h = matchstr(getline(v:lnum), '^\d\+')
-  if empty(h)
-    return "="
-  else
-    return ">" . len(h)
-  endif
+        let h = matchstr(getline(v:lnum), '^\d\+')
+        if empty(h)
+                return "="
+        else
+                return ">" . len(h)
+        endif
 endfunction "}}}2
 function! ApplyCodeStyle() "{{{2
-  " fix else
-  silent! %s/}[\r\n]else[\r\n]{/} else {/g
-  " fix function
-  silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
-  " remove all trailing whitespace's
-  silent!  %s/\s\+$//e
+        " fix else
+        silent! %s/}[\r\n]else[\r\n]{/} else {/g
+        " fix function
+        silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
+        " remove all trailing whitespace's
+        silent!  %s/\s\+$//e
 endfunction "}}}2
 function! RemoveTrailingWhitespaces() "{{{2
-  silent! %s/\s\+$//e
+        silent! %s/\s\+$//e
 endfunction "}}}2
 
 " commands {{{1
@@ -226,25 +226,14 @@ command! Jg  JavaGet
 command! Js  JavaSet
 
 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
-       \ | diffthis | wincmd p | diffthis
+      \ | diffthis | wincmd p | diffthis
 " autocmd {{{1
 
 if has("autocmd")
-  filetype plugin on
-  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-  autocmd FileType c          setlocal ts=8 sw=8 expandtab
-  autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
-  autocmd FileType sh         setlocal ts=8 sw=8 expandtab
-  autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
-
-  if executable("jshon")
-    autocmd FileType json setlocal equalprg=jshon
-  endif
-  if executable("csstidy")
-    autocmd FileType css setlocal equalprg=csstidy\ -\ --silent=true
-  endif
-  if executable("xmllint")
-    autocmd FileType xml setlocal equalprg=xmllint\ --format\ -
-  endif
-
+        filetype plugin on
+        autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+        autocmd FileType c          setlocal ts=8 sw=8 expandtab
+        autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
+        autocmd FileType sh         setlocal ts=8 sw=8 expandtab
+        autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
 endif
