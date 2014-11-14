@@ -1,25 +1,29 @@
 [user]
-    name    = d4ryus
-    email   = w.wackerbauer@yahoo.de
+	name    = d4ryus
+	email   = w.wackerbauer@yahoo.de
 [core]
-    editor  = vim
+	editor  = vim
 [alias]
-    unstage = reset HEAD --
-    dftool  = difftool --cached
-    count   = rev-list HEAD --count
-    df      = diff --cached
-    lg      = log --graph
-    last    = diff HEAD^..HEAD
+	unstage = reset HEAD --
+	dftool  = difftool --cached
+	count   = rev-list HEAD --count
+	df      = diff --cached
+	lg      = log --graph
+	last    = diff HEAD^..HEAD
 [merge]
-    tool    = vimdiff
+	tool    = vimdiff
+	summary = true
 [diff]
-    tool    = vimdiff
+	tool    = vimdiff
 [difftool]
-    prompt  = false
+	prompt  = false
 [github]
-    user    = d4ryus
+	user    = d4ryus
 [color]
-    status  = auto
-    branch  = auto
+	status  = auto
+	branch  = auto
+	diff    = auto
+	branch  = auto
+	status  = auto
 [push]
-    default = matching
+	default = matching
