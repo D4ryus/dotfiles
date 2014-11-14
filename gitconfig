@@ -10,6 +10,7 @@
 	df      = diff --cached
 	lg      = log --graph
 	last    = diff HEAD^..HEAD
+	ctags   = !.git/hooks/ctags
 [merge]
 	tool    = vimdiff
 	summary = true
@@ -27,3 +28,5 @@
 	status  = auto
 [push]
 	default = matching
+[init]
+	templatedir = ~/.git_template
