@@ -1,3 +1,3 @@
 if executable("jshon")
-        setlocal equalprg=jshon
+        setlocal formatprg=jshon
 endif

@@ -1,3 +1,3 @@
 if executable("xmllint")
-        setlocal equalprg=xmllint\ --format\ -
+        setlocal formatprg=xmllint\ --format\ -
 endif

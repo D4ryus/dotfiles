@@ -1,3 +1,3 @@
 if executable("csstidy")
-        setlocal equalprg=csstidy\ -\ --silent=true
+        setlocal formatprg=csstidy\ -\ --silent=true
 endif
