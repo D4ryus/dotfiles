@@ -1,4 +1,4 @@
-!! file ~/.Xdefaults
+!! file ~/.xresources
 !! author: d4ryus - https://github.com/d4ryus/
 
 !! xterm*faceName:            DejaVu Sans Mono:style=Book:antialias=true
@@ -22,5 +22,5 @@ URxvt.background:           black
 
 !! clickable urls
 URxvt.perl-ext-common:      default,matcher
-URxvt.url-launcher:         /usr/bin/firefox
+URxvt.url-launcher:         /usr/bin/chromium
 URxvt.matcher.button:       1
