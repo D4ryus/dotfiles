@@ -28,6 +28,10 @@ if [ -r ~/.xresources ]; then
         xrdb ~/.xresources
 fi
 
+if [ -r ~/.xresources.local ]; then
+        xrdb -merge ~/.xresources.local
+fi
+
 if [ -r ~/.xinitrc.local ]; then
         source ~/.xinitrc.local
 fi
