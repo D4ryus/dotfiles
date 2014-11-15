@@ -23,19 +23,11 @@ xset r rate 200 50
 xset +fp /usr/share/fonts/local/
 xset fp rehash
 
-# hsetroot -fill ~/wallpaper/rocks.jpg
-# hsetroot -fill ~/wallpaper/arviwm.png
-hsetroot -fill ~/wallpaper/bridge.jpg
-
-# use x keybindings as defined in ~/.xbindkeysrc
-xbindkeys
-
 # source .xresources
-xrdb ~/.xresources
+if [ -r ~/.xresources ]; then
+        xrdb ~/.xresources
+fi
 
-pulseaudio --start
-
-# start dwm_statusbar
-dwm_statusbar &
-
-exec dwm
+if [ -r ~/.xinitrc.local ]; then
+        source ~/.xinitrc.local
+fi

@@ -241,3 +241,9 @@ if has("autocmd")
         autocmd FileType sh         setlocal ts=8 sw=8 expandtab
         autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
 endif
+
+" ~/.vimrc.local {{{1
+
+if filereadable(expand("~/.vimrc.local"))
+        source ~/.vimrc.local
+endif
