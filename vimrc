@@ -67,6 +67,11 @@ let g:EclimCompletionMethod='omnifunc'
 
 let g:SuperTabDefaultCompletionType='context'
 
+" Taglist {{{2
+
+let Tlist_Use_Right_Window = 1
+let Tlist_File_Fold_Auto_Close = 1
+
 " Ag {{{2
 
 if executable('ag')
