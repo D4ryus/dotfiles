@@ -46,10 +46,10 @@ fi
 # set PS1
 if [[ $EUID -ne 0 ]]; then
         # user = color = green
-        PS1='[\[\033[0;32m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status 2>/dev/null | head -n 1 | sed -e "s/#* *On branch//")\[\033[0m\]] '
+        PS1='[\[\033[0;32m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status -b 2>/dev/null | head -n 1 | grep -oE " [^ ]+$")\[\033[0m\]] '
 else
         # root = color = red
-        PS1='[\[\033[0;31m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status 2>/dev/null | head -n 1 | sed -e "s/#* *On branch//")\[\033[0m\]] '
+        PS1='[\[\033[0;31m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status -b 2>/dev/null | head -n 1 | grep -oE " [^ ]+$")\[\033[0m\]] '
 fi
 
 # tmux and wikidates setting
