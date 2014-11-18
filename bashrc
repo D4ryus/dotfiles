@@ -37,7 +37,9 @@ alias upAur="mkdir /tmp/xxx && cd /tmp/xxx && cower -ud && find -name PKGBUILD -
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
-source ~/.git-completion-bash
+if [ -r ~/.git-completion-bash ]; then
+        source ~/.git-completion-bash
+fi
 
 # set PS1
 if [[ $EUID -ne 0 ]]; then
