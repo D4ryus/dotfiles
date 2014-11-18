@@ -38,11 +38,6 @@ alias myip="curl http://myip.dnsomatic.com && echo ''"
 # git autocompletion
 source ~/.git-completion-bash
 
-# setting to display java applications correctly
-if [[ $DISPLAY != "" ]]; then
-        wmname LG3D
-fi
-
 # set PS1
 if [[ $EUID -ne 0 ]]; then
         # user = color = green
@@ -60,6 +55,10 @@ if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
         if [ -d ~/.wikidates ]; then
                 cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
         fi
+fi
+
+if [ -r ~/.bashrc.local ]; then
+        source ~/.bashrc.local
 fi
 
 # show 256 colors
