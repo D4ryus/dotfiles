@@ -25,7 +25,7 @@ xset fp rehash
 
 # source .xresources
 if [ -r ~/.xresources ]; then
-        xrdb ~/.xresources
+        xrdb -merge ~/.xresources
 fi
 
 if [ -r ~/.xresources.local ]; then
