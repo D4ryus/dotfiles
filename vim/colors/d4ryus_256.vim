@@ -55,7 +55,7 @@ hi Label                 guifg=#719e07   guibg=NONE      guisp=NONE      gui=NON
 hi LineNr                guifg=#586e75   guibg=#0a1212   guisp=#0a1212   gui=NONE          ctermfg=66     ctermbg=233    cterm=NONE
 hi LocalVariable         guifg=#e2e4e5   guibg=NONE      guisp=NONE      gui=NONE          ctermfg=254    ctermbg=NONE   cterm=NONE
 hi Macro                 guifg=#cb4b16   guibg=NONE      guisp=NONE      gui=NONE          ctermfg=25     ctermbg=NONE   cterm=NONE
-hi MatchParen            guifg=#d90000   guibg=#131f1f   guisp=#131f1f   gui=bold          ctermfg=160    ctermbg=233    cterm=bold
+hi MatchParen            guifg=#d90000   guibg=#131f1f   guisp=#131f1f   gui=bold          ctermfg=10     ctermbg=237    cterm=bold
 hi ModeMsg               guifg=#268bd2   guibg=NONE      guisp=NONE      gui=bold          ctermfg=25     ctermbg=NONE   cterm=bold
 hi MoreMsg               guifg=#268bd2   guibg=NONE      guisp=NONE      gui=NONE          ctermfg=25     ctermbg=NONE   cterm=NONE
 hi NonText               guifg=#657b83   guibg=NONE      guisp=NONE      gui=bold          ctermfg=66     ctermbg=NONE   cterm=bold
