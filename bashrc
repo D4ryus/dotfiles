@@ -145,3 +145,7 @@ push() {
                 scp $ARGS $1 d4:$FOLDER
         fi
 }
+
+cinst() {
+        cower -d $1 && cd $1 && makepkg -si
+}
