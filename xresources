@@ -1,19 +1,24 @@
 !! file ~/.xresources
 !! author: d4ryus - https://github.com/d4ryus/
 
-!! xterm*faceName:            DejaVu Sans Mono:style=Book:antialias=true
-!! xterm*font:                txft:Bitstream Vera Sans Mono:pixelsize=12
 xterm*termName:             xterm-256color
-xterm*faceName:             Bitstream Vera Sans Mono:style=Book:antialias=true
 xterm*faceNameDoublesize:   WenQuanYi Bitmap Song
 xterm*faceSize:             10
 xterm*foreground:           rgb:a8/a8/a8
 xterm*background:           rgb:00/00/00
 xterm*VT100.geometry:       99x28
+xterm.*backarrowKey:        false
+xterm*utf8:                 1
+xterm*faceName:             Inconsolata:size=12:antialias=false
+XTerm*metaSendsEscape:      true
+*ttyModes:                  erase ^? 
+*VT100.Translations: #override \
+              <Key>BackSpace: string(0x7F)\n\
+              <Key>Delete:    string("\033[3~")\n\
+              <Key>Home:      string("\033[1~")\n\
+              <Key>End:       string("\033[4~")
 
 URxvt.termName:             rxvt-unicode-256color
-!!URxvt.font:               xft:Bitstream Vera Sans Mono:pixelsize=5
-!!URxvt.font:               xft:Bitstream Vera Sans Mono:pixelsize=12
 URxvt.font:                 xft:Inconsolata:pixelsize=13
 URxvt.geometry:             99x30
 URxvt.scrollBar:            false
