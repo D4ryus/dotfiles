@@ -102,7 +102,6 @@ set autoindent                  " always set autoindenting on
 set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
-set wrap                        " do not insert line break
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
