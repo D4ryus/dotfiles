@@ -1,3 +1,23 @@
+snippet frm
+JFrame frame$1 = new JFrame();
+$0
+endsnippet
+
+snippet btn
+JButton btn$1 = new JButton();
+$0
+endsnippet
+
+snippet pnl
+JPanel pnl$1 = new JPanel();
+$0
+endsnippet
+
+snippet lbl
+JLabel lbl$1 = new JLabel();
+$0
+endsnippet
+
 snippet c
 /**
  * ${VISUAL}$0
@@ -12,8 +32,7 @@ public static void main (String... args)
 endsnippet
 
 snippet catch
-catch(${1:Exception} ${2:e})
-{
+catch(${1:Exception} ${2:e}) {
 	${VISUAL}$0
 }
 endsnippet
@@ -62,8 +81,7 @@ for (${1:int} ${2:i} = ${3:0}; $2 < $4; $2${5:++}) {
 endsnippet
 
 snippet fun
-${1:public} ${2:void}
-$3($4)
+${1:public} ${2:void} $3($4)
 {
 	${VISUAL}$0
 }
@@ -74,7 +92,7 @@ System.out.print("$1\n"$2);$0
 endsnippet
 
 snippet class
-${1:public} class
+${1:public} class $2
 {
 	${VISUAL}$0
 }
