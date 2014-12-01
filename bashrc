@@ -145,3 +145,5 @@ push() {
                 scp $ARGS $1 d4:$FOLDER
         fi
 }
+export PATH=$HOME/local/node/bin:$PATH
+export NODE_PATH=$HOME/local/node/lib/node_modules
