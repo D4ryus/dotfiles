@@ -169,16 +169,17 @@ match OverLength /\%81v.\+/
 " }}}2
 " colorscheme {{{2
 
-if &term =~ "xterm"                 ||
-\  &term =~ "urxvt"                 ||
-\  &term =~ "xterm-256color"        ||
-\  &term =~ "screen-256color"       ||
-\  &term =~ "rxvt-unicode-256color" ||
-\  has("gui_running")
-        colorscheme d4ryus_256
-else
-        colorscheme d4ryus_8
-endif
+colorscheme vividchalk
+" if &term =~ "xterm"                 ||
+" \  &term =~ "urxvt"                 ||
+" \  &term =~ "xterm-256color"        ||
+" \  &term =~ "screen-256color"       ||
+" \  &term =~ "rxvt-unicode-256color" ||
+" \  has("gui_running")
+"         colorscheme d4ryus_256
+" else
+"         colorscheme d4ryus_8
+" endif
 
 
 " functions {{{1
