@@ -149,3 +149,6 @@ push() {
 cinst() {
         cower -d $1 && cd $1 && makepkg -si
 }
+
+export PATH=$HOME/local/node/bin:$PATH
+export NODE_PATH=$HOME/local/node/lib/node_modules
