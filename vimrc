@@ -95,8 +95,6 @@ set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
 set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
-set number                      " set linenumber on left side
-set relativenumber              " set a relative number scale on left side
 set autoread                    " autoread file when changed from outside
 set autoindent                  " always set autoindenting on
 set list                        " list all tabs and ending spaces
