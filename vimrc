@@ -224,6 +224,16 @@ endfunction "}}}2
 function! RemoveTrailingWhitespaces() "{{{2
         silent! %s/\s\+$//e
 endfunction "}}}2
+function! Bash() "{{{2
+        let prompt = '>'
+        call search(prompt, 'b')
+        let cmd = substitute(getline('.'), '^.*' . prompt, '', '')
+        set paste
+        call append(line('.'), ['', '', prompt])
+        call append(line('.') + 1, systemlist(cmd))
+        set nopaste
+        call search('^' . prompt)
+endfunction "}}}2
 
 " commands {{{1
 
@@ -234,6 +244,7 @@ command! Q q
 
 command! Codestyle call ApplyCodeStyle()
 command! Rtw call RemoveTrailingWhitespaces()
+command! Bash call Bash()
 
 command! Jio JavaImportOrganize
 command! Jdp JavaDocPreview
