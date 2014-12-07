@@ -98,15 +98,15 @@ set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
 set autoread                    " autoread file when changed from outside
 set autoindent                  " always set autoindenting on
-set list                        " list all tabs and ending spaces
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
+set list                        " list all tabs and ending spaces
+set listchars=tab:>·,nbsp:_,trail:·,extends:»,precedes:_,eol:¬,conceal:_
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
 set cm=blowfish                 " use blowfish as encryption (X)
 set history=82                  " keep 82 lines of command line history
-set listchars=tab:>-,nbsp:_,trail:.
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
 set modelines=40                " search first/last 40 lines for vim modeline options
@@ -183,7 +183,9 @@ colorscheme vividchalk
 
 " functions {{{1
 
-function! NeatFoldText() "{{{2
+"{{{2 NeatFoldText
+
+function! NeatFoldText()
 " got this function from http://dhruvasagar.com/tag/vim thanks alot :)
         let line             = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
         let lines_count      = v:foldend - v:foldstart + 1
@@ -194,16 +196,22 @@ function! NeatFoldText() "{{{2
         let foldtextend      = lines_count_text . repeat(foldchar, 8)
         let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
         return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction " }}}2
-function! NumberFold() "{{{2
+endfunction
+
+"{{{2 NumberFold()
+
+function! NumberFold()
         let h = matchstr(getline(v:lnum), '^\d\+')
         if empty(h)
                 return "="
         else
                 return ">" . len(h)
         endif
-endfunction "}}}2
-function! PatchFold() "{{{2
+endfunction
+
+"{{{2 PatchFold()
+
+function! PatchFold()
         let h = getline(v:lnum)
         if match(h, '^diff') >= 0
                 return ">1"
@@ -212,19 +220,28 @@ function! PatchFold() "{{{2
         else
                 return "="
         endif
-endfunction "}}}2
-function! ApplyCodeStyle() "{{{2
+endfunction
+
+"{{{2 ApplyCodeStyle()
+
+function! ApplyCodeStyle()
         " fix else
         silent! %s/}[\r\n]else[\r\n]{/} else {/g
         " fix function
         silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
         " remove all trailing whitespace's
         silent!  %s/\s\+$//e
-endfunction "}}}2
-function! RemoveTrailingWhitespaces() "{{{2
+endfunction
+
+"{{{2 RemoveTrailingWhitespaces()
+
+function! RemoveTrailingWhitespaces()
         silent! %s/\s\+$//e
-endfunction "}}}2
-function! Bash() "{{{2
+endfunction
+
+"{{{2 Bash()
+
+function! Bash()
         let prompt = '>'
         call search(prompt, 'b')
         let cmd = substitute(getline('.'), '^.*' . prompt, '', '')
@@ -233,7 +250,9 @@ function! Bash() "{{{2
         call append(line('.') + 1, systemlist(cmd))
         set nopaste
         call search('^' . prompt)
-endfunction "}}}2
+endfunction
+
+"}}}2
 
 " commands {{{1
 
@@ -255,17 +274,24 @@ command! Jgs JavaGetSet
 command! Jg  JavaGet
 command! Js  JavaSet
 
-command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
       \ | diffthis | wincmd p | diffthis
 " autocmd {{{1
 
 if has("autocmd")
         filetype plugin on
-        autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-        autocmd FileType c          setlocal ts=8 sw=8 expandtab
-        autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
-        autocmd FileType sh         setlocal ts=8 sw=8 expandtab
-        autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
+        augroup filetypes
+                autocmd!
+                autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+                autocmd FileType c          setlocal ts=8 sw=8 expandtab
+                autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
+                autocmd FileType sh         setlocal ts=8 sw=8 expandtab
+                autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
+        augroup END
+        augroup vimrc
+                autocmd!
+                autocmd BufWritePost vimrc  source %
+        augroup END
 endif
 
 " ~/.vimrc.local {{{1
