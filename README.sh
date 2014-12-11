@@ -1,11 +1,11 @@
 #! /bin/bash
-# to link everything just execute this README file with path to dotfiles repo
-# for example: './README.sh /home/d4ryus/.dotfiles'
-# its important to specify the full path to repo, otherwise links will not work
+# to link everything just execute this README file
+
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 for i in $(ls $1); do
         if [ -a $HOME/.$i ]; then
                 mv $HOME/.$i $HOME/.$i.backup;
         fi
-        ln -s $1/$i $HOME/.$i
+        ln -s $DIR/$i $HOME/.$i
 done
