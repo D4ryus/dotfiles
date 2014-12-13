@@ -9,3 +9,17 @@ vim/swap/*
 vim/.netrwhist
 irssi/
 *.spl
+fluxbox/apps
+fluxbox/backgrounds
+fluxbox/fbrun_history
+fluxbox/icons
+fluxbox/init
+fluxbox/lastwallpaper
+fluxbox/menu
+fluxbox/menuconfig
+fluxbox/overlay
+fluxbox/pixmaps
+fluxbox/slitlist
+fluxbox/startup
+fluxbox/styles
+fluxbox/windowmenu
