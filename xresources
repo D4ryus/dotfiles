@@ -9,7 +9,7 @@ xterm*background:           rgb:00/00/00
 xterm*VT100.geometry:       99x28
 xterm.*backarrowKey:        false
 xterm*utf8:                 1
-xterm*faceName:             Inconsolata:size=12:antialias=false
+xterm*faceName:             Terminus:size=11:antialias=false
 XTerm*metaSendsEscape:      true
 *ttyModes:                  erase ^? 
 *VT100.Translations: #override \
