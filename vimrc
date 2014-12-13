@@ -37,6 +37,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/NERDTree'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'jszakmeister/vim-togglecursor'
+Bundle 'mtth/scratch.vim'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
@@ -81,6 +82,11 @@ if executable('ag')
         let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
         let g:ctrlp_use_caching = 0
 endif
+
+"}}}2
+" Scratch {{{2
+
+let g:scratch_insert_autohide = 0
 
 "}}}2
 
