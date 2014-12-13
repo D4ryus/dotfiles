@@ -36,6 +36,7 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/NERDTree'
 Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'jszakmeister/vim-togglecursor'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
