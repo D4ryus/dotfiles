@@ -125,6 +125,7 @@ set foldtext=NeatFoldText()     " set foldtext to function below
 set completeopt=longest,menuone " dont select the first match
 set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
+set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 
 " registers {{{1
 
