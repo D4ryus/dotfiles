@@ -296,6 +296,7 @@ if has("autocmd")
                 autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
                 autocmd FileType sh         setlocal ts=8 sw=8 expandtab
                 autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
+                autocmd FileType qf         wincmd J
         augroup END
         augroup vimrc
                 autocmd!
