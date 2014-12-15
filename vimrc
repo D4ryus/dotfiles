@@ -139,6 +139,7 @@ noremap <Leader>t :TlistToggle<CR>
 noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
 noremap tab :Tabularize /
+noremap go :Make<CR>
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
