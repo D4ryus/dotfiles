@@ -145,6 +145,9 @@ Mod4 Shift C :Close
 # open xterm
 Mod4 T :Exec xterm
 
+#toggle decorations
+Mod4 D :ToggleDecor
+
 # drag on mod4 and mouse1, resize on mod4 and mouse3
 OnWindow Mod4 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
 OnWindow Mod4 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
