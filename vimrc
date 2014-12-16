@@ -127,6 +127,13 @@ set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
 set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 
+if has('persistent_undo')
+    let dir = expand('$HOME/.vim/undo')
+    call system('mkdir ' . dir)
+    let &undodir = dir
+    set undofile
+endif
+
 " registers {{{1
 
 let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'

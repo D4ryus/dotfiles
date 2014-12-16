@@ -6,6 +6,7 @@ vim/bundle
 vim/eclim
 vim/plugin
 vim/swap/*
+vim/undo/*
 vim/.netrwhist
 irssi/
 *.spl
