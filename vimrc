@@ -108,7 +108,7 @@ set autoindent                  " always set autoindenting on
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
-set listchars=tab:>·,nbsp:_,trail:·,extends:»,precedes:_,eol:¬,conceal:_
+set listchars=tab:>·,nbsp:_,trail:·,precedes:«,extends:»,eol:¬,conceal:_
 set showbreak=\ »»\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
@@ -120,7 +120,7 @@ set encoding=UTF-8              " use UTF-8 as encoding
 set modelines=40                " search first/last 40 lines for vim modeline options
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
-set directory=~/.vim/swap       " directory where all swap files will be
+set directory=~/.vim/swap//     " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
 set completeopt=longest,menuone " dont select the first match
 set splitright                  " open splits on the right side instead of left
