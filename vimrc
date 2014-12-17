@@ -126,6 +126,8 @@ set completeopt=longest,menuone " dont select the first match
 set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
 set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
+set wildmenu                    " use wildmenu
+set wildmode=longest:list,full  " dont change insertion
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
