@@ -150,5 +150,14 @@ cinst() {
         cower -d $1 && cd $1 && makepkg -si
 }
 
+play() {
+        LINK=$1
+        YT_FLAGS="--audio-quality 0 --prefer-free-formats --quiet \
+                  --no-warnings --youtube-skip-dash-manifest"
+        MP_FLAGS="-really-quiet"
+
+        youtube-dl $YT_FLAGS -o - $LINK | pv | mplayer $MP_FLAGS -
+}
+
 export PATH=$HOME/local/node/bin:$PATH
 export NODE_PATH=$HOME/local/node/lib/node_modules
