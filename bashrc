@@ -152,6 +152,9 @@ cinst() {
 
 play() {
         LINK=$1
+        if [[ $LINK == "" ]]; then
+                LINK=$(xclip -o)
+        fi
         YT_FLAGS="--audio-quality 0 --prefer-free-formats --quiet \
                   --no-warnings --youtube-skip-dash-manifest"
         MP_FLAGS="-really-quiet"
