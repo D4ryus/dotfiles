@@ -158,8 +158,9 @@ play() {
         YT_FLAGS="--audio-quality 0 --prefer-free-formats --quiet \
                   --no-warnings --youtube-skip-dash-manifest"
         MP_FLAGS="-really-quiet"
+        PV_FLAGS="--bytes --rate --average-rate"
 
-        youtube-dl $YT_FLAGS -o - $LINK | pv | mplayer $MP_FLAGS -
+        youtube-dl $YT_FLAGS -o - $LINK | pv $PV_FLAGS | mplayer $MP_FLAGS -
 }
 
 export PATH=$HOME/local/node/bin:$PATH
