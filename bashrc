@@ -33,7 +33,7 @@ alias wi="dhcpcd wlp3s0"
 alias eu="ip link set enp0s25 up"
 alias ed="ip link set enp0s25 down"
 alias ei="dhcpcd enp0s25"
-alias upAur="mkdir /tmp/xxx && cd /tmp/xxx && cower -ud && find -name PKGBUILD -execdir makepkg -si \; && cd $HOME && rm -rf /tmp/xxx"
+alias upAur=update_Aur
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
@@ -147,7 +147,7 @@ push() {
 }
 
 cinst() {
-        cower -d $1 && cd $1 && makepkg -si
+        cower --download $1 && cd $1 && makepkg --syncdeps --install
 }
 
 play() {
@@ -161,6 +161,18 @@ play() {
         PV_FLAGS="--bytes --rate --average-rate"
 
         youtube-dl $YT_FLAGS -o - $LINK | pv $PV_FLAGS | mplayer $MP_FLAGS -
+}
+
+update_Aur() {
+        LOC="$(pwd)"
+        TMP="/tmp/aurPackages"
+
+        mkdir "$TMP" && cd "$TMP"
+
+        cower --update --download
+        find -name PKGBUILD -execdir makepkg --syncdeps --install \;
+
+        cd "$LOC" && rm --recursive --force "$TMP"
 }
 
 export PATH=$HOME/local/node/bin:$PATH
