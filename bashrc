@@ -33,7 +33,7 @@ alias wi="dhcpcd wlp3s0"
 alias eu="ip link set enp0s25 up"
 alias ed="ip link set enp0s25 down"
 alias ei="dhcpcd enp0s25"
-alias upAur=update_Aur
+alias upAur="update_Aur"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
