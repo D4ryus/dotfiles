@@ -299,19 +299,20 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 
 if has("autocmd")
         filetype plugin on
-        augroup filetypes
-                autocmd!
-                autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-                autocmd FileType c          setlocal ts=8 sw=8 expandtab
-                autocmd FileType cpp        setlocal ts=8 sw=8 expandtab
-                autocmd FileType sh         setlocal ts=8 sw=8 expandtab
-                autocmd FileType make       setlocal ts=8 sw=8 noexpandtab
-                autocmd FileType qf         wincmd J
-        augroup END
-        augroup vimrc
-                autocmd!
-                autocmd BufWritePost vimrc  source %
-        augroup END
+        aug filetypes
+                au!
+                au BufNewFile,BufReadPost *.md set filetype=markdown
+                au FileType c    setl ts=8 sw=8 et
+                au FileType cpp  setl ts=8 sw=8 et
+                au FileType sh   setl ts=8 sw=8 et
+                au FileType make setl ts=8 sw=8 noet
+                au FileType text setl ts=8 sw=8 et tw=72
+                au FileType qf   wincmd J
+        aug END
+        aug vimrc
+                au!
+                au BufWritePost vimrc  source %
+        aug END
 endif
 
 " ~/.vimrc.local {{{1
