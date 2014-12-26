@@ -38,6 +38,7 @@ Bundle 'scrooloose/NERDTree'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'jszakmeister/vim-togglecursor'
 Bundle 'mtth/scratch.vim'
+Bundle 'airblade/vim-gitgutter'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
@@ -87,6 +88,11 @@ endif
 " Scratch {{{2
 
 let g:scratch_insert_autohide = 0
+
+"}}}2
+" GitGutter {{{2
+
+let g:gitgutter_enabled = 0
 
 "}}}2
 
@@ -149,6 +155,7 @@ noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
+noremap cog :GitGutterToggle<CR>
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
