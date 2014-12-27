@@ -172,7 +172,14 @@ update_Aur() {
         cower --update --download
         find -name PKGBUILD -execdir makepkg --syncdeps --install \;
 
-        cd "$LOC" && rm --recursive --force "$TMP"
+        cd "$LOC"
+
+        echo "remove $TMP? (Y/n)"
+        read answer
+        if [[ $answer == "Y" || $answer == "" ]]; then
+                rm --recursive --force "$TMP"
+                return
+        fi
 }
 
 export PATH=$HOME/local/node/bin:$PATH
