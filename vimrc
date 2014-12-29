@@ -14,8 +14,6 @@ call vundle#rc()
 " }}}2
 
 Bundle 'gmarik/vundle'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
@@ -27,18 +25,13 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-dispatch'
 Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'kien/ctrlp.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/NERDTree'
-Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'jszakmeister/vim-togglecursor'
 Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'shougo/unite.vim'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
@@ -80,8 +73,8 @@ let Tlist_File_Fold_Auto_Close = 1
 
 if executable('ag')
         set grepprg=ag\ --nogroup\ --nocolor
-        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-        let g:ctrlp_use_caching = 0
+"        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"        let g:ctrlp_use_caching = 0
 endif
 
 "}}}2
@@ -93,6 +86,15 @@ let g:scratch_insert_autohide = 0
 " GitGutter {{{2
 
 let g:gitgutter_enabled = 0
+
+"}}}2
+" Unite {{{2
+
+call unite#filters#sorter_default#use(['sorter_length'])
+nnoremap <C-p> :<C-u>Unite -start-insert file_rec<CR>
+if executable('ag')
+        let g:unite_source_grep_command = 'ag'
+endif
 
 "}}}2
 
@@ -134,6 +136,7 @@ set splitbelow                  " open splits blow instead of on top
 set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
+set tags+=./.git/tags           " source git repository tags
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
