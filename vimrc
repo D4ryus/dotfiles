@@ -80,6 +80,7 @@ endif
 "}}}2
 " CtrlP {{{2
 
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_switch_buffer = 'E'
 let g:ctrlp_custom_ignore = {
         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -155,7 +156,7 @@ set splitbelow                  " open splits blow instead of on top
 set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
-set tags+=./.git/tags           " source git repository tags
+set tags+=.git/tags             " source git repository tags
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
