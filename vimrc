@@ -316,6 +316,7 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 
 if has("autocmd")
         filetype plugin on
+
         aug filetypes
                 au!
                 au BufNewFile,BufReadPost *.md set filetype=markdown
@@ -326,9 +327,22 @@ if has("autocmd")
                 au FileType text setl ts=8 sw=8 et tw=72
                 au FileType qf   wincmd J
         aug END
+
         aug vimrc
                 au!
                 au BufWritePost vimrc  source %
+        aug END
+
+        " got this aug from derekwyatt's vimrc
+        aug Binary
+                au!
+                au BufReadPre   *.bin let &bin=1
+                au BufReadPost  *.bin if &bin | %!xxd
+                au BufReadPost  *.bin set filetype=xxd | endif
+                au BufWritePre  *.bin if &bin | %!xxd -r
+                au BufWritePre  *.bin endif
+                au BufWritePost *.bin if &bin | %!xxd
+                au BufWritePost *.bin set nomod | endif
         aug END
 endif
 
