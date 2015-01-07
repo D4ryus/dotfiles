@@ -75,6 +75,18 @@ let Tlist_File_Fold_Auto_Close = 1
 
 if executable('ag')
         set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+"}}}2
+" CtrlP {{{2
+
+let g:ctrlp_switch_buffer = 'E'
+let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+        \ 'file': '\v\.(o|a|so|class|jpg|jpeg|bmp|tar|jar|exe|dll)$',
+        \ }
+
+if executable('ag')
         let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
         let g:ctrlp_use_caching = 0
 endif
