@@ -33,6 +33,7 @@ Bundle 'scrooloose/NERDTree'
 Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'shougo/unite.vim'
+Bundle 'kien/ctrlp.vim'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
@@ -74,8 +75,8 @@ let Tlist_File_Fold_Auto_Close = 1
 
 if executable('ag')
         set grepprg=ag\ --nogroup\ --nocolor
-"        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"        let g:ctrlp_use_caching = 0
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+        let g:ctrlp_use_caching = 0
 endif
 
 "}}}2
@@ -92,7 +93,6 @@ let g:gitgutter_enabled = 0
 " Unite {{{2
 
 call unite#filters#sorter_default#use(['sorter_length'])
-nnoremap <C-p> :<C-u>Unite -start-insert file_rec<CR>
 if executable('ag')
         let g:unite_source_grep_command = 'ag'
 endif
