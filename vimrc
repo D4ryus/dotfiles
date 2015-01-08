@@ -302,6 +302,43 @@ function! Bash()
 endfunction
 
 "}}}2
+" {{{2 Markdown_preview
+
+function! Markdown_preview()
+        if !executable('markdown')
+                echo 'cannot find markdown executable'
+                return
+        endif
+        if !executable('xdotool')
+                echo 'cannot find xdotool executable'
+                return
+        endif
+        if !executable('chromium')
+                echo 'cannot find chromium executable'
+                return
+        endif
+
+        let file_name = expand('%:t')
+        let tmp_file_name = file_name . '.html'
+
+        call system('markdown ' . file_name . ' > /tmp/' . tmp_file_name)
+
+        let browser = system("xdotool search --name '" . tmp_file_name . " - Chromium'")
+        sleep 300m
+
+        let curr_win = system('xdotool getwindowfocus')
+        if !browser
+                call system('chromium /tmp/' . tmp_file_name)
+        else
+                call system('xdotool windowmap ' . browser)
+                call system('xdotool windowactivate ' . browser)
+        endif
+        call system("xdotool key 'ctrl+r'")
+        call system('xdotool windowactivate ' . curr_win)
+endfunction
+
+" }}}2
+
 
 " commands {{{1
 
