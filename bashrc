@@ -17,7 +17,8 @@ alias io="iostat -hmd 1"
 alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tmux="tmux -2"
-alias tm="tmux new-session -t 'd4ryus' || tmux new-session -s 'd4ryus'"
+alias tm="tmux attach -t"
+alias ts="tmux ls"
 alias svnlog="svn log -v | vim -"
 alias ls="ls -l --color=auto"
 alias grep="grep --color=auto"
@@ -53,7 +54,7 @@ fi
 # tmux and wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
         if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" ]]; then
-                tmux new-session -t "d4ryus" || tmux new-session -s "d4ryus"
+                tmux new-session
         fi
         if [ -d ~/.wikidates ]; then
                 cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
@@ -83,7 +84,7 @@ pong() {
 }
 
 # Extract Files
-extract() {
+ext() {
         if [ -f $1 ]; then
                 case $1 in
                         *.tar.bz2)   tar xvjf $1    ;;
