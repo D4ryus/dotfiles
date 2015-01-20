@@ -140,7 +140,7 @@ Control Mod4 F12 :TakeToWorkspace 12
 Mod4 P :ExecCommand $(ls -lL `echo $PATH | tr : ' '` 2>/dev/null | awk 'NF>2 && $1 ~ /^[^d].*x/ {print $NF}' | sort -u | dmenu -nb black -nf white -sb blue -sf white -fn '-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*')
 
 # kill window
-Mod4 Shift C :Close
+Mod4 C :Close
 
 # open xterm
 Mod4 T :Exec xterm
