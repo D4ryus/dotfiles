@@ -27,3 +27,13 @@ endsnippet
 snippet c) "copyright" b
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
 endsnippet
+
+snippet t "tag"
+<$1>$0</$1>
+endsnippet
+
+snippet tt "tag"
+<$1>
+	$0
+</$1>
+endsnippet
