@@ -23,7 +23,6 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-dispatch'
-Bundle 'sjl/gundo.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
@@ -32,7 +31,6 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/NERDTree'
 Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'shougo/unite.vim'
 Bundle 'kien/ctrlp.vim'
 
 if executable('ctags')
@@ -41,7 +39,9 @@ endif
 
 if has("python") || has("python3")
         Bundle 'SirVer/ultisnips'
+        Bundle 'sjl/gundo.vim'
 endif
+
 
 " Plugin-settings {{{1
 
@@ -49,6 +49,7 @@ endif
 
 let NERDTreeDirArrows=0
 
+"}}}2
 " UltiSnips {{{2
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -57,20 +58,24 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
+"}}}2
 " Eclim {{{2
 
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:EclimCompletionMethod='omnifunc'
 
+"}}}2
 " Supertab {{{2
 
 let g:SuperTabDefaultCompletionType='context'
 
+"}}}2
 " Taglist {{{2
 
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 
+"}}}2
 " Ag {{{2
 
 if executable('ag')
@@ -103,14 +108,6 @@ let g:scratch_insert_autohide = 0
 let g:gitgutter_enabled = 0
 
 "}}}2
-" Unite {{{2
-
-call unite#filters#sorter_default#use(['sorter_length'])
-if executable('ag')
-        let g:unite_source_grep_command = 'ag'
-endif
-
-"}}}2
 " Gitv {{{2
 
 let g:Gitv_OpenPreviewOnLaunch = 1
@@ -119,7 +116,9 @@ let g:Gitv_DoNotMapCtrlKey = 1
 "}}}2
 " Gundo {{{2
 
-let g:gundo_prefer_python3 = 1
+if has("python3")
+        let g:gundo_prefer_python3 = 1
+endif
 
 "}}}2
 
