@@ -117,6 +117,11 @@ let g:Gitv_OpenPreviewOnLaunch = 1
 let g:Gitv_DoNotMapCtrlKey = 1
 
 "}}}2
+" Gundo {{{2
+
+let g:gundo_prefer_python3 = 1
+
+"}}}2
 
 " macros {{{1
 
