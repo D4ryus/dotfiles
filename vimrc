@@ -34,6 +34,7 @@ Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'shougo/unite.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'AlxHnr/clear_colors'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
@@ -157,6 +158,7 @@ set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
 set tags+=.git/tags             " source git repository tags
+set path+=/usr/local/include    " also search through /usr/local/include
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
