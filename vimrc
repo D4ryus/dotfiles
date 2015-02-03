@@ -38,6 +38,10 @@ if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
 endif
 
+if has("python")
+        Bundle 'kovisoft/slimv'
+endif
+
 if has("python") || has("python3")
         Bundle 'SirVer/ultisnips'
         Bundle 'sjl/gundo.vim'
