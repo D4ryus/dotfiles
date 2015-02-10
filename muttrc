@@ -17,7 +17,9 @@ bind pager k previous-line
 set folder           = imaps://imap.mail.yahoo.com
 set imap_user        = $my_mail
 set imap_pass        = $my_pass
-set imap_keepalive   = 1800
+set imap_keepalive   = 30   # time to send "keepalive" msg
+set timeout          = 60   # time to poll current mailbox
+set mail_check       = 1800 # time to poll other mailboxes
 mailboxes            = INBOX
 set spoolfile        = +INBOX
 
