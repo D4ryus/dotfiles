@@ -167,6 +167,7 @@ set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
 set tags+=.git/tags             " source git repository tags
 set path+=/usr/local/include    " also search through /usr/local/include
+set path+=./**                  " also add the current path
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
