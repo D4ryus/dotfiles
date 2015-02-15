@@ -387,6 +387,7 @@ if has("autocmd")
                 au FileType make setl ts=8 sw=8 noet
                 au FileType text setl ts=8 sw=8 et tw=72
                 au FileType qf   wincmd J
+                au QuickFixCmdPost * copen
         aug END
 
         aug vimrc
