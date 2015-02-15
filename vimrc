@@ -150,7 +150,7 @@ set showbreak=\ »»\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
-set cm=blowfish                 " use blowfish as encryption (X)
+set cm=blowfish2                " use blowfish as encryption (X)
 set history=82                  " keep 82 lines of command line history
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
