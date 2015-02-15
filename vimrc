@@ -206,6 +206,11 @@ vnoremap < <gv
 vnoremap > >gv
 
 "}}}2
+" cnoremap {{{2
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
+
+"}}}2
 
 " abbrev {{{1
 
