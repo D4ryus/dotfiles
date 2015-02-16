@@ -150,7 +150,7 @@ set showbreak=\ »»\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
-set cm=blowfish                 " use blowfish as encryption (X)
+set cm=blowfish2                " use blowfish as encryption (X)
 set history=82                  " keep 82 lines of command line history
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
@@ -204,6 +204,11 @@ inoremap jk <Esc>
 
 vnoremap < <gv
 vnoremap > >gv
+
+"}}}2
+" cnoremap {{{2
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
 "}}}2
 
@@ -387,6 +392,7 @@ if has("autocmd")
                 au FileType make setl ts=8 sw=8 noet
                 au FileType text setl ts=8 sw=8 et tw=72
                 au FileType qf   wincmd J
+                au QuickFixCmdPost * copen
         aug END
 
         aug vimrc
