@@ -20,6 +20,7 @@ set imap_pass        = $my_pass
 set imap_keepalive   = 30   # time to send "keepalive" msg
 set timeout          = 60   # time to poll current mailbox
 set mail_check       = 1800 # time to poll other mailboxes
+set imap_idle        = yes
 mailboxes            = INBOX
 set spoolfile        = +INBOX
 
