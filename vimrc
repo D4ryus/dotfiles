@@ -47,7 +47,6 @@ if has("python") || has("python3")
         Bundle 'sjl/gundo.vim'
 endif
 
-
 " Plugin-settings {{{1
 
 " NERDtree {{{2
