@@ -146,6 +146,8 @@ set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
 set listchars=tab:>·,nbsp:_,trail:·,precedes:«,extends:»,eol:¬,conceal:_
+set linebreak                   " better wraping of lines
+set breakindent                 " indent linebreaks
 set showbreak=\ »»\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
