@@ -33,6 +33,7 @@ Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
 Bundle 'AlxHnr/clear_colors'
+Bundle 'andrwb/vim-lapis256'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
