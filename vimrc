@@ -126,6 +126,11 @@ if has("python3")
 endif
 
 "}}}2
+" Slimv {{{2
+
+let g:slimv_repl_split = 4
+
+"}}}2
 
 " macros {{{1
 
