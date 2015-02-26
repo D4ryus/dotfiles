@@ -129,6 +129,7 @@ endif
 " Slimv {{{2
 
 let g:slimv_repl_split = 4
+let g:lisp_rainbow = 1
 
 "}}}2
 
