@@ -187,6 +187,10 @@ if has('persistent_undo')
     set undofile
 endif
 
+if executable('par')
+    set formatprg=par
+endif
+
 " setter }}}1
 " mappings {{{1
 
