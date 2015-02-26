@@ -11,7 +11,7 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" }}}2
+" settings }}}2
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
@@ -48,13 +48,14 @@ if has("python") || has("python3")
         Bundle 'sjl/gundo.vim'
 endif
 
-" Plugin-settings {{{1
+" vundle }}}1
+" plugin-settings {{{1
 
 " NERDtree {{{2
 
 let NERDTreeDirArrows=0
 
-"}}}2
+" NERDtree }}}2
 " UltiSnips {{{2
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -63,31 +64,31 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
-"}}}2
+" UltiSnips }}}2
 " Eclim {{{2
 
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:EclimCompletionMethod='omnifunc'
 
-"}}}2
+" Eclim }}}2
 " Supertab {{{2
 
 let g:SuperTabDefaultCompletionType='context'
 
-"}}}2
+" Supertab }}}2
 " Taglist {{{2
 
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 
-"}}}2
+" Taglist }}}2
 " Ag {{{2
 
 if executable('ag')
         set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-"}}}2
+" Ag }}}2
 " CtrlP {{{2
 
 let g:ctrlp_extensions = ['tag']
@@ -102,42 +103,44 @@ if executable('ag')
         let g:ctrlp_use_caching = 0
 endif
 
-"}}}2
+" CtrlP }}}2
 " Scratch {{{2
 
 let g:scratch_insert_autohide = 0
 
-"}}}2
+" Scratch }}}2
 " GitGutter {{{2
 
 let g:gitgutter_enabled = 0
 
-"}}}2
-" Gitv {{{2
+" GitGutter }}}2
+" GitV {{{2
 
 let g:Gitv_OpenPreviewOnLaunch = 1
 let g:Gitv_DoNotMapCtrlKey = 1
 
-"}}}2
+" GitV }}}2
 " Gundo {{{2
 
 if has("python3")
         let g:gundo_prefer_python3 = 1
 endif
 
-"}}}2
+" Gundo }}}2
 " Slimv {{{2
 
 let g:slimv_repl_split = 4
 let g:lisp_rainbow = 1
 
-"}}}2
+" Slimv }}}2
 
+" plugin-settings }}}1
 " macros {{{1
 
 map :fts zt,,f{azfa{j
 map :haw :0r ~/.vim/license/haw.txt<CR>
 
+" macros }}}1
 " setter {{{1
 
 syntax on                       " enable syntax highlighting
@@ -184,11 +187,8 @@ if has('persistent_undo')
     set undofile
 endif
 
-" registers {{{1
-
-let @f='"lyyO/* --fixme-- */"lpd2f|i/*A */==:w'
-
-" mapings {{{1
+" setter }}}1
+" mappings {{{1
 
 " noremap {{{2
 
@@ -204,41 +204,44 @@ nnoremap <Down>  :res -1<CR>
 nnoremap <Left>  :vertical res -1<CR>
 nnoremap <Right> :vertical res +1<CR>
 
+" noremap }}}2
 " inoremap {{{2
 
 inoremap jk <Esc>
 
+" inoremap }}}2
 " vnoremap {{{2
 
 vnoremap < <gv
 vnoremap > >gv
 
-"}}}2
+" vnoremap }}}2
 " cnoremap {{{2
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
-"}}}2
+" cnoremap}}}2
 
+" mappings }}}1
 " abbrev {{{1
 
 iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
 iabbrev file- <c-r>%<cr>
 
+" abbrev }}}1
 " appearance {{{1
 
 " statusline {{{2
 
 set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
 
-" }}}2
-" }}}2
+" statusline }}}2
 " overlength {{{2
 
 highlight OverLength ctermbg=233 guibg=#592929
 match OverLength /\%81v.\+/
 
-" }}}2
+" overlength }}}2
 " colorscheme {{{2
 
 colorscheme vividchalk
@@ -253,10 +256,12 @@ colorscheme vividchalk
 "         colorscheme d4ryus_8
 " endif
 
+" colorscheme }}}2
 
+" appearance }}}1
 " functions {{{1
 
-"{{{2 NeatFoldText
+" NeatFoldText {{{2
 
 function! NeatFoldText()
 " got this function from http://dhruvasagar.com/tag/vim thanks alot :)
@@ -271,7 +276,8 @@ function! NeatFoldText()
         return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 
-"{{{2 NumberFold()
+" NeatFoldText }}}2
+" NumberFold {{{2
 
 function! NumberFold()
         let h = matchstr(getline(v:lnum), '^\d\+')
@@ -282,7 +288,8 @@ function! NumberFold()
         endif
 endfunction
 
-"{{{2 PatchFold()
+" NumberFold }}}2
+" PatchFold {{{2
 
 function! PatchFold()
         let h = getline(v:lnum)
@@ -295,24 +302,15 @@ function! PatchFold()
         endif
 endfunction
 
-"{{{2 ApplyCodeStyle()
-
-function! ApplyCodeStyle()
-        " fix else
-        silent! %s/}[\r\n]else[\r\n]{/} else {/g
-        " fix function
-        silent! %s/.\+(.*).*\zs{\(.*$\)/\1\r{/g
-        " remove all trailing whitespace's
-        silent!  %s/\s\+$//e
-endfunction
-
-"{{{2 RemoveTrailingWhitespaces()
+" PatchFold }}}2
+" RemoveTrailingWhitespaces {{{2
 
 function! RemoveTrailingWhitespaces()
         silent! %s/\s\+$//e
 endfunction
 
-"{{{2 Bash()
+" RemoveTrailingWhitespaces }}}2
+" Bash {{{2
 
 function! Bash()
         let prompt = '>'
@@ -325,8 +323,8 @@ function! Bash()
         call search('^' . prompt)
 endfunction
 
-"}}}2
-" {{{2 Markdown_preview
+" Bash }}}2
+" Markdown_preview {{{2
 
 function! Markdown_preview()
         if !executable('markdown')
@@ -361,9 +359,9 @@ function! Markdown_preview()
         call system('xdotool windowactivate ' . curr_win)
 endfunction
 
-" }}}2
+" Markdown_preview }}}2
 
-
+" functions }}}1
 " commands {{{1
 
 command! WQ wq
@@ -386,6 +384,8 @@ command! Js  JavaSet
 
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
       \ | diffthis | wincmd p | diffthis
+
+" commands }}}1
 " autocmd {{{1
 
 if has("autocmd")
@@ -421,8 +421,11 @@ if has("autocmd")
         aug END
 endif
 
+" autocmd }}}1
 " ~/.vimrc.local {{{1
 
 if filereadable(expand("~/.vimrc.local"))
         source ~/.vimrc.local
 endif
+
+" ~/.vimrc.local }}}1
