@@ -32,6 +32,7 @@ Bundle 'scrooloose/NERDTree'
 Bundle 'mtth/scratch.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'AlxHnr/clear_colors'
 Bundle 'andrwb/vim-lapis256'
 
@@ -130,7 +131,6 @@ endif
 " Slimv {{{2
 
 let g:slimv_repl_split = 4
-let g:lisp_rainbow = 1
 
 " Slimv }}}2
 
@@ -201,7 +201,9 @@ noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
+
 noremap cog :GitGutterToggle<CR>
+noremap cop :RainbowParenthesesToggle<CR>
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
