@@ -148,7 +148,7 @@ push() {
 }
 
 cinst() {
-        cower --download $1 && cd $1 && makepkg --syncdeps --install
+        cower --download $1 && cd $1 && makepkg --syncdeps --install && cd .. && rm -rf $1
 }
 
 play() {
