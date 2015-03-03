@@ -210,6 +210,8 @@ nnoremap <Down>  :res -1<CR>
 nnoremap <Left>  :vertical res -1<CR>
 nnoremap <Right> :vertical res +1<CR>
 
+nnoremap gb :ls<CR>:b<Space>
+
 " noremap }}}2
 " inoremap {{{2
 
