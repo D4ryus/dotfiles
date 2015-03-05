@@ -150,7 +150,7 @@ set incsearch                   " do incremental searching
 set ignorecase                  " dont use case sensetive search
 set nocompatible                " set noncompatible mode (vi vim)
 set autoread                    " autoread file when changed from outside
-set autoindent                  " always set autoindenting on
+set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
@@ -402,13 +402,12 @@ if has("autocmd")
         aug filetypes
                 au!
                 au BufNewFile,BufReadPost *.md set filetype=markdown
-                au FileType c    setl ts=8 sw=8 et
+                au FileType c    setl ts=8 sw=8 et cindent
                 au FileType cpp  setl ts=8 sw=8 et
                 au FileType sh   setl ts=8 sw=8 et
                 au FileType make setl ts=8 sw=8 noet
                 au FileType text setl ts=8 sw=8 et tw=72
                 au FileType qf   wincmd J
-                au QuickFixCmdPost * copen
         aug END
 
         aug vimrc
