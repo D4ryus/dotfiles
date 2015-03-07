@@ -233,8 +233,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 " mappings }}}1
 " abbrev {{{1
 
-iabbrev date- <c-r>=strftime("%Y-%m-%d")<cr>
-iabbrev file- <c-r>%<cr>
+iabbrev date- <c-r>=strftime("%Y-%m-%d")<CR>
+iabbrev file- <c-r>%<CR>
 
 " abbrev }}}1
 " appearance {{{1
