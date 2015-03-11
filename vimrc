@@ -241,7 +241,7 @@ iabbrev file- <c-r>%<CR>
 
 " statusline {{{2
 
-set statusline=%<[%F]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
+set statusline=%<[%F]\ [%{FileSize()}]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
 
 " statusline }}}2
 " overlength {{{2
@@ -269,6 +269,22 @@ colorscheme vividchalk
 " appearance }}}1
 " functions {{{1
 
+" FileSize {{{2
+
+"set statusline=%{FileSize()}
+function! FileSize()
+        let bytes = getfsize(expand("%:p"))
+        if bytes <= 0
+                return ""
+        endif
+        if bytes < 1024
+                return bytes
+        else
+                return (bytes / 1024) . "K"
+        endif
+endfunction
+
+" FileSize }}}2
 " NeatFoldText {{{2
 
 function! NeatFoldText()
