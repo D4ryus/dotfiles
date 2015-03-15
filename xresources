@@ -20,12 +20,12 @@
         URxvt.geometry:             99x30
         URxvt.scrollBar:            false
 
-        !! clickable urls
+!! clickable urls
         URxvt.perl-ext-common:      default,matcher
-        URxvt.url-launcher:         /usr/bin/chromium
+        URxvt.url-launcher:         /usr/bin/firefox
         URxvt.matcher.button:       1
 
-        !! colors
+!! colors
         URxvt.cursorColor: #06989a
         URxvt.background:  #000000
         URxvt.foreground:  #cccccc
