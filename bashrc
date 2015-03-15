@@ -73,16 +73,6 @@ show_colors() {
         done
 }
 
-# ping and pipe into statusbar
-pong() {
-        for ((i=0;i<10;i++))
-        do
-                ping -c 1 8.8.8.8 | sed -z s/\.\*time=// | stat_msg
-                sleep 1
-        done
-        stat_msg 0
-}
-
 # Extract Files
 ext() {
         if [ -f $1 ]; then
@@ -108,60 +98,8 @@ ext() {
         fi
 }
 
-# upload files to transer.sh
-upload() {
-        ARGS="--upload-file"
-
-        if [ -f $1 ]; then
-                if [[ $2 == "" ]]; then
-                        curl $ARGS $1 http://transfer.sh/$1
-                else
-                        curl $ARGS $1 http://transfer.sh/$2
-                fi
-        else
-                echo "\`$1' is not a valid file"
-        fi
-}
-
-# sync with cub
-sc() {
-        ARGS="--delete --progress --recursive --times --human-readable"
-        FOLDER=~/sync
-
-        if [[ $1 == "d4" ]]; then
-                rsync $ARGS d4:$FOLDER $HOME
-        else
-                rsync $ARGS cub:$FOLDER $HOME
-        fi
-}
-
-# push to cub
-push() {
-        ARGS="-r"
-        FOLDER=~/sync/push/
-
-        if [[ $2 != "" ]]; then
-                scp $ARGS $2 $1:$FOLDER
-        else
-                scp $ARGS $1 d4:$FOLDER
-        fi
-}
-
 cinst() {
         cower --download $1 && cd $1 && makepkg --syncdeps --install && cd .. && rm -rf $1
-}
-
-play() {
-        LINK=$1
-        if [[ $LINK == "" ]]; then
-                LINK=$(xclip -o)
-        fi
-        YT_FLAGS="--audio-quality 0 --prefer-free-formats --quiet \
-                  --no-warnings --youtube-skip-dash-manifest"
-        MP_FLAGS="-really-quiet"
-        PV_FLAGS="--bytes --rate --average-rate"
-
-        youtube-dl $YT_FLAGS -o - $LINK | pv $PV_FLAGS | mplayer $MP_FLAGS -
 }
 
 update_Aur() {
@@ -182,6 +120,3 @@ update_Aur() {
                 return
         fi
 }
-
-export PATH=$HOME/local/node/bin:$PATH
-export NODE_PATH=$HOME/local/node/lib/node_modules
