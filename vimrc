@@ -157,7 +157,7 @@ set list                        " list all tabs and ending spaces
 set listchars=tab:>·,nbsp:_,trail:·,precedes:«,extends:»,eol:¬,conceal:_
 set linebreak                   " better wraping of lines
 set breakindent                 " indent linebreaks
-set showbreak=\ »»\             " show linebreaks if wrap is set
+set showbreak=\ ➣➣\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
@@ -179,6 +179,10 @@ set wildmode=longest:list,full  " dont change insertion
 set tags+=.git/tags             " source git repository tags
 set path+=/usr/local/include    " also search through /usr/local/include
 set path+=./**                  " also add the current path
+set diffopt=vertical            " vertical diff
+set nojoinspaces                " do not add spaces on join
+set nrformats=alpha             " also increment characters
+set formatoptions-=o            " do not continue comment after hitting 'o'
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
