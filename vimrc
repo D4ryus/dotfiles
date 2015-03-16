@@ -183,6 +183,7 @@ set diffopt=vertical            " vertical diff
 set nojoinspaces                " do not add spaces on join
 set nrformats=alpha             " also increment characters
 set formatoptions-=o            " do not continue comment after hitting 'o'
+set wildignore+=*.o,*.obj,*.class
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
