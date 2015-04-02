@@ -156,12 +156,10 @@ set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
 set listchars=tab:>·,nbsp:_,trail:·,precedes:«,extends:»,eol:¬,conceal:_
 set linebreak                   " better wraping of lines
-set breakindent                 " indent linebreaks
 set showbreak=\ ➣➣\             " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
-set cm=blowfish2                " use blowfish as encryption (X)
 set history=82                  " keep 82 lines of command line history
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
@@ -184,6 +182,18 @@ set nojoinspaces                " do not add spaces on join
 set nrformats=alpha             " also increment characters
 set formatoptions-=o            " do not continue comment after hitting 'o'
 set wildignore+=*.o,*.obj,*.class
+
+" use blowfish as encryption (X)
+if v:version < 704
+        set cm=blowfish
+else
+        set cm=blowfish2
+endif
+
+" indent linebreaks
+if v:version == 704 && has('patch338')
+        set breakindent
+endif
 
 if has('persistent_undo')
     let dir = expand('$HOME/.vim/undo')
