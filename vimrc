@@ -110,11 +110,6 @@ endif
 let g:scratch_insert_autohide = 0
 
 " Scratch }}}2
-" GitGutter {{{2
-
-let g:gitgutter_enabled = 0
-
-" GitGutter }}}2
 " GitV {{{2
 
 let g:Gitv_OpenPreviewOnLaunch = 1
@@ -207,7 +202,6 @@ noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
 
-noremap cog :GitGutterToggle<CR>
 noremap cop :RainbowParenthesesToggle<CR>
 
 nnoremap <Up>    :res +1<CR>
