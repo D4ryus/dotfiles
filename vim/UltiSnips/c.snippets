@@ -1,33 +1,19 @@
-snippet c
-/**
- * ${VISUAL}$0
- */
-endsnippet
-
-snippet mainn
-int main(int argc, const char *argv[])
-{
-	$0
-	return 0;
-}
-endsnippet
-
 snippet main
-int main()
+int
+main(int argc, const char *argv[])
 {
 	$0
+
 	return 0;
 }
 endsnippet
 
 snippet inc
-#include <$1.h>
-$0
+#include <$0.h>
 endsnippet
 
 snippet Inc
-#include "$1.h"
-$0
+#include "$0.h"
 endsnippet
 
 snippet guard "header guard" b
@@ -47,58 +33,28 @@ endsnippet
 
 snippet if
 if ($1) {
-	${VISUAL}$2
-} $0
+	$0
+}
 endsnippet
 
 snippet else
 else {
-	${VISUAL}$1
-}$0
-endsnippet
-
-snippet t
-$1 ? $2 : $0;
-endsnippet
-
-snippet do
-do {
-	${VISUAL}$0
-} while ($1);
+	$0
+}
 endsnippet
 
 snippet while
 while ($1) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet for
-for (${1:i} = ${2:0}; $1 < ${3:count}; $1${4:++})
-{
-	${VISUAL}${0:/* code */}
-}
-endsnippet
-
-snippet forr
-int ${1:i};
-for ($1 = ${2:0}; $1 < ${3:count}; $1${4:++}) {
-	${VISUAL}${0:/* code */}
+	$0
 }
 endsnippet
 
 snippet fun
-${1:int} $2($3) {
+${1:int}
+$2($3)
+{
 	${VISUAL}$0
 }
-endsnippet
-
-snippet fund
-${1:void} $2($3);$0
-endsnippet
-
-snippet td
-typedef $1 $2;$0
 endsnippet
 
 snippet st
@@ -107,13 +63,6 @@ struct $1 {
 };
 endsnippet
 
-snippet enum
-typedef enum {
-	$1
-} $2;
-$0
-endsnippet
-
 snippet p
-printf("$1\n"$2);$0
+printf("$1\n"$0);
 endsnippet

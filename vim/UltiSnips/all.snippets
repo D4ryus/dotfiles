@@ -1,32 +1,9 @@
 # Global snippets
-snippet fixme "fixme snippet" b
-/* --fixme-- */
- * ${VISUAL}$0 */
-endsnippet
-
-snippet head "header snippet" b
-/*
- * author: ${1:`echo $USER` https://github.com/`echo $USER`}
- * $2
- * vim:$0:
- */
-endsnippet
-
-snippet "
-"$1"$0
-endsnippet
-
 snippet (
 ($1)$0
 endsnippet
 
 snippet { "braces"
-{
-	${VISUAL}$0
-}
-endsnippet
-
-snippet b "braces"
 {$0
 }
 endsnippet
@@ -34,14 +11,4 @@ endsnippet
 # (c) holds no legal value ;)
 snippet c) "copyright" b
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
-endsnippet
-
-snippet t "tag"
-<$1>$0</$1>
-endsnippet
-
-snippet tt "tag"
-<$1>
-	$0
-</$1>
 endsnippet
