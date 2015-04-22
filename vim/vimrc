@@ -35,6 +35,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'AlxHnr/clear_colors'
 Bundle 'andrwb/vim-lapis256'
+Bundle 'majutsushi/tagbar'
 
 if executable('ctags')
         Bundle 'vim-scripts/taglist.vim'
