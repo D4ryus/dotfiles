@@ -18,8 +18,6 @@
 	tool    = vimdiff
 [difftool]
 	prompt  = false
-[github]
-	user    = d4ryus
 [color]
 	status  = auto
 	branch  = auto
