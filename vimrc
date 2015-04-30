@@ -191,14 +191,14 @@ if v:version == 704 && has('patch338')
 endif
 
 if has('persistent_undo')
-    let dir = expand('$HOME/.vim/undo')
-    call system('mkdir ' . dir)
-    let &undodir = dir
-    set undofile
+        let dir = expand('$HOME/.vim/undo')
+        call system('mkdir ' . dir)
+        let &undodir = dir
+        set undofile
 endif
 
 if executable('par')
-    set formatprg=par
+        set formatprg=par
 endif
 
 " setter }}}1
@@ -311,13 +311,13 @@ endfunction
 
 " NeatFoldText }}}2
 " NumberFold {{{2
-
+"
 function! NumberFold()
-        let h = matchstr(getline(v:lnum), '^\d\+')
+        let h = matchstr(getline(v:lnum), '^\(\d\.\)\+')
         if empty(h)
                 return "="
         else
-                return ">" . len(h)
+                return ">" . (len(h) / 2)
         endif
 endfunction
 
