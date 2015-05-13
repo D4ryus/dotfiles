@@ -1,6 +1,6 @@
 # file: ~/.bashrc
 # author: d4ryus - https://github.com/d4ryus/
-# vim:ts=2:sw=2:ai:ft=sh:
+# vim:ts=8:sw=8:ai:ft=sh:
 
 set -o vi mode
 
