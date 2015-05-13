@@ -29,8 +29,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
-Bundle 'ervandew/supertab'
-Bundle 'mtth/scratch.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'AlxHnr/clear_colors'
@@ -73,11 +71,6 @@ let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:EclimCompletionMethod='omnifunc'
 
 " Eclim }}}2
-" Supertab {{{2
-
-let g:SuperTabDefaultCompletionType='context'
-
-" Supertab }}}2
 " Taglist {{{2
 
 let Tlist_Use_Right_Window = 1
@@ -140,7 +133,6 @@ map :haw :0r ~/.vim/license/haw.txt<CR>
 " setter {{{1
 
 syntax on                       " enable syntax highlighting
-set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
 set ignorecase                  " dont use case sensetive search
@@ -175,9 +167,15 @@ set path+=/usr/local/include    " also search through /usr/local/include
 set path+=./**                  " also add the current path
 set diffopt=vertical            " vertical diff
 set nojoinspaces                " do not add spaces on join
-set nrformats=alpha             " also increment characters
 set formatoptions-=o            " do not continue comment after hitting 'o'
-set wildignore+=*.o,*.obj,*.class
+set wildignore+=*.o,*.obj,*.class " ignore binary files
+set ttyfast                     " assume a fast terminal
+set display=lastline            " show as much wrapped lines as possible
+
+" move cursor everywhere in visual block mode
+if has('virtualedit')
+  set virtualedit+=block
+endif
 
 " use blowfish as encryption (X)
 if v:version < 704
@@ -200,6 +198,10 @@ endif
 
 if executable('par')
         set formatprg=par
+endif
+
+if !isdirectory($HOME . '/.vim/swap') && exists('*mkdir')
+        call mkdir($HOME . '/.vim/swap', 'p', 0700)
 endif
 
 " setter }}}1
@@ -251,7 +253,7 @@ iabbrev file- <c-r>%<CR>
 
 " statusline {{{2
 
-set statusline=%<[%F]\ [%{FileSize()}]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%c\ %p%%]
+set statusline=%<[%F]\ [%{FileSize()}]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%v\ %p%%]
 
 " statusline }}}2
 " overlength {{{2
@@ -428,11 +430,6 @@ if has("autocmd")
         aug filetypes
                 au!
                 au BufNewFile,BufReadPost *.md set filetype=markdown
-                au FileType c    setl ts=8 sw=8 et cindent
-                au FileType cpp  setl ts=8 sw=8 et
-                au FileType sh   setl ts=8 sw=8 et
-                au FileType make setl ts=8 sw=8 noet
-                au FileType text setl ts=8 sw=8 et tw=72
                 au FileType qf   wincmd J
         aug END
 
