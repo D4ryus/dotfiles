@@ -80,7 +80,7 @@ let Tlist_File_Fold_Auto_Close = 1
 " Ag {{{2
 
 if executable('ag')
-        set grepprg=ag\ --nogroup\ --nocolor
+        set grepprg=ag\ --vimgrep
 endif
 
 " Ag }}}2
