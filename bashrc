@@ -8,32 +8,19 @@ export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
 export EDITOR=/usr/bin/vim
-export PATH=$PATH:/home/d4ryus/bin
+export PATH=${PATH}:/home/d4ryus/bin
 export vrc=~/.vim/vimrc
 if [[ -z "$GOPATH" ]]; then
         export GOPATH=/home/d4ryus/gocode
 fi
 
-alias io="iostat -hmd 1"
-alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
 alias tm="tmux attach -t"
 alias ts="tmux ls"
-alias svnlog="svn log -v | vim -"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 alias pg="ps -efa | grep "
-alias il="ip a"
-alias wu="ip link set wlp3s0 up"
-alias wd="ip link set wlp3s0 down"
-alias we="iwconfig wlp3s0 essid "
-alias ws="iwlist scan | grep 'ESSID:'"
-alias ww="wpa_supplicant -i wlp3s0 -B -c /etc/wpa_supplicant/wpa_supplicant-wlp3s0.conf"
-alias wi="dhcpcd wlp3s0"
-alias eu="ip link set enp0s25 up"
-alias ed="ip link set enp0s25 down"
-alias ei="dhcpcd enp0s25"
 alias upAur="update_Aur"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 
@@ -120,4 +107,22 @@ update_Aur() {
                 rm --recursive --force "$TMP"
                 return
         fi
+}
+
+con_wireless() {
+        INTERFACE="wlp3s0"
+        WPA_CONF="/etc/wpa_supplicant/wpa_supplicant-wlp3s0.conf"
+
+        if [[ $EUID -ne 0 ]]; then
+                echo "call me again when u got root!"
+                return
+        fi
+
+        echo "setting $INTERFACE up"
+        ip link set $INTERFACE up
+        echo "starting wpa on $INTERFACE with $WPA_CONF"
+        wpa_supplicant -i $INTERFACE -B -c $WPA_CONF
+        echo "getting ip via dhcpcd"
+        dhcpcd $INTERFACE
+        echo "should be all done now."
 }
