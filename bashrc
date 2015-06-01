@@ -53,7 +53,8 @@ fi
 
 # tmux and wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
-        if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" ]]; then
+        if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" \
+            && "$TERM" != "screen" ]]; then
                 tmux new-session
         fi
         if [ -d ~/.wikidates ]; then
