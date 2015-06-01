@@ -69,6 +69,7 @@ let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 
 let g:EclimLoggingDisabled=1    " disable Eclim logging
 let g:EclimCompletionMethod='omnifunc'
+let g:EclimXmlValidate=0
 
 " Eclim }}}2
 " Taglist {{{2
