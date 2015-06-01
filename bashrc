@@ -4,6 +4,7 @@
 
 set -o vi mode
 
+export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
 export EDITOR=/usr/bin/vim
@@ -16,11 +17,10 @@ fi
 alias io="iostat -hmd 1"
 alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
-alias tmux="tmux -2"
 alias tm="tmux attach -t"
 alias ts="tmux ls"
 alias svnlog="svn log -v | vim -"
-alias ls="ls -l --color=auto"
+alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 alias pg="ps -efa | grep "
@@ -53,7 +53,8 @@ fi
 
 # tmux and wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
-        if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" ]]; then
+        if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" \
+            && "$TERM" != "screen" ]]; then
                 tmux new-session
         fi
         if [ -d ~/.wikidates ]; then

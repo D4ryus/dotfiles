@@ -7,7 +7,7 @@
         xterm*faceSize:             10
         xterm*foreground:           rgb:a8/a8/a8
         xterm*background:           rgb:00/00/00
-        xterm*VT100.geometry:       99x28
+        xterm*VT100.geometry:       80x25
         xterm*backarrowKey:         false
         xterm*utf8:                 1
         xterm*faceName:             Terminus:size=11:antialias=false
@@ -17,7 +17,7 @@
         URxvt.termName:             rxvt-unicode-256color
         URxvt.font:                 xft:Terminus:size=11:antialias=false
         URxvt.faceSize:             10
-        URxvt.geometry:             99x30
+        URxvt.geometry:             80x25
         URxvt.scrollBar:            false
 
 !! clickable urls
