@@ -17,7 +17,6 @@ fi
 alias io="iostat -hmd 1"
 alias waf="watch -n 1 du -sch"
 alias lock="sleep 1 && xset dpms force off && slock"
-alias tmux="tmux -2"
 alias tm="tmux attach -t"
 alias ts="tmux ls"
 alias svnlog="svn log -v | vim -"
