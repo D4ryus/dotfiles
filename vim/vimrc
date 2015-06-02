@@ -262,21 +262,6 @@ highlight OverLength ctermbg=233 guibg=#592929
 match OverLength /\%81v.\+/
 
 " overlength }}}2
-" colorscheme {{{2
-
-colorscheme vividchalk
-" if &term =~ "xterm"                 ||
-" \  &term =~ "urxvt"                 ||
-" \  &term =~ "xterm-256color"        ||
-" \  &term =~ "screen-256color"       ||
-" \  &term =~ "rxvt-unicode-256color" ||
-" \  has("gui_running")
-"         colorscheme d4ryus_256
-" else
-"         colorscheme d4ryus_8
-" endif
-
-" colorscheme }}}2
 
 " appearance }}}1
 " functions {{{1
