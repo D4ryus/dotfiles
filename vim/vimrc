@@ -35,6 +35,7 @@ Bundle 'andrwb/vim-lapis256'
 Bundle 'majutsushi/tagbar'
 
 if executable('ctags')
+        Bundle 'ludovicchabant/vim-gutentags'
         Bundle 'vim-scripts/taglist.vim'
 endif
 
@@ -162,7 +163,6 @@ set splitbelow                  " open splits blow instead of on top
 set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
-set tags+=.git/tags             " source git repository tags
 set path+=/usr/local/include    " also search through /usr/local/include
 set path+=./**                  " also add the current path
 set diffopt=vertical            " vertical diff
@@ -415,7 +415,7 @@ if has("autocmd")
         aug filetypes
                 au!
                 au BufNewFile,BufReadPost *.md set filetype=markdown
-                au FileType qf   wincmd J
+                au FileType qf wincmd J
         aug END
 
         aug vimrc
