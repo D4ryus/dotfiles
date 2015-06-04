@@ -160,7 +160,6 @@ set foldtext=NeatFoldText()     " set foldtext to function below
 set completeopt=longest,menuone " dont select the first match
 set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
-set clipboard=unnamedplus       " paste from clipboard, yank to clipboard
 set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
 set path+=/usr/local/include    " also search through /usr/local/include
@@ -177,11 +176,15 @@ if has('virtualedit')
   set virtualedit+=block
 endif
 
-" use blowfish as encryption (X)
-if v:version < 704
-        set cm=blowfish
-else
+if has('unnamedplus')
+        set clipboard=unnamed,unnamedplus
+endif
+
+" use blowfish as encryption (:X)
+if v:version >= 704
         set cm=blowfish2
+elseif v:version >= 702
+        set cm=blowfish
 endif
 
 " indent linebreaks
@@ -411,6 +414,12 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 
 if has("autocmd")
         filetype plugin on
+
+        aug clearMatches
+                if version >= 702
+                        au BufWinLeave * call clearmatches()
+                endif
+        aug END
 
         aug filetypes
                 au!
