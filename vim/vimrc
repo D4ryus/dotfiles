@@ -51,11 +51,6 @@ endif
 " vundle }}}1
 " plugin-settings {{{1
 
-" NERDtree {{{2
-
-let NERDTreeDirArrows=0
-
-" NERDtree }}}2
 " UltiSnips {{{2
 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -85,26 +80,6 @@ if executable('ag')
 endif
 
 " Ag }}}2
-" CtrlP {{{2
-
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_switch_buffer = 'E'
-let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-        \ 'file': '\v\.(o|a|so|class|jpg|jpeg|bmp|tar|jar|exe|dll)$',
-        \ }
-
-if executable('ag')
-        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-        let g:ctrlp_use_caching = 0
-endif
-
-" CtrlP }}}2
-" Scratch {{{2
-
-let g:scratch_insert_autohide = 0
-
-" Scratch }}}2
 " GitV {{{2
 
 let g:Gitv_OpenPreviewOnLaunch = 1
