@@ -229,6 +229,11 @@ iabbrev file- <c-r>%<CR>
 " abbrev }}}1
 " appearance {{{1
 
+" background {{{2
+
+set background=light
+
+" background }}}2
 " statusline {{{2
 
 set statusline=%<[%F]\ [%{FileSize()}]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%v\ %p%%]
