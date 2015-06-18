@@ -167,13 +167,6 @@ if v:version == 704 && has('patch338')
         set breakindent
 endif
 
-if has('persistent_undo')
-        let dir = expand('$HOME/.vim/undo')
-        call system('mkdir ' . dir)
-        let &undodir = dir
-        set undofile
-endif
-
 if executable('par')
         set formatprg=par
 endif
