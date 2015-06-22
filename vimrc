@@ -53,18 +53,27 @@ endif
 
 " UltiSnips {{{2
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " UltiSnips }}}2
 " Eclim {{{2
 
-let g:EclimLoggingDisabled=1    " disable Eclim logging
-let g:EclimCompletionMethod='omnifunc'
-let g:EclimXmlValidate=0
+let g:EclimLoggingDisabled = 1
+let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimXmlValidate = 0
+
+command! Jio JavaImportOrganize
+command! Jdp JavaDocPreview
+command! Jch JavaCallHierarchy
+command! Jc  JavaCorrect
+command! Jr  JavaRename
+command! Jgs JavaGetSet
+command! Jg  JavaGet
+command! Js  JavaSet
 
 " Eclim }}}2
 " Taglist {{{2
@@ -100,12 +109,6 @@ let g:slimv_repl_split = 4
 " Slimv }}}2
 
 " plugin-settings }}}1
-" macros {{{1
-
-map :fts zt,,f{azfa{j
-map :haw :0r ~/.vim/license/haw.txt<CR>
-
-" macros }}}1
 " setter {{{1
 
 syntax on                       " enable syntax highlighting
@@ -118,16 +121,16 @@ set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
-set listchars=tab:>·,nbsp:_,trail:·,precedes:«,extends:»,eol:¬,conceal:_
+set listchars=tab:>·,nbsp:_,trail:·,precedes:<,extends:>,eol:¬,conceal:_
 set linebreak                   " better wraping of lines
-set showbreak=\ ➣➣\             " show linebreaks if wrap is set
+set showbreak=➣➣                " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
 set history=82                  " keep 82 lines of command line history
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set backspace=indent,eol,start  " allow backspace in insert mode
 set encoding=UTF-8              " use UTF-8 as encoding
-set modelines=40                " search first/last 40 lines for vim modeline options
+set modelines=40                " search first/last 40 lines for vim modeline
 set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap//     " directory where all swap files will be
@@ -229,12 +232,17 @@ set background=light
 " background }}}2
 " statusline {{{2
 
-set statusline=%<[%F]\ [%{FileSize()}]\ [%{&ff}]\ [%M%Y%R%q%W]\ %{fugitive#statusline()}%=\ [pos:\ %l/%L:%v\ %p%%]
+set statusline=%<[%F]
+set statusline+=\ [%{FileSize()}]
+set statusline+=\ [%{&ff}]
+set statusline+=\ [%M%Y%R%q%W]
+set statusline+=\ %{fugitive#statusline()}%=
+set statusline+=\ [pos:\ %l/%L:%v\ %p%%]
 
 " statusline }}}2
 " overlength {{{2
 
-highlight OverLength ctermbg=233 guibg=#592929
+highlight OverLength ctermbg=6 guibg=#592929
 match OverLength /\%81v.\+/
 
 " overlength }}}2
@@ -262,15 +270,22 @@ endfunction
 
 function! NeatFoldText()
 " got this function from http://dhruvasagar.com/tag/vim thanks alot :)
-        let line             = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+        let line             = ' ' . substitute(getline(v:foldstart),
+                                \ '^\s*"\?\s*\|\s*"\?\s*{{'
+                                \ . '{\d*\s*', '', 'g')
+                                \ . ' '
         let lines_count      = v:foldend - v:foldstart + 1
-        let lines_count_text = '| ' . printf("%9s", lines_count . ' lines') . ' |'
+        let lines_count_text = '| ' . printf("%9s", lines_count . ' lines')
+                                \ . ' |'
         "let foldchar         = matchstr(&fillchars, 'fold:\zs.')
         let foldchar         = '_'
-        let foldtextstart    = strpart('+' . repeat(foldchar, v:foldlevel) . line, 0, (winwidth(0)*2)/3)
+        let foldtextstart    = strpart('+' . repeat(foldchar, v:foldlevel)
+                                \ . line, 0, (winwidth(0) * 2) / 3)
         let foldtextend      = lines_count_text . repeat(foldchar, 8)
-        let foldtextlength   = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-        return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+        let foldtextlength   = strlen(substitute(foldtextstart . foldtextend,
+                                \ '.', 'x', 'g')) + &foldcolumn
+        return foldtextstart . repeat(foldchar, winwidth(0) - foldtextlength)
+                                \ . foldtextend
 endfunction
 
 " NeatFoldText }}}2
@@ -321,42 +336,6 @@ function! Bash()
 endfunction
 
 " Bash }}}2
-" Markdown_preview {{{2
-
-function! Markdown_preview()
-        if !executable('markdown')
-                echo 'cannot find markdown executable'
-                return
-        endif
-        if !executable('xdotool')
-                echo 'cannot find xdotool executable'
-                return
-        endif
-        if !executable('chromium')
-                echo 'cannot find chromium executable'
-                return
-        endif
-
-        let file_name = expand('%:t')
-        let tmp_file_name = file_name . '.html'
-
-        call system('markdown ' . file_name . ' > /tmp/' . tmp_file_name)
-
-        let browser = system("xdotool search --name '" . tmp_file_name . " - Chromium'")
-        sleep 300m
-
-        let curr_win = system('xdotool getwindowfocus')
-        if !browser
-                call system('chromium /tmp/' . tmp_file_name)
-        else
-                call system('xdotool windowmap ' . browser)
-                call system('xdotool windowactivate ' . browser)
-        endif
-        call system("xdotool key 'ctrl+r'")
-        call system('xdotool windowactivate ' . curr_win)
-endfunction
-
-" Markdown_preview }}}2
 
 " functions }}}1
 " commands {{{1
@@ -366,21 +345,8 @@ command! Wq wq
 command! W w
 command! Q q
 
-command! Codestyle call ApplyCodeStyle()
 command! Rtw call RemoveTrailingWhitespaces()
 command! Bash call Bash()
-
-command! Jio JavaImportOrganize
-command! Jdp JavaDocPreview
-command! Jch JavaCallHierarchy
-command! Jc  JavaCorrect
-command! Jr  JavaRename
-command! Jgs JavaGetSet
-command! Jg  JavaGet
-command! Js  JavaSet
-
-command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
-      \ | diffthis | wincmd p | diffthis
 
 " commands }}}1
 " autocmd {{{1
@@ -408,7 +374,7 @@ if has("autocmd")
         " got this aug from derekwyatt's vimrc
         aug Binary
                 au!
-                au BufReadPre   *.bin let &bin=1
+                au BufReadPre   *.bin let &bin = 1
                 au BufReadPost  *.bin if &bin | %!xxd
                 au BufReadPost  *.bin set filetype=xxd | endif
                 au BufWritePre  *.bin if &bin | %!xxd -r
