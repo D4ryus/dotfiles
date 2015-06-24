@@ -246,6 +246,11 @@ highlight OverLength ctermbg=6 guibg=#592929
 match OverLength /\%81v.\+/
 
 " overlength }}}2
+" matchparen {{{2
+
+highlight MatchParen ctermbg=0 ctermfg=1 cterm=bold
+
+" matchparen }}}2
 
 " appearance }}}1
 " functions {{{1
