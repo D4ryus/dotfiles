@@ -2,7 +2,11 @@
 # author: d4ryus https://github.com/d4ryus
 
 source "gpg -dq $HOME/.mutt/my_mutt.gpg |"
-#source $HOME/.mutt/colorscheme
+
+set alias_file = ~/.mutt/aliases
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
 
 set ssl_force_tls    = yes
 set header_cache     = ~/.mutt/cache
@@ -14,23 +18,18 @@ bind pager j next-line
 bind pager k previous-line
 
 # imap settings
-set folder           = imaps://imap.mail.yahoo.com
-set imap_user        = $my_mail
-set imap_pass        = $my_pass
-set imap_keepalive   = 30   # time to send "keepalive" msg
-set timeout          = 60   # time to poll current mailbox
-set mail_check       = 1800 # time to poll other mailboxes
-set imap_idle        = yes
-mailboxes            = INBOX
-set spoolfile        = +INBOX
+set folder    = "/home/d4ryus/mail"
+set mbox_type = Maildir
+mailboxes     = +inbox
+set spoolfile = "+inbox"
 
 # smtp settings
-set smtp_url         = smtps://$my_mail:$my_pass@smtp.mail.yahoo.com:465
-set editor           = "vim"
-set realname         = $my_name
-set from             = $my_mail
-set use_from         = yes
-set record           = +Sent
+set smtp_url = smtps://$my_mail:$my_pass@smtp.mail.yahoo.com:465
+set editor   = "vim"
+set realname = $my_name
+set from     = $my_mail
+set use_from = yes
+set record   = ~/mail/saves/sent
 
 # got these settings from http://blog.sanctum.geek.nz/linux-crypto-email/
 
