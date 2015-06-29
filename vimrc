@@ -81,6 +81,8 @@ command! Js  JavaSet
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 
+noremap cot :TagbarToggle<CR>
+
 " Taglist }}}2
 " Ag {{{2
 
@@ -105,6 +107,8 @@ endif
 " Slimv {{{2
 
 let g:slimv_repl_split = 4
+
+noremap cop :RainbowParenthesesToggle<CR>
 
 " Slimv }}}2
 
@@ -188,8 +192,6 @@ noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
-
-noremap cop :RainbowParenthesesToggle<CR>
 
 nnoremap <Up>    :res +1<CR>
 nnoremap <Down>  :res -1<CR>
