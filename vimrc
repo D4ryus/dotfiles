@@ -299,7 +299,7 @@ endfunction
 " NumberFold {{{2
 "
 function! NumberFold()
-        let h = matchstr(getline(v:lnum), '^\(\d.\)\+')
+        let h = matchstr(getline(v:lnum), '^\(\d\+.\)\+')
         if empty(h)
                 return "="
         else
