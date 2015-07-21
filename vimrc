@@ -219,6 +219,13 @@ vnoremap > >gv
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 
 " cnoremap}}}2
+" tnoremap {{{2
+
+if has('nvim')
+        tnoremap <Esc><Esc> <C-\><C-n>
+endif
+
+" tnoremap}}}2
 
 " mappings }}}1
 " abbrev {{{1
