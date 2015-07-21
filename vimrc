@@ -1,4 +1,4 @@
-" file: ~/.vimrc
+" file: ~/.nvimrc
 " author: d4ryus - https://github.com/d4ryus/
 " vim:ts=8:sw=8:foldmethod=marker:
 
@@ -163,10 +163,12 @@ if has('unnamedplus')
 endif
 
 " use blowfish as encryption (:X)
-if v:version >= 704
-        set cm=blowfish2
-elseif v:version >= 702
-        set cm=blowfish
+if !has('nvim')
+        if v:version >= 704
+                set cm=blowfish2
+        elseif v:version >= 702
+                set cm=blowfish
+        endif
 endif
 
 " indent linebreaks
