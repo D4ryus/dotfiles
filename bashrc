@@ -2,7 +2,10 @@
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=8:sw=8:ai:ft=sh:
 
-set -o vi mode
+# if not neovim terminal
+if [[ "$TERM" != "xterm-256color" ]]; then
+        set -o vi mode
+fi
 
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
@@ -40,8 +43,11 @@ fi
 
 # tmux and wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
-        if [[ "$TERM" != "screen-256color" && "$TERM" != "linux" \
-            && "$TERM" != "screen" ]]; then
+        if [[ "$TERM" != "screen-256color" \
+           && "$TERM" != "screen" \
+           && "$TERM" != "linux" \
+           && "$TERM" != "xterm-256color" ]]; # not neovim
+        then
                 tmux new-session
         fi
         if [ -d ~/.wikidates ]; then
