@@ -222,7 +222,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%h').'/' : '%%'
 " tnoremap {{{2
 
 if has('nvim')
-        tnoremap <Esc><Esc> <C-\><C-n>
+        tnoremap jk <C-\><C-n>
 endif
 
 " tnoremap}}}2
