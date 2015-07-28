@@ -251,12 +251,6 @@ set statusline+=\ %{fugitive#statusline()}%=
 set statusline+=\ [pos:\ %l/%L:%v\ %p%%]
 
 " statusline }}}2
-" overlength {{{2
-
-highlight OverLength ctermbg=6 guibg=#592929
-match OverLength /\%81v.\+/
-
-" overlength }}}2
 " matchparen {{{2
 
 highlight MatchParen ctermbg=0 ctermfg=1 cterm=bold
@@ -352,6 +346,20 @@ function! Bash()
 endfunction
 
 " Bash }}}2
+" Overlength {{{2
+
+function! Overlength_toggle()
+        if exists('g:overlength_enabled')
+                let g:overlength_enabled = 0
+                highlight OverLength none
+        else
+                let g:overlength_enabled = 1
+                highlight OverLength ctermbg=6 guibg=#592929
+                match OverLength /\%81v.\+/
+        endif
+endfunction
+
+" Overlength }}}2
 
 " functions }}}1
 " commands {{{1
@@ -363,6 +371,7 @@ command! Q q
 
 command! Rtw call RemoveTrailingWhitespaces()
 command! Bash call Bash()
+command! OverlengthToggle call Overlength_toggle()
 
 " commands }}}1
 " autocmd {{{1
