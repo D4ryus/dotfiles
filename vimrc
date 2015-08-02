@@ -102,11 +102,12 @@ let g:Gitv_DoNotMapCtrlKey = 1
 if has("python3")
         let g:gundo_prefer_python3 = 1
 endif
+noremap cog :GundoToggle<CR>
 
 " Gundo }}}2
 " Slimv {{{2
 
-let g:slimv_repl_split = 4
+let g:slimv_repl_split = 2
 
 noremap cop :RainbowParenthesesToggle<CR>
 
@@ -160,6 +161,8 @@ endif
 
 if has('unnamedplus')
         set clipboard=unnamed,unnamedplus
+else
+        set clipboard=unnamed
 endif
 
 " use blowfish as encryption (:X)
@@ -189,8 +192,6 @@ endif
 
 " noremap {{{2
 
-noremap <Leader>t :TlistToggle<CR>
-noremap <Leader>u :GundoToggle<CR>
 noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
@@ -358,6 +359,8 @@ function! Overlength_toggle()
                 match OverLength /\%81v.\+/
         endif
 endfunction
+
+nnoremap coo :OverlengthToggle<CR>
 
 " Overlength }}}2
 
