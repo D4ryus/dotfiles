@@ -1,4 +1,4 @@
-" file: ~/.nvimrc
+" file: ~/.vimrc
 " author: d4ryus - https://github.com/d4ryus/
 " vim:ts=8:sw=8:foldmethod=marker:
 
@@ -410,6 +410,12 @@ if has("autocmd")
                 au BufWritePost *.bin if &bin | %!xxd
                 au BufWritePost *.bin set nomod | endif
         aug END
+
+if has('nvim')
+        aug Nvim
+                au TermOpen * set nolist
+        aug END
+endif
 endif
 
 " autocmd }}}1
