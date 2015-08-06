@@ -41,15 +41,8 @@ else
         PS1='[\[\033[0;31m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status -b 2>/dev/null | head -n 1 | grep -oE " [^ ]+$")\[\033[0m\]] '
 fi
 
-# tmux and wikidates setting
+# wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
-        if [[ "$TERM" != "screen-256color" \
-           && "$TERM" != "screen" \
-           && "$TERM" != "linux" \
-           && "$TERM" != "xterm-256color" ]]; # not neovim
-        then
-                tmux new-session
-        fi
         if [ -d ~/.wikidates ]; then
                 cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
         fi
