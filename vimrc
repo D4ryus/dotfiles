@@ -350,7 +350,11 @@ endfunction
 " Overlength {{{2
 
 function! Overlength_toggle()
-        if exists('g:overlength_enabled')
+        if !exists('g:overlength_enabled')
+                let g:overlength_enabled = 0
+        endif
+
+        if g:overlength_enabled
                 let g:overlength_enabled = 0
                 highlight OverLength none
         else
