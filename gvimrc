@@ -1,3 +1,3 @@
 set guioptions-=T
-colorscheme clear_colors_light
+colorscheme flatui
 set mouse=a

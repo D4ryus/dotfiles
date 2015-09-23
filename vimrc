@@ -30,9 +30,9 @@ Bundle 'gregsexton/gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'AlxHnr/clear_colors'
-Bundle 'andrwb/vim-lapis256'
 Bundle 'majutsushi/tagbar'
+Bundle 'chrisbra/unicode.vim'
+Bundle 'john2x/flatui.vim'
 
 if executable('ctags')
         Bundle 'ludovicchabant/vim-gutentags'
@@ -116,11 +116,15 @@ noremap cop :RainbowParenthesesToggle<CR>
 " plugin-settings }}}1
 " setter {{{1
 
+if !has('nvim')
+        set ttyfast             " assume a fast terminal
+        set nocompatible        " set noncompatible mode (vi vim)
+endif
+
 syntax on                       " enable syntax highlighting
 set showcmd                     " display incomplete commands
 set incsearch                   " do incremental searching
 set ignorecase                  " dont use case sensetive search
-set nocompatible                " set noncompatible mode (vi vim)
 set autoread                    " autoread file when changed from outside
 set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
@@ -151,18 +155,12 @@ set diffopt=vertical            " vertical diff
 set nojoinspaces                " do not add spaces on join
 set formatoptions-=o            " do not continue comment after hitting 'o'
 set wildignore+=*.o,*.obj,*.class " ignore binary files
-set ttyfast                     " assume a fast terminal
 set display=lastline            " show as much wrapped lines as possible
+set mouse=                      " disable mouse
 
 " move cursor everywhere in visual block mode
 if has('virtualedit')
   set virtualedit+=block
-endif
-
-if has('unnamedplus')
-        set clipboard=unnamed,unnamedplus
-else
-        set clipboard=unnamed
 endif
 
 " use blowfish as encryption (:X)
@@ -172,6 +170,9 @@ if !has('nvim')
         elseif v:version >= 702
                 set cm=blowfish
         endif
+        set clipboard=unnamed,unnamedplus
+else
+        set clipboard=unnamed
 endif
 
 " indent linebreaks
@@ -364,9 +365,27 @@ function! Overlength_toggle()
         endif
 endfunction
 
+command! OverlengthToggle call Overlength_toggle()
 nnoremap coo :OverlengthToggle<CR>
 
 " Overlength }}}2
+" Split declaration {{{2
+
+" very basic splitting of c declaration from:
+" [type] [ident] = [value];
+" to:
+" [type] [ident];
+" [ident] = [value];
+function! Split_Declaration()
+
+        normal ^w"iyt t lC€ýc€ýc;i"
+
+endfunction
+
+command! SplitDeclaration call Split_Declaration()
+nnoremap gS :SplitDeclaration<CR>
+
+" Split declaration }}}2
 
 " functions }}}1
 " commands {{{1
@@ -378,7 +397,6 @@ command! Q q
 
 command! Rtw call RemoveTrailingWhitespaces()
 command! Bash call Bash()
-command! OverlengthToggle call Overlength_toggle()
 
 " commands }}}1
 " autocmd {{{1
