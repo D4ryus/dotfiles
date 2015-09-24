@@ -32,7 +32,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'chrisbra/unicode.vim'
-Bundle 'john2x/flatui.vim'
 
 if executable('ctags')
         Bundle 'ludovicchabant/vim-gutentags'
