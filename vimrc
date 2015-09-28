@@ -123,7 +123,7 @@ set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
-set listchars=tab:>~,nbsp:_,trail:~,precedes:<,extends:>,eol:¬
+set listchars=tab:>\ ,nbsp:_,trail:~,precedes:<,extends:>,eol:¬
 set linebreak                   " better wraping of lines
 set showbreak=>>                " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
