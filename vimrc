@@ -2,52 +2,46 @@
 " author: d4ryus - https://github.com/d4ryus/
 " vim:ts=8:sw=8:foldmethod=marker:
 
-" vundle {{{1
+" Plug {{{1
 
-" settings {{{2
+call plug#begin('~/.vim/plugged')
 
-filetype off
-set nocompatible
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-git'
+Plug 'chrisbra/unicode.vim'
+Plug 'kien/ctrlp.vim'
 
-" settings }}}2
-
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-vinegar'
-Bundle 'dhruvasagar/vim-table-mode'
-Bundle 'gregsexton/gitv'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'chrisbra/unicode.vim'
+Plug 'kien/rainbow_parentheses.vim', {'on': 'RainbowParenthesesToggle'}
+Plug 'dhruvasagar/vim-table-mode',   {'on': 'TableModeEnable'}
+Plug 'tpope/vim-dispatch',           {'on': 'Make'}
+Plug 'godlygeek/tabular',            {'on': 'Tabularize'}
+Plug 'majutsushi/tagbar',            {'on': 'TagbarToggle'}
+Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 
 if executable('ctags')
-        Bundle 'ludovicchabant/vim-gutentags'
-        Bundle 'vim-scripts/taglist.vim'
+        Plug 'ludovicchabant/vim-gutentags'
 endif
 
 if has("python")
-        Bundle 'kovisoft/slimv'
+        Plug 'kovisoft/slimv', {'for': 'lisp'}
 endif
 
 if has("python") || has("python3")
-        Bundle 'SirVer/ultisnips'
-        Bundle 'sjl/gundo.vim'
+        Plug 'SirVer/ultisnips'
+        Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 endif
 
-" vundle }}}1
+call plug#end()
+
+" Plug }}}1
 " plugin-settings {{{1
 
 " UltiSnips {{{2
@@ -129,9 +123,9 @@ set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
-set listchars=tab:>Â·,nbsp:_,trail:Â·,precedes:<,extends:>,eol:Â¬,conceal:_
+set listchars=tab:>~,nbsp:_,trail:~,precedes:<,extends:>,eol:Â¬
 set linebreak                   " better wraping of lines
-set showbreak=âž£âž£                " show linebreaks if wrap is set
+set showbreak=>>                " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
 set tabstop=8                   " amout of spaces per tab
 set shiftwidth=8                " number of spaces used by autoindent
@@ -239,7 +233,7 @@ iabbrev file- <c-r>%<CR>
 
 " background {{{2
 
-set background=light
+set background=dark
 
 " background }}}2
 " statusline {{{2
@@ -377,7 +371,7 @@ nnoremap coo :OverlengthToggle<CR>
 " [ident] = [value];
 function! Split_Declaration()
 
-        normal ^w"iyt t lC€ýc€ýc;i"
+        normal yypt=Bd^kt=dt;
 
 endfunction
 

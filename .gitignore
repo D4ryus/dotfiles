@@ -2,10 +2,7 @@ irssi/config
 mutt/cache
 mutt/my_mutt.gpg
 mutt/aliases
-vim/plugin
-vim/bundle
-vim/eclim
-vim/plugin
+vim/plugged
 vim/swap/*
 vim/undo/*
 vim/.netrwhist
