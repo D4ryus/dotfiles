@@ -1,3 +1,0 @@
-set guioptions+=T
-set defsearch=duckduckgo
-inoremap jk <esc>
