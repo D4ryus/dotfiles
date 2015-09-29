@@ -123,7 +123,7 @@ set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
 set list                        " list all tabs and ending spaces
-set listchars=tab:>\ ,nbsp:_,trail:~,precedes:<,extends:>,eol:¬
+set listchars=tab:>_,nbsp:_,trail:_,precedes:<,extends:>,eol:¬
 set linebreak                   " better wraping of lines
 set showbreak=>>                " show linebreaks if wrap is set
 set expandtab                   " use spaces instead of tabs
@@ -249,6 +249,7 @@ set statusline+=\ [pos:\ %l/%L:%v\ %p%%]
 " matchparen {{{2
 
 highlight MatchParen ctermbg=0 ctermfg=1 cterm=bold
+highlight SpecialKey ctermfg=234
 
 " matchparen }}}2
 
