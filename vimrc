@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-eunuch'
 Plug 'chrisbra/unicode.vim'
 Plug 'kien/ctrlp.vim'
 
