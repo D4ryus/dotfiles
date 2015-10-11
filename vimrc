@@ -148,7 +148,9 @@ set path+=.,**                  " also add the current path
 set diffopt=vertical            " vertical diff
 set nojoinspaces                " do not add spaces on join
 set formatoptions-=o            " do not continue comment after hitting 'o'
-set wildignore+=*.o,*.obj,*.class " ignore binary files
+set wildignore+=*.o,*.class,*.so " ignore binary files
+set wildignore+=*/.git/**/*     " ignore git files
+set wildignore+=tags            " ignore tags file
 set display=lastline            " show as much wrapped lines as possible
 set mouse=                      " disable mouse
 
