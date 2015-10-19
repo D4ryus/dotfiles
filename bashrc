@@ -2,16 +2,15 @@
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=8:sw=8:ai:ft=sh:
 
-# if not neovim terminal
-if [[ "$TERM" != "xterm-256color" ]]; then
-        set -o vi mode
-fi
+set -o vi mode
 
+export PATH=$PATH:$HOME/bin/
+export LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib/
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/include/
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
 export EDITOR=/usr/bin/vim
-export PATH=${PATH}:/home/d4ryus/bin
 export vrc=~/.vimrc
 export SDL_AUDIODRIVER=alsa
 if [[ -z "$GOPATH" ]]; then
