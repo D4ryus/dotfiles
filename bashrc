@@ -26,6 +26,7 @@ alias dmesg="dmesg --color"
 alias pg="ps -efa | grep "
 alias upAur="update_Aur"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
+alias tvim="nvim -c term"
 
 # git autocompletion
 if [ -r ~/.git-completion-bash ]; then
