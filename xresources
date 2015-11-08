@@ -15,7 +15,7 @@
 
 !! URxvt
         URxvt.termName:             rxvt-unicode-256color
-        URxvt.font:                 xft:Terminus:size=11:antialias=false
+        URxvt.font:                 xft:Terminus:size=9:antialias=false
         URxvt.faceSize:             10
         URxvt.geometry:             80x25
         URxvt.scrollBar:            false
