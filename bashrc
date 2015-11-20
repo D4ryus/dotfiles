@@ -49,6 +49,17 @@ if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
         fi
 fi
 
+# neovim terminal
+if [ "$NVIM_LISTEN_ADDRESS" != "" ]; then
+    if [[ $(type -P "$(which nvimex.py 2>>/dev/null)") ]];  then
+        alias :="nvimex.py"
+        alias vim="nvimex.py e"
+        alias nvim="nvimex.py e"
+    else
+        echo "could not find nvimex.py in PATH. nvim aliases disabled."
+    fi
+fi
+
 if [ -r ~/.bashrc.local ]; then
         source ~/.bashrc.local
 fi
