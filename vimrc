@@ -199,10 +199,6 @@ noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
 
-nnoremap <Up>    :res +1<CR>
-nnoremap <Down>  :res -1<CR>
-nnoremap <Left>  :vertical res -1<CR>
-nnoremap <Right> :vertical res +1<CR>
 
 nnoremap gb :ls<CR>:b<Space>
 
