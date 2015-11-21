@@ -199,8 +199,8 @@ noremap zv zMzv
 noremap tab :Tabularize /
 noremap go :Make<CR>
 
-
 nnoremap gb :ls<CR>:b<Space>
+nnoremap coo :/\%80v.\+/ 
 
 " noremap }}}2
 " inoremap {{{2
@@ -347,27 +347,6 @@ function! Bash()
 endfunction
 
 " Bash }}}2
-" Overlength {{{2
-
-function! Overlength_toggle()
-        if !exists('g:overlength_enabled')
-                let g:overlength_enabled = 0
-        endif
-
-        if g:overlength_enabled
-                let g:overlength_enabled = 0
-                highlight OverLength none
-        else
-                let g:overlength_enabled = 1
-                highlight OverLength ctermbg=6 guibg=#592929
-                match OverLength /\%81v.\+/
-        endif
-endfunction
-
-command! OverlengthToggle call Overlength_toggle()
-nnoremap coo :OverlengthToggle<CR>
-
-" Overlength }}}2
 " Split declaration {{{2
 
 " very basic splitting of c declaration from:
