@@ -42,8 +42,11 @@ if has("python")
 endif
 
 if has("python") || has("python3")
-        Plug 'SirVer/ultisnips'
         Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
+endif
+
+if v:version >= 704 && has("python") || has("python3")
+        Plug 'SirVer/ultisnips'
 endif
 
 call plug#end()
@@ -162,7 +165,7 @@ set mouse=                      " disable mouse
 
 " move cursor everywhere in visual block mode
 if has('virtualedit')
-  set virtualedit+=block
+        set virtualedit+=block
 endif
 
 " use blowfish as encryption (:X)
