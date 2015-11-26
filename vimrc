@@ -25,6 +25,7 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
 Plug 'chrisbra/unicode.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'vimwiki/vimwiki'
 
 Plug 'kien/rainbow_parentheses.vim', {'on': 'RainbowParenthesesToggle'}
 Plug 'dhruvasagar/vim-table-mode',   {'on': 'TableModeEnable'}
@@ -115,6 +116,11 @@ let g:slimv_repl_split = 2
 noremap cop :RainbowParenthesesToggle<CR>
 
 " Slimv }}}2
+" Vimwiki {{{2
+
+let g:vimwiki_list = [{'path': '~/docs/', 'path_html': 'docs/html'}]
+
+" Vimwiki }}}2
 
 " plugin-settings }}}1
 " setter {{{1
