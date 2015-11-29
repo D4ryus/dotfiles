@@ -119,7 +119,7 @@ noremap cop :RainbowParenthesesToggle<CR>
 " Slimv }}}2
 " Vimwiki {{{2
 
-let g:vimwiki_list = [{'path': '~/docs/', 'path_html': 'docs/html'}]
+let g:vimwiki_list = [{'path': '~/docs/', 'path_html': '~/docs/html'}]
 
 " Vimwiki }}}2
 " Slimux {{{2
