@@ -113,8 +113,13 @@ noremap cog :GundoToggle<CR>
 " Slimv {{{2
 
 let g:slimv_repl_split = 2
-
 noremap cop :RainbowParenthesesToggle<CR>
+
+if has('nvim')
+        let g:slimv_swank_cmd = ':sp term://sbcl --load' .
+                              \ ' ~/.vim/plugged/slimv/slime/start-swank.lisp' .
+                              \ ' | :hide'
+endif
 
 " Slimv }}}2
 " Vimwiki {{{2
