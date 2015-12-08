@@ -227,6 +227,7 @@ nnoremap coo :/\%80v.\+/
 " inoremap {{{2
 
 inoremap jk <Esc>
+inoremap <C-e> <Esc>:Bash<CR>zbA
 
 " inoremap }}}2
 " vnoremap {{{2
@@ -357,7 +358,7 @@ endfunction
 " Bash {{{2
 
 function! Bash()
-        let prompt = '>'
+        let prompt = '> '
         call search(prompt, 'b')
         let cmd = substitute(getline('.'), '^.*' . prompt, '', '')
         set paste
@@ -389,8 +390,8 @@ nnoremap gS :SplitDeclaration<CR>
 " functions }}}1
 " commands {{{1
 
-command! WQ wq
 command! Wq wq
+command! Wqa wqa
 command! W w
 command! Q q
 
@@ -432,11 +433,12 @@ if has("autocmd")
                 au BufWritePost *.bin set nomod | endif
         aug END
 
-if has('nvim')
-        aug Nvim
-                au TermOpen * set nolist
-        aug END
-endif
+        if has('nvim')
+                aug Nvim
+                        au!
+                        au TermOpen * set nolist
+                aug END
+        endif
 endif
 
 " autocmd }}}1
