@@ -98,7 +98,20 @@ ext() {
 }
 
 cinst() {
-        cower --download $1 && cd $1 && makepkg --syncdeps --install && cd .. && rm -rf $1
+        cower --download $1
+        if [ ! $? -eq 0 ]; then
+                return
+        fi
+        cd $1
+        makepkg --syncdeps --install
+        if [ $? -ne 0 ]; then
+                return
+        fi
+        if [ -d ~/aurPackages/ ]; then
+                cp *.pkg.tar.xz ~/aurPackages/
+        fi
+        cd ..
+        rm -rf $1
 }
 
 update_Aur() {
