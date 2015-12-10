@@ -14,7 +14,7 @@ export EDITOR=/usr/bin/vim
 export vrc=~/.vimrc
 export SDL_AUDIODRIVER=alsa
 if [[ -z "$GOPATH" ]]; then
-        export GOPATH=/home/d4ryus/gocode
+        export GOPATH=/home/d4ryus/go
 fi
 
 alias lock="sleep 1 && xset dpms force off && slock"
