@@ -19,6 +19,7 @@
         URxvt.faceSize:             10
         URxvt.geometry:             80x25
         URxvt.scrollBar:            false
+        URxvt.fading:               30
 
 !! clickable urls
         URxvt.perl-ext-common:      default,matcher
