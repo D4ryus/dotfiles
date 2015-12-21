@@ -165,7 +165,10 @@ set laststatus=2                " allways show statusline
 set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap//     " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
-set completeopt=longest,menuone " dont select the first match
+set completeopt=menuone         " show menu if only 1 match
+set completeopt+=noselect       " do not select a match
+set completeopt+=noinsert       " do not insert until selected
+set completeopt+=preview        " enable preview window
 set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
 set wildmenu                    " use wildmenu
@@ -404,41 +407,34 @@ command! Bash call Bash()
 if has("autocmd")
         filetype plugin on
 
-        aug clearMatches
-                if version >= 702
-                        au BufWinLeave * call clearmatches()
-                endif
-        aug END
-
-        aug filetypes
-                au!
-                au BufNewFile,BufReadPost *.md set filetype=markdown
-                au FileType qf wincmd J
-        aug END
-
         aug vimrc
                 au!
-                au BufWritePost vimrc  source %
-        aug END
 
-        " got this aug from derekwyatt's vimrc
-        aug Binary
-                au!
+                au BufNewFile,BufReadPost *.md set ft=markdown
+
+                " move quickfix window to bottom of screen
+                au FileType qf wincmd J
+
+                " resource vimrc on update
+                au BufWritePost vimrc  source %
+
+                " got this aug from derekwyatt's vimrc
                 au BufReadPre   *.bin let &bin = 1
                 au BufReadPost  *.bin if &bin | %!xxd
-                au BufReadPost  *.bin set filetype=xxd | endif
+                au BufReadPost  *.bin set ft=xxd | endif
                 au BufWritePre  *.bin if &bin | %!xxd -r
                 au BufWritePre  *.bin endif
                 au BufWritePost *.bin if &bin | %!xxd
                 au BufWritePost *.bin set nomod | endif
-        aug END
 
-        if has('nvim')
-                aug Nvim
-                        au!
+                if version >= 702
+                        au BufWinLeave * call clearmatches()
+                endif
+
+                if has('nvim')
                         au TermOpen * set nolist
-                aug END
-        endif
+                endif
+        aug END
 endif
 
 " autocmd }}}1
