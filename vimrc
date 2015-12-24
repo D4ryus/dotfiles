@@ -223,6 +223,12 @@ noremap go :Make<CR>
 nnoremap gb :ls<CR>:b<Space>
 nnoremap coo :/\%80v.\+/ 
 
+" swap k/j <-> gk/gj
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
+
 " noremap }}}2
 " inoremap {{{2
 
