@@ -31,15 +31,6 @@ if [ -r ~/.git-completion-bash ]; then
         source ~/.git-completion-bash
 fi
 
-# set PS1
-if [[ $EUID -ne 0 ]]; then
-        # user = color = green
-        PS1='[\[\033[0;32m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status -b 2>/dev/null | head -n 1 | grep -oE " [^ ]+$")\[\033[0m\]] '
-else
-        # root = color = red
-        PS1='[\[\033[0;31m\]\h\[\033[0m\] \w\[\033[0;33m\]$(git status -b 2>/dev/null | head -n 1 | grep -oE " [^ ]+$")\[\033[0m\]] '
-fi
-
 # wikidates setting
 if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
         if [ -d ~/.wikidates ]; then
@@ -148,3 +139,28 @@ con_wireless() {
         dhcpcd $INTERFACE
         echo "should be all done now."
 }
+
+set_ps1() {
+        PS1='['
+        # PS1 user color
+        if [[ $EUID -ne 0 ]]; then
+                # user = green
+                PS1+='\[\033[0;32m\]'
+        else
+                # root = red
+                PS1+='\[\033[0;31m\]'
+        fi
+        # user and current path
+        PS1+='\h\[\033[0m\] \w'
+        # use vcprompt if installed
+        if command -v vcprompt > /dev/null 2>&1 ; then
+                # space and yellow color
+                PS1+='\[\033[0;33m\]'
+                PS1+='$(vcprompt -f " %n:%b%u%m")'
+                # end yellow color
+                PS1+='\[\033[0m\]'
+        fi
+        PS1+='] '
+}
+
+set_ps1
