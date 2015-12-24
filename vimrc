@@ -165,6 +165,7 @@ set spelllang=en,de             " set spelling language to english and german
 set directory=~/.vim/swap//     " directory where all swap files will be
 set foldtext=NeatFoldText()     " set foldtext to function below
 set completeopt=menuone         " show menu if only 1 match
+set completeopt+=longest        " insert longest common match
 set completeopt+=preview        " enable preview window
 set splitright                  " open splits on the right side instead of left
 set splitbelow                  " open splits blow instead of on top
