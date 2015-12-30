@@ -5,12 +5,9 @@
 	editor  = vim
 [alias]
 	unstage = reset HEAD --
-	dftool  = difftool --cached
-	count   = rev-list HEAD --count
 	df      = diff --cached
+	l       = log --all --graph --decorate --oneline
 	lg      = log --graph
-	last    = diff HEAD^..HEAD
-	ctags   = !.git/hooks/ctags
 [merge]
 	tool    = vimdiff
 	summary = true
