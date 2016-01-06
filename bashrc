@@ -111,6 +111,9 @@ update_Aur() {
 
         cower --update --download
         find -name PKGBUILD -execdir makepkg --syncdeps --install \;
+        if [ -d ~/aurPackages/ ]; then
+                cp $TMP/*/*.pkg.tar.xz ~/aurPackages/
+        fi
 
         cd "$LOC"
 
