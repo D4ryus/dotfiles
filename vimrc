@@ -286,6 +286,14 @@ highlight MatchParen ctermbg=0 ctermfg=1 cterm=bold
 highlight SpecialKey ctermfg=234
 
 " matchparen }}}2
+" diff {{{2
+
+highlight DiffDelete ctermbg=1 ctermfg=0 cterm=none guibg=Red    guifg=Black gui=none
+highlight DiffAdd    ctermbg=2 ctermfg=0 cterm=none guibg=Green  guifg=Black gui=none
+highlight DiffChange ctermbg=3 ctermfg=0 cterm=none guibg=Yellow guifg=Black gui=none
+highlight DiffText   ctermbg=4 ctermfg=7 cterm=none guibg=Blue   guifg=White gui=none
+
+" diff }}}2
 
 " appearance }}}1
 " functions {{{1
