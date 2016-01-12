@@ -173,7 +173,7 @@ set wildmenu                    " use wildmenu
 set wildmode=longest:list,full  " dont change insertion
 set path+=/usr/local/include    " also search through /usr/local/include
 set path+=.,**                  " also add the current path
-set diffopt=vertical            " vertical diff
+set diffopt+=vertical           " vertical diff
 set nojoinspaces                " do not add spaces on join
 set formatoptions-=o            " do not continue comment after hitting 'o'
 set wildignore+=*.o,*.class,*.so " ignore binary files
