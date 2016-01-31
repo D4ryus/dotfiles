@@ -272,12 +272,13 @@ set background=dark
 " background }}}2
 " statusline {{{2
 
-set statusline=%<[%F]
-set statusline+=\ [%{FileSize()}]
-set statusline+=\ [%{&ff}]
-set statusline+=\ [%M%Y%R%q%W]
-set statusline+=\ %{fugitive#statusline()}%=
-set statusline+=\ [pos:\ %l/%L:%v\ %p%%]
+set statusline=%<[%F]                               "[filename]
+set statusline+=\ [%{FileSize()}]                   "[Filesize()]
+" set statusline+=\ [%{&ff}]                          "[FileFormat]
+set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}] "[Encoding]
+set statusline+=\ [%M%Y%R%q%W]                      "[Flags]
+set statusline+=\ %{fugitive#statusline()}%=        "Fugitive
+set statusline+=\ [pos:\ %l/%L:%v\ %p%%]            "[pos: 1/2:3 50%]
 
 " statusline }}}2
 " matchparen {{{2
