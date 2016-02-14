@@ -34,6 +34,9 @@ Plug 'godlygeek/tabular',            {'on': 'Tabularize'}
 Plug 'majutsushi/tagbar',            {'on': 'TagbarToggle'}
 Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 
+Plug 'guns/vim-sexp', {'for': 'lisp'}
+    \ | Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 if executable('ctags')
         Plug 'ludovicchabant/vim-gutentags'
 endif
@@ -111,13 +114,14 @@ noremap cog :GundoToggle<CR>
 " Gundo }}}2
 " Slimv {{{2
 
+let g:paredit_mode = 0
 let g:slimv_repl_split = 2
 noremap cop :RainbowParenthesesToggle<CR>
 
 if has('nvim')
-        let g:slimv_swank_cmd = ':sp term://sbcl --load' .
-                              \ ' ~/.vim/plugged/slimv/slime/start-swank.lisp' .
-                              \ ' | :hide'
+        let g:slimv_swank_cmd = ':sp term://sbcl --load'
+                            \ . ' ~/.vim/plugged/slimv/slime/start-swank.lisp'
+                            \ . ' | :hide'
 endif
 
 " Slimv }}}2
