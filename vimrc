@@ -277,11 +277,11 @@ set background=dark
 " background }}}2
 " statusline {{{2
 
-set statusline=%<[%F]                               "[filename]
-set statusline+=\ [%{FileSize()}]                   "[Filesize()]
-" set statusline+=\ [%{&ff}]                          "[FileFormat]
-set statusline+=\ [%{''.(&fenc!=''?&fenc:&enc).''}] "[Encoding]
-set statusline+=\ [%M%Y%R%q%W]                      "[Flags]
+set statusline=%<[%F%M%R]                           "[filename(,Flags)]
+set statusline+=\ [%{FileSize()}\|                  "[Filesize()|
+set statusline+=\%{&ff}\|                           "FileFormat|
+set statusline+=\%{''.(&fenc!=''?&fenc:&enc).''}\|  "Encoding|
+set statusline+=\%Y]                                "FileType]
 set statusline+=\ %{fugitive#statusline()}%=        "Fugitive
 set statusline+=\ [pos:\ %l/%L:%v\ %p%%]            "[pos: 1/2:3 50%]
 
