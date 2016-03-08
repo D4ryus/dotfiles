@@ -4,6 +4,7 @@
 
 export PATH=$PATH:$HOME/bin/
 export LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib/
+export LD_LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib/
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/include/
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
