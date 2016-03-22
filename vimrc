@@ -34,8 +34,7 @@ Plug 'godlygeek/tabular',            {'on': 'Tabularize'}
 Plug 'majutsushi/tagbar',            {'on': 'TagbarToggle'}
 Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 
-Plug 'guns/vim-sexp', {'for': 'lisp'}
-    \ | Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 
 if executable('ctags')
         Plug 'ludovicchabant/vim-gutentags'
@@ -114,7 +113,7 @@ noremap cog :GundoToggle<CR>
 " Gundo }}}2
 " Slimv {{{2
 
-let g:paredit_mode = 0
+let g:paredit_mode = 1
 let g:slimv_repl_split = 2
 noremap cop :RainbowParenthesesToggle<CR>
 
