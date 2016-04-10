@@ -14,12 +14,15 @@
         XTerm*metaSendsEscape:      true
 
 !! URxvt
+        !! URxvt.font:                 xft:Terminus:size=9:antialias=false
+        !! URxvt.faceSize:             10
         URxvt.termName:             rxvt-unicode-256color
-        URxvt.font:                 xft:Terminus:size=9:antialias=false
-        URxvt.faceSize:             10
+        URxvt.font:                 xft:ohsnap:pixelsize=10
         URxvt.geometry:             80x25
         URxvt.scrollBar:            false
         URxvt.fading:               30
+        URxvt.iso14755:             false
+        URxvt.iso14755_52:          false
 
 !! clickable urls
         URxvt.perl-ext-common:      default,matcher
