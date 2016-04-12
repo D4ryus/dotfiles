@@ -22,10 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
-Plug 'chrisbra/unicode.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'vimwiki/vimwiki'
-Plug 'epeli/slimux'
 
 Plug 'kien/rainbow_parentheses.vim', {'on': 'RainbowParenthesesToggle'}
 Plug 'dhruvasagar/vim-table-mode',   {'on': 'TableModeEnable'}
@@ -35,6 +32,7 @@ Plug 'majutsushi/tagbar',            {'on': 'TagbarToggle'}
 Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'vim-scripts/paredit.vim', {'for': 'clojure'}
 
 if executable('ctags')
         Plug 'ludovicchabant/vim-gutentags'
@@ -82,14 +80,14 @@ command! Jg  JavaGet
 command! Js  JavaSet
 
 " Eclim }}}2
-" Taglist {{{2
+" Tagbar {{{2
 
 let Tlist_Use_Right_Window = 1
 let Tlist_File_Fold_Auto_Close = 1
 
 noremap cot :TagbarToggle<CR>
 
-" Taglist }}}2
+" Tagbar }}}2
 " Ag {{{2
 
 if executable('ag')
@@ -113,7 +111,6 @@ noremap cog :GundoToggle<CR>
 " Gundo }}}2
 " Slimv {{{2
 
-let g:paredit_mode = 1
 let g:slimv_repl_split = 2
 noremap cop :RainbowParenthesesToggle<CR>
 
@@ -124,17 +121,18 @@ if has('nvim')
 endif
 
 " Slimv }}}2
-" Vimwiki {{{2
+" Paredit {{{2
 
-let g:vimwiki_list = [{'path': '~/docs/', 'path_html': '~/docs/html'}]
+let g:paredit_mode = 1
 
-" Vimwiki }}}2
-" Slimux {{{2
+" Paredit }}}2
+" Fireplace {{{2
 
-nnoremap ,e :SlimuxREPLSendLine<CR>
-vnoremap ,e :SlimuxREPLSendSelection<CR>
+if exists("g:loaded_fireplace")
+        noremap ,e :silent! Eval<CR>:Last!<CR>
+endif
 
-" Slimux }}}2
+" Fireplace }}}2
 
 " plugin-settings }}}1
 " setter {{{1
