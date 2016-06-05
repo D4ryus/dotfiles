@@ -20,7 +20,6 @@
         URxvt.font:                 xft:ohsnap:pixelsize=10
         URxvt.geometry:             80x25
         URxvt.scrollBar:            false
-        URxvt.fading:               30
         URxvt.iso14755:             false
         URxvt.iso14755_52:          false
 
