@@ -129,9 +129,7 @@ let g:paredit_mode = 1
 " Paredit }}}2
 " Fireplace {{{2
 
-if exists("g:loaded_fireplace")
-        noremap ,e :silent! Eval<CR>:Last!<CR>
-endif
+noremap ,e :silent! Eval<CR>:Last!<CR>
 
 " Fireplace }}}2
 
