@@ -94,9 +94,6 @@ cinst() {
         fi
         cd $1
         makepkg --syncdeps --install
-        if [ $? -ne 0 ]; then
-                return
-        fi
         if [ -d ~/aurPackages/ ]; then
                 cp *.pkg.tar.xz ~/aurPackages/
         fi
