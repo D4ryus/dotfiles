@@ -115,9 +115,10 @@ let g:slimv_repl_split = 2
 noremap cop :RainbowParenthesesToggle<CR>
 
 if has('nvim')
-        let g:slimv_swank_cmd = ':sp term://sbcl --load'
-                            \ . ' ~/.vim/plugged/slimv/slime/start-swank.lisp'
-                            \ . ' | :hide'
+        let g:slimv_swank_cmd = ':sp term://sbcl'
+              \ . ' --dynamic-space-size 4096'
+              \ . ' --load ~/.vim/plugged/slimv/slime/start-swank.lisp'
+              \ . ' | :hide'
 endif
 
 " Slimv }}}2
