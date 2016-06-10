@@ -111,7 +111,7 @@ noremap cog :GundoToggle<CR>
 " Gundo }}}2
 " Slimv {{{2
 
-let g:slimv_repl_split = 2
+let g:slimv_repl_split = 4
 noremap cop :RainbowParenthesesToggle<CR>
 
 if has('nvim')
