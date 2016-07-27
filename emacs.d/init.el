@@ -60,3 +60,8 @@
   :ensure t
   :config (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
           (add-hook 'lisp-mode-hook #'evil-paredit-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+          (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode))
