@@ -8,9 +8,10 @@
 
 ;; show empty lines and trailing whitespaces
 (setq-default indicate-empty-lines t
-	      show-trailing-whitespace t
-	      ;; always show matching parens
-	      show-paren-mode t)
+              show-trailing-whitespace t)
+
+;; always show matching parens
+(show-paren-mode t)
 
 ;; default c coding styles and settings
 (setq c-default-style "bsd"
