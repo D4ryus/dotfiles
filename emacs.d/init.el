@@ -7,8 +7,10 @@
 (tool-bar-mode -1)
 
 ;; show empty lines and trailing whitespaces
-(setq indicate-empty-lines 1)
-(setq show-trailing-whitespace t)
+(setq-default indicate-empty-lines t
+	      show-trailing-whitespace t
+	      ;; always show matching parens
+	      show-paren-mode t)
 
 ;; default c coding styles and settings
 (setq c-default-style "bsd"
