@@ -6,6 +6,10 @@
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 
+;; show empty lines and trailing whitespaces
+(setq indicate-empty-lines 1)
+(setq show-trailing-whitespace t)
+
 ;; default c coding styles and settings
 (setq c-default-style "bsd"
       c-basic-offset 8
