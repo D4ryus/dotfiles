@@ -23,10 +23,9 @@
         URxvt.iso14755:             false
         URxvt.iso14755_52:          false
 
-!! clickable urls
-        URxvt.perl-ext-common:      default,matcher
-        URxvt.url-launcher:         /usr/bin/firefox
-        URxvt.matcher.button:       1
+!! disable perl extension
+        URxvt.perl-ext:
+        URxvt.perl-ext-common:
 
 !! colors
         URxvt.cursorColor: #06989a
