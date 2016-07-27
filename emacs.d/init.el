@@ -55,3 +55,8 @@
   :ensure t
   :config (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
           (add-hook 'lisp-mode-hook #'enable-paredit-mode))
+
+(use-package evil-paredit
+  :ensure t
+  :config (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
+          (add-hook 'lisp-mode-hook #'evil-paredit-mode))
