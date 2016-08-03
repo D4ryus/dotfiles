@@ -72,14 +72,6 @@
   :config (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
           (add-hook 'lisp-mode-hook #'evil-paredit-mode))
 
-(use-package key-chord
-  :ensure t
-  :config (key-chord-mode 1)
-	  (key-chord-define-global "gc"
-				   'comment-dwim)
-	  (key-chord-define-global "go"
-				   're-eval))
-
 (use-package molokai-theme
   :ensure t
   :config (load-theme 'molokai t))
