@@ -38,6 +38,10 @@
         (package-refresh-contents)
         (package-install 'use-package))
 
+(use-package auto-complete
+  :ensure t
+  :config (auto-complete-mode t))
+
 (use-package slime
   :ensure t
   :config (setq inferior-lisp-program "/usr/bin/sbcl"
@@ -48,6 +52,13 @@
 	      (switch-to-buffer "*slime-repl sbcl*")
 	      (slime-repl-resend)
 	      (switch-to-buffer buff))))
+
+(use-package ac-slime
+  :ensure t
+  :config (add-hook 'slime-mode-hook 'set-up-slime-ac)
+          (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+	  (eval-after-load "auto-complete"
+	    '(add-to-list 'ac-modes 'slime-repl-mode)))
 
 (use-package evil-escape
   :ensure t
