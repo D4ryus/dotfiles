@@ -67,8 +67,8 @@
 
 (use-package evil
   :ensure t
-  :config (evil-mode 1)
-          (evil-escape-mode 1)
+  :config (evil-mode t)
+          (evil-escape-mode t)
           (evil-set-initial-state 'term-mode 'emacs)
 	  (add-hook 'term-mode-hook (lambda ()
 				      (setq show-trailing-whitespace nil
