@@ -29,38 +29,38 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives
-	       '("gnu" . "http://elpa.gnu.org/packages/")))
+               '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
         (package-refresh-contents)
         (package-install 'use-package))
 
-(use-package auto-complete
-  :ensure t
-  :config (auto-complete-mode t))
-
 (use-package slime
   :ensure t
   :config (setq inferior-lisp-program "/usr/bin/sbcl"
                 slime-contribs '(slime-fancy))
           (defun re-eval ()
-	    (interactive)
-	    (let ((buff (current-buffer)))
-	      (switch-to-buffer "*slime-repl sbcl*")
-	      (slime-repl-resend)
-	      (switch-to-buffer buff))))
+            (interactive)
+            (with-current-buffer (get-buffer "*slime-repl sbcl*")
+              (slime-repl-resend))))
+
+(use-package auto-complete
+  :ensure t
+  :config (use-package auto-complete-config)
+          (add-to-list 'ac-modes 'slime-repl-mode)
+          (ac-config-default))
 
 (use-package ac-slime
   :ensure t
   :config (add-hook 'slime-mode-hook 'set-up-slime-ac)
           (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-	  (eval-after-load "auto-complete"
-	    '(add-to-list 'ac-modes 'slime-repl-mode)))
+          (eval-after-load "auto-complete"
+            '(add-to-list 'ac-modes 'slime-repl-mode)))
 
 (use-package evil-escape
   :ensure t
@@ -72,9 +72,9 @@
   :config (evil-mode t)
           (evil-escape-mode t)
           (evil-set-initial-state 'term-mode 'emacs)
-	  (add-hook 'term-mode-hook (lambda ()
-				      (setq show-trailing-whitespace nil
-					    indicate-empty-lines nil))))
+          (add-hook 'term-mode-hook (lambda ()
+                                      (setq show-trailing-whitespace nil
+                                            indicate-empty-lines nil))))
 
 (use-package paredit
   :ensure t
