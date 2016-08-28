@@ -40,6 +40,17 @@
         (package-refresh-contents)
         (package-install 'use-package))
 
+(use-package rainbow-mode
+  :ensure t)
+
+(use-package edit-color-stamp
+  :ensure t)
+
+(use-package trident-mode
+  :ensure t
+  :config (add-hook 'lisp-mode-hook
+                    #'(lambda () (trident-mode 1))))
+
 (use-package slime
   :ensure t
   :config (setq inferior-lisp-program "/usr/bin/sbcl"
