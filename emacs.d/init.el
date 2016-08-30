@@ -6,15 +6,26 @@
 (when (member "ohsnap" (font-family-list))
   (set-frame-font "ohsnap" t t))
 
-;; disable startup message and toolbar
-(setq inhibit-startup-message t)
+;; dont show tool- or scroll-bar
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq-default indent-tabs-mode nil)
 
-;; show empty lines and trailing whitespaces
-(setq-default indicate-empty-lines t
-              show-trailing-whitespace t)
+(setq-default
+ ;; disable startup message
+ inhibit-startup-message t
+
+ ;; indent with spaces per default
+ indent-tabs-mode nil
+
+ ;; show column number on mode line
+ column-number-mode t
+
+ ;; show empty lines and trailing whitespaces
+ indicate-empty-lines t
+ show-trailing-whitespace t
+
+ ;; dont break words by wrapping to new line
+ word-wrap t)
 
 ;; always show matching parens
 (show-paren-mode t)
