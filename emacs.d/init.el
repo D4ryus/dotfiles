@@ -60,6 +60,9 @@
 (use-package restclient
   :ensure t)
 
+(use-package magit
+  :ensure t)
+
 (use-package trident-mode
   :ensure t
   :config (add-hook 'lisp-mode-hook
