@@ -57,6 +57,9 @@
 (use-package edit-color-stamp
   :ensure t)
 
+(use-package restclient
+  :ensure t)
+
 (use-package trident-mode
   :ensure t
   :config (add-hook 'lisp-mode-hook
