@@ -25,7 +25,10 @@
  show-trailing-whitespace t
 
  ;; dont break words by wrapping to new line
- word-wrap t)
+ word-wrap t
+
+ ;; org-agenda show holidays
+ org-agenda-include-diary t)
 
 ;; always show matching parens
 (show-paren-mode t)
