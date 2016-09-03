@@ -54,6 +54,9 @@
         (package-refresh-contents)
         (package-install 'use-package))
 
+(use-package try
+  :ensure t)
+
 (use-package rainbow-mode
   :ensure t)
 
