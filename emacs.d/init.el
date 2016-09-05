@@ -132,3 +132,6 @@
   :ensure t
   :config (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
           (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode))
+
+(when (file-exists-p "~/.emacs.d/local.el")
+  (load "~/.emacs.d/local.el"))
