@@ -58,9 +58,9 @@
 (use-package try
   :ensure t)
 
-(use-package helm
+(use-package ivy
   :ensure t
-  :bind ("M-x" . helm-M-x))
+  :config (ivy-mode))
 
 (use-package rainbow-mode
   :ensure t)
