@@ -82,17 +82,24 @@
 
 (use-package slime
   :ensure t
-  :config (setq inferior-lisp-program "/usr/bin/sbcl"
-                slime-contribs '(slime-fancy))
+  :config (setq inferior-lisp-program "/usr/bin/sbcl")
+          (slime-setup '(slime-fancy))
           (defun re-eval ()
             (interactive)
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
               (slime-repl-resend))))
 
-(use-package company
+(use-package auto-complete
   :ensure t
-  :config (setq company-idle-delay t)
-          (add-hook 'after-init-hook 'global-company-mode))
+  :config (add-to-list 'ac-modes 'slime-repl-mode)
+          (ac-config-default))
+
+(use-package ac-slime
+  :ensure t
+  :config (add-hook 'slime-mode-hook 'set-up-slime-ac)
+          (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+          (eval-after-load "auto-complete"
+                           '(add-to-list 'ac-modes 'slime-repl-mode)))
 
 (use-package evil-escape
   :ensure t
