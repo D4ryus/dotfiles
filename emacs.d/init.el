@@ -59,8 +59,9 @@
   :ensure t)
 
 (use-package ivy
+  :diminish (ivy-mode . "")
   :ensure t
-  :config (ivy-mode))
+  :config (ivy-mode 1))
 
 (use-package rainbow-mode
   :ensure t)
