@@ -92,12 +92,7 @@
 (use-package auto-complete
   :ensure t
   :config (add-to-list 'ac-modes 'slime-repl-mode)
-          (ac-config-default)
-          (setq ac-delay 0.1 ;; delay till it suggests something
-                ac-auto-show-menu 0.3 ;; menu popup delay
-                ac-quick-help-delay 0.1 ;; help window delay
-                ac-use-menu-map t ;; c-n/p to scroll menu
-                ac-ignore-case 'smart)) ;; smart completion
+          (ac-config-default))
 
 (use-package ac-slime
   :ensure t
