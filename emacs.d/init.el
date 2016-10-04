@@ -92,7 +92,9 @@
 (use-package auto-complete
   :ensure t
   :config (add-to-list 'ac-modes 'slime-repl-mode)
-          (ac-config-default))
+          (ac-config-default)
+          (setq ac-use-menu-map t ;; c-n/p @ popup menu
+                ac-ignore-case 'smart))
 
 (use-package ac-slime
   :ensure t
