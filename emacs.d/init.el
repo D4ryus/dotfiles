@@ -83,25 +83,21 @@
 (use-package slime
   :ensure t
   :config (setq inferior-lisp-program "/usr/bin/sbcl")
-          (slime-setup '(slime-fancy))
+          (slime-setup '(slime-fancy slime-company))
           (defun re-eval ()
             (interactive)
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
               (slime-repl-resend))))
 
-(use-package auto-complete
+(use-package company
   :ensure t
-  :config (add-to-list 'ac-modes 'slime-repl-mode)
-          (ac-config-default)
-          (setq ac-use-menu-map t ;; c-n/p @ popup menu
-                ac-ignore-case 'smart))
+  :init (add-hook 'after-init-hook 'global-company-mode)
+  :config (define-key company-active-map (kbd "\C-n") 'company-select-next)
+          (define-key company-active-map (kbd "\C-p") 'company-select-previous)
+          (define-key company-active-map (kbd "\C-d") 'company-show-doc-buffer))
 
-(use-package ac-slime
-  :ensure t
-  :config (add-hook 'slime-mode-hook 'set-up-slime-ac)
-          (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-          (eval-after-load "auto-complete"
-                           '(add-to-list 'ac-modes 'slime-repl-mode)))
+(use-package slime-company
+  :ensure t)
 
 (use-package evil-escape
   :ensure t
