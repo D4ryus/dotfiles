@@ -1,3 +1,18 @@
+(package-initialize)
+
+(setq package-enable-at-startup nil)
+
+(setq custom-file "~/.emacs.d/local.el")
+(load custom-file t)
+
+;; (require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives
+               '("gnu" . "http://elpa.gnu.org/packages/")))
+
 ;; backup settings
 (setq backup-directory-alist
       '(("." . "~/.emacs.d/backup/")))
@@ -40,20 +55,15 @@
       tab-width 8
       indent-tabs-mode t)
 
-;; packages
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives
-               '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
+;; use-package
 
 (unless (package-installed-p 'use-package)
         (package-refresh-contents)
         (package-install 'use-package))
+
+(setq use-package-always-ensure t)
+
+(require 'use-package)
 
 (use-package try
   :ensure t)
