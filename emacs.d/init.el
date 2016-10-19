@@ -94,6 +94,7 @@
 
 (use-package company
   :ensure t
+  :diminish ""
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (define-key company-active-map (kbd "\C-n") 'company-select-next)
           (define-key company-active-map (kbd "\C-p") 'company-select-previous)
@@ -107,6 +108,7 @@
 
 (use-package evil-escape
   :ensure t
+  :diminish ""
   :config (setq-default evil-escape-key-sequence "jk")
           (add-to-list 'evil-escape-excluded-major-modes 'term-mode))
 
