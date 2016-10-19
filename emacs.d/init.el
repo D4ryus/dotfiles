@@ -89,6 +89,9 @@
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
               (slime-repl-resend))))
 
+(use-package cider
+  :ensure t)
+
 (use-package company
   :ensure t
   :init (add-hook 'after-init-hook 'global-company-mode)
@@ -119,12 +122,14 @@
 (use-package paredit
   :ensure t
   :config (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-          (add-hook 'lisp-mode-hook #'enable-paredit-mode))
+          (add-hook 'lisp-mode-hook #'enable-paredit-mode)
+          (add-hook 'clojure-mode-hook #'enable-paredit-mode))
 
 (use-package evil-paredit
   :ensure t
   :config (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
-          (add-hook 'lisp-mode-hook #'evil-paredit-mode))
+          (add-hook 'lisp-mode-hook #'evil-paredit-mode)
+          (add-hook 'clojure-mode-hook #'evil-paredit-mode))
 
 (use-package molokai-theme
   :ensure t
