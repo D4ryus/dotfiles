@@ -26,6 +26,8 @@ alias pg="ps -efa | grep "
 alias upAur="update_Aur"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 alias tvim="nvim -c term"
+alias et="emacsclient -a \"\" -c -t"
+alias ec="emacsclient -a \"\" -c -n"
 
 # git autocompletion
 if [ -r ~/.git-completion-bash ]; then
