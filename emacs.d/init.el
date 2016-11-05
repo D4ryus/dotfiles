@@ -50,10 +50,12 @@
 (show-paren-mode t)
 
 ;; default c coding styles and settings
-(setq c-default-style "bsd"
-      c-basic-offset 8
-      tab-width 8
-      indent-tabs-mode t)
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (setq c-default-style "bsd"
+		  c-basic-offset 8
+		  tab-width 8
+		  indent-tabs-mode t)))
 
 ;; use-package
 
