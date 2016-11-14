@@ -168,6 +168,12 @@
   :config (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
           (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode))
 
+(use-package org-bullets
+  :ensure t
+  :config (add-hook 'org-mode-hook
+                    (lambda ()
+                      (org-bullets-mode t))))
+
 (let ((local-init "~/.emacs.d/local.el"))
   (when (file-exists-p local-init)
     (setq custom-file local-init)
