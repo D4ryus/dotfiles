@@ -94,8 +94,22 @@
 
 (use-package slime
   :ensure t
-  :config (setq inferior-lisp-program "/usr/bin/sbcl")
-          (slime-setup '(slime-fancy slime-company))
+  :config (slime-setup '(slime-fancy
+                         slime-company
+                         slime-indentation
+                         slime-compiler-notes-tree
+                         slime-hyperdoc
+                         slime-xref-browser
+                         slime-references
+                         slime-asdf))
+          (setq inferior-lisp-program "/usr/bin/sbcl"
+                lisp-loop-indent-subclauses nil
+                lisp-loop-indent-forms-like-keywords t
+                lisp-indent-function 'common-lisp-indent-function
+                slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+                slime-highlight-compiler-notes t
+                slime-repl-history-remove-duplicates t
+                slime-repl-history-trim-whitespaces t)
           (defun re-eval ()
             (interactive)
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
