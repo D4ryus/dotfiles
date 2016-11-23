@@ -62,6 +62,9 @@
           (lambda ()
             (proced-toggle-auto-update t)))
 
+(add-hook 'lisp-mode-hook
+          (lambda () (setq mode-name "λ")))
+
 ;; use-package
 
 (unless (package-installed-p 'use-package)
