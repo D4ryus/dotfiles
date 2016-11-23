@@ -57,6 +57,11 @@
 		  tab-width 8
 		  indent-tabs-mode t)))
 
+;; auto updated proced
+(add-hook 'proced-mode-hook
+          (lambda ()
+            (proced-toggle-auto-update t)))
+
 ;; use-package
 
 (unless (package-installed-p 'use-package)
