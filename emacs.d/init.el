@@ -17,10 +17,6 @@
 (setq backup-directory-alist
       '(("." . "~/.emacs.d/backup/")))
 
-;; set ohsnap as font, if available
-(when (member "ohsnap" (font-family-list))
-  (set-frame-font "ohsnap" t t))
-
 ;; dont show tool- or scroll-bar
 (when (display-graphic-p)
   (scroll-bar-mode -1)
