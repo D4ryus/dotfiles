@@ -44,7 +44,9 @@
  word-wrap t
 
  ;; org-agenda show holidays
- org-agenda-include-diary t)
+ org-agenda-include-diary t
+
+ ring-bell-function 'ignore)
 
 ;; always show matching parens
 (show-paren-mode t)
