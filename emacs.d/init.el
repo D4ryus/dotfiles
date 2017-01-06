@@ -128,7 +128,8 @@
   :ensure t
   :diminish ""
   :init (add-hook 'after-init-hook 'global-company-mode)
-  :config (define-key company-active-map (kbd "\C-n") 'company-select-next)
+  :config (setq company-idle-delay 0.2)
+          (define-key company-active-map (kbd "\C-n") 'company-select-next)
           (define-key company-active-map (kbd "\C-p") 'company-select-previous)
           (define-key company-active-map (kbd "\C-d") 'company-show-doc-buffer)
           (define-key company-active-map (kbd "<tab>")
