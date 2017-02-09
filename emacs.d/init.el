@@ -170,9 +170,9 @@
           (add-hook 'lisp-mode-hook #'evil-paredit-mode)
           (add-hook 'clojure-mode-hook #'evil-paredit-mode))
 
-(use-package molokai-theme
+(use-package monokai-theme
   :ensure t
-  :config (load-theme 'molokai t))
+  :config (load-theme 'monokai t))
 
 (use-package rainbow-delimiters
   :ensure t
