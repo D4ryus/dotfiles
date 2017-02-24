@@ -154,6 +154,10 @@
   :config (evil-mode t)
           (evil-escape-mode t)
           (evil-set-initial-state 'term-mode 'emacs)
+          (define-key evil-normal-state-map (kbd "j")
+            'evil-next-visual-line)
+          (define-key evil-normal-state-map (kbd "k")
+            'evil-previous-visual-line)
           (add-hook 'term-mode-hook (lambda ()
                                       (setq show-trailing-whitespace nil
                                             indicate-empty-lines nil))))
