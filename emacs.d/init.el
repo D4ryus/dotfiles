@@ -48,11 +48,11 @@
 
 ;; default c coding styles and settings
 (add-hook 'c-mode-hook
-	  (lambda ()
-	    (setq c-default-style "bsd"
-		  c-basic-offset 8
-		  tab-width 8
-		  indent-tabs-mode t)))
+          (lambda ()
+            (setq c-default-style "bsd"
+                  c-basic-offset 8
+                  tab-width 8
+                  indent-tabs-mode t)))
 
 ;; auto updated proced
 (add-hook 'proced-mode-hook
@@ -132,11 +132,11 @@
           (define-key company-active-map (kbd "\C-p") 'company-select-previous)
           (define-key company-active-map (kbd "\C-d") 'company-show-doc-buffer)
           (define-key company-active-map (kbd "<tab>")
-            'company-complete-selection)
+                      'company-complete-selection)
           (define-key company-active-map (kbd "S-<tab>")
-            'company-complete-common)
+                      'company-complete-common)
           (define-key company-active-map (kbd "<backtab>")
-            'company-complete-common)
+                      'company-complete-common)
           (define-key company-active-map [return] 'newline-and-indent)
           (define-key company-active-map (kbd "RET") 'newline-and-indent))
 
@@ -155,12 +155,13 @@
           (evil-escape-mode t)
           (evil-set-initial-state 'term-mode 'emacs)
           (define-key evil-normal-state-map (kbd "j")
-            'evil-next-visual-line)
+                      'evil-next-visual-line)
           (define-key evil-normal-state-map (kbd "k")
-            'evil-previous-visual-line)
-          (add-hook 'term-mode-hook (lambda ()
-                                      (setq show-trailing-whitespace nil
-                                            indicate-empty-lines nil))))
+                      'evil-previous-visual-line)
+          (add-hook 'term-mode-hook
+                    (lambda ()
+                      (setq show-trailing-whitespace nil
+                            indicate-empty-lines nil))))
 
 (use-package paredit
   :ensure t
