@@ -190,6 +190,19 @@
                     (lambda ()
                       (org-bullets-mode t))))
 
+(use-package hydra
+  :ensure t)
+
+(global-set-key
+ (kbd "C-x t")
+ (defhydra toggle ()
+   "toggle modes and settings"
+   ("t" toggle-truncate-lines "truncate")
+   ("w" whitespace-mode "whitespace")
+   ("c" rainbow-mode "rainbow")
+   ("l" linum-mode "line numbers")
+   ("q" nil "cancel")))
+
 (let ((local-init "~/.emacs.d/local.el"))
   (when (file-exists-p local-init)
     (setq custom-file local-init)
