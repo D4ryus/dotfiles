@@ -90,7 +90,9 @@
   :ensure t)
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config (setf git-commit-summary-max-length 50))
+
 
 (use-package trident-mode
   :ensure t
