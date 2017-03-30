@@ -192,6 +192,23 @@
                     (lambda ()
                       (org-bullets-mode t))))
 
+(use-package irony
+  :ensure t
+  :config
+  (progn
+    (add-hook 'c++-mode-hook 'irony-mode)
+    (add-hook 'c-mode-hook 'irony-mode)
+    (let ((hook (lambda ()
+                  (define-key irony-mode-map [remap completion-at-point]
+                    'irony-completion-at-point-async)
+                  (define-key irony-mode-map [remap complete-symbol]
+                    'irony-completion-at-point-async))))
+      (add-hook 'irony-mode-hook 'hook)
+      (add-hook 'irony-mode-hook 'hook))))
+
+(use-package company-irony
+  :ensure t)
+
 (use-package hydra
   :ensure t)
 
