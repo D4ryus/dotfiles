@@ -212,6 +212,11 @@
 (use-package hydra
   :ensure t)
 
+(defun toggle-trailing-whitespace ()
+  (interactive)
+  (setq show-trailing-whitespace
+        (not show-trailing-whitespace)))
+
 (global-set-key
  (kbd "C-x t")
  (defhydra toggle ()
@@ -220,6 +225,7 @@
    ("w" whitespace-mode "whitespace")
    ("c" rainbow-mode "rainbow")
    ("n" linum-mode "line numbers")
+   ("t" toggle-trailing-whitespace "trailing whitespace")
    ("q" nil "cancel")))
 
 (let ((local-init "~/.emacs.d/local.el"))
