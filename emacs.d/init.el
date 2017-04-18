@@ -17,6 +17,10 @@
 (setq backup-directory-alist
       '(("." . "~/.emacs.d/backup/")))
 
+;; cache settings
+(setq auto-save-file-name-transforms
+      '((".*" "~/.cache/emacs/" t)))
+
 ;; dont show tool- or scroll-bar
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
