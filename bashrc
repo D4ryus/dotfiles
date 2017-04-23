@@ -9,7 +9,7 @@ export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/include/
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
-export EDITOR=/usr/bin/vim
+export EDITOR=et-wrapper
 export vrc=~/.vimrc
 export SDL_AUDIODRIVER=alsa
 if [[ -z "$GOPATH" ]]; then
@@ -55,6 +55,10 @@ fi
 if [ -r ~/.bashrc.local ]; then
         source ~/.bashrc.local
 fi
+
+et-wrapper() {
+        emacsclient -a "" -c -t -e "(progn (find-file \"$1\") (cd \"$PWD\"))"
+}
 
 # show 256 colors
 show_colors() {
