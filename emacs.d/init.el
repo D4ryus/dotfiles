@@ -35,9 +35,8 @@
  ;; show column number on mode line
  column-number-mode t
 
- ;; show empty lines and trailing whitespaces
+ ;; show empty lines
  indicate-empty-lines t
- show-trailing-whitespace t
 
  ;; dont break words by wrapping to new line
  word-wrap t
@@ -49,6 +48,10 @@
 
 ;; always show matching parens
 (show-paren-mode t)
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq show-trailing-whitespace t)))
 
 ;; default c coding styles and settings
 (add-hook 'c-mode-hook
