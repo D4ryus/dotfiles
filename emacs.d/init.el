@@ -201,6 +201,7 @@
 
 (use-package irony
   :ensure t
+  :bind ("C-x c" . compile)
   :config
   (progn
     (add-hook 'c++-mode-hook 'irony-mode)
