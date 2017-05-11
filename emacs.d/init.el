@@ -205,13 +205,12 @@
   (progn
     (add-hook 'c++-mode-hook 'irony-mode)
     (add-hook 'c-mode-hook 'irony-mode)
-    (let ((hook (lambda ()
-                  (define-key irony-mode-map [remap completion-at-point]
-                    'irony-completion-at-point-async)
-                  (define-key irony-mode-map [remap complete-symbol]
-                    'irony-completion-at-point-async))))
-      (add-hook 'irony-mode-hook 'hook)
-      (add-hook 'irony-mode-hook 'hook))))
+    (add-hook 'irony-mode-hook
+              (lambda ()
+                (define-key irony-mode-map [remap completion-at-point]
+                  'irony-completion-at-point-async)
+                (define-key irony-mode-map [remap complete-symbol]
+                  'irony-completion-at-point-async)))))
 
 (use-package company-irony
   :ensure t)
