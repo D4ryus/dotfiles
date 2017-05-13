@@ -239,7 +239,6 @@ nnoremap gj j
 " inoremap {{{2
 
 inoremap jk <Esc>
-inoremap <C-e> <Esc>:Bash<CR>zbA
 
 " inoremap }}}2
 " vnoremap {{{2
@@ -376,20 +375,6 @@ function! RemoveTrailingWhitespaces()
 endfunction
 
 " RemoveTrailingWhitespaces }}}2
-" Bash {{{2
-
-function! Bash()
-        let prompt = '> '
-        call search(prompt, 'b')
-        let cmd = substitute(getline('.'), '^.*' . prompt, '', '')
-        set paste
-        call append(line('.'), ['', '', prompt])
-        call append(line('.') + 1, systemlist(cmd))
-        set nopaste
-        call search('^' . prompt)
-endfunction
-
-" Bash }}}2
 " Split declaration {{{2
 
 " very basic splitting of c declaration from:
@@ -417,7 +402,6 @@ command! W w
 command! Q q
 
 command! Rtw call RemoveTrailingWhitespaces()
-command! Bash call Bash()
 
 " commands }}}1
 " autocmd {{{1
