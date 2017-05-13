@@ -14,10 +14,9 @@
         XTerm*metaSendsEscape:      true
 
 !! URxvt
-        !! URxvt.font:                 xft:Terminus:size=9:antialias=false
+        URxvt.font:                 xft:Inconsolata:size=11:antialias=true
         !! URxvt.faceSize:             10
         URxvt.termName:             rxvt-unicode-256color
-        URxvt.font:                 xft:ohsnap:pixelsize=10
         URxvt.geometry:             80x25
         URxvt.scrollBar:            false
         URxvt.iso14755:             false
