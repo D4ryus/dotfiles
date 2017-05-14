@@ -2,10 +2,24 @@
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=8:sw=8:ai:ft=sh:
 
-export PATH=$PATH:$HOME/bin/
-export LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib/
-export LD_LIBRARY_PATH=$LIBRARY_PATH:$HOME/lib/
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/include/
+add_path () {
+        # add $1 to $2 with a : in between, unless $2 already contains
+        # $1. If $2 is empty set it to $1
+        if [ -z "$2" ]; then
+                echo "$1"
+        else
+                if [[ ":$2:" == *"$1"*  ]]; then
+                        echo "$2"
+                else
+                        echo "$2:$1"
+                fi
+        fi
+}
+
+export PATH=$(add_path $HOME/bin/ $PATH)
+export LIBRARY_PATH=$(add_path $HOME/lib/ $LIBRARY_PATH)
+export LD_LIBRARY_PATH=$(add_path $HOME/lib/ $LD_LIBRARY_PATH)
+export C_INCLUDE_PATH=$(add_path $HOME/include/ $C_INCLUDE_PATH)
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
