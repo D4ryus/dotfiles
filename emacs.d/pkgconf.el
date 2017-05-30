@@ -99,11 +99,6 @@
   :config (setq-default evil-escape-key-sequence "jk")
           (add-to-list 'evil-escape-excluded-major-modes 'term-mode))
 
-(use-package evil-leader
-  :ensure t
-  :config (global-evil-leader-mode)
-          (evil-leader/set-leader ","))
-
 (use-package evil
   :ensure t
   :config (evil-mode t)
@@ -117,13 +112,6 @@
                     (lambda ()
                       (setq show-trailing-whitespace nil
                             indicate-empty-lines nil))))
-
-(use-package expand-region
-  :ensure t
-  :config (eval-after-load "evil"
-                           '(setq expand-region-contract-fast-key "z"))
-          (evil-leader/set-key "xx"
-                               'er/expand-region))
 
 (use-package paredit
   :ensure t
