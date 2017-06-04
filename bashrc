@@ -23,8 +23,7 @@ export C_INCLUDE_PATH=$(add_path $HOME/include/ $C_INCLUDE_PATH)
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
-export EDITOR=et-wrapper
-export vrc=~/.vimrc
+export EDITOR=emacsclient_wrapper
 export SDL_AUDIODRIVER=alsa
 if [[ -z "$GOPATH" ]]; then
         export GOPATH=/home/d4ryus/go
@@ -37,9 +36,7 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 alias pg="ps -efa | grep "
-alias upAur="update_Aur"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
-alias tvim="nvim -c term"
 alias et="emacsclient -a \"\" -c -t"
 alias ec="emacsclient -a \"\" -c -n"
 
@@ -55,22 +52,11 @@ if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
         fi
 fi
 
-# neovim terminal
-if [ "$NVIM_LISTEN_ADDRESS" != "" ]; then
-        if [[ $(type -P "$(which nvimex.py 2>>/dev/null)") ]];  then
-                alias :="nvimex.py"
-                alias vim="nvimex.py e"
-                alias nvim="nvimex.py e"
-        else
-                echo "could not find nvimex.py in PATH. nvim aliases disabled."
-        fi
-fi
-
 if [ -r ~/.bashrc.local ]; then
         source ~/.bashrc.local
 fi
 
-et-wrapper() {
+emacsclient_wrapper() {
         emacsclient -a "" -c -t -e "(progn (find-file \"$1\") (cd \"$PWD\"))"
 }
 
