@@ -93,12 +93,6 @@
 (use-package slime-company
   :ensure t)
 
-(use-package evil-escape
-  :ensure t
-  :diminish ""
-  :config (setq-default evil-escape-key-sequence "jk")
-          (add-to-list 'evil-escape-excluded-major-modes 'term-mode))
-
 (use-package evil
   :ensure t
   :config (evil-mode t)
@@ -112,6 +106,12 @@
                     (lambda ()
                       (setq show-trailing-whitespace nil
                             indicate-empty-lines nil))))
+
+(use-package evil-escape
+  :ensure t
+  :diminish ""
+  :config (setq-default evil-escape-key-sequence "jk")
+          (add-to-list 'evil-escape-excluded-major-modes 'term-mode))
 
 (use-package paredit
   :ensure t
