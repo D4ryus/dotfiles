@@ -94,6 +94,7 @@
   :ensure t)
 
 (use-package evil
+  :init (setq evil-want-C-i-jump nil)
   :ensure t
   :config (evil-mode t)
           (evil-escape-mode t)
