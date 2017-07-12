@@ -32,8 +32,8 @@
  ;; dont break words by wrapping to new line
  word-wrap t
 
- ;; org-agenda show holidays
- org-agenda-include-diary t
+ ;; org-agenda dont show holidays
+ org-agenda-include-diary nil
 
  ring-bell-function 'ignore)
 
