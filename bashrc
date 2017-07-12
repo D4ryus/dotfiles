@@ -93,20 +93,6 @@ ext() {
         fi
 }
 
-cinst() {
-        cower --download $1
-        if [ ! $? -eq 0 ]; then
-                return
-        fi
-        cd $1
-        makepkg --syncdeps --install
-        if [ -d ~/aurPackages/ ]; then
-                cp *.pkg.tar.xz ~/aurPackages/
-        fi
-        cd ..
-        rm -rf $1
-}
-
 update_Aur() {
         LOC="$(pwd)"
         TMP="/tmp/aurPackages"
