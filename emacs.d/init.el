@@ -16,6 +16,9 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+(unless (window-system)
+  (menu-bar-mode 0))
+
 (setq-default
  ;; disable startup message
  inhibit-startup-message t
