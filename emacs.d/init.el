@@ -63,6 +63,10 @@
 (add-hook 'lisp-mode-hook
           (lambda () (setq mode-name "λ")))
 
+(defun d4-set-background (mode)
+  (setq frame-background-mode mode)
+  (mapc 'frame-set-background-mode (frame-list)))
+
 (let ((local-init "~/.emacs.d/local.el"))
   (when (file-exists-p local-init)
     (setq custom-file local-init)
