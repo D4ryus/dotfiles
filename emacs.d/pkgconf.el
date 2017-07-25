@@ -61,7 +61,7 @@
                 lisp-loop-indent-subclauses nil
                 lisp-loop-indent-forms-like-keywords t
                 lisp-indent-function 'common-lisp-indent-function
-                slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+                slime-completion-at-point-functions 'slime-fuzzy-complete-symbol
                 slime-highlight-compiler-notes t
                 slime-repl-history-remove-duplicates t
                 slime-repl-history-trim-whitespaces t)
