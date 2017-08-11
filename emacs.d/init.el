@@ -65,7 +65,12 @@
 
 (defun d4-set-background (mode)
   (setq frame-background-mode mode)
-  (mapc 'frame-set-background-mode (frame-list)))
+  (mapc 'frame-set-background-mode (frame-list))
+  (if (eql mode 'dark)
+      (progn (set-background-color "#000000")
+             (set-foreground-color "#FFFFFF"))
+      (progn (set-background-color "#FFFFFF")
+             (set-foreground-color "#000000"))))
 
 (let ((local-init "~/.emacs.d/local.el"))
   (when (file-exists-p local-init)
