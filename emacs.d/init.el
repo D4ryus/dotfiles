@@ -16,6 +16,9 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; auto revert buffers
+(global-auto-revert-mode)
+
 (unless (window-system)
   (menu-bar-mode 0))
 
