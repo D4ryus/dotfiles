@@ -66,16 +66,13 @@
 (add-hook 'lisp-mode-hook
           (lambda () (setq mode-name "λ")))
 
-(defun d4-set-background (mode)
-  (setq frame-background-mode mode)
-  (mapc 'frame-set-background-mode (frame-list))
-  (if (eql mode 'dark)
-      (progn (set-background-color "#000000")
-             (set-foreground-color "#FFFFFF"))
-      (progn (set-background-color "#FFFFFF")
-             (set-foreground-color "#000000"))))
+(setq custom-file (concat user-emacs-directory "local.el"))
 
-(let ((local-init "~/.emacs.d/local.el"))
-  (when (file-exists-p local-init)
-    (setq custom-file local-init)
-    (load local-init)))
+;; load other files
+(map nil
+     (lambda (file)
+       (let ((file (concat user-emacs-directory file)))
+         (when (file-exists-p file)
+           (load file))))
+     (list "d4.el"
+           "local.el"))
