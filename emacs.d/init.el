@@ -69,10 +69,9 @@
 (setq custom-file (concat user-emacs-directory "local.el"))
 
 ;; load other files
-(map nil
-     (lambda (file)
-       (let ((file (concat user-emacs-directory file)))
-         (when (file-exists-p file)
-           (load file))))
-     (list "d4.el"
-           "local.el"))
+(mapc (lambda (file)
+        (let ((file (concat user-emacs-directory file)))
+          (when (file-exists-p file)
+            (load file))))
+      (list "d4.el"
+            "local.el"))
