@@ -138,6 +138,9 @@
                     (lambda ()
                       (org-bullets-mode t))))
 
+(use-package org-ref
+  :ensure t)
+
 (use-package irony
   :ensure t
   :bind ("C-x c" . compile)
