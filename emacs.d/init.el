@@ -41,6 +41,17 @@
  ;; org-agenda dont show holidays
  org-agenda-include-diary nil
 
+ org-tags-column 80
+
+ org-return-follows-link t
+
+ ;; add timestamp to done tasks
+ org-log-done 'time
+
+ ;; use drawer (LOGBOOK)
+ org-log-into-drawer t
+ org-clock-into-drawer t
+
  ring-bell-function 'ignore
 
  ;; grep recursive inside current directory
