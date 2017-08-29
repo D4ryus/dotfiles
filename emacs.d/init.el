@@ -41,7 +41,10 @@
  ;; org-agenda dont show holidays
  org-agenda-include-diary nil
 
- ring-bell-function 'ignore)
+ ring-bell-function 'ignore
+
+ ;; grep recursive inside current directory
+ grep-command "grep -nH -R . -e")
 
 ;; always show matching parens
 (show-paren-mode t)
