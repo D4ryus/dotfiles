@@ -69,27 +69,27 @@ to clock into or nil"
         (entries nil)
         (pos (point))
         (parents nil))
-    (flet ((filter (entry-string)
-             (let* ((depth (position #x20 entry-string))
-                    (entry (subseq entry-string (+ 1 depth)))
-                    (p-depth (length parents)))
-               (cond
-                 ((> depth p-depth) (setf parents (cons entry parents)))
-                 ((= depth p-depth) (setf (car parents) entry))
-                 ((< depth p-depth) (setf parents
-                                          (cons entry
-                                                (subseq parents
-                                                        (+ 1 (- p-depth depth)))))))
-               (reduce (lambda (new accum)
-                         (concat accum "/" new))
-                       parents)))
-           (add-to-entries ()
-             (setf entries
-                   (cons (cons (filter (org-current-line-string))
-                               (point))
-                         entries))))
-      ;; TODO: goto 'clock-task-tree' then use 'tree as argument
-      (org-map-entries 'add-to-entries nil scope))
+    (cl-flet ((filter (entry-string)
+                (let* ((depth (position #x20 entry-string))
+                       (entry (subseq entry-string (+ 1 depth)))
+                       (p-depth (length parents)))
+                  (cond
+                    ((> depth p-depth) (setf parents (cons entry parents)))
+                    ((= depth p-depth) (setf (car parents) entry))
+                    ((< depth p-depth) (setf parents
+                                             (cons entry
+                                                   (subseq parents
+                                                           (+ 1 (- p-depth depth)))))))
+                  (reduce (lambda (new accum)
+                            (concat accum "/" new))
+                          parents))))
+             ;; TODO: goto 'clock-task-tree' then use 'tree as argument
+             (org-map-entries (lambda ()
+                                (setf entries
+                                      (cons (cons (filter (org-current-line-string))
+                                                  (point))
+                                            entries)))
+                              nil scope))
     (let ((entry (find (funcall selector "Clock into: >"
                                 (reverse
                                  (mapcar 'car entries)))
