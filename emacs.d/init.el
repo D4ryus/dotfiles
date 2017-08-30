@@ -55,7 +55,7 @@
  ring-bell-function 'ignore
 
  ;; grep recursive inside current directory
- grep-command "grep -nH -R . -e")
+ grep-command "grep -nH -R . -e ")
 
 ;; always show matching parens
 (show-paren-mode t)
