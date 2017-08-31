@@ -1,4 +1,5 @@
 (require 'cl)
+(require 'org-agenda)
 
 (defun d4-set-background (mode)
   "set background to given mode which is either 'dark or 'light"
@@ -28,6 +29,18 @@ see: d4-org-min->string (inverse)"
      (map 'list 'string-to-int
           (split-string time ":"))
      (+ (* 60 h) m)))
+
+(defun d4-org-strange-time->min (strange-time)
+  "convert given 'strange-time' (number 110 for 01:10) to minutes (->
+returns 70 (60 + 10))"
+  (+ (* 60 (floor strange-time 100))
+     (mod strange-time 100)))
+
+(defun d4-get-current-time ()
+  "return minutes since 00:00"
+  (abs (floor (- (float-time (org-current-time))
+                 (org-time-today))
+              60)))
 
 (defun d4-org-min-diff (t1 t2)
   "Time difference in minutes between two time strings in \"hh:mm\"
@@ -119,3 +132,98 @@ to clock into or nil"
           (with-current-buffer buffer
             (c-set-style style)))
         (apply 'append (mapcar 'd4-filter-buffers-by-mode modes))))
+
+(defun d4-get-entry-time (entry)
+  "returns the time in minutes of a given text entry"
+  (d4-org-strange-time->min
+   (get-text-property 0 'time-of-day entry)))
+
+(defun d4-last-change (file)
+  "return last-change timestamp of given file"
+  (float-time
+   (nth 5 (file-attributes file))))
+
+(defun d4-calculate-entries ()
+  "return a sorted list (closest first) of all agenda entries of
+today, excluding already passed entries.
+note: (d4-get-agenda-time-entries) wraps d4-calculate-entries and
+caches results if files where not modified"
+  (let ((current-time (d4-get-current-time))
+        (date (calendar-current-date)))
+    (sort
+     (delete-if 'null
+                (mapcar (lambda (entry)
+                          (let ((entry-start-time (d4-get-entry-time entry)))
+                            (when (and entry-start-time
+                                       (> (+ entry-start-time
+                                             (or (get-text-property 0 'duration entry)
+                                                 (- (* 24 60) entry-start-time)))
+                                          current-time))
+                              entry)))
+                        (apply 'append
+                               (mapcar
+                                (lambda (agenda-file)
+                                  (org-agenda-get-day-entries agenda-file date))
+                                org-agenda-files))))
+     (lambda (a b)
+       (< (d4-get-entry-time a)
+          (d4-get-entry-time b))))))
+
+;; used to cache results
+(defvar d4-last-timestamp nil
+  "contains timestamp of last modified org-agenda file")
+(defvar d4-last-date nil
+  "last date we checked")
+(defvar d4-last-result nil
+  "cache of last results")
+
+(defun d4-get-agenda-time-entries ()
+  "call d4-calculate-entries, but only if files where modified or the
+day changed. Cached results will be saved in
+d4-last-{timestamp,date,result}"
+  (let ((last-modified (apply 'max
+                              (mapcar 'd4-last-change
+                                      org-agenda-files))))
+    (if (and d4-last-timestamp d4-last-date
+             (<= last-modified d4-last-timestamp)
+             (equalp d4-last-date (calendar-current-date)))
+        d4-last-result
+        (setq d4-last-timestamp last-modified
+              d4-last-date (calendar-current-date)
+              d4-last-result (d4-calculate-entries)))))
+
+(defun d4-format-agenda-entry (entry)
+  "format given entry to a nice printable string like:
+'entry-name' 'when' 'timeframe'
+examples:
+daily in 1:30 (11:40-12:00)
+daily now (11:40-12:00)"
+  (let ((ctime (d4-get-current-time))
+        (etime (d4-get-entry-time entry)))
+    (format "%s %s (%s)"
+            (get-text-property 0 'txt entry)
+            (if (> etime ctime)
+                (format "in %s"
+                        (d4-org-min->string
+                         (- etime ctime)))
+                "now")
+            (get-text-property 0 'time entry))))
+
+(defun d4-upcoming-entries ()
+  "nicely formatted string with displays upcoming org agenda entries"
+  (let* ((ctime (d4-get-current-time))
+         (entries (d4-get-agenda-time-entries))
+         (formatted (mapcar 'd4-format-agenda-entry
+                            (when (car entries)
+                              (cons (car entries)
+                                    (cl-loop for entry in (cdr entries)
+                                             while (< (d4-get-entry-time entry) ctime)
+                                             collect entry))))))
+    (when formatted
+      (concat "["
+              (reduce (lambda (accum &optional new)
+                        (if new
+                            (concat accum ", " new)
+                            accum))
+                      formatted)
+              "]"))))
