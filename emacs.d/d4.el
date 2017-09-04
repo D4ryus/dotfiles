@@ -138,6 +138,10 @@ to clock into or nil"
   (d4-org-strange-time->min
    (get-text-property 0 'time-of-day entry)))
 
+(defun d4-get-entry-duration (entry)
+  "returns the duration in minutes of a given text entry"
+  (get-text-property 0 'duration entry))
+
 (defun d4-last-change (file)
   "return last-change timestamp of given file"
   (float-time
@@ -156,7 +160,7 @@ caches results if files where not modified"
                           (let ((entry-start-time (d4-get-entry-time entry)))
                             (when (and entry-start-time
                                        (> (+ entry-start-time
-                                             (or (get-text-property 0 'duration entry)
+                                             (or (d4-get-entry-duration entry)
                                                  (- (* 24 60) entry-start-time)))
                                           current-time))
                               entry)))
@@ -213,17 +217,22 @@ daily now (11:40-12:00)"
   "nicely formatted string with displays upcoming org agenda entries"
   (let* ((ctime (d4-get-current-time))
          (entries (d4-get-agenda-time-entries))
-         (formatted (mapcar 'd4-format-agenda-entry
-                            (when (car entries)
-                              (cons (car entries)
-                                    (cl-loop for entry in (cdr entries)
-                                             while (< (d4-get-entry-time entry) ctime)
-                                             collect entry))))))
-    (when formatted
+         (upcoming nil))
+    (cl-loop for entry in entries
+             if (let* ((etime-start (d4-get-entry-time entry))
+                       (etime-end (+ etime-start
+                                     (d4-get-entry-duration entry))))
+                  (or (and (<= etime-start ctime)
+                           (>= etime-end ctime))
+                      (and (null upcoming)
+                           (> etime-start ctime))))
+             do (push entry upcoming))
+    (when upcoming
       (concat "["
               (reduce (lambda (accum &optional new)
                         (if new
                             (concat accum ", " new)
                             accum))
-                      formatted)
+                      (mapcar 'd4-format-agenda-entry
+                              upcoming))
               "]"))))
