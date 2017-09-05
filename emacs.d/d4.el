@@ -135,8 +135,9 @@ to clock into or nil"
 
 (defun d4-get-entry-time (entry)
   "returns the time in minutes of a given text entry"
-  (d4-org-strange-time->min
-   (get-text-property 0 'time-of-day entry)))
+  (let ((time (get-text-property 0 'time-of-day entry)))
+    (and time
+         (d4-org-strange-time->min time))))
 
 (defun d4-get-entry-duration (entry)
   "returns the duration in minutes of a given text entry"
