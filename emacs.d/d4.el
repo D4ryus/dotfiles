@@ -222,7 +222,7 @@ daily now (11:40-12:00)"
     (cl-loop for entry in entries
              if (let* ((etime-start (d4-get-entry-time entry))
                        (etime-end (+ etime-start
-                                     (d4-get-entry-duration entry))))
+                                     (or (d4-get-entry-duration entry) 0))))
                   (or (and (<= etime-start ctime)
                            (>= etime-end ctime))
                       (and (null upcoming)
