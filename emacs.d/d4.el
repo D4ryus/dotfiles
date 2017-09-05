@@ -235,5 +235,5 @@ daily now (11:40-12:00)"
                             (concat accum ", " new)
                             accum))
                       (mapcar 'd4-format-agenda-entry
-                              upcoming))
+                              (reverse upcoming)))
               "]"))))
