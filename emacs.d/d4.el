@@ -207,10 +207,10 @@ daily now (11:40-12:00)"
         (etime (d4-get-entry-time entry)))
     (format "%s %s (%s)"
             (let ((txt (get-text-property 0 'txt entry)))
-              (if (string-match (org-re "\\([ \t]+\\)\\(:[[:alnum:]_@#%:]+:\\)[ \t]*$")
-                                txt)
-                  (substring txt 0 (match-beginning 0))
-                  txt))
+              (apply 'substring-no-properties txt
+                     (when (string-match (org-re "\\([ \t]+\\)\\(:[[:alnum:]_@#%:]+:\\)[ \t]*$")
+                                         txt)
+                       (list 0 (match-beginning 0)))))
             (if (> etime ctime)
                 (format "in %s"
                         (d4-org-min->string
