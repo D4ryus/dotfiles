@@ -24,7 +24,6 @@ set autoread                    " autoread file when changed from outside
 set smartindent                 " should work better than autoindent
 set nobackup                    " do not create backups
 set nowritebackup               " also no write backups
-set list                        " list all tabs and ending spaces
 set listchars=tab:>_,nbsp:_,trail:_,precedes:<,extends:>,eol:¬
 set linebreak                   " better wraping of lines
 set showbreak=>>                " show linebreaks if wrap is set
