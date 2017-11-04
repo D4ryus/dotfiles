@@ -80,8 +80,6 @@
 (add-hook 'lisp-mode-hook
           (lambda () (setq mode-name "λ")))
 
-(setq custom-file (concat user-emacs-directory "local.el"))
-
 ;; load other files
 (mapc (lambda (file)
         (let ((file (concat user-emacs-directory file)))
@@ -89,3 +87,7 @@
             (load file))))
       (list "d4.el"
             "local.el"))
+
+(setq custom-file
+      (concat user-emacs-directory "custom.el"))
+(load custom-file)
