@@ -148,26 +148,28 @@ man() {
 }
 
 set_ps1() {
-        PS1='['
+        local reset=$(tput sgr0)
+        local red=$(tput setaf 1)
+        local green=$(tput setaf 2)
+        local yellow=$(tput setaf 3)
+
+        PS1="\[$reset\]["
         # PS1 user color
         if [[ $EUID -ne 0 ]]; then
                 # user = green
-                PS1+='\[\033[0;32m\]'
+                PS1+="\[$green\]"
         else
                 # root = red
-                PS1+='\[\033[0;31m\]'
+                PS1+="\[$red\]"
         fi
         # user and current path
-        PS1+='\h\[\033[0m\] \w'
+        PS1+="\h\[$reset\] \w"
         # use vcprompt if installed
         if command -v vcprompt > /dev/null 2>&1 ; then
-                # space and yellow color
-                PS1+='\[\033[0;33m\]'
+                PS1+="\[$yellow\]"
                 PS1+='$(vcprompt -f " %n:%b%u%m")'
-                # end yellow color
-                PS1+='\[\033[0m\]'
         fi
-        PS1+='] '
+        PS1+="\[$reset\]] "
 }
 
 set_ps1
