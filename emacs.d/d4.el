@@ -72,10 +72,10 @@ see: d4-org-min->string and d4-org-string->min"
 
 (defun d4-clock-into (&optional scope selector)
   "clock into a task inside the given scope (default 'file) by using
-selector (fault 'ivy-completing-read) to select it.
-see org-map-entries's scope argument for possible scopes
-selector gets a list of entries (strings) and should return the entry
-to clock into or nil"
+selector (default 'ivy-completing-read) to select it.  see
+org-map-entries's scope argument for possible scopes selector gets a
+list of entries (strings) and should return the entry to clock into or
+nil"
   (interactive)
   (let ((scope (or scope 'file))
         (selector (or selector 'ivy-completing-read))
