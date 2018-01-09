@@ -16,10 +16,10 @@ add_path () {
         fi
 }
 
-export PATH=$(add_path $HOME/bin/ $PATH)
-export LIBRARY_PATH=$(add_path $HOME/lib/ $LIBRARY_PATH)
-export LD_LIBRARY_PATH=$(add_path $HOME/lib/ $LD_LIBRARY_PATH)
-export C_INCLUDE_PATH=$(add_path $HOME/include/ $C_INCLUDE_PATH)
+export PATH=$(add_path "$HOME"/bin/ "$PATH")
+export LIBRARY_PATH=$(add_path "$HOME"/lib/ "$LIBRARY_PATH")
+export LD_LIBRARY_PATH=$(add_path "$HOME"/lib/ "$LD_LIBRARY_PATH")
+export C_INCLUDE_PATH=$(add_path "$HOME"/include/ "$C_INCLUDE_PATH")
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
@@ -46,7 +46,7 @@ if [ -r ~/.git-completion-bash ]; then
 fi
 
 # wikidates setting
-if [[ $(cat /proc/$PPID/status | head -1 | cut -f2) != "sshd" ]]; then
+if [[ $(cat /proc/"$PPID"/status | head -1 | cut -f2) != "sshd" ]]; then
         if [ -d ~/.wikidates ]; then
                 cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
         fi
@@ -70,22 +70,22 @@ show_colors() {
 
 # Extract Files
 ext() {
-        if [ -f $1 ]; then
+        if [ -f "$1" ]; then
                 case $1 in
-                        *.tar.bz2)   tar xvjf $1    ;;
-                        *.tar.gz)    tar xvzf $1    ;;
-                        *.tbz2)      tar xvjf $1    ;;
-                        *.tgz)       tar xvzf $1    ;;
-                        *.tar)       tar xvf $1     ;;
-                        *.tar.xz)    tar xvJf $1    ;;
-                        *.Z)         uncompress $1  ;;
-                        *.rar)       unrar x $1     ;;
-                        *.zip|*.jar) unzip $1       ;;
-                        *.gz)        gunzip $1      ;;
-                        *.bz2)       bunzip2 $1     ;;
-                        *.7z)        7z x $1        ;;
-                        *.xz)        unxz $1        ;;
-                        *.exe)       cabextract $1  ;;
+                        *.tar.bz2)   tar xvjf "$1"    ;;
+                        *.tar.gz)    tar xvzf "$1"    ;;
+                        *.tbz2)      tar xvjf "$1"    ;;
+                        *.tgz)       tar xvzf "$1"    ;;
+                        *.tar)       tar xvf "$1"     ;;
+                        *.tar.xz)    tar xvJf "$1"    ;;
+                        *.Z)         uncompress "$1"  ;;
+                        *.rar)       unrar x "$1"     ;;
+                        *.zip|*.jar) unzip "$1"       ;;
+                        *.gz)        gunzip "$1"      ;;
+                        *.bz2)       bunzip2 "$1"     ;;
+                        *.7z)        7z x "$1"        ;;
+                        *.xz)        unxz "$1"        ;;
+                        *.exe)       cabextract "$1"  ;;
                         *)           echo "\`$1': unrecognized file compression" ;;
                 esac
         else
@@ -100,7 +100,7 @@ update_Aur() {
         mkdir "$TMP" && cd "$TMP"
 
         cower --update --download
-        find -name PKGBUILD -execdir makepkg --syncdeps --install \;
+        find . -name PKGBUILD -execdir makepkg --syncdeps --install \;
         if [ -d ~/aurPackages/ ]; then
                 cp $TMP/*/*.pkg.tar.xz ~/aurPackages/
         fi
@@ -108,7 +108,7 @@ update_Aur() {
         cd "$LOC"
 
         echo "remove $TMP? (Y/n)"
-        read answer
+        read -r answer
         if [[ $answer == "Y" || $answer == "" ]]; then
                 rm --recursive --force "$TMP"
                 return
