@@ -23,8 +23,8 @@ export C_INCLUDE_PATH=$(add_path $HOME/include/ $C_INCLUDE_PATH)
 export PROMPT_DIRTRIM=3
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PAGER=less
-export EDITOR=emacsclient_wrapper
 export SDL_AUDIODRIVER=alsa
+export EDITOR=vim
 if [[ -z "$GOPATH" ]]; then
         export GOPATH=/home/d4ryus/go
 fi
