@@ -172,4 +172,11 @@ set_ps1() {
         PS1+="\[$reset\]] "
 }
 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent > ~/.ssh-agent-environment
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+        eval "$(cat ~/.ssh-agent-environment)"
+fi
+
 set_ps1
