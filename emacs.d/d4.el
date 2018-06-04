@@ -26,7 +26,7 @@ see: d4-org-string->min (inverse)"
   "convert given \"hh:mm\" string to minutes
 see: d4-org-min->string (inverse)"
   (cl-destructuring-bind (h m)
-     (map 'list 'string-to-int
+     (map 'list 'string-to-number
           (split-string time ":"))
      (+ (* 60 h) m)))
 
