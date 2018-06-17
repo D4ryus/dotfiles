@@ -12,9 +12,21 @@
 (setq auto-save-file-name-transforms
       '((".*" "~/.cache/emacs/" t)))
 
-;; dont show tool- or scroll-bar
-(scroll-bar-mode -1)
+;; dont show tool-bar
 (tool-bar-mode -1)
+
+;; dont show scroll-bar and default background to black
+(setq default-frame-alist
+      '((vertical-scroll-bars . nil)
+        (background-color . "#000000")
+        (foreground-color . "#FFFFFF")))
+
+;; alias st and screen (tmux) to xterm
+(mapc (lambda (term)
+        (add-to-list 'term-file-aliases
+                     (cons term "xterm-256color")))
+      '("st-256color"
+        "screen-256color"))
 
 ;; auto revert buffers
 (global-auto-revert-mode)
