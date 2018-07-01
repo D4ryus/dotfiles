@@ -37,6 +37,10 @@
 (use-package restclient
   :ensure t)
 
+(use-package which-key
+  :ensure t
+  :config (which-key-mode t))
+
 (use-package magit
   :ensure t
   :config (setf git-commit-summary-max-length 50
