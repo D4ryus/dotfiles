@@ -31,6 +31,9 @@
 ;; auto revert buffers
 (global-auto-revert-mode)
 
+;; show current function in modeline
+(which-function-mode t)
+
 (unless (window-system)
   (menu-bar-mode 0))
 
