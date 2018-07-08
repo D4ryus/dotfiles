@@ -181,3 +181,5 @@
    ("n" linum-mode "line numbers")
    ("t" toggle-trailing-whitespace "trailing whitespace")
    ("q" nil "cancel")))
+
+(provide 'd4-pkg)

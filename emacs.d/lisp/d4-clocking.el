@@ -1,74 +1,16 @@
-(require 'cl)
-(require 'org-agenda)
-
-(defun d4-set-background (mode)
-  "set background to given mode which is either 'dark or 'light"
-  (setq frame-background-mode mode)
-  (mapc 'frame-set-background-mode (frame-list))
-  (let ((dark  "#000000")
-        (light "#FFFFFF"))
-    (if (eql mode 'dark)
-        (progn (set-background-color dark)
-               (set-foreground-color light))
-        (progn (set-background-color light)
-               (set-foreground-color dark)))))
-
-(defun d4-org-min->string (minutes)
-  "convert given minutes to a \"hh:mm\" string
-see: d4-org-string->min (inverse)"
-  (let* ((hs (* 60 60))
-         (ms 60)
-         (h (floor (/ minutes ms)))
-         (m (mod minutes ms)))
-    (format "%d:%02d" h m)))
-
-(defun d4-org-string->min (time)
-  "convert given \"hh:mm\" string to minutes
-see: d4-org-min->string (inverse)"
-  (cl-destructuring-bind (h m)
-     (map 'list 'string-to-number
-          (split-string time ":"))
-     (+ (* 60 h) m)))
-
-(defun d4-org-strange-time->min (strange-time)
-  "convert given 'strange-time' (number 110 for 01:10) to minutes (->
-returns 70 (60 + 10))"
-  (+ (* 60 (floor strange-time 100))
-     (mod strange-time 100)))
+;; used to cache results
+(defvar d4-last-timestamp nil
+  "contains timestamp of last modified org-agenda file")
+(defvar d4-last-date nil
+  "last date we checked")
+(defvar d4-last-result nil
+  "cache of last results")
 
 (defun d4-get-current-time ()
   "return minutes since 00:00"
   (abs (floor (- (float-time (org-current-time))
                  (org-time-today))
               60)))
-
-(defun d4-org-min-diff (t1 t2)
-  "Time difference in minutes between two time strings in \"hh:mm\"
-format.
-returns a \"hh:mm\" string
-see: d4-org-min->string and d4-org-string->min"
-  (d4-org-min->string
-   (abs (- (d4-org-string->min t1)
-           (d4-org-string->min t2)))))
-
-(defun d4-org-sum (&rest args)
-  "Sum up all given \"hh:mm\" strings.
-returns a \"hh:mm\" string
-see: d4-org-min->string and d4-org-string->min"
-  (d4-org-min->string
-   (reduce '+
-           (map 'list 'd4-org-string->min
-                args))))
-
-(defun d4-org-avg (&rest args)
-  "Average all given \"hh:mm\" strings.
-returns a \"hh:mm\" string
-see: d4-org-min->string and d4-org-string->min"
-  (d4-org-min->string
-   (/ (reduce '+
-              (map 'list 'd4-org-string->min
-                   args))
-      (length args))))
 
 (defun d4-clock-into (&optional scope selector)
   "clock into a task inside the given scope (default 'file) by using
@@ -115,24 +57,6 @@ nil"
            (org-clock-in))
           (message "no entry found")))))
 
-(defun d4-buffer-mode (buffer-or-name)
-  "return mode of given buffer"
-  (with-current-buffer buffer-or-name major-mode))
-
-(defun d4-filter-buffers-by-mode (mode &optional buffer-list)
-  "return all buffers with given mode"
-  (delq nil
-        (mapcar (lambda (buffer)
-                  (and (eq (d4-buffer-mode buffer) mode) buffer))
-                (or buffer-list (buffer-list)))))
-
-(defun d4-set-style (style &rest modes)
-  "set style to all buffers with given modes"
-  (mapc (lambda (buffer)
-          (with-current-buffer buffer
-            (c-set-style style)))
-        (apply 'append (mapcar 'd4-filter-buffers-by-mode modes))))
-
 (defun d4-get-entry-time (entry)
   "returns the time in minutes of a given text entry"
   (let ((time (get-text-property 0 'time-of-day entry)))
@@ -173,14 +97,6 @@ caches results if files where not modified"
      (lambda (a b)
        (< (d4-get-entry-time a)
           (d4-get-entry-time b))))))
-
-;; used to cache results
-(defvar d4-last-timestamp nil
-  "contains timestamp of last modified org-agenda file")
-(defvar d4-last-date nil
-  "last date we checked")
-(defvar d4-last-result nil
-  "cache of last results")
 
 (defun d4-get-agenda-time-entries ()
   "call d4-calculate-entries, but only if files where modified or the
@@ -241,3 +157,5 @@ daily now (11:40-12:00)"
                       (mapcar 'd4-format-agenda-entry
                               (reverse upcoming)))
               "]"))))
+
+(provide 'd4-clocking)

@@ -1,8 +1,15 @@
 (package-initialize)
 
-(let ((pkgconf "~/.emacs.d/pkgconf.el"))
-  (when (file-exists-p pkgconf)
-    (load pkgconf)))
+(add-to-list 'load-path
+             (concat user-emacs-directory "lisp"))
+
+(require 'd4-pkg)
+(require 'd4-org)
+(require 'd4)
+(require 'd4-tea)
+(require 'd4-local)
+(require 'd4-clocking)
+(require 'd4-overwrites)
 
 ;; backup settings
 (setq backup-directory-alist
@@ -94,14 +101,6 @@
 
 (add-hook 'lisp-mode-hook
           (lambda () (setq mode-name "λ")))
-
-;; load other files
-(mapc (lambda (file)
-        (let ((file (concat user-emacs-directory file)))
-          (when (file-exists-p file)
-            (load file))))
-      (list "d4.el"
-            "local.el"))
 
 (setq custom-file
       (concat user-emacs-directory "custom.el"))
