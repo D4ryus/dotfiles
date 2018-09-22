@@ -44,6 +44,8 @@
 (unless (window-system)
   (menu-bar-mode 0))
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (setq-default
  ;; disable startup message
  inhibit-startup-message t
