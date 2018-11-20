@@ -151,7 +151,6 @@ set_ps1() {
         local reset=$(tput sgr0)
         local red=$(tput setaf 1)
         local green=$(tput setaf 2)
-        local yellow=$(tput setaf 3)
 
         PS1="\[$reset\]["
         # PS1 user color
@@ -163,13 +162,7 @@ set_ps1() {
                 PS1+="\[$red\]"
         fi
         # user and current path
-        PS1+="\h\[$reset\] \w"
-        # use vcprompt if installed
-        if command -v vcprompt > /dev/null 2>&1 ; then
-                PS1+="\[$yellow\]"
-                PS1+='$(vcprompt -f " %n:%b%u%m")'
-        fi
-        PS1+="\[$reset\]] "
+        PS1+="\h\[$reset\] \W\[$reset\]] "
 }
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
