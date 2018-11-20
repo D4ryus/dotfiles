@@ -16,12 +16,10 @@ add_path () {
         fi
 }
 
-export PATH=$(add_path "$HOME"/bin/ "$PATH")
-export LIBRARY_PATH=$(add_path "$HOME"/lib/ "$LIBRARY_PATH")
-export LD_LIBRARY_PATH=$(add_path "$HOME"/lib/ "$LD_LIBRARY_PATH")
-export C_INCLUDE_PATH=$(add_path "$HOME"/include/ "$C_INCLUDE_PATH")
-export PROMPT_DIRTRIM=3
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export PATH=$(add_path "$HOME"/bin "$PATH")
+export LIBRARY_PATH=$(add_path "$HOME"/lib "$LIBRARY_PATH")
+export LD_LIBRARY_PATH=$(add_path "$HOME"/lib "$LD_LIBRARY_PATH")
+export C_INCLUDE_PATH=$(add_path "$HOME"/include "$C_INCLUDE_PATH")
 export PAGER=less
 export EDITOR=vim
 export SDL_AUDIODRIVER=pulse
@@ -29,13 +27,11 @@ if [[ -z "$GOPATH" ]]; then
         export GOPATH=/home/d4ryus/go
 fi
 
-alias lock="sleep 1 && xset dpms force off && slock"
 alias tm="tmux attach -t"
 alias ts="tmux ls"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
-alias pg="ps -efa | grep "
 alias myip="curl http://myip.dnsomatic.com && echo ''"
 alias et="emacsclient -a \"\" -c -t"
 alias ec="emacsclient -a \"\" -c -n"
@@ -43,13 +39,6 @@ alias ec="emacsclient -a \"\" -c -n"
 # git autocompletion
 if [ -r ~/.git-completion-bash ]; then
         source ~/.git-completion-bash
-fi
-
-# wikidates setting
-if [[ $(cat /proc/"$PPID"/status | head -1 | cut -f2) != "sshd" ]]; then
-        if [ -d ~/.wikidates ]; then
-                cat ~/.wikidates/$(date +%B_%d) | shuf -n 1
-        fi
 fi
 
 if [ -r ~/.bashrc.local ]; then
@@ -91,46 +80,6 @@ ext() {
         else
                 echo "\`$1' is not a valid file"
         fi
-}
-
-update_Aur() {
-        LOC="$(pwd)"
-        TMP="/tmp/aurPackages"
-
-        mkdir "$TMP" && cd "$TMP"
-
-        cower --update --download
-        find . -name PKGBUILD -execdir makepkg --syncdeps --install \;
-        if [ -d ~/aurPackages/ ]; then
-                cp $TMP/*/*.pkg.tar.xz ~/aurPackages/
-        fi
-
-        cd "$LOC"
-
-        echo "remove $TMP? (Y/n)"
-        read -r answer
-        if [[ $answer == "Y" || $answer == "" ]]; then
-                rm --recursive --force "$TMP"
-                return
-        fi
-}
-
-con_wireless() {
-        INTERFACE="wlp3s0"
-        WPA_CONF="/etc/wpa_supplicant/wpa_supplicant-wlp3s0.conf"
-
-        if [[ $EUID -ne 0 ]]; then
-                echo "call me again when u got root!"
-                return
-        fi
-
-        echo "setting $INTERFACE up"
-        ip link set $INTERFACE up
-        echo "starting wpa on $INTERFACE with $WPA_CONF"
-        wpa_supplicant -i $INTERFACE -B -c $WPA_CONF
-        echo "getting ip via dhcpcd"
-        dhcpcd $INTERFACE
-        echo "should be all done now."
 }
 
 # colorized manpages, copied that from:
