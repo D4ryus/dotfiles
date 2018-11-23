@@ -84,9 +84,20 @@
 ;; always show matching parens
 (show-paren-mode t)
 
+(require 'whitespace)
+
+(setq whitespace-style '(face tabs lines-tail)
+      whitespace-display-mappings nil)
+
+(set-face-attribute 'whitespace-tab nil
+                    :background "#181818")
+
+(defun d4-whitespace-prog-hook ()
+  (whitespace-mode)
+  (setq show-trailing-whitespace t))
+
 (add-hook 'prog-mode-hook
-          (lambda ()
-            (setq show-trailing-whitespace t)))
+          'd4-whitespace-prog-hook)
 
 ;; default c coding styles and settings
 (add-hook 'c-mode-hook
