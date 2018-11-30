@@ -160,6 +160,11 @@
 (use-package hydra
   :ensure t)
 
+(use-package doom-themes
+  :ensure t
+  :config (load-theme 'doom-one t)
+          (doom-themes-org-config))
+
 (defun toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
