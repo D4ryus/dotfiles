@@ -23,6 +23,7 @@ export C_INCLUDE_PATH=$(add_path "$HOME"/include "$C_INCLUDE_PATH")
 export PAGER=less
 export EDITOR=vim
 export SDL_AUDIODRIVER=pulse
+export HISTCONTROL=ignoredups
 if [[ -z "$GOPATH" ]]; then
         export GOPATH=/home/d4ryus/go
 fi
