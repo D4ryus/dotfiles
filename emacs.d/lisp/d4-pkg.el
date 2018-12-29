@@ -137,12 +137,6 @@
   :config (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
           (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode))
 
-(use-package org-bullets
-  :ensure t
-  :config (add-hook 'org-mode-hook
-                    (lambda ()
-                      (org-bullets-mode t))))
-
 (use-package org-ref
   :ensure t)
 
