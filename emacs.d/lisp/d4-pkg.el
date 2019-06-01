@@ -75,6 +75,9 @@
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
               (slime-repl-resend))))
 
+(use-package geiser
+  :ensure t)
+
 (use-package cider
   :ensure t)
 
@@ -114,28 +117,28 @@
                       (setq show-trailing-whitespace nil
                             indicate-empty-lines nil))))
 
-(use-package evil-escape
-  :ensure t
-  :diminish ""
-  :config (setq-default evil-escape-key-sequence "jk")
-          (add-to-list 'evil-escape-excluded-major-modes 'term-mode))
+(defvar d4-lisp-mode-hooks '(emacs-lisp-mode-hook
+                             lisp-mode-hook
+                             clojure-mode-hook
+                             geiser-mode-hook))
 
 (use-package paredit
   :ensure t
-  :config (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-          (add-hook 'lisp-mode-hook #'enable-paredit-mode)
-          (add-hook 'clojure-mode-hook #'enable-paredit-mode))
+  :config (mapc (lambda (hook)
+                  (add-hook hook #'enable-paredit-mode))
+                d4-lisp-mode-hooks))
 
 (use-package evil-paredit
   :ensure t
-  :config (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
-          (add-hook 'lisp-mode-hook #'evil-paredit-mode)
-          (add-hook 'clojure-mode-hook #'evil-paredit-mode))
+  :config (mapc (lambda (hook)
+                  (add-hook hook #'evil-paredit-mode))
+                d4-lisp-mode-hooks))
 
 (use-package rainbow-delimiters
   :ensure t
-  :config (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-          (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode))
+  :config (mapc (lambda (hook)
+                  (add-hook hook #'rainbow-delimiters-mode))
+                d4-lisp-mode-hooks))
 
 (use-package org-ref
   :ensure t)
