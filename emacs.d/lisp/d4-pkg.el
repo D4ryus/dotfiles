@@ -168,7 +168,7 @@
   :config (load-theme 'doom-one t)
           (doom-themes-org-config))
 
-(defun toggle-trailing-whitespace ()
+(defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
         (not show-trailing-whitespace)))
@@ -181,7 +181,7 @@
    ("w" whitespace-mode "whitespace")
    ("c" rainbow-mode "rainbow")
    ("n" linum-mode "line numbers")
-   ("t" toggle-trailing-whitespace "trailing whitespace")
+   ("t" d4-toggle-trailing-whitespace "trailing whitespace")
    ("q" nil "cancel")))
 
 (provide 'd4-pkg)
