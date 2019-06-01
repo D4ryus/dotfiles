@@ -86,7 +86,7 @@
 
 (require 'whitespace)
 
-(setq whitespace-style '(face tabs lines-tail)
+(setq whitespace-style '(face tabs)
       whitespace-display-mappings nil)
 
 (set-face-attribute 'whitespace-tab nil
