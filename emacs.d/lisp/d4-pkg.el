@@ -168,6 +168,25 @@
   :config (load-theme 'doom-one t)
           (doom-themes-org-config))
 
+(use-package erc
+  :ensure t
+  :config
+  (progn
+    (setq erc-remove-parsed-property nil
+          erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT" "324" "329" "332" "333" "353" "477")
+          erc-enable-logging 'erc-log-all-but-server-buffers
+          erc-input-line-position -2
+          erc-timestamp-format "%H:%M "
+          erc-insert-timestamp-function 'erc-insert-timestamp-left
+          erc-modules '(completion log highlight-nicknames autojoin button irccontrols
+                        list match menu move-to-prompt netsplit networks noncommands
+                        readonly ring sound stamp track))
+    (erc-update-modules)
+    (erc-fill-disable)
+    (erc-log-mode)
+    (erc-track-mode)
+    (erc-highlight-nicknames-mode)))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
