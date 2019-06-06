@@ -173,6 +173,9 @@
 
 (use-package erc
   :ensure t
+  :hook (erc-mode-hook .
+         (lambda ()
+           (set (make-local-variable 'scroll-conservatively) 100)))
   :config
   (progn
     (setq erc-remove-parsed-property nil
