@@ -168,6 +168,9 @@
   :config (load-theme 'doom-one t)
           (doom-themes-org-config))
 
+(use-package erc-hl-nicks
+  :ensure t)
+
 (use-package erc
   :ensure t
   :config
@@ -178,14 +181,14 @@
           erc-input-line-position -2
           erc-timestamp-format "%H:%M "
           erc-insert-timestamp-function 'erc-insert-timestamp-left
-          erc-modules '(completion log highlight-nicknames autojoin button irccontrols
+          erc-modules '(completion log hl-nicks autojoin button irccontrols
                         list match menu move-to-prompt netsplit networks noncommands
                         readonly ring sound stamp track))
     (erc-update-modules)
     (erc-fill-disable)
+    (erc-hl-nicks-mode)
     (erc-log-mode)
-    (erc-track-mode)
-    (erc-highlight-nicknames-mode)))
+    (erc-track-mode)))
 
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
