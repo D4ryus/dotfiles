@@ -163,11 +163,6 @@
 (use-package hydra
   :ensure t)
 
-(use-package doom-themes
-  :ensure t
-  :config (load-theme 'doom-one t)
-          (doom-themes-org-config))
-
 (use-package erc-hl-nicks
   :ensure t)
 

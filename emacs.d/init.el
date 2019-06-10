@@ -24,9 +24,7 @@
 
 ;; dont show scroll-bar and default background to black
 (setq default-frame-alist
-      '((vertical-scroll-bars . nil)
-        (background-color . "#000000")
-        (foreground-color . "#FFFFFF")))
+      '((vertical-scroll-bars . nil)))
 
 ;; alias st and screen (tmux) to xterm
 (mapc (lambda (term)
@@ -79,7 +77,10 @@
  ring-bell-function 'ignore
 
  ;; grep recursive inside current directory
- grep-command "grep -nH -R . -e ")
+ grep-command "grep -nH -R . -e "
+
+ ;; use white on black
+ inverse-video t)
 
 ;; always show matching parens
 (show-paren-mode t)
