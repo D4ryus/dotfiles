@@ -24,7 +24,8 @@
 
 ;; dont show scroll-bar and default background to black
 (setq default-frame-alist
-      '((vertical-scroll-bars . nil)))
+      '((vertical-scroll-bars . nil)
+        (reverse . t)))
 
 ;; alias st and screen (tmux) to xterm
 (mapc (lambda (term)
