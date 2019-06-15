@@ -3,25 +3,22 @@
 
 ! xterm
 xterm*termName:             xterm-256color
-xterm*faceNameDoublesize:   WenQuanYi Bitmap Song
-xterm*faceSize:             10
+xterm*font:                 xft:Envy Code R:size=11:antialias=true
 xterm*foreground:           rgb:a8/a8/a8
 xterm*background:           rgb:00/00/00
-xterm*VT100.geometry:       80x25
+xterm*VT100.geometry:       80x24
 xterm*backarrowKey:         false
 xterm*utf8:                 1
-xterm*faceName:             Terminus:size=10:antialias=false
 xterm*metaSendsEscape:      true
 
 ! URxvt
-!URxvt.font:                 xft:Inconsolata:size=9:antialias=true
-URxvt.font:                 xft:Monospace:size=9:antialias=false
+URxvt.font:                 xft:Envy Code R:size=11:antialias=true
 URxvt.termName:             rxvt-unicode-256color
-URxvt.geometry:             80x25
+URxvt.geometry:             80x24
 URxvt.scrollBar:            false
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
-URxvt*saveLines:            10000
+URxvt*saveLines:            65536
 
 ! disable perl extension
 URxvt.perl-ext:
