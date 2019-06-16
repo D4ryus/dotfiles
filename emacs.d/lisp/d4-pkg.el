@@ -188,6 +188,16 @@
     (erc-log-mode)
     (erc-track-mode)))
 
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'")
+
+(use-package skewer-mode
+  :ensure t
+  :init (add-hook 'js2-mode-hook #'skewer-mode)
+        (add-hook 'css-mode-hook #'skewer-css-mode)
+        (add-hook 'html-mode-hook #'skewer-html-mode))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
