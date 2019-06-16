@@ -5,3 +5,4 @@ elpa/
 eshell/
 local.lisp
 custom.el
+transient/
