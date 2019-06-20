@@ -6,3 +6,5 @@ eshell/
 local.lisp
 custom.el
 transient/
+tramp
+.mc-lists.el
