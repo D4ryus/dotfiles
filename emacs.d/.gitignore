@@ -3,7 +3,7 @@ auto-save-list/
 backup/
 elpa/
 eshell/
-local.lisp
+local.el
 custom.el
 transient/
 tramp
