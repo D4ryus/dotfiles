@@ -34,7 +34,6 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 alias myip="curl http://myip.dnsomatic.com && echo ''"
-alias et="emacsclient -a \"\" -c -t"
 alias ec="emacsclient -a \"\" -c -n"
 
 # git autocompletion
@@ -45,6 +44,21 @@ fi
 if [ -r ~/.bashrc.local ]; then
         source ~/.bashrc.local
 fi
+
+et() {
+    local TMP
+    if [[ "$1" != "-" ]]; then
+        emacsclient -a "" -c -t -e "(find-file \"$1\")"
+        return 0
+    fi
+    TMP="$(mktemp /tmp/et-stdin-XXXXXX)";
+    cat > "$TMP";
+    emacsclient --eval '(let ((file "'${TMP}'"))
+                          (switch-to-buffer (get-buffer-create "*stdin*"))
+                          (erase-buffer)
+                          (insert-file-contents file)
+                          (delete-file file))'
+}
 
 emacsclient_wrapper() {
         emacsclient -a "" -c -t -e "(progn (find-file \"$1\") (cd \"$PWD\"))"
