@@ -44,6 +44,14 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(defun d4-grep-for-symbol ()
+  (interactive)
+  (grep (format "grep -nH '\\<%s\\>' -R ."
+                (thing-at-point 'symbol))))
+
+(global-set-key (kbd "C-x g")
+                'd4-grep-for-symbol)
+
 (setq-default
  ;; disable startup message
  inhibit-startup-message t
