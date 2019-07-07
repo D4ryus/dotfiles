@@ -207,6 +207,11 @@
 
 (use-package company-lsp
   :ensure t)
+
+(use-package lsp-python
+  :ensure t
+  :hook (python-mode . lsp))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
