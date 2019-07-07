@@ -198,6 +198,15 @@
         (add-hook 'css-mode-hook #'skewer-css-mode)
         (add-hook 'html-mode-hook #'skewer-html-mode))
 
+(use-package lsp-mode
+  :ensure t
+  :init (setq lsp-enable-snippet nil))
+
+(use-package lsp-ui
+  :ensure t)
+
+(use-package company-lsp
+  :ensure t)
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
