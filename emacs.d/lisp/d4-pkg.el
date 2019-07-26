@@ -106,7 +106,6 @@
               evil-symbol-word-search t)
   :ensure t
   :config (evil-mode t)
-          (evil-escape-mode t)
           (evil-set-initial-state 'term-mode 'emacs)
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
