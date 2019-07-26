@@ -32,10 +32,6 @@ Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'vim-scripts/paredit.vim', {'for': 'clojure'}
 
-if v:version >= 800
-        Plug 'maralla/completor.vim'
-endif
-
 if executable('ctags')
         Plug 'ludovicchabant/vim-gutentags'
 endif
