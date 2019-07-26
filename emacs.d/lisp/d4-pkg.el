@@ -106,7 +106,11 @@
               evil-symbol-word-search t)
   :ensure t
   :config (evil-mode t)
-          (evil-set-initial-state 'term-mode 'emacs)
+          (mapc (lambda (pair)
+                  (evil-set-initial-state (car pair) (cdr pair)))
+                '((term-mode . emacs)
+                  (dired-mode . emacs)
+                  (Buffer-menu-mode . emacs)))
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
           (define-key evil-normal-state-map (kbd "k")
