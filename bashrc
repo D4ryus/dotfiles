@@ -60,10 +60,6 @@ et() {
                           (delete-file file))'
 }
 
-emacsclient_wrapper() {
-        emacsclient -a "" -c -t -e "(progn (find-file \"$1\") (cd \"$PWD\"))"
-}
-
 # show 256 colors
 show_colors() {
         for i in {0..255}
