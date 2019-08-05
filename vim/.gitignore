@@ -1,0 +1,5 @@
+.netrwbook
+.netrwhist
+autoload/
+plugged/
+swap/
