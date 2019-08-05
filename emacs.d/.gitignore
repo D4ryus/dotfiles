@@ -8,3 +8,6 @@ custom.el
 transient/
 tramp
 .mc-lists.el
+.lsp-session-v1
+network-security.data
+url/
