@@ -16,16 +16,16 @@ add_path () {
         fi
 }
 
-export PATH=$(add_path "$HOME"/bin "$PATH")
-export LIBRARY_PATH=$(add_path "$HOME"/lib "$LIBRARY_PATH")
-export LD_LIBRARY_PATH=$(add_path "$HOME"/lib "$LD_LIBRARY_PATH")
-export C_INCLUDE_PATH=$(add_path "$HOME"/include "$C_INCLUDE_PATH")
+export PATH=$(add_path "${HOME}/bin" "$PATH")
+export LIBRARY_PATH=$(add_path "${HOME}/lib" "$LIBRARY_PATH")
+export LD_LIBRARY_PATH=$(add_path "${HOME}/lib" "$LD_LIBRARY_PATH")
+export C_INCLUDE_PATH=$(add_path "${HOME}/include" "$C_INCLUDE_PATH")
 export PAGER=less
 export EDITOR=vim
 export SDL_AUDIODRIVER=pulse
 export HISTCONTROL=ignoredups
 if [[ -z "$GOPATH" ]]; then
-        export GOPATH=/home/d4ryus/go
+        export GOPATH="${HOME}/go"
 fi
 
 alias tm="tmux attach -t"
@@ -37,12 +37,12 @@ alias myip="curl http://myip.dnsomatic.com && echo ''"
 alias ec="emacsclient -a \"\" -c -n"
 
 # git autocompletion
-if [ -r ~/.git-completion-bash ]; then
-        source ~/.git-completion-bash
+if [ -r "${HOME}/.git-completion-bash" ]; then
+        source "${HOME}/.git-completion-bash"
 fi
 
-if [ -r ~/.bashrc.local ]; then
-        source ~/.bashrc.local
+if [ -r "${HOME}/.bashrc.local" ]; then
+        source "${HOME}/.bashrc.local"
 fi
 
 et() {
@@ -126,10 +126,10 @@ set_ps1() {
 }
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-        ssh-agent > ~/.ssh-agent-environment
+        ssh-agent > "${HOME}/.ssh-agent-environment"
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
-        eval "$(cat ~/.ssh-agent-environment)"
+        eval "$(cat ${HOME}/.ssh-agent-environment)"
 fi
 
 set_ps1
