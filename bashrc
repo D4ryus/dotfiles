@@ -46,24 +46,23 @@ if [ -r "${HOME}/.bashrc.local" ]; then
 fi
 
 et() {
-    local TMP
-    if [[ "$1" != "-" ]]; then
-        emacsclient -a "" -c -t -e "(find-file \"$1\")"
-        return 0
-    fi
-    TMP="$(mktemp /tmp/et-stdin-XXXXXX)";
-    cat > "$TMP";
-    emacsclient --eval '(let ((file "'${TMP}'"))
-                          (switch-to-buffer (get-buffer-create "*stdin*"))
-                          (erase-buffer)
-                          (insert-file-contents file)
-                          (delete-file file))'
+        local TMP
+        if [[ "$1" != "-" ]]; then
+                emacsclient -a "" -c -t -e "(find-file \"$1\")"
+                return 0
+        fi
+        TMP="$(mktemp /tmp/et-stdin-XXXXXX)";
+        cat > "$TMP";
+        emacsclient --eval '(let ((file "'${TMP}'"))
+                              (switch-to-buffer (get-buffer-create "*stdin*"))
+                              (erase-buffer)
+                              (insert-file-contents file)
+                              (delete-file file))'
 }
 
 # show 256 colors
 show_colors() {
-        for i in {0..255}
-        do
+        for i in {0..255}; do
                 printf "\x1b[38;5;${i}mcolour${i}\n"
         done
 }
