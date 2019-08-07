@@ -60,6 +60,10 @@ et() {
                               (delete-file file))'
 }
 
+doit() {
+        emacsclient -a "" -n "$@"
+}
+
 # show 256 colors
 show_colors() {
         for i in {0..255}; do
