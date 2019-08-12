@@ -120,9 +120,6 @@
           (lambda ()
             (proced-toggle-auto-update t)))
 
-(add-hook 'lisp-mode-hook
-          (lambda () (setq mode-name "λ")))
-
 (setq custom-file
       (concat user-emacs-directory "custom.el"))
 (load custom-file)
