@@ -115,7 +115,7 @@
                   tab-width 8
                   indent-tabs-mode t)))
 
-;; auto updated proced
+;; auto update proced
 (add-hook 'proced-mode-hook
           (lambda ()
             (proced-toggle-auto-update t)))
