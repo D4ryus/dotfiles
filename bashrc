@@ -1,3 +1,4 @@
+# -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 8; -*-
 # file: ~/.bashrc
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=8:sw=8:ai:ft=sh:
