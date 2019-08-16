@@ -43,9 +43,12 @@
 
 (use-package magit
   :ensure t
-  :config (setf git-commit-summary-max-length 50
-                magit-diff-refine-hunk 'all
-                magit-diff-highlight-indentation '(("" . tabs))))
+  :config
+  (progn
+    (setf git-commit-summary-max-length 50
+          magit-diff-refine-hunk 'all
+          magit-diff-highlight-indentation '(("" . tabs)))
+    (define-key magit-file-mode-map (kbd "C-x g") nil)))
 
 (use-package trident-mode
   :ensure t
