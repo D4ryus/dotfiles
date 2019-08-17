@@ -20,33 +20,26 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(setq use-package-always-ensure t)
-
 (require 'use-package)
 
-(use-package try
-  :ensure t)
+(setq use-package-always-ensure t)
+
+(use-package try)
 
 (use-package ivy
   :diminish (ivy-mode . "")
-  :ensure t
   :config (ivy-mode 1))
 
-(use-package rainbow-mode
-  :ensure t)
+(use-package rainbow-mode)
 
-(use-package edit-color-stamp
-  :ensure t)
+(use-package edit-color-stamp)
 
-(use-package restclient
-  :ensure t)
+(use-package restclient)
 
 (use-package which-key
-  :ensure t
   :config (which-key-mode t))
 
 (use-package magit
-  :ensure t
   :config
   (progn
     (setf git-commit-summary-max-length 50
@@ -55,12 +48,10 @@
     (define-key magit-file-mode-map (kbd "C-x g") nil)))
 
 (use-package trident-mode
-  :ensure t
   :config (add-hook 'lisp-mode-hook
                     #'(lambda () (trident-mode 1))))
 
 (use-package slime
-  :ensure t
   :config (slime-setup '(slime-fancy
                          slime-company
                          slime-indentation
@@ -82,14 +73,11 @@
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
               (slime-repl-resend))))
 
-(use-package geiser
-  :ensure t)
+(use-package geiser)
 
-(use-package cider
-  :ensure t)
+(use-package cider)
 
 (use-package company
-  :ensure t
   :diminish ""
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-idle-delay 0.2)
@@ -105,13 +93,11 @@
           (define-key company-active-map [return] 'newline-and-indent)
           (define-key company-active-map (kbd "RET") 'newline-and-indent))
 
-(use-package slime-company
-  :ensure t)
+(use-package slime-company)
 
 (use-package evil
   :init (setq evil-want-C-i-jump nil
               evil-symbol-word-search t)
-  :ensure t
   :config (evil-mode t)
           (mapc (lambda (pair)
                   (evil-set-initial-state (car pair) (cdr pair)))
@@ -133,28 +119,23 @@
                              geiser-mode-hook))
 
 (use-package paredit
-  :ensure t
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
                 d4-lisp-mode-hooks))
 
 (use-package evil-paredit
-  :ensure t
   :config (mapc (lambda (hook)
                   (add-hook hook #'evil-paredit-mode))
                 d4-lisp-mode-hooks))
 
 (use-package rainbow-delimiters
-  :ensure t
   :config (mapc (lambda (hook)
                   (add-hook hook #'rainbow-delimiters-mode))
                 d4-lisp-mode-hooks))
 
-(use-package org-ref
-  :ensure t)
+(use-package org-ref)
 
 (use-package irony
-  :ensure t
   :bind ("C-x c" . compile)
   :config
   (progn
@@ -167,17 +148,13 @@
                 (define-key irony-mode-map [remap complete-symbol]
                   'irony-completion-at-point-async)))))
 
-(use-package company-irony
-  :ensure t)
+(use-package company-irony)
 
-(use-package hydra
-  :ensure t)
+(use-package hydra)
 
-(use-package erc-hl-nicks
-  :ensure t)
+(use-package erc-hl-nicks)
 
 (use-package erc
-  :ensure t
   :hook (erc-mode-hook .
          (lambda ()
            (set (make-local-variable 'scroll-conservatively) 100)))
@@ -199,27 +176,21 @@
     (erc-track-mode)))
 
 (use-package js2-mode
-  :ensure t
   :mode "\\.js\\'")
 
 (use-package skewer-mode
-  :ensure t
   :init (add-hook 'js2-mode-hook #'skewer-mode)
         (add-hook 'css-mode-hook #'skewer-css-mode)
         (add-hook 'html-mode-hook #'skewer-html-mode))
 
 (use-package lsp-mode
-  :ensure t
   :init (setq lsp-enable-snippet nil))
 
-(use-package lsp-ui
-  :ensure t)
+(use-package lsp-ui)
 
-(use-package company-lsp
-  :ensure t)
+(use-package company-lsp)
 
 (use-package lsp-python
-  :ensure t
   :hook (python-mode . lsp))
 
 (defun d4-toggle-trailing-whitespace ()
