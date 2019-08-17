@@ -1,3 +1,7 @@
+(when (and (< emacs-major-version 27)
+           (< emacs-minor-version 3))
+  (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
 (package-initialize)
 
 (setq package-enable-at-startup nil)
