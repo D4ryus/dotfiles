@@ -110,7 +110,7 @@ man() {
         man "$@"
 }
 
-set_ps1() {
+_set_ps1() {
     local reset=$(tput sgr0)
     local red=$(tput setaf 1)
     local green=$(tput setaf 2)
@@ -135,4 +135,4 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(cat ${HOME}/.ssh-agent-environment)"
 fi
 
-set_ps1
+_set_ps1
