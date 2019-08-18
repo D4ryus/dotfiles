@@ -30,7 +30,6 @@ if [[ -z "$GOPATH" ]]; then
 fi
 
 alias tm="tmux attach -t"
-alias ts="tmux ls"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
