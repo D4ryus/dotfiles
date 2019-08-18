@@ -128,11 +128,16 @@ _set_ps1() {
     PS1+="\h\[$reset\] \W\[$reset\]] "
 }
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "${HOME}/.ssh-agent-environment"
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(cat ${HOME}/.ssh-agent-environment)"
-fi
+_load_ssh_agent() {
+    local agent_file="${HOME}/.ssh-agent-environment"
 
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent > "${agent_file}"
+    fi
+    if test -z "$SSH_AGENT_PID"; then
+        eval "$(cat ${agent_file})"
+    fi
+}
+
+_load_ssh_agent
 _set_ps1
