@@ -46,14 +46,14 @@ if [ -r "${HOME}/.bashrc.local" ]; then
 fi
 
 et() {
-    local TMP
+    local tmp
     if [[ "$1" != "-" ]]; then
         emacsclient -a "" -c -t -e "(find-file \"$1\")"
         return 0
     fi
-    TMP="$(mktemp /tmp/et-stdin-XXXXXX)";
-    cat > "$TMP";
-    emacsclient --eval '(let ((file "'${TMP}'"))
+    tmp="$(mktemp /tmp/et-stdin-XXXXXX)";
+    cat > "$tmp";
+    emacsclient --eval '(let ((file "'${tmp}'"))
                           (switch-to-buffer (get-buffer-create "*stdin*"))
                           (erase-buffer)
                           (insert-file-contents file)
