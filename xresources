@@ -6,6 +6,7 @@ xterm*termName:             xterm-256color
 xterm*font:                 xft:Envy Code R:size=11:antialias=true
 xterm*reverseVideo:         True
 xterm*VT100.geometry:       80x24
+xterm*VT100.saveLines:      65536
 xterm*backarrowKey:         false
 xterm*utf8:                 1
 xterm*metaSendsEscape:      true
