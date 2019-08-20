@@ -4,7 +4,7 @@
 ! xterm
 xterm*termName:             xterm-256color
 xterm*font:                 xft:Envy Code R:size=11:antialias=true
-xterm*reverseVideo:         True
+xterm*reverseVideo:         true
 xterm*VT100.geometry:       80x24
 xterm*VT100.saveLines:      65536
 xterm*backarrowKey:         false
@@ -19,7 +19,7 @@ URxvt.scrollBar:            false
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
 URxvt*saveLines:            65536
-URxvt.reverseVideo:         True
+URxvt.reverseVideo:         true
 
 ! Copy selection to clipboard
 URxvt.perl-ext-common:      selection-to-clipboard
