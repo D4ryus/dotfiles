@@ -107,6 +107,13 @@
 (add-hook 'prog-mode-hook
           'd4-whitespace-prog-hook)
 
+(defun d4-recenter-bottom-hook (frame)
+  (when (eql (point) (point-max))
+    (recenter (window-body-height))))
+
+(add-to-list 'window-size-change-functions
+             'd4-recenter-bottom-hook)
+
 ;; default c coding styles and settings
 (add-hook 'c-mode-hook
           (lambda ()
