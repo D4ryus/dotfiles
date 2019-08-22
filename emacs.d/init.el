@@ -120,6 +120,7 @@
             (setq c-default-style "bsd"
                   c-basic-offset 8
                   tab-width 8
+                  fill-column 80
                   indent-tabs-mode t)))
 
 ;; auto update proced
