@@ -57,35 +57,24 @@
 (setq-default
  ;; disable startup message
  inhibit-startup-message t
-
  ;; indent with spaces per default
  indent-tabs-mode nil
-
  ;; show column number on mode line
  column-number-mode t
-
  ;; show empty lines
  indicate-empty-lines t
-
  ;; dont break words by wrapping to new line
  word-wrap t
-
  ;; org-agenda dont show holidays
  org-agenda-include-diary nil
-
  org-tags-column 80
-
  org-return-follows-link t
-
  ;; add timestamp to done tasks
  org-log-done 'time
-
  ;; use drawer (LOGBOOK)
  org-log-into-drawer t
  org-clock-into-drawer t
-
  ring-bell-function 'ignore
-
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e ")
 

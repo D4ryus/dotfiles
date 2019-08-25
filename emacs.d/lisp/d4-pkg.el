@@ -6,16 +6,15 @@
 
 (setq package-enable-at-startup nil)
 
-;; (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
+
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives
                '("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; use-package
-
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -112,10 +111,11 @@
                       (setq show-trailing-whitespace nil
                             indicate-empty-lines nil))))
 
-(defvar d4-lisp-mode-hooks '(emacs-lisp-mode-hook
-                             lisp-mode-hook
-                             clojure-mode-hook
-                             geiser-mode-hook))
+(defvar d4-lisp-mode-hooks
+  '(emacs-lisp-mode-hook
+    lisp-mode-hook
+    clojure-mode-hook
+    geiser-mode-hook))
 
 (use-package paredit
   :config (mapc (lambda (hook)
@@ -160,14 +160,15 @@
   :config
   (progn
     (setq erc-remove-parsed-property nil
-          erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT" "324" "329" "332" "333" "353" "477")
+          erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
+                                    "324" "329" "332" "333" "353" "477")
           erc-enable-logging 'erc-log-all-but-server-buffers
           erc-input-line-position -2
           erc-timestamp-format "%H:%M "
           erc-insert-timestamp-function 'erc-insert-timestamp-left
           erc-modules '(completion log hl-nicks autojoin button irccontrols
-                        list match menu move-to-prompt netsplit networks noncommands
-                        readonly ring sound stamp track))
+                        list match menu move-to-prompt netsplit networks
+                        noncommands readonly ring sound stamp track))
     (erc-update-modules)
     (erc-fill-disable)
     (erc-hl-nicks-mode)
