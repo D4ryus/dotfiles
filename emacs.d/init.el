@@ -33,7 +33,8 @@
         (add-to-list 'term-file-aliases
                      (cons term "xterm-256color")))
       '("st-256color"
-        "screen-256color"))
+        "screen-256color"
+	"rxvt-unicode-256color"))
 
 ;; auto revert buffers
 (global-auto-revert-mode)
