@@ -29,7 +29,9 @@
   :diminish (ivy-mode . "")
   :config (ivy-mode 1))
 
-(use-package rainbow-mode)
+(use-package rainbow-mode
+  :config (add-hook 'css-mode-hook
+                    #'(lambda () (rainbow-mode 1))))
 
 (use-package edit-color-stamp)
 
