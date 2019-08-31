@@ -20,7 +20,13 @@
       '((".*" "~/.cache/emacs/" t)))
 
 ;; dont show tool-bar
-(tool-bar-mode -1)
+(tool-bar-mode 0)
+;; auto revert buffers
+(global-auto-revert-mode)
+;; show current function in modeline
+(which-function-mode)
+;; always show matching parens
+(show-paren-mode)
 
 ;; dont show scroll-bar and default background to black
 (setq default-frame-alist
@@ -35,12 +41,6 @@
       '("st-256color"
         "screen-256color"
 	"rxvt-unicode-256color"))
-
-;; auto revert buffers
-(global-auto-revert-mode)
-
-;; show current function in modeline
-(which-function-mode t)
 
 (unless (window-system)
   (menu-bar-mode 0))
@@ -78,9 +78,6 @@
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e ")
-
-;; always show matching parens
-(show-paren-mode t)
 
 (require 'whitespace)
 
