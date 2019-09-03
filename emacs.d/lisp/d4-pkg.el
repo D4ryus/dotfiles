@@ -37,6 +37,9 @@
 
 (use-package restclient)
 
+(use-package doom-themes
+  :config (load-theme 'doom-molokai t))
+
 (use-package which-key
   :config (which-key-mode t))
 
