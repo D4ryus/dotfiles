@@ -40,7 +40,7 @@
                      (cons term "xterm-256color")))
       '("st-256color"
         "screen-256color"
-	"rxvt-unicode-256color"))
+        "rxvt-unicode-256color"))
 
 (unless (window-system)
   (menu-bar-mode 0))
