@@ -128,7 +128,8 @@
 (use-package paredit
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
-                d4-lisp-mode-hooks))
+                (append d4-lisp-mode-hooks
+                        '(slime-repl-mode-hook))))
 
 (use-package evil-paredit
   :config (mapc (lambda (hook)
