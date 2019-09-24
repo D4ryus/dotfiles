@@ -112,6 +112,7 @@
                   (grep-mode . emacs)
                   (slime-fuzzy-completions-mode . emacs)
                   (slime-repl-mode . emacs)
+                  (geiser-repl-mode . emacs)
                   (help-mode . emacs)))
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
