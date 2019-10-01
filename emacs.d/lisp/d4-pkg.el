@@ -117,11 +117,7 @@
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
           (define-key evil-normal-state-map (kbd "k")
-                      'evil-previous-visual-line)
-          (add-hook 'term-mode-hook
-                    (lambda ()
-                      (setq show-trailing-whitespace nil
-                            indicate-empty-lines nil))))
+                      'evil-previous-visual-line))
 
 (defvar d4-lisp-mode-hooks
   '(emacs-lisp-mode-hook
