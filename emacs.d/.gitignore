@@ -6,7 +6,7 @@ backup/
 custom.el
 elpa/
 eshell/
-local.el
+lisp/d4-local.el
 network-security.data
 tramp
 transient/
