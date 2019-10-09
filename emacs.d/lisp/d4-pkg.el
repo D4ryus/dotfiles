@@ -203,6 +203,10 @@
 (use-package lsp-python
   :hook (python-mode . lsp))
 
+(use-package editorconfig
+  :ensure t
+  :config (editorconfig-mode 1))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
