@@ -115,6 +115,8 @@
                   (geiser-repl-mode . emacs)
                   (help-mode . emacs)
                   (slime-trace-dialog-mode . emacs)))
+          (add-hook 'magit-blame-mode-hook
+                    (lambda () (evil-emacs-state 1)))
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
           (define-key evil-normal-state-map (kbd "k")
