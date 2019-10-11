@@ -31,7 +31,7 @@
 
 (use-package rainbow-mode
   :config (add-hook 'css-mode-hook
-                    #'(lambda () (rainbow-mode 1))))
+                    (lambda () (rainbow-mode 1))))
 
 (use-package edit-color-stamp)
 
@@ -53,7 +53,7 @@
 
 (use-package trident-mode
   :config (add-hook 'lisp-mode-hook
-                    #'(lambda () (trident-mode 1))))
+                    (lambda () (trident-mode 1))))
 
 (use-package slime
   :config (slime-setup '(slime-fancy
