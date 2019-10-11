@@ -27,6 +27,7 @@ export SDL_AUDIODRIVER=pulse
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=
 export HISTSIZE=
+export HISTTIMEFORMAT='%F %T '
 if [[ -z "$GOPATH" ]]; then
     export GOPATH="${HOME}/go"
 fi
