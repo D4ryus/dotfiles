@@ -25,6 +25,8 @@ export PAGER=less
 export EDITOR=vim
 export SDL_AUDIODRIVER=pulse
 export HISTCONTROL=ignoredups
+export HISTFILESIZE=
+export HISTSIZE=
 if [[ -z "$GOPATH" ]]; then
     export GOPATH="${HOME}/go"
 fi
