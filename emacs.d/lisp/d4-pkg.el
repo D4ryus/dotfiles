@@ -178,7 +178,7 @@
           erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
                                     "324" "329" "332" "333" "353" "477")
           erc-enable-logging 'erc-log-all-but-server-buffers
-          erc-input-line-position -2
+          erc-input-line-position -1
           erc-timestamp-format "%H:%M "
           erc-insert-timestamp-function 'erc-insert-timestamp-left
           erc-modules '(completion log hl-nicks autojoin button irccontrols
