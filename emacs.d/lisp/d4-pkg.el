@@ -191,7 +191,8 @@
     (erc-fill-disable)
     (erc-hl-nicks-mode)
     (erc-log-mode)
-    (erc-track-mode)))
+    (erc-track-mode)
+    (erc-scrolltobottom-mode)))
 
 (use-package js2-mode
   :mode "\\.js\\'")
