@@ -6,7 +6,7 @@
 add_path () {
     # add $1 to $2 with a : in between, unless $2 already contains
     # $1. If $2 is empty set it to $1
-    if [ -z "$2" ]; then
+    if test -z "$2"; then
         echo "$1"
     else
         if [[ ":$2:" == *"$1"*  ]]; then
@@ -40,11 +40,11 @@ alias myip="curl http://myip.dnsomatic.com && echo ''"
 alias ec="emacsclient -a \"\" -c -n"
 
 # git autocompletion
-if [ -r "${HOME}/.git-completion-bash" ]; then
+if test -r "${HOME}/.git-completion-bash"; then
     source "${HOME}/.git-completion-bash"
 fi
 
-if [ -r "${HOME}/.bashrc.local" ]; then
+if test -r "${HOME}/.bashrc.local"; then
     source "${HOME}/.bashrc.local"
 fi
 
@@ -76,7 +76,7 @@ show_colors() {
 
 # Extract Files
 ext() {
-    if [ -f "$1" ]; then
+    if test -f "$1"; then
         case $1 in
             *.tar)            tar xvf "$1"    ;;
             *.tar.gz|*.tgz)   tar xvzf "$1"   ;;
