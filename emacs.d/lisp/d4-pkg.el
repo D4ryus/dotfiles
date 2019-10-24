@@ -51,6 +51,9 @@
           magit-diff-highlight-indentation '(("" . tabs)))
     (define-key magit-file-mode-map (kbd "C-x g") nil)))
 
+(use-package magit-todos
+  :config (magit-todos-mode))
+
 (use-package trident-mode
   :config (add-hook 'lisp-mode-hook
                     (lambda () (trident-mode 1))))
