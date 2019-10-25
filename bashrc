@@ -28,7 +28,7 @@ export HISTCONTROL=ignoreboth
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT='%F %T '
-if [[ -z "$GOPATH" ]]; then
+if test -z "$GOPATH"; then
     export GOPATH="${HOME}/go"
 fi
 
