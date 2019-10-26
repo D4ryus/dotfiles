@@ -220,6 +220,15 @@
   :ensure t
   :config (editorconfig-mode 1))
 
+(use-package disable-mouse
+  :ensure t
+  :config (global-disable-mouse-mode)
+          (mapc #'disable-mouse-in-keymap
+                (list evil-motion-state-map
+                      evil-normal-state-map
+                      evil-visual-state-map
+                      evil-insert-state-map)))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
