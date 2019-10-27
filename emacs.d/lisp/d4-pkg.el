@@ -44,12 +44,10 @@
   :config (which-key-mode t))
 
 (use-package magit
-  :config
-  (progn
-    (setf git-commit-summary-max-length 50
-          magit-diff-refine-hunk 'all
-          magit-diff-highlight-indentation '(("" . tabs)))
-    (define-key magit-file-mode-map (kbd "C-x g") nil)))
+  :config (setf git-commit-summary-max-length 50
+                magit-diff-refine-hunk 'all
+                magit-diff-highlight-indentation '(("" . tabs)))
+          (define-key magit-file-mode-map (kbd "C-x g") nil))
 
 (use-package magit-todos
   :config (magit-todos-mode))
@@ -155,16 +153,14 @@
 
 (use-package irony
   :bind ("C-x c" . compile)
-  :config
-  (progn
-    (add-hook 'c++-mode-hook 'irony-mode)
-    (add-hook 'c-mode-hook 'irony-mode)
-    (add-hook 'irony-mode-hook
-              (lambda ()
-                (define-key irony-mode-map [remap completion-at-point]
-                  'irony-completion-at-point-async)
-                (define-key irony-mode-map [remap complete-symbol]
-                  'irony-completion-at-point-async)))))
+  :config (add-hook 'c++-mode-hook 'irony-mode)
+          (add-hook 'c-mode-hook 'irony-mode)
+          (add-hook 'irony-mode-hook
+                    (lambda ()
+                      (define-key irony-mode-map [remap completion-at-point]
+                        'irony-completion-at-point-async)
+                      (define-key irony-mode-map [remap complete-symbol]
+                        'irony-completion-at-point-async))))
 
 (use-package company-irony)
 
@@ -176,27 +172,25 @@
   :hook (erc-mode-hook .
          (lambda ()
            (set (make-local-variable 'scroll-conservatively) 100)))
-  :config
-  (progn
-    (setq erc-remove-parsed-property nil
-          erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
-                                    "324" "329" "332" "333" "353" "477")
-          erc-enable-logging 'erc-log-all-but-server-buffers
-          erc-log-insert-log-on-open t
-          erc-log-write-after-insert t
-          erc-log-write-after-send t
-          erc-input-line-position -1
-          erc-timestamp-format "%H:%M "
-          erc-insert-timestamp-function 'erc-insert-timestamp-left
-          erc-modules '(completion log hl-nicks autojoin button irccontrols
-                        list match menu move-to-prompt netsplit networks
-                        noncommands readonly ring sound stamp track))
-    (erc-update-modules)
-    (erc-fill-disable)
-    (erc-hl-nicks-mode)
-    (erc-log-mode)
-    (erc-track-mode)
-    (erc-scrolltobottom-mode)))
+  :config (setq erc-remove-parsed-property nil
+                erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
+                                          "324" "329" "332" "333" "353" "477")
+                erc-enable-logging 'erc-log-all-but-server-buffers
+                erc-log-insert-log-on-open t
+                erc-log-write-after-insert t
+                erc-log-write-after-send t
+                erc-input-line-position -1
+                erc-timestamp-format "%H:%M "
+                erc-insert-timestamp-function 'erc-insert-timestamp-left
+                erc-modules '(completion log hl-nicks autojoin button irccontrols
+                              list match menu move-to-prompt netsplit networks
+                              noncommands readonly ring sound stamp track))
+          (erc-update-modules)
+          (erc-fill-disable)
+          (erc-hl-nicks-mode)
+          (erc-log-mode)
+          (erc-track-mode)
+          (erc-scrolltobottom-mode))
 
 (use-package js2-mode
   :mode "\\.js\\'")
