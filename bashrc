@@ -9,7 +9,7 @@ add_path () {
     if test -z "$2"; then
         echo "$1"
     else
-        if [[ ":$2:" == *"$1"*  ]]; then
+        if [[ ":$2:" == *"$1"* ]]; then
             echo "$2"
         else
             echo "$2:$1"
