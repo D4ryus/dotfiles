@@ -1,9 +1,8 @@
+#!/bin/bash
 # -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
 # file: ~/.xinitrc
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=4:sw=4:ft=sh:
-
-#!/bin/zsh
 
 # Executed by startx (run your window manager from here)
 
