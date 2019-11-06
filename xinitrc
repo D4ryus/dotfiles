@@ -18,8 +18,10 @@ xset -b
 xset r rate 200 50
 
 # add archlinux font path, then rehash fonts
-xset +fp /usr/share/fonts/local/
-xset fp rehash
+if test -d /usr/share/fonts/local/ ; then
+    xset +fp /usr/share/fonts/local/
+    xset fp rehash
+fi
 
 if test -r ~/.xresources ; then
     xrdb -merge ~/.xresources
