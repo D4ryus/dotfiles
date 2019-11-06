@@ -211,11 +211,9 @@
   :hook (python-mode . lsp))
 
 (use-package editorconfig
-  :ensure t
   :config (editorconfig-mode 1))
 
 (use-package disable-mouse
-  :ensure t
   :config (global-disable-mouse-mode)
           (mapc #'disable-mouse-in-keymap
                 (list evil-motion-state-map
