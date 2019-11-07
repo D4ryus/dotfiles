@@ -25,11 +25,23 @@
 
 (use-package try)
 
+(use-package diminish)
+
+(use-package whitespace
+  :diminish whitespace-mode)
+
+(use-package eldoc
+  :diminish eldoc-mode)
+
+(use-package undo-tree
+  :diminish undo-tree-mode)
+
 (use-package ivy
-  :diminish (ivy-mode . "")
+  :diminish ivy-mode
   :config (ivy-mode 1))
 
 (use-package rainbow-mode
+  :diminish rainbow-mode
   :config (add-hook 'css-mode-hook
                     (lambda () (rainbow-mode 1))))
 
@@ -41,6 +53,7 @@
   :config (load-theme 'doom-molokai t))
 
 (use-package which-key
+  :diminish which-key-mode
   :config (which-key-mode t))
 
 (use-package magit
@@ -53,6 +66,7 @@
   :config (magit-todos-mode))
 
 (use-package trident-mode
+  :diminish trident-mode
   :config (add-hook 'lisp-mode-hook
                     (lambda () (trident-mode 1))))
 
@@ -83,7 +97,7 @@
 (use-package cider)
 
 (use-package company
-  :diminish ""
+  :diminish company-mode
   :config (setq company-idle-delay nil)
           (global-set-key (kbd "C-x TAB") 'company-complete)
           (global-company-mode)
@@ -133,6 +147,7 @@
     geiser-mode-hook))
 
 (use-package paredit
+  :diminish paredit-mode
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
                 (append d4-lisp-mode-hooks
@@ -211,9 +226,11 @@
   :hook (python-mode . lsp))
 
 (use-package editorconfig
+  :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
 (use-package disable-mouse
+  :diminish disable-mouse-global-mode
   :config (global-disable-mouse-mode)
           (mapc #'disable-mouse-in-keymap
                 (list evil-motion-state-map
