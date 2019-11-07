@@ -135,6 +135,8 @@
                     (lambda () (evil-emacs-state 1)))
           (add-hook 'slime-macroexpansion-minor-mode-hook
                     (lambda () (evil-emacs-state 1)))
+          (add-hook 'hexl-mode-hook
+                    (lambda () (evil-emacs-state 1)))
           (define-key evil-normal-state-map (kbd "j")
                       'evil-next-visual-line)
           (define-key evil-normal-state-map (kbd "k")
