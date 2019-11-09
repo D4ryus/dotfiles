@@ -86,7 +86,8 @@
                 slime-completion-at-point-functions 'slime-fuzzy-complete-symbol
                 slime-highlight-compiler-notes t
                 slime-repl-history-remove-duplicates t
-                slime-repl-history-trim-whitespaces t)
+                slime-repl-history-trim-whitespaces t
+                slime-inhibit-pipelining nil)
           (defun re-eval ()
             (interactive)
             (with-current-buffer (get-buffer "*slime-repl sbcl*")
