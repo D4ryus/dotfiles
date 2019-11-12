@@ -7,14 +7,6 @@
 	unstage = reset HEAD --
 	df      = diff --cached
 	l       = log --all --graph --decorate --oneline
-	lg      = log --graph
-[merge]
-	tool    = vimdiff
-	summary = true
-[diff]
-	tool    = vimdiff
-[difftool]
-	prompt  = false
 [color]
 	status  = auto
 	branch  = auto
