@@ -42,8 +42,7 @@
         "screen-256color"
         "rxvt-unicode-256color"))
 
-(unless (window-system)
-  (menu-bar-mode 0))
+(menu-bar-mode 0)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
