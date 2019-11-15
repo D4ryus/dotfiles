@@ -129,7 +129,8 @@
                   (geiser-repl-mode . emacs)
                   (help-mode . emacs)
                   (slime-trace-dialog-mode . emacs)
-                  (slime-connection-list-mode . emacs)))
+                  (slime-connection-list-mode . emacs)
+                  (text-mode . normal)))
           (add-hook 'magit-blame-mode-hook
                     (lambda () (evil-emacs-state 1)))
           (add-hook 'slime-macroexpansion-minor-mode-hook
