@@ -4,8 +4,8 @@
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=4:sw=4:ft=sh:
 
-if test -d /etc/X11/xinit/xinitrc.d ; then
-    for f in /etc/X11/xinit/xinitrc.d/*; do
+if test -d "/etc/X11/xinit/xinitrc.d" ; then
+    for f in "/etc/X11/xinit/xinitrc.d/*"; do
         test -x "$f" && . "$f"
     done
     unset f
@@ -18,19 +18,19 @@ xset -b
 xset r rate 200 50
 
 # add archlinux font path, then rehash fonts
-if test -d /usr/share/fonts/local/ ; then
-    xset +fp /usr/share/fonts/local/
+if test -d "/usr/share/fonts/local/" ; then
+    xset +fp "/usr/share/fonts/local/"
     xset fp rehash
 fi
 
-if test -r ~/.xresources ; then
-    xrdb -merge ~/.xresources
+if test -r "~/.xresources" ; then
+    xrdb -merge "~/.xresources"
 fi
 
-if test -r ~/.xresources.local ; then
-    xrdb -merge ~/.xresources.local
+if test -r "~/.xresources.local" ; then
+    xrdb -merge "~/.xresources.local"
 fi
 
-if test -r ~/.xinitrc.local ; then
-    source ~/.xinitrc.local
+if test -r "~/.xinitrc.local" ; then
+    source "~/.xinitrc.local"
 fi
