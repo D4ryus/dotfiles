@@ -6,7 +6,7 @@ xterm*termName:             xterm-256color
 xterm*font:                 xft:Envy Code R:size=11:antialias=true
 xterm*VT100.geometry:       80x24
 xterm*reverseVideo:         true
-xterm*VT100.saveLines:      65536
+xterm*VT100.saveLines:      1048576
 xterm*backarrowKey:         false
 xterm*utf8:                 1
 xterm*metaSendsEscape:      true
@@ -16,7 +16,7 @@ URxvt.termName:             rxvt-unicode-256color
 URxvt.font:                 xft:Envy Code R:size=11:antialias=true
 URxvt.geometry:             80x24
 URxvt.reverseVideo:         true
-URxvt*saveLines:            65536
+URxvt*saveLines:            1048576
 URxvt.scrollBar:            false
 URxvt.iso14755:             false
 URxvt.iso14755_52:          false
