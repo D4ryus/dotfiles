@@ -23,14 +23,14 @@ if test -d "/usr/share/fonts/local/"; then
     xset fp rehash
 fi
 
-if test -r "~/.xresources"; then
-    xrdb -merge "~/.xresources"
+if test -r "$HOME/.xresources"; then
+    xrdb -merge "$HOME/.xresources"
 fi
 
-if test -r "~/.xresources.local"; then
-    xrdb -merge "~/.xresources.local"
+if test -r "$HOME/.xresources.local"; then
+    xrdb -merge "$HOME/.xresources.local"
 fi
 
-if test -r "~/.xinitrc.local"; then
-    source "~/.xinitrc.local"
+if test -r "$HOME/.xinitrc.local"; then
+    source "$HOME/.xinitrc.local"
 fi
