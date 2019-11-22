@@ -1,0 +1,13 @@
+tags
+emacs.d/bookmarks
+emacs.d/irony
+emacs.d/custom.el
+emacs.d/.lsp-session-v1
+emacs.d/fonts/
+emacs.d/forge-database.sqlite
+emacs.d/games/
+emacs.d/helm-system-packages/
+emacs.d/network-security.data
+emacs.d/transient/
+emacs.d/url/
+vim/init.vim
