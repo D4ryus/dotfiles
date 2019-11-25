@@ -1,5 +1,6 @@
 .netrwbook
 .netrwhist
 autoload/
+init.vim
 plugged/
 swap/
