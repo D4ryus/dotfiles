@@ -80,21 +80,6 @@
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e ")
 
-(require 'whitespace)
-
-(setq whitespace-style '(face tabs)
-      whitespace-display-mappings nil)
-
-(set-face-attribute 'whitespace-tab nil
-                    :background "#181818")
-
-(defun d4-whitespace-prog-hook ()
-  (whitespace-mode)
-  (setq show-trailing-whitespace t))
-
-(add-hook 'prog-mode-hook
-          'd4-whitespace-prog-hook)
-
 (defun d4-recenter-bottom-hook (frame)
   (when (eql (point) (point-max))
     (recenter (window-body-height))))

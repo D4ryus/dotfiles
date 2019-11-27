@@ -26,7 +26,15 @@
 (use-package diminish)
 
 (use-package whitespace
-  :diminish whitespace-mode)
+  :diminish whitespace-mode
+  :config (setq whitespace-style '(face tabs)
+                whitespace-display-mappings nil)
+          (set-face-attribute 'whitespace-tab nil
+                              :background "#181818")
+          (add-hook 'prog-mode-hook
+                    (lambda ()
+                      (whitespace-mode 1)
+                      (setq show-trailing-whitespace t))))
 
 (use-package eldoc
   :diminish eldoc-mode)
