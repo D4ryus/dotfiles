@@ -1,13 +1,15 @@
 (package-initialize)
 
-(add-to-list 'load-path
-             (concat user-emacs-directory "lisp"))
+(defvar local-lisp-directory
+  (concat user-emacs-directory "lisp/"))
+(add-to-list 'load-path local-lisp-directory)
 
 (require 'd4-pkg)
 (require 'd4-org)
 (require 'd4)
 (require 'd4-tea)
-(require 'd4-local)
+(when (file-exists-p (concat local-lisp-directory "d4-local.el"))
+  (require 'd4-local))
 (require 'd4-clocking)
 (require 'd4-overwrites)
 
