@@ -220,6 +220,13 @@
 (use-package js2-mode
   :mode "\\.js\\'")
 
+(use-package lua-mode
+  :mode "\\.lua\\'"
+  :mode "\\.ned\\'"
+  :mode "\\.io\\'"
+  :bind (:map lua-prefix-mode-map
+              ("C-c" . lua-send-defun)))
+
 (use-package skewer-mode
   :init (add-hook 'js2-mode-hook #'skewer-mode)
         (add-hook 'css-mode-hook #'skewer-css-mode)
