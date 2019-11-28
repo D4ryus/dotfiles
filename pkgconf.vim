@@ -44,7 +44,7 @@ if has("python") || has("python3")
         Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 endif
 
-if v:version >= 704 && has("python") || has("python3")
+if has("python3")
         Plug 'SirVer/ultisnips'
 endif
 
