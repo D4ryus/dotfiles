@@ -233,7 +233,8 @@
         (add-hook 'html-mode-hook #'skewer-html-mode))
 
 (use-package lsp-mode
-  :init (setq lsp-enable-snippet nil))
+  :init (setq lsp-enable-snippet nil
+              lsp-prefer-flymake :none))
 
 (use-package lsp-ui)
 
