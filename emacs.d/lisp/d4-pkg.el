@@ -240,8 +240,7 @@
 
 (use-package company-lsp)
 
-(use-package lsp-python
-  :hook (python-mode . lsp))
+(use-package lsp-python)
 
 (use-package editorconfig
   :diminish editorconfig-mode
