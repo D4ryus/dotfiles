@@ -8,6 +8,9 @@ bookmarks
 custom.el
 elpa/
 eshell/
+fonts/
+forge-database.sqlite
+irony/
 lisp/d4-local.el
 network-security.data
 tramp
