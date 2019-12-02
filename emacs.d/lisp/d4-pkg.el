@@ -27,7 +27,7 @@
 
 (use-package whitespace
   :diminish whitespace-mode
-  :config (setq whitespace-style '(face tabs)
+  :config (setq whitespace-style '(face tabs lines-tail)
                 whitespace-display-mappings nil)
           (set-face-attribute 'whitespace-tab nil
                               :background "#181818")
