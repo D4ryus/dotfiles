@@ -140,8 +140,7 @@
                   (slime-connection-list-mode . emacs)
                   (text-mode . normal)
                   (git-commit-mode . normal)))
-          (add-hook 'magit-blame-mode-hook
-                    (lambda () (evil-emacs-state 1)))
+          (add-to-list 'magit-blame-disable-modes 'evil-mode)
           (add-hook 'slime-macroexpansion-minor-mode-hook
                     (lambda () (evil-emacs-state 1)))
           (add-hook 'hexl-mode-hook
