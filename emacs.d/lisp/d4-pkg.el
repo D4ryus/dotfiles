@@ -242,6 +242,8 @@
 
 (use-package lsp-python)
 
+(use-package flycheck)
+
 (use-package editorconfig
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
