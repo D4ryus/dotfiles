@@ -78,7 +78,9 @@
  org-clock-into-drawer t
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
- grep-command "grep -nH -R . -e ")
+ grep-command "grep -nH -R . -e "
+ ;; Disable pop-up windows
+ pop-up-windows nil)
 
 (defun d4-recenter-bottom-hook (frame)
   (when (eql (point) (point-max))
