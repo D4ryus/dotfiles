@@ -80,7 +80,9 @@
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
  ;; Disable pop-up windows
- pop-up-windows nil)
+ pop-up-windows nil
+ ;; scroll single lines when cursor moves out of window
+ scroll-conservatively 101)
 
 (defun d4-recenter-bottom-hook (frame)
   (when (eql (point) (point-max))
