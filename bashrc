@@ -29,6 +29,7 @@ export HISTCONTROL=ignoreboth
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT='%F %T '
+export GUILE_LOAD_PATH="${HOME}/guile"
 if test -z "$GOPATH"; then
     export GOPATH="${HOME}/go"
 fi
