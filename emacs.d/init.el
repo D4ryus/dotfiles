@@ -79,8 +79,6 @@
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
- ;; Disable pop-up windows
- pop-up-windows nil
  ;; scroll single lines when cursor moves out of window
  scroll-conservatively 101)
 

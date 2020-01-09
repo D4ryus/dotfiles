@@ -21,6 +21,12 @@
 
 (setq use-package-always-ensure t)
 
+(use-package ace-window
+  :config (global-set-key (kbd "C-x o") 'ace-window))
+
+(use-package winner
+  :config (winner-mode))
+
 (use-package try)
 
 (use-package diminish)
