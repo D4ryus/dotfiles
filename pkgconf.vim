@@ -36,11 +36,11 @@ if executable('ctags')
         Plug 'ludovicchabant/vim-gutentags'
 endif
 
-if has("python")
+if has("python3")
         Plug 'kovisoft/slimv', {'for': 'lisp'}
 endif
 
-if has("python") || has("python3")
+if has("python3")
         Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 endif
 
