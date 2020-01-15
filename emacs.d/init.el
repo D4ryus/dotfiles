@@ -101,7 +101,11 @@
                   c-basic-offset 8
                   tab-width 8
                   fill-column 80
-                  indent-tabs-mode t)))
+                  indent-tabs-mode t
+                  cc-search-directories (append cc-search-directories
+                                                '("../*"
+                                                  "../../*"
+                                                  "../../../*")))))
 
 ;; auto update proced
 (add-hook 'proced-mode-hook
