@@ -254,8 +254,6 @@
 
 (use-package company-lsp)
 
-(use-package lsp-python)
-
 (use-package flycheck)
 
 (use-package editorconfig
