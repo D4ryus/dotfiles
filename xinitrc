@@ -31,6 +31,7 @@ if test -r "$HOME/.xresources.local"; then
     xrdb -merge "$HOME/.xresources.local"
 fi
 
+dbus-update-activation-environment --systemd DISPLAY=:0
 if test -r "$HOME/.xinitrc.local"; then
     source "$HOME/.xinitrc.local"
 fi
