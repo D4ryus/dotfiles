@@ -146,6 +146,7 @@
           (help-mode . emacs)
           (slime-trace-dialog-mode . emacs)
           (slime-connection-list-mode . emacs)
+          (tabulated-list-mode . emacs)
           (text-mode . normal)
           (git-commit-mode . normal)))
   (add-to-list 'magit-blame-disable-modes 'evil-mode)
