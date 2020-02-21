@@ -1,6 +1,7 @@
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
+After=ssh-agent.service
 
 [Service]
 Type=simple
@@ -8,7 +9,6 @@ ExecStart=/usr/bin/emacs --fg-daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
 Restart=on-failure
-After=ssh-agent.service
 
 [Install]
 WantedBy=default.target
