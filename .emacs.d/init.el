@@ -37,7 +37,8 @@
 
 ;; dont show scroll-bar and default background to black
 (setq default-frame-alist
-      '((vertical-scroll-bars . nil)
+      '((font . "JetBrains Mono 10")
+        (vertical-scroll-bars . nil)
         (foreground-color . "white")
         (background-color . "black")))
 
