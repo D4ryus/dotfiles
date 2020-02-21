@@ -1,0 +1,3 @@
+[submodule ".fonts/JetBrainsMono"]
+	path = .fonts/JetBrainsMono
+	url = https://github.com/JetBrains/JetBrainsMono
