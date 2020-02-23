@@ -30,3 +30,4 @@ MiscShowUnsafePasteDialog=FALSE
 ScrollingUnlimited=TRUE
 TitleInitial=matrix
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+
