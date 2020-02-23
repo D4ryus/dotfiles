@@ -125,3 +125,7 @@ focus_follows_mouse no
 bindsym $mod+w mode "resize"
 bindsym $mod+x [urgent=latest] focus
 bindsym $mod+y exec "i3lock --color=000000 -f"
+
+# Brightness keys
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
