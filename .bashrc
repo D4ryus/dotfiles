@@ -17,7 +17,6 @@ add_path () {
     fi
 }
 
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 export PATH=$(add_path "${HOME}/bin" "$PATH")
 export LIBRARY_PATH=$(add_path "${HOME}/lib" "$LIBRARY_PATH")
 export LD_LIBRARY_PATH=$(add_path "${HOME}/lib" "$LD_LIBRARY_PATH")
@@ -129,12 +128,4 @@ _set_ps1() {
     PS1+="\h\[$reset\] \W\[$reset\]] "
 }
 
-_load_ssh_agent() {
-    ssh-add > /dev/null 2>&1
-    if test $? -eq 2; then
-        ssh-agent -a "${SSH_AUTH_SOCK}"
-    fi
-}
-
-_load_ssh_agent
 _set_ps1
