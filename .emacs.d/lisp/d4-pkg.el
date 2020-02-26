@@ -24,6 +24,8 @@
 (use-package winner
   :config (winner-mode))
 
+(use-package request)
+
 (use-package try)
 
 (use-package diminish)
