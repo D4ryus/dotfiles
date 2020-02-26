@@ -233,9 +233,9 @@
   (erc-update-modules)
   (erc-fill-disable)
   (erc-hl-nicks-mode)
-  (erc-log-mode)
   (erc-track-mode)
-  (erc-scrolltobottom-mode))
+  (erc-scrolltobottom-mode)
+  (erc-log-mode) )
 
 (use-package js2-mode
   :mode "\\.js\\'")
