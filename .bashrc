@@ -44,10 +44,6 @@ if test -r "${HOME}/.git-completion-bash"; then
     source "${HOME}/.git-completion-bash"
 fi
 
-if test -r "${HOME}/.bashrc.local"; then
-    source "${HOME}/.bashrc.local"
-fi
-
 et() {
     local tmp
     if [[ "$1" != "-" ]]; then
@@ -129,3 +125,7 @@ _set_ps1() {
 }
 
 _set_ps1
+
+if test -r "${HOME}/.bashrc.local"; then
+    source "${HOME}/.bashrc.local"
+fi
