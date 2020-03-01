@@ -117,7 +117,7 @@ mode "resize" {
 bar {
         font pango: JetBrains Mono 9
         position top
-        status_command guile ~/git/guile-i3-bar/run.scm
+        status_command guile3.0 ~/git/guile-i3-bar/run.scm
 }
 
 focus_follows_mouse no
