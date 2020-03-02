@@ -55,4 +55,14 @@
                  (c-int-to-char
                   (logand #xff (lsh number (- (* i 8))))))))))
 
+(defun d4-YYY ()
+  (interactive)
+  (insert
+   "#define YYY(__fmt, ...)					/* YYY */\\\n"
+   "	do {							/* YYY */\\\n"
+   "		printf(\"YYY:%s:%s:%d:\" __fmt \"\\n\",		/* YYY */\\\n"
+   "		    __FILE__, __PRETTY_FUNCTION__, __LINE__,	/* YYY */\\\n"
+   "		    ##__VA_ARGS__);				/* YYY */\\\n"
+   "	} while (0)						/* YYY */\n"))
+
 (provide 'd4)
