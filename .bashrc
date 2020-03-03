@@ -124,7 +124,9 @@ _set_ps1() {
     PS1+="\h\[$reset\] \W\[$reset\]] "
 }
 
-_set_ps1
+if ! test "dumb" = "${TERM:-dumb}"; then
+    _set_ps1
+fi
 
 if test -r "${HOME}/.bashrc.local"; then
     source "${HOME}/.bashrc.local"
