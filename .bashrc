@@ -29,6 +29,7 @@ export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT='%F %T '
 export GUILE_LOAD_PATH="${HOME}/guile"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 if test -z "$GOPATH"; then
     export GOPATH="${HOME}/go"
 fi
