@@ -21,6 +21,10 @@
 
 (setq use-package-always-ensure t)
 
+(use-package python
+  :bind (("C-c C-c" . python-shell-send-defun)
+         ("C-c C-k" . python-shell-send-buffer)))
+
 (use-package winner
   :config (winner-mode))
 
