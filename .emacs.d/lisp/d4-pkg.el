@@ -217,9 +217,6 @@
 (use-package erc-hl-nicks)
 
 (use-package erc
-  :hook (erc-mode-hook
-         . (lambda ()
-             (set (make-local-variable 'scroll-conservatively) 100)))
   :config
   (setq erc-remove-parsed-property nil
         erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
