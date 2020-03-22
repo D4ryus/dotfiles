@@ -22,6 +22,7 @@
 (setq use-package-always-ensure t)
 
 (use-package python
+  :config (setq python-shell-buffer-name "Python REPL")
   :bind (("C-c C-c" . python-shell-send-defun)
          ("C-c C-k" . python-shell-send-buffer)))
 
