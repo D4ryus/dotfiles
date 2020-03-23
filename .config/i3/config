@@ -22,7 +22,7 @@ bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+c kill
-bindsym $mod+r exec dmenu_run -fn 'Inconsolata:10' -p '#d4ryus >' -l 8 -b
+bindsym $mod+r exec dmenu_run -p '#d4ryus >' -l 8 -b
 
 # change focus
 bindsym $mod+h focus left
