@@ -32,10 +32,6 @@ Plug 'gregsexton/gitv',              {'on': 'Gitv'}
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'vim-scripts/paredit.vim', {'for': 'clojure'}
 
-if executable('ctags')
-        Plug 'ludovicchabant/vim-gutentags'
-endif
-
 if has("python3")
         Plug 'kovisoft/slimv', {'for': 'lisp'}
 endif
