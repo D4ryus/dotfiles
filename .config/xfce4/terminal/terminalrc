@@ -30,4 +30,6 @@ MiscShowUnsafePasteDialog=FALSE
 ScrollingUnlimited=TRUE
 TitleInitial=matrix
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ShortcutsNoMenukey=TRUE
+ShortcutsNoHelpkey=TRUE
 
