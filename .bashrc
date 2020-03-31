@@ -1,3 +1,4 @@
+#!/bin/bash
 # -*- mode: shell-script; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
 # file: ~/.bashrc
 # author: d4ryus - https://github.com/d4ryus/
@@ -17,10 +18,10 @@ add_path () {
     fi
 }
 
-export PATH=$(add_path "${HOME}/bin" "$PATH")
-export LIBRARY_PATH=$(add_path "${HOME}/lib" "$LIBRARY_PATH")
-export LD_LIBRARY_PATH=$(add_path "${HOME}/lib" "$LD_LIBRARY_PATH")
-export C_INCLUDE_PATH=$(add_path "${HOME}/include" "$C_INCLUDE_PATH")
+export PATH="$(add_path "${HOME}/bin" "$PATH")"
+export LIBRARY_PATH="$(add_path "${HOME}/lib" "$LIBRARY_PATH")"
+export LD_LIBRARY_PATH="$(add_path "${HOME}/lib" "$LD_LIBRARY_PATH")"
+export C_INCLUDE_PATH="$(add_path "${HOME}/include" "$C_INCLUDE_PATH")"
 export PAGER=less
 export EDITOR=vim
 export SDL_AUDIODRIVER=pulse
@@ -69,7 +70,7 @@ doit() {
 # show 256 colors
 show_colors() {
     for i in {0..255}; do
-        printf "\x1b[38;5;${i}mcolour${i}\n"
+        printf "\x1b[38;5;%smcolour%s\n" "${i}" "${i}"
     done
 }
 
@@ -99,32 +100,32 @@ ext() {
 # colorized manpages, copied that from:
 # https://gist.github.com/cocoalabs/2fb7dc2199b0d4bf160364b8e557eb66
 man() {
-    env LESS_TERMCAP_mb=$(printf "\e[1;31m")    \
-        LESS_TERMCAP_md=$(printf "\e[1;31m")    \
-        LESS_TERMCAP_me=$(printf "\e[0m")       \
-        LESS_TERMCAP_se=$(printf "\e[0m")       \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m")       \
-        LESS_TERMCAP_us=$(printf "\e[1;32m")    \
+    env LESS_TERMCAP_mb="$(printf "\e[1;31m")"    \
+        LESS_TERMCAP_md="$(printf "\e[1;31m")"    \
+        LESS_TERMCAP_me="$(printf "\e[0m")"       \
+        LESS_TERMCAP_se="$(printf "\e[0m")"       \
+        LESS_TERMCAP_so="$(printf "\e[1;44;33m")" \
+        LESS_TERMCAP_ue="$(printf "\e[0m")"       \
+        LESS_TERMCAP_us="$(printf "\e[1;32m")"    \
         man "$@"
 }
 
 _set_ps1() {
-    local reset=$(tput sgr0)
-    local red=$(tput setaf 1)
-    local green=$(tput setaf 2)
+    local reset="$(tput sgr0)"
+    local red="$(tput setaf 1)"
+    local green="$(tput setaf 2)"
 
-    PS1="\[$reset\]["
+    PS1="\[${reset}\]["
     # PS1 user color
     if [[ $EUID -ne 0 ]]; then
         # user = green
-        PS1+="\[$green\]"
+        PS1+="\[${green}\]"
     else
         # root = red
-        PS1+="\[$red\]"
+        PS1+="\[${red}\]"
     fi
     # user and current path
-    PS1+="\h\[$reset\] \W\[$reset\]] "
+    PS1+="\h\[${reset}\] \W\[${reset}\]] "
 }
 
 if ! test "dumb" = "${TERM:-dumb}"; then
