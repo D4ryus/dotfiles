@@ -30,8 +30,6 @@
 (tool-bar-mode 0)
 ;; auto revert buffers
 (global-auto-revert-mode)
-;; show current function in modeline
-(which-function-mode)
 ;; always show matching parens
 (show-paren-mode)
 
