@@ -34,7 +34,6 @@
 (use-package try)
 
 (use-package feebleline
-  :ensure t
   :config
   (setq feebleline-msg-functions
         '((feebleline-line-number         :post "" :fmt "%5s")
