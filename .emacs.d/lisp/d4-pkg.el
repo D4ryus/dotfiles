@@ -33,18 +33,10 @@
 
 (use-package try)
 
-(use-package feebleline
-  :config
-  (setq feebleline-msg-functions
-        '((feebleline-line-number         :post "" :fmt "%5s")
-          (feebleline-column-number       :pre ":" :fmt "%-2s")
-          (feebleline-file-directory      :face feebleline-dir-face :post "")
-          (feebleline-file-or-buffer-name :face font-lock-keyword-face :post "")
-          (feebleline-file-modified-star  :face font-lock-warning-face :post "")
-          (feebleline-git-branch          :face feebleline-git-face :pre " : ")))
-  (feebleline-mode 1))
+(use-package diminish)
 
 (use-package whitespace
+  :diminish whitespace-mode
   :config
   (setq whitespace-style '(face tabs lines-tail)
         whitespace-display-mappings nil)
@@ -55,14 +47,18 @@
               (whitespace-mode 1)
               (setq show-trailing-whitespace t))))
 
-(use-package eldoc)
+(use-package eldoc
+  :diminish eldoc-mode)
 
-(use-package undo-tree)
+(use-package undo-tree
+  :diminish undo-tree-mode)
 
 (use-package ivy
+  :diminish ivy-mode
   :config (ivy-mode 1))
 
 (use-package rainbow-mode
+  :diminish rainbow-mode
   :config (add-hook 'css-mode-hook
                     (lambda () (rainbow-mode 1))))
 
@@ -74,6 +70,7 @@
   :config (load-theme 'doom-molokai t))
 
 (use-package which-key
+  :diminish which-key-mode
   :config (which-key-mode t))
 
 (use-package magit
@@ -87,6 +84,7 @@
   :config (magit-todos-mode))
 
 (use-package trident-mode
+  :diminish trident-mode
   :config (add-hook 'lisp-mode-hook
                     (lambda () (trident-mode 1))))
 
@@ -119,6 +117,7 @@
 (use-package cider)
 
 (use-package company
+  :diminish company-mode
   :config
   (setq company-idle-delay nil)
   (global-set-key (kbd "C-x TAB") 'company-complete)
@@ -181,6 +180,7 @@
     geiser-mode-hook))
 
 (use-package paredit
+  :diminish paredit-mode
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
                 (append d4-lisp-mode-hooks
@@ -265,9 +265,11 @@
 (use-package flycheck)
 
 (use-package editorconfig
+  :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
 (use-package disable-mouse
+  :diminish disable-mouse-global-mode
   :config
   (global-disable-mouse-mode)
   (mapc #'disable-mouse-in-keymap
