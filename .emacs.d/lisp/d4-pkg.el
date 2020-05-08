@@ -164,11 +164,7 @@
   (add-hook 'org-mode-hook
             (lambda ()
               (define-key evil-normal-state-local-map (kbd "RET")
-                'org-return)))
-  (define-key evil-normal-state-map (kbd "j")
-    'evil-next-visual-line)
-  (define-key evil-normal-state-map (kbd "k")
-    'evil-previous-visual-line))
+                'org-return))))
 
 (use-package evil-surround
   :config (global-evil-surround-mode t))
