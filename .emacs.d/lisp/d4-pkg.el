@@ -163,7 +163,7 @@
             (lambda () (evil-emacs-state 1)))
   (add-hook 'org-mode-hook
             (lambda ()
-              (define-key evil-normal-state-map (kbd "RET")
+              (define-key evil-normal-state-local-map (kbd "RET")
                 'org-return)))
   (define-key evil-normal-state-map (kbd "j")
     'evil-next-visual-line)
