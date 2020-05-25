@@ -107,6 +107,10 @@
         slime-repl-history-remove-duplicates t
         slime-repl-history-trim-whitespaces t
         slime-inhibit-pipelining nil)
+  (add-hook 'slime-mode-hook
+            (lambda ()
+              (define-key evil-normal-state-local-map (kbd "M-.")
+                'slime-edit-definition)))
   (defun re-eval ()
     (interactive)
     (with-current-buffer (get-buffer "*slime-repl sbcl*")
@@ -156,6 +160,8 @@
           (tabulated-list-mode . emacs)
           (text-mode . normal)
           (git-commit-mode . normal)))
+  (define-key evil-normal-state-map (kbd "M-.")
+    'xref-find-definitions)
   (add-to-list 'magit-blame-disable-modes 'evil-mode)
   (add-hook 'slime-macroexpansion-minor-mode-hook
             (lambda () (evil-emacs-state 1)))
