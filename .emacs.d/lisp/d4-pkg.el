@@ -116,7 +116,9 @@
     (with-current-buffer (get-buffer "*slime-repl sbcl*")
       (slime-repl-resend))))
 
-(use-package geiser)
+(use-package geiser
+  :config
+  (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))
 
 (use-package cider)
 
