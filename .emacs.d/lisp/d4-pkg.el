@@ -118,7 +118,9 @@
 
 (use-package geiser
   :config
-  (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))
+  (add-hook 'geiser-repl-mode-hook
+            (lambda ()
+              (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
 
 (use-package cider)
 
