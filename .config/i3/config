@@ -142,3 +142,4 @@ bindsym XF86AudioPrev exec "dbus-send --type=method_call --dest=org.mpris.MediaP
 bindsym XF86AudioStop exec "dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 for_window [title=".* QjackCtl$"] floating enable
+for_window [class="Spotify"] floating enable
