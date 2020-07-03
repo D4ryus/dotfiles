@@ -115,7 +115,6 @@ mode "resize" {
 }
 
 bar {
-        font pango: JetBrains Mono 9
         position top
         status_command exec guile3.0 -e '((@@ (guile-i3-bar main) main))' -s /home/d4ryus/git/guile-i3-bar/main.scm
 }
