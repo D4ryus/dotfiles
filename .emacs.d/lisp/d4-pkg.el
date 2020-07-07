@@ -270,8 +270,6 @@
 
 (use-package lsp-ui)
 
-(use-package company-lsp)
-
 (use-package flycheck)
 
 (use-package editorconfig
