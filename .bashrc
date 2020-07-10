@@ -111,6 +111,7 @@ man() {
 }
 
 _set_ps1() {
+    local last_exit_code=$?
     local reset="$(tput sgr0)"
     local red="$(tput setaf 1)"
     local green="$(tput setaf 2)"
@@ -125,8 +126,14 @@ _set_ps1() {
         PS1+="\[${red}\]"
     fi
     # user and current path
-    PS1+="\h\[${reset}\] \W\[${reset}\]] "
+    PS1+="\h\[${reset}\] \W\[${reset}\]"
+    if ! test $last_exit_code -eq 0; then
+        PS1+=" ${red}${last_exit_code}${reset}"
+    fi
+    PS1+="] "
 }
+
+PROMPT_COMMAND=_set_ps1
 
 if ! test "dumb" = "${TERM:-dumb}"; then
     _set_ps1
