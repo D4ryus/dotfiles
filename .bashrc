@@ -112,9 +112,27 @@ man() {
 
 _set_ps1() {
     local last_exit_code=$?
-    local reset=$(printf '\033[0m')
-    local red=$(printf '\033[38;5;1m')
-    local green=$(printf '\033[38;5;2m')
+    # Surrouned by \[ \] so PS1 width calc does not get confused
+    # \033              Escape
+    # <ESC>[            CSI (Control Sequence Introducer)
+    # <CSI>n<literal m> SGR (Select Graphic Rendition) where n is a
+    #                   subsequence with:
+    #  0                being reset, and
+    # 38                set foreground color, which is followed by
+    # 5;x               with x being a color code (1 red, 2 green, etc)
+    # So:
+    #  ,-------------,-> Escaping for PS1 width
+    #  |             |
+    # \[\033[38;5;1m\]
+    #       | | | ||
+    #       `------`---> SGR sequence <ESC>[<Graphic Rendition>m
+    #         | | |
+    #         | | `----> red
+    #         | `------> use color code
+    #         `--------> Set foreground color
+    local reset=$(printf '\[\033[0m\]')
+    local red=$(printf '\[\033[38;5;1m\]')
+    local green=$(printf '\[\033[38;5;2m\]')
 
     PS1="${reset}["
     # PS1 user color
