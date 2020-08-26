@@ -26,9 +26,6 @@
   :bind (("C-c C-c" . python-shell-send-defun)
          ("C-c C-k" . python-shell-send-buffer)))
 
-(use-package winner
-  :config (winner-mode))
-
 (use-package request)
 
 (use-package try)
