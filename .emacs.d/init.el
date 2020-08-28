@@ -35,12 +35,10 @@
 ;; always show matching parens
 (show-paren-mode)
 
-;; dont show scroll-bar and default background to black
+;; dont show scroll-bar and set font
 (setq default-frame-alist
       '((font . "JetBrains Mono 10")
-        (vertical-scroll-bars . nil)
-        (foreground-color . "white")
-        (background-color . "black")))
+        (vertical-scroll-bars . nil)))
 
 ;; alias st and screen (tmux) to xterm
 (mapc (lambda (term)
