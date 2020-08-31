@@ -93,6 +93,19 @@
 (add-to-list 'window-size-change-functions
              'd4-recenter-bottom-hook)
 
+;; copied from /r/emacs
+(defun d4-backup-scratch ()
+  (with-current-buffer "*scratch*"
+    (when (> (buffer-size)
+             (length (substitute-command-keys initial-scratch-message)))
+      (let ((dir (concat user-emacs-directory "scratch/")))
+        (make-directory dir t)
+        (write-file (expand-file-name
+                     (format-time-string "scratch-%F.%T.el")
+                     dir))))))
+
+(add-hook 'kill-emacs-hook #'d4-backup-scratch)
+
 ;; default c coding styles and settings
 (add-hook 'c-mode-hook
           (lambda ()
