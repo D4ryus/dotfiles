@@ -34,7 +34,9 @@
   (setq whitespace-style '(face tabs lines-tail)
         whitespace-display-mappings nil)
   (set-face-attribute 'whitespace-tab nil
-                      :background "#181818")
+                      :underline t
+                      :foreground nil
+                      :background nil)
   (add-hook 'prog-mode-hook
             (lambda ()
               (whitespace-mode 1)
