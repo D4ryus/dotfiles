@@ -37,6 +37,10 @@
                       :underline t
                       :foreground nil
                       :background nil)
+  (set-face-attribute 'whitespace-line nil
+                      :strike-through t
+                      :foreground nil
+                      :background nil)
   (add-hook 'prog-mode-hook
             (lambda ()
               (whitespace-mode 1)
