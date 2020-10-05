@@ -285,6 +285,14 @@
               evil-normal-state-map
               evil-visual-state-map)))
 
+(use-package highlight-symbol
+  :diminish highlight-symbol
+  :config
+  (setq highlight-symbol-idle-delay 0.5)
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (highlight-symbol-mode))))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
