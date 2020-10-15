@@ -175,11 +175,7 @@
   (add-hook 'slime-macroexpansion-minor-mode-hook
             (lambda () (evil-emacs-state 1)))
   (add-hook 'hexl-mode-hook
-            (lambda () (evil-emacs-state 1)))
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "RET")
-                'org-return))))
+            (lambda () (evil-emacs-state 1))))
 
 (use-package evil-surround
   :config (global-evil-surround-mode t))
