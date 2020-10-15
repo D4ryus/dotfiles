@@ -19,7 +19,8 @@
 
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
-  :bind (("C-c C-c" . python-shell-send-defun)
+  :bind (:map python-mode-map
+         ("C-c C-c" . python-shell-send-defun)
          ("C-c C-k" . python-shell-send-buffer)))
 
 (use-package request)
