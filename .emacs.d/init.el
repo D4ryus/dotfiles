@@ -78,6 +78,9 @@
  ;; use drawer (LOGBOOK)
  org-log-into-drawer t
  org-clock-into-drawer t
+ ;; Align text with headline
+ org-adapt-indentation t
+ org-hide-leading-stars t
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
