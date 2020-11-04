@@ -51,7 +51,8 @@
   :diminish eldoc-mode)
 
 (use-package undo-tree
-  :diminish undo-tree-mode)
+  :diminish undo-tree-mode
+  :config (global-undo-tree-mode 1))
 
 (use-package ivy
   :diminish ivy-mode
@@ -146,7 +147,8 @@
 
 (use-package evil
   :init (setq evil-want-C-i-jump nil
-              evil-symbol-word-search t)
+              evil-symbol-word-search t
+              evil-undo-system 'undo-tree)
   :config
   (evil-mode t)
   (mapc (lambda (pair)
