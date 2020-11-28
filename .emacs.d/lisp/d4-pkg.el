@@ -67,8 +67,9 @@
 
 (use-package restclient)
 
-(use-package doom-themes
-  :config (load-theme 'doom-molokai t))
+(use-package modus-operandi-theme)
+(use-package modus-vivendi-theme
+  :config (load-theme 'modus-vivendi t))
 
 (use-package which-key
   :diminish which-key-mode
