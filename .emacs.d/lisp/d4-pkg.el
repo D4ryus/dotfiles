@@ -90,42 +90,6 @@
   :config (add-hook 'lisp-mode-hook
                     (lambda () (trident-mode 1))))
 
-(use-package slime
-  :config
-  (slime-setup '(slime-fancy
-                 slime-company
-                 slime-indentation
-                 slime-compiler-notes-tree
-                 slime-hyperdoc
-                 slime-xref-browser
-                 slime-references
-                 slime-asdf))
-  (setq inferior-lisp-program "/usr/bin/sbcl"
-        lisp-loop-indent-subclauses nil
-        lisp-loop-indent-forms-like-keywords t
-        lisp-indent-function 'common-lisp-indent-function
-        slime-completion-at-point-functions 'slime-fuzzy-complete-symbol
-        slime-highlight-compiler-notes t
-        slime-repl-history-remove-duplicates t
-        slime-repl-history-trim-whitespaces t
-        slime-inhibit-pipelining nil)
-  (add-hook 'slime-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "M-.")
-                'slime-edit-definition)))
-  (defun re-eval ()
-    (interactive)
-    (with-current-buffer (get-buffer "*slime-repl sbcl*")
-      (slime-repl-resend))))
-
-(use-package geiser
-  :config
-  (add-hook 'geiser-repl-mode-hook
-            (lambda ()
-              (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
-
-(use-package cider)
-
 (use-package company
   :diminish company-mode
   :config
@@ -144,7 +108,46 @@
               (cons [return]          'newline-and-indent)
               (cons (kbd "RET")       'newline-and-indent))))
 
-(use-package slime-company)
+(use-package slime-company
+  :config (setq slime-company-completion 'fuzzy))
+
+(use-package slime
+  :config
+  (slime-setup '(slime-fancy
+                 slime-company
+                 slime-indentation
+                 slime-compiler-notes-tree
+                 slime-hyperdoc
+                 slime-xref-browser
+                 slime-references
+                 slime-asdf))
+  (setq inferior-lisp-program "/usr/bin/sbcl"
+        lisp-loop-indent-subclauses nil
+        lisp-loop-indent-forms-like-keywords t
+        lisp-indent-function 'common-lisp-indent-function
+        slime-highlight-compiler-notes t
+        slime-repl-history-remove-duplicates t
+        slime-repl-history-trim-whitespaces t
+        slime-inhibit-pipelining nil)
+  (add-hook 'slime-mode-hook
+            (lambda ()
+              ;; Should not be required, but slime-company broke
+              ;; somehow and is not activated automatically :/
+              (add-to-list 'company-backends 'company-slime)
+              (define-key evil-normal-state-local-map (kbd "M-.")
+                'slime-edit-definition)))
+  (defun re-eval ()
+    (interactive)
+    (with-current-buffer (get-buffer "*slime-repl sbcl*")
+      (slime-repl-resend))))
+
+(use-package geiser
+  :config
+  (add-hook 'geiser-repl-mode-hook
+            (lambda ()
+              (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
+
+(use-package cider)
 
 (use-package evil
   :init (setq evil-want-C-i-jump nil
