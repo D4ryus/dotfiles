@@ -124,7 +124,7 @@ focus_follows_mouse no
 
 bindsym $mod+w mode "resize"
 bindsym $mod+x [urgent=latest] focus
-bindsym $mod+y exec "i3lock --color=000000 -f"
+bindsym $mod+y exec "dbus-send --print-reply --dest=org.guile.Lock /org/guile/Lock org.guile.Lock.Lock"
 
 # Brightness keys
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
