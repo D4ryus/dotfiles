@@ -31,9 +31,10 @@
 
 (use-package whitespace
   :diminish whitespace-mode
+  :custom
+  (whitespace-style '(face tabs lines-tail))
+  (whitespace-display-mappings nil)
   :config
-  (setq whitespace-style '(face tabs lines-tail)
-        whitespace-display-mappings nil)
   (set-face-attribute 'whitespace-tab nil
                       :underline t
                       :foreground nil
@@ -76,7 +77,8 @@
   :config (which-key-mode t))
 
 (use-package magit
-  :init (setf magit-define-global-key-bindings nil)
+  :custom
+  (magit-define-global-key-bindings nil)
   :config
   (setf git-commit-summary-max-length 50
         magit-diff-refine-hunk 'all
@@ -92,8 +94,9 @@
 
 (use-package company
   :diminish company-mode
+  :custom
+  (company-idle-delay nil)
   :config
-  (setq company-idle-delay nil)
   (global-set-key (kbd "C-x TAB") 'company-complete)
   (global-company-mode)
   (mapc (lambda (kbd-fn)
@@ -109,9 +112,14 @@
               (cons (kbd "RET")       'newline-and-indent))))
 
 (use-package slime-company
-  :config (setq slime-company-completion 'fuzzy))
+  :custom
+  (slime-company-completion 'fuzzy))
 
 (use-package slime
+  :custom
+  (lisp-loop-indent-subclauses nil)
+  (lisp-loop-indent-forms-like-keywords t)
+  (lisp-indent-function 'common-lisp-indent-function)
   :config
   (slime-setup '(slime-fancy
                  slime-company
@@ -122,9 +130,6 @@
                  slime-references
                  slime-asdf))
   (setq inferior-lisp-program "/usr/bin/sbcl"
-        lisp-loop-indent-subclauses nil
-        lisp-loop-indent-forms-like-keywords t
-        lisp-indent-function 'common-lisp-indent-function
         slime-highlight-compiler-notes t
         slime-repl-history-remove-duplicates t
         slime-repl-history-trim-whitespaces t
@@ -150,9 +155,10 @@
 (use-package cider)
 
 (use-package evil
-  :init (setq evil-want-C-i-jump nil
-              evil-symbol-word-search t
-              evil-undo-system 'undo-tree)
+  :custom
+  (evil-want-C-i-jump nil)
+  (evil-symbol-word-search t)
+  (evil-undo-system 'undo-tree)
   :config
   (evil-mode t)
   (mapc (lambda (pair)
@@ -231,19 +237,20 @@
 (use-package erc-hl-nicks)
 
 (use-package erc
+  :custom
+  (erc-remove-parsed-property nil)
+  (erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
+                             "324" "329" "332" "333" "353" "477"))
+  (erc-enable-logging 'erc-log-all-but-server-buffers)
+  (erc-save-buffer-on-part t)
+  (erc-log-insert-log-on-open t)
+  (erc-input-line-position -1)
+  (erc-timestamp-format "%H:%M ")
+  (erc-insert-timestamp-function 'erc-insert-timestamp-left)
+  (erc-modules '(completion log hl-nicks autojoin button irccontrols
+                 list match menu move-to-prompt netsplit networks
+                 noncommands readonly ring sound stamp track))
   :config
-  (setq erc-remove-parsed-property nil
-        erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
-                                  "324" "329" "332" "333" "353" "477")
-        erc-enable-logging 'erc-log-all-but-server-buffers
-        erc-save-buffer-on-part t
-        erc-log-insert-log-on-open t
-        erc-input-line-position -1
-        erc-timestamp-format "%H:%M "
-        erc-insert-timestamp-function 'erc-insert-timestamp-left
-        erc-modules '(completion log hl-nicks autojoin button irccontrols
-                      list match menu move-to-prompt netsplit networks
-                      noncommands readonly ring sound stamp track))
   (erc-update-modules)
   (erc-fill-disable)
   (erc-hl-nicks-mode)
@@ -269,8 +276,8 @@
 
 (use-package lsp-mode
   :commands lsp
-  :init (setq lsp-enable-snippet nil
-              lsp-prefer-flymake :none))
+  :custom (lsp-enable-snippet nil)
+  :init (setq lsp-prefer-flymake :none))
 
 (use-package lsp-ui)
 
