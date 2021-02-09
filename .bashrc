@@ -51,7 +51,7 @@ fi
 et() {
     local tmp
     if [[ "$1" != "-" ]]; then
-        emacsclient -a "" -c -t -e "(find-file \"$1\")"
+        emacsclient -c -t -e "(find-file \"$1\")"
         return 0
     fi
     tmp="$(mktemp /tmp/et-stdin-XXXXXX)";
@@ -64,7 +64,7 @@ et() {
 }
 
 doit() {
-    emacsclient -a "" -n "$@"
+    emacsclient -n "$@"
 }
 
 # show 256 colors
