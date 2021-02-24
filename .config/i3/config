@@ -117,7 +117,7 @@ mode "resize" {
 bar {
         strip_workspace_numbers yes
         position top
-        status_command exec guile3.0 -e '((@@ (guile-i3-bar main) main))' -s /home/d4ryus/git/guile-i3-bar/main.scm
+        status_command exec guile -e '((@@ (guile-i3-bar main) main))' -s /home/d4ryus/git/guile-i3-bar/main.scm
 }
 
 focus_follows_mouse no
