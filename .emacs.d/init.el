@@ -80,7 +80,7 @@
  org-clock-into-drawer t
  ;; Align text with headline
  org-adapt-indentation t
- org-hide-leading-stars t
+ org-hide-leading-stars nil
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
