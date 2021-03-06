@@ -85,7 +85,11 @@
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
  ;; scroll single lines when cursor moves out of window
- scroll-conservatively 101)
+ scroll-conservatively 101
+ ;; Disable vc-mode on tramp buffers
+ vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
+                              vc-ignore-dir-regexp
+                              tramp-file-name-regexp))
 
 (defun d4-recenter-bottom-hook (frame)
   (when (eql (point) (point-max))
