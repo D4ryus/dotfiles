@@ -81,6 +81,7 @@
  ;; Align text with headline
  org-adapt-indentation t
  org-hide-leading-stars nil
+ org-ellipsis "⮷"
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
