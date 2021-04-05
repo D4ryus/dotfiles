@@ -41,7 +41,6 @@ alias tm="tmux attach -t"
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
-alias myip="curl http://myip.dnsomatic.com && echo ''"
 
 # git autocompletion
 if test -r "${HOME}/.git-completion-bash"; then
