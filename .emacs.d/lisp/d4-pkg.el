@@ -158,27 +158,35 @@
 (use-package cider)
 
 (use-package evil
+  :init
+  (setq evil-want-keybinding nil)
   :custom
+  (evil-undo-system 'undo-tree)
   (evil-want-C-i-jump nil)
   (evil-symbol-word-search t)
-  (evil-undo-system 'undo-tree)
-  :config
-  (evil-mode t)
-  (mapc (lambda (pair)
-          (evil-set-initial-state (car pair) (cdr pair)))
-        '((term-mode . emacs)
-          (dired-mode . emacs)
-          (Buffer-menu-mode . emacs)
-          (grep-mode . emacs)
-          (slime-fuzzy-completions-mode . emacs)
-          (slime-repl-mode . emacs)
-          (geiser-repl-mode . emacs)
-          (help-mode . emacs)
-          (slime-trace-dialog-mode . emacs)
-          (slime-connection-list-mode . emacs)
-          (tabulated-list-mode . emacs)
-          (text-mode . normal)
-          (git-commit-mode . normal)))
+  (evil-intercept-maps nil)
+  (evil-overriding-maps nil)
+  (evil-disable-insert-state-bindings t)
+  (evil-emacs-state-modes nil)
+  (evil-motion-state-modes nil)
+  (evil-insert-state-modes '(dired-mode
+                             elfeed-search-mode
+                             elfeed-show-mode
+                             geiser-repl-mode
+                             geiser-repl-mode
+                             grep-mode
+                             sldb-mode
+                             slime-connection-list-mode
+                             slime-fuzzy-completions-mode
+                             slime-repl-mode
+                             slime-trace-dialog-mode
+                             special-mode
+                             tabulated-list-mode
+                             term-mode))
+  (evil-want-minibuffer t)
+  (evil-normal-state-modes '(git-commit-mode
+                             prog-mode
+                             text-mode))
   (evil-set-leader 'normal (kbd ","))
   (evil-define-key 'normal 'global (kbd "<leader>gg")
                    'vc-git-grep)
@@ -186,11 +194,8 @@
                    'magit-status)
   (define-key evil-normal-state-map (kbd "M-.")
     'xref-find-definitions)
-  (add-to-list 'magit-blame-disable-modes 'evil-mode)
-  (add-hook 'slime-macroexpansion-minor-mode-hook
-            (lambda () (evil-emacs-state 1)))
-  (add-hook 'hexl-mode-hook
-            (lambda () (evil-emacs-state 1))))
+  :config
+  (evil-mode 1))
 
 (use-package evil-surround
   :config (global-evil-surround-mode t))
