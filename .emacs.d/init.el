@@ -27,7 +27,9 @@
       '((".*" "~/.cache/emacs/" t)))
 
 ;; dont show tool-bar
-(tool-bar-mode 0)
+(custom-set-variables
+ '(tool-bar-mode nil)
+ '(menu-bar-mode nil))
 ;; auto revert buffers
 (global-auto-revert-mode)
 ;; show current function in modeline
@@ -47,8 +49,6 @@
       '("st-256color"
         "screen-256color"
         "rxvt-unicode-256color"))
-
-(menu-bar-mode 0)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
