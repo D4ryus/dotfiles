@@ -68,8 +68,7 @@
 
 (use-package restclient)
 
-(use-package modus-operandi-theme)
-(use-package modus-vivendi-theme
+(use-package modus-themes
   :config (load-theme 'modus-vivendi t))
 
 (use-package which-key
