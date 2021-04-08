@@ -146,10 +146,14 @@
       (slime-repl-resend))))
 
 (use-package geiser
+  :custom
+  (geiser-active-implementations '(guile))
   :config
   (add-hook 'geiser-repl-mode-hook
             (lambda ()
               (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
+
+(use-package geiser-guile)
 
 (use-package cider)
 
