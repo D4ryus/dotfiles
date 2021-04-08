@@ -216,8 +216,6 @@
                   (add-hook hook #'rainbow-delimiters-mode))
                 d4-lisp-mode-hooks))
 
-(use-package org-ref)
-
 (use-package irony
   :bind ("C-x c" . compile)
   :config
