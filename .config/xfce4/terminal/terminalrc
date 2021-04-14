@@ -15,7 +15,7 @@ MiscToolbarDefault=FALSE
 MiscConfirmClose=TRUE
 MiscCycleTabs=TRUE
 MiscTabCloseButtons=TRUE
-MiscTabCloseMiddleClick=TRUE
+MiscTabCloseMiddleClick=FALSE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscMiddleClickOpensUri=TRUE
@@ -32,4 +32,5 @@ TitleInitial=matrix
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoHelpkey=TRUE
+ShortcutsNoMnemonics=TRUE
 
