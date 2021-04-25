@@ -65,4 +65,38 @@
    "		    ##__VA_ARGS__);				/* YYY */\\\n"
    "	} while (0)						/* YYY */\n"))
 
+(defun jarvis-copy (&optional text)
+  (interactive)
+  (dbus-call-method
+   :session "net.d4ryus.Jarvis"
+   "/net/d4ryus/Jarvis"
+   "net.d4ryus.Clipboard" "Copy"
+   (or text
+       (and (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end)))
+       (error "Copy requires region or text"))))
+
+(defun jarvis-kill ()
+  (interactive)
+  (let ((text
+          (if (region-active-p)
+              (buffer-substring-no-properties
+               (region-beginning)
+               (region-end))
+              (error "Select text to kill"))))
+    (delete-active-region t)
+    (jarvis-copy text)))
+
+(defun jarvis-paste ()
+  (interactive)
+  (let ((text (dbus-call-method
+               :session "net.d4ryus.Jarvis"
+               "/net/d4ryus/Jarvis"
+               "net.d4ryus.Clipboard" "Paste")))
+    (when (region-active-p)
+      (delete-active-region t))
+    (insert text)))
+
 (provide 'd4)
