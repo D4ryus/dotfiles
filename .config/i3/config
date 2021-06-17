@@ -147,3 +147,5 @@ bindsym XF86AudioStop exec "dbus-send --type=method_call --dest=org.mpris.MediaP
 for_window [title=".* QjackCtl$"] floating enable
 for_window [class="Spotify"] move to workspace "9:"
 for_window [class="firefox"] move to workspace "2:🌐"
+
+exec "dbus-send --session --dest=org.freedesktop.Notifications --print-reply /org/freedesktop/Notifications org.freedesktop.DBus.Peer.Ping"
