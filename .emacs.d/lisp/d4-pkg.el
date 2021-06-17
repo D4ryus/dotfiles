@@ -280,12 +280,7 @@
   (add-hook 'css-mode-hook #'skewer-css-mode)
   (add-hook 'html-mode-hook #'skewer-html-mode))
 
-(use-package lsp-mode
-  :commands lsp
-  :custom (lsp-enable-snippet nil)
-  :init (setq lsp-prefer-flymake :none))
-
-(use-package lsp-ui)
+(use-package eglot)
 
 (use-package flycheck)
 
