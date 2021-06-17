@@ -309,6 +309,9 @@
             (lambda ()
               (highlight-symbol-mode))))
 
+(use-package yaml-mode
+  :mode "\\.yml\\'")
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
