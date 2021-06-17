@@ -226,20 +226,6 @@
                   (add-hook hook #'rainbow-delimiters-mode))
                 d4-lisp-mode-hooks))
 
-(use-package irony
-  :bind ("C-x c" . compile)
-  :config
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook
-            (lambda ()
-              (define-key irony-mode-map [remap completion-at-point]
-                'irony-completion-at-point-async)
-              (define-key irony-mode-map [remap complete-symbol]
-                'irony-completion-at-point-async))))
-
-(use-package company-irony)
-
 (use-package hydra)
 
 (use-package erc-hl-nicks)
