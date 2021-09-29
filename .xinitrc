@@ -32,6 +32,11 @@ if test -r "$HOME/.xresources.local"; then
 fi
 
 dbus-update-activation-environment --systemd DISPLAY=:0
+dbus-update-activation-environment --systemd XDG_SESSION_TYPE=x11
+dbus-update-activation-environment --systemd GDK_BACKEND=x11
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
+
 if test -r "$HOME/.xinitrc.local"; then
     source "$HOME/.xinitrc.local"
 fi
