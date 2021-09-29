@@ -33,4 +33,5 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoHelpkey=TRUE
 ShortcutsNoMnemonics=TRUE
+TitleMode=TERMINAL_TITLE_REPLACE
 
