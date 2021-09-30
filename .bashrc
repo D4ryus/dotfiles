@@ -149,9 +149,8 @@ _set_ps1() {
     PS1+="] "
 }
 
-PROMPT_COMMAND=_set_ps1
-
 if ! test "dumb" = "${TERM:-dumb}"; then
+    PROMPT_COMMAND=_set_ps1
     _set_ps1
 fi
 
