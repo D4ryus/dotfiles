@@ -115,6 +115,7 @@ __esc() {
 __reset=$(printf $(__esc "[0m"))
 __red=$(printf $(__esc "[38;5;1m"))
 __green=$(printf $(__esc "[38;5;2m"))
+__hostname=$(hostname)
 
 __set_ps1() {
     local last_exit_code=$?
@@ -136,7 +137,8 @@ __set_ps1() {
     #         | | `----> red
     #         | `------> use color code
     #         `--------> Set foreground color
-    PS1="${__reset}["
+    local title=$(printf $(__esc "]0;%s\a") "${__hostname} ${PWD}")
+    PS1="${title}${__reset}["
     # PS1 user color
     if [[ $EUID -ne 0 ]]; then
         # user = green
