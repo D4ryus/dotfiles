@@ -108,7 +108,15 @@ man() {
         man "$@"
 }
 
-_set_ps1() {
+__esc() {
+    printf "\[\x1b%s\]" "$1"
+}
+
+__reset=$(printf $(__esc "[0m"))
+__red=$(printf $(__esc "[38;5;1m"))
+__green=$(printf $(__esc "[38;5;2m"))
+
+__set_ps1() {
     local last_exit_code=$?
     # Surrouned by \[ \] so PS1 width calc does not get confused
     # \033              Escape
@@ -128,30 +136,26 @@ _set_ps1() {
     #         | | `----> red
     #         | `------> use color code
     #         `--------> Set foreground color
-    local reset=$(printf '\[\033[0m\]')
-    local red=$(printf '\[\033[38;5;1m\]')
-    local green=$(printf '\[\033[38;5;2m\]')
-
-    PS1="${reset}["
+    PS1="${__reset}["
     # PS1 user color
     if [[ $EUID -ne 0 ]]; then
         # user = green
-        PS1+="${green}"
+        PS1+="${__green}"
     else
         # root = red
-        PS1+="${red}"
+        PS1+="${__red}"
     fi
     # user and current path
-    PS1+="\h${reset} \W${reset}"
+    PS1+="\h${__reset} \W${__reset}"
     if ! test $last_exit_code -eq 0; then
-        PS1+=" ${red}${last_exit_code}${reset}"
+        PS1+=" ${__red}${last_exit_code}${__reset}"
     fi
     PS1+="] "
 }
 
 if ! test "dumb" = "${TERM:-dumb}"; then
-    PROMPT_COMMAND=_set_ps1
-    _set_ps1
+    PROMPT_COMMAND=__set_ps1
+    __set_ps1
 fi
 
 if test -r "${HOME}/.bashrc.local"; then
