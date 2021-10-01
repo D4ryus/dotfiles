@@ -128,6 +128,7 @@ focus_follows_mouse no
 bindsym $mod+w mode "resize"
 bindsym $mod+x [urgent=latest] focus
 bindsym $mod+y exec "dbus-send --print-reply --dest=net.d4ryus.Lock /net/d4ryus/Lock net.d4ryus.Lock.Lock"
+bindsym $mod+z exec "pause-players.scm"
 
 # Brightness keys
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
