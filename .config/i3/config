@@ -144,6 +144,7 @@ bindsym XF86AudioNext exec "dbus-send --type=method_call --dest=org.mpris.MediaP
 bindsym XF86AudioPrev exec "dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec "dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
+for_window [title="Jarvis.*"] floating enable
 for_window [title=".* QjackCtl$"] floating enable
 for_window [class="Spotify"] move to workspace "9:"
 for_window [class="firefox"] move to workspace "2:🌐"
