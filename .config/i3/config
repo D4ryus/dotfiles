@@ -4,6 +4,9 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 
+# Italic titles for windows
+for_window [class=".*"] title_format "<i>%title</i>"
+
 # Disable focus wrapping
 focus_wrapping no
 
