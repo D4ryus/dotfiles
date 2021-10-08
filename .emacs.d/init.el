@@ -9,8 +9,6 @@
   (concat user-emacs-directory "lisp/"))
 (add-to-list 'load-path local-lisp-directory)
 
-(when (file-exists-p (concat local-lisp-directory "d4-local.el"))
-  (require 'd4-local))
 (require 'cl)
 (require 'org-agenda)
 
@@ -642,6 +640,11 @@ daily now (11:40-12:00)"
                               (reverse upcoming)))
               "]"))))
 
+;; --- local config
+
+(let ((local-file (concat user-emacs-directory "local.el")))
+  (when (file-exists-p local-file)
+    (load local-file)))
 
 ;; backup settings
 (setq backup-directory-alist
