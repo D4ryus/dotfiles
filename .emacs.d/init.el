@@ -12,7 +12,6 @@
 (require 'd4-pkg)
 (require 'd4-org)
 (require 'd4)
-(require 'd4-tea)
 (when (file-exists-p (concat local-lisp-directory "d4-local.el"))
   (require 'd4-local))
 (require 'd4-clocking)
