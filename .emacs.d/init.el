@@ -15,7 +15,6 @@
 (when (file-exists-p (concat local-lisp-directory "d4-local.el"))
   (require 'd4-local))
 (require 'd4-clocking)
-(require 'd4-overwrites)
 
 ;; backup settings
 (setq backup-directory-alist
