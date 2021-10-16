@@ -311,6 +311,8 @@
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
+(use-package rust-mode)
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
