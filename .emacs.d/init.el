@@ -447,6 +447,8 @@ see: d4-org-min->string and d4-org-string->min"
    "		    ##__VA_ARGS__);				/* YYY */\\\n"
    "	} while (0)						/* YYY */\n"))
 
+(require 'dbus)
+
 (defun jarvis-copy (&optional text)
   (interactive)
   (dbus-call-method
