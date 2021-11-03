@@ -186,6 +186,7 @@
   (evil-emacs-state-modes nil)
   (evil-motion-state-modes nil)
   (evil-insert-state-modes '(dired-mode
+                             Custom-mode
                              elfeed-search-mode
                              elfeed-show-mode
                              geiser-repl-mode
