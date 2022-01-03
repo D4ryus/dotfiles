@@ -752,11 +752,7 @@ daily now (11:40-12:00)"
                   c-basic-offset 8
                   tab-width 8
                   fill-column 80
-                  indent-tabs-mode t
-                  cc-search-directories (append cc-search-directories
-                                                '("../*"
-                                                  "../../*"
-                                                  "../../../*")))))
+                  indent-tabs-mode t)))
 
 ;; auto update proced
 (add-hook 'proced-mode-hook
