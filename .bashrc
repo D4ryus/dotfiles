@@ -19,9 +19,6 @@ add_path () {
 }
 
 export PATH="$(add_path "${HOME}/bin" "$PATH")"
-export LIBRARY_PATH="$(add_path "${HOME}/lib" "$LIBRARY_PATH")"
-export LD_LIBRARY_PATH="$(add_path "${HOME}/lib" "$LD_LIBRARY_PATH")"
-export C_INCLUDE_PATH="$(add_path "${HOME}/include" "$C_INCLUDE_PATH")"
 export PAGER=less
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
