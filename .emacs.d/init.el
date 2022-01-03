@@ -314,6 +314,8 @@
 
 (use-package rust-mode)
 
+(use-package wgrep)
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
