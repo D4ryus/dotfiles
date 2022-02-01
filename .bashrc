@@ -70,7 +70,7 @@ show_colors() {
 
 # Extract Files
 ext() {
-    if ! test -f "$1"; then
+    if ! test -e "$1"; then
         echo "'$1' is not a valid file"
         return 1
     fi
