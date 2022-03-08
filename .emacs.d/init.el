@@ -319,6 +319,11 @@
   :config
   (add-hook 'prog-mode-hook 'flymake-mode-on))
 
+(use-package flymake-shellcheck
+  :commands flymake-shellcheck-load
+  :init
+  (add-hook 'sh-mode-hook 'flymake-shellcheck-load))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
