@@ -288,8 +288,6 @@
 
 (use-package eglot)
 
-(use-package flycheck)
-
 (use-package editorconfig
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
@@ -316,6 +314,10 @@
 (use-package rust-mode)
 
 (use-package wgrep)
+
+(use-package flymake
+  :config
+  (add-hook 'prog-mode-hook 'flymake-mode-on))
 
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
