@@ -48,7 +48,7 @@
 (use-package whitespace
   :diminish whitespace-mode
   :custom
-  (whitespace-style '(face tabs lines-tail))
+  (whitespace-style '(face tabs))
   (whitespace-display-mappings nil)
   :config
   (set-face-attribute 'whitespace-tab nil
@@ -324,6 +324,8 @@
   :init
   (add-hook 'sh-mode-hook 'flymake-shellcheck-load))
 
+(use-package ruler-mode)
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
@@ -338,6 +340,7 @@
    ("c" rainbow-mode "rainbow")
    ("n" linum-mode "line numbers")
    ("t" d4-toggle-trailing-whitespace "trailing whitespace")
+   ("r" ruler-mode "ruler mode")
    ("q" nil "cancel")))
 
 ;; --- org functions
