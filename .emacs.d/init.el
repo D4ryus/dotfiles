@@ -664,18 +664,6 @@ daily now (11:40-12:00)"
   (when (file-exists-p local-file)
     (load local-file)))
 
-;; backup settings
-(setq backup-directory-alist
-      '(("." . "~/.emacs.d/backup/")))
-
-;; cache settings
-(setq auto-save-file-name-transforms
-      '((".*" "~/.cache/emacs/" t)))
-
-;; dont show tool-bar
-(custom-set-variables
- '(tool-bar-mode nil)
- '(menu-bar-mode nil))
 ;; auto revert buffers
 (global-auto-revert-mode)
 ;; show current function in modeline
@@ -705,6 +693,14 @@ daily now (11:40-12:00)"
                   (thing-at-point 'symbol)))))
 
 (setq-default
+ ;; backup settings
+ backup-directory-alist '(("." . "~/.emacs.d/backup/"))
+ ;; cache settings
+ auto-save-file-name-transforms '((".*" "~/.cache/emacs/" t))
+ ;; dont show tool-bar
+ tool-bar-mode nil
+ ;; dont show menu-bar
+ menu-bar-mode nil
  ;; disable startup message
  inhibit-startup-message t
  ;; indent with spaces per default
