@@ -693,6 +693,8 @@ daily now (11:40-12:00)"
                   (thing-at-point 'symbol)))))
 
 (setq-default
+ ;; No need to put active selection into PRIMARY
+ select-active-regions nil
  ;; backup settings
  backup-directory-alist '(("." . "~/.emacs.d/backup/"))
  ;; cache settings
