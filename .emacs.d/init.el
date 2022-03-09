@@ -326,10 +326,24 @@
 
 (use-package ruler-mode)
 
+(use-package path-headerline-mode
+  :init
+  (path-headerline-mode 1))
+
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace
         (not show-trailing-whitespace)))
+
+(defun d4-toggle-path-headerline-mode ()
+  (interactive)
+  (if path-headerline-mode
+      (progn
+        (path-headerline-mode 0)
+        (path-header-line-off))
+    (progn
+      (path-headerline-mode 1)
+      (path-header-line-on))))
 
 (global-set-key
  (kbd "C-x t")
@@ -341,6 +355,7 @@
    ("n" linum-mode "line numbers")
    ("t" d4-toggle-trailing-whitespace "trailing whitespace")
    ("r" ruler-mode "ruler mode")
+   ("h" d4-toggle-path-headerline-mode "path headerline mode")
    ("q" nil "cancel")))
 
 ;; --- org functions
