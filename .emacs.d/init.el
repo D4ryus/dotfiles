@@ -695,6 +695,8 @@ daily now (11:40-12:00)"
 (setq-default
  ;; No need to put active selection into PRIMARY
  select-active-regions nil
+ ;; Don't use popups
+ use-dialog-box nil
  ;; backup settings
  backup-directory-alist '(("." . "~/.emacs.d/backup/"))
  ;; cache settings
