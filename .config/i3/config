@@ -80,28 +80,28 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+p focus parent
 
 # switch to workspace
-bindsym $mod+1 workspace "1:ɑ"
-bindsym $mod+2 workspace "2:🌐"
-bindsym $mod+3 workspace "3:(λ)"
+bindsym $mod+1 workspace 1:α
+bindsym $mod+2 workspace 2:{}
+bindsym $mod+3 workspace 3:(λ)
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace "9:"
-bindsym $mod+0 workspace "10:Ω"
+bindsym $mod+9 workspace 9:||▷
+bindsym $mod+0 workspace 10:Ω
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace "1:ɑ"
-bindsym $mod+Shift+2 move container to workspace "2:🌐"
-bindsym $mod+Shift+3 move container to workspace "3:(λ)"
+bindsym $mod+Shift+1 move container to workspace 1:α
+bindsym $mod+Shift+2 move container to workspace 2:{}
+bindsym $mod+Shift+3 move container to workspace 3:(λ)
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace "9:"
-bindsym $mod+Shift+0 move container to workspace "10:Ω"
+bindsym $mod+Shift+9 move container to workspace 9:||▷
+bindsym $mod+Shift+0 move container to workspace 10:Ω
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -150,7 +150,7 @@ bindsym XF86AudioStop exec dbus-send --type=method_call --dest=org.mpris.MediaPl
 
 for_window [title="Jarvis.*"] floating enable
 for_window [title=".* QjackCtl$"] floating enable
-for_window [class="Spotify"] move to workspace "9:"
-for_window [class="firefox"] move to workspace "2:🌐"
+for_window [class="Spotify"] move to workspace 9:||▷
+for_window [class="firefox"] move to workspace 2:{}
 
 exec systemctl --user start desktop-online.target
