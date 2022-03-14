@@ -5,10 +5,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(defvar local-lisp-directory
-  (concat user-emacs-directory "lisp/"))
-(add-to-list 'load-path local-lisp-directory)
-
 (require 'cl)
 (require 'org-agenda)
 
