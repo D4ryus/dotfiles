@@ -1,5 +1,10 @@
 (package-initialize)
 
+(defvar backup-directory
+  (concat user-emacs-directory "backup/"))
+(catch 'file-already-exists
+  (make-directory backup-directory t))
+
 (setq custom-file
       (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
@@ -65,7 +70,9 @@
 
 (use-package undo-tree
   :diminish undo-tree-mode
-  :config (global-undo-tree-mode 1))
+  :config (global-undo-tree-mode 1)
+  (setq undo-tree-history-directory-alist
+        `(("." . ,backup-directory))))
 
 (use-package ivy
   :diminish ivy-mode
@@ -709,7 +716,7 @@ daily now (11:40-12:00)"
  ;; Don't use popups
  use-dialog-box nil
  ;; backup settings
- backup-directory-alist '(("." . "~/.emacs.d/backup/"))
+ backup-directory-alist `(("." . ,backup-directory))
  ;; cache settings
  auto-save-file-name-transforms '((".*" "~/.cache/emacs/" t))
  ;; dont show tool-bar
