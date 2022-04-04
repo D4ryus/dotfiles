@@ -738,7 +738,6 @@ daily now (11:40-12:00)"
  org-log-into-drawer t
  org-clock-into-drawer t
  ;; Align text with headline
- org-adapt-indentation t
  org-hide-leading-stars nil
  org-ellipsis "⮷"
  ring-bell-function 'ignore
