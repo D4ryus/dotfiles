@@ -318,14 +318,9 @@
 
 (use-package wgrep)
 
-(use-package flymake
+(use-package flycheck
   :config
-  (add-hook 'prog-mode-hook 'flymake-mode-on))
-
-(use-package flymake-shellcheck
-  :commands flymake-shellcheck-load
-  :init
-  (add-hook 'sh-mode-hook 'flymake-shellcheck-load))
+  (add-hook 'prog-mode-hook 'flycheck-mode))
 
 (use-package ruler-mode)
 
