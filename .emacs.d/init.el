@@ -636,7 +636,7 @@ daily now (11:40-12:00)"
     (format "%s %s (%s)"
             (let ((txt (get-text-property 0 'txt entry)))
               (apply 'substring-no-properties txt
-                     (when (string-match (org-re "\\([ \t]+\\)\\(:[[:alnum:]_@#%:]+:\\)[ \t]*$")
+                     (when (string-match "\\([ \t]+\\)\\(:[[:alnum:]_@#%:]+:\\)[ \t]*$"
                                          txt)
                        (list 0 (match-beginning 0)))))
             (if (> etime ctime)
