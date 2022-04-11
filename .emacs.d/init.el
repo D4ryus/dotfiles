@@ -10,7 +10,6 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(require 'cl)
 (require 'org-agenda)
 
 ;; --- package configuration
@@ -443,24 +442,24 @@ see: d4-org-min->string and d4-org-string->min"
 (defun d4-to-bin (number)
   (apply 'concat
          (reverse
-          (loop for i to 31
-                collect
-                (format
-                 (if (and (not (eql i 0))
-                          (eql (mod i 4) 0))
-                     "%d "
-                     "%d")
-                 (logand #x1 (lsh number (- i))))))))
+          (cl-loop for i to 31
+                   collect
+                   (format
+                    (if (and (not (eql i 0))
+                             (eql (mod i 4) 0))
+                        "%d "
+                        "%d")
+                    (logand #x1 (lsh number (- i))))))))
 
 (defun d4-to-ascii (number)
   (apply 'concat
          (reverse
-          (loop for i to 7
-                collect
-                (format
-                 "%c"
-                 (c-int-to-char
-                  (logand #xff (lsh number (- (* i 8))))))))))
+          (cl-loop for i to 7
+                   collect
+                   (format
+                    "%c"
+                    (c-int-to-char
+                     (logand #xff (lsh number (- (* i 8))))))))))
 
 (defun d4-YYY ()
   (interactive)
