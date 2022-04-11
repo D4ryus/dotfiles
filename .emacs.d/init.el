@@ -206,7 +206,6 @@
                              term-mode
                              eshell-mode
                              org-agenda-mode))
-  (evil-want-minibuffer t)
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
                              text-mode))
