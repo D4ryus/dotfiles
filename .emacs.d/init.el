@@ -1,3 +1,8 @@
+(when (and (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
+  (message "Native compilation is available")
+  (setq native-comp-deferred-compilation t))
+
 (package-initialize)
 
 (defvar backup-directory
