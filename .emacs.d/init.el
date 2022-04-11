@@ -213,11 +213,6 @@
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
                              text-mode))
-  (evil-set-leader 'normal (kbd ","))
-  (evil-define-key 'normal 'global (kbd "<leader>gg")
-                   'vc-git-grep)
-  (evil-define-key 'normal 'global (kbd "<leader>ms")
-                   'magit-status)
   (define-key evil-normal-state-map (kbd "M-.")
     'xref-find-definitions)
   :config
