@@ -321,9 +321,7 @@
 
 (use-package ruler-mode)
 
-(use-package path-headerline-mode
-  :init
-  (path-headerline-mode 1))
+(use-package path-headerline-mode)
 
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
