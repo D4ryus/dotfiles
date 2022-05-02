@@ -3,8 +3,6 @@
   (message "Native compilation is available")
   (setq native-comp-deferred-compilation t))
 
-(setq gc-cons-threshold 1000000000)
-
 (package-initialize)
 
 (defvar backup-directory
@@ -193,7 +191,6 @@
   (evil-intercept-maps nil)
   (evil-overriding-maps nil)
   (evil-disable-insert-state-bindings t)
-  (evil-emacs-state-modes nil)
   (evil-motion-state-modes nil)
   (evil-insert-state-modes '(dired-mode
                              Custom-mode
@@ -701,6 +698,8 @@ daily now (11:40-12:00)"
                   (thing-at-point 'symbol)))))
 
 (setq-default
+ ;; Up to 1 Gigabyte should be fine
+ gc-cons-threshold (ash 1 30)
  ;; No need to put active selection into PRIMARY
  select-active-regions nil
  ;; Don't use popups
