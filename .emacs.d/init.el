@@ -369,9 +369,8 @@ see: d4-org-string->min (inverse)"
   "convert given \"hh:mm\" string to minutes
 see: d4-org-min->string (inverse)"
   (cl-destructuring-bind (h m)
-     (map 'list 'string-to-number
-          (split-string time ":"))
-     (+ (* 60 h) m)))
+     (cl-map 'list 'string-to-number (split-string time ":"))
+    (+ (* 60 h) m)))
 
 (defun d4-org-strange-time->min (strange-time)
   "convert given 'strange-time' (number 110 for 01:10) to minutes (->
@@ -393,18 +392,14 @@ see: d4-org-min->string and d4-org-string->min"
 returns a \"hh:mm\" string
 see: d4-org-min->string and d4-org-string->min"
   (d4-org-min->string
-   (reduce '+
-           (map 'list 'd4-org-string->min
-                args))))
+   (reduce '+ (cl-map 'list 'd4-org-string->min args))))
 
 (defun d4-org-avg (&rest args)
   "Average all given \"hh:mm\" strings.
 returns a \"hh:mm\" string
 see: d4-org-min->string and d4-org-string->min"
   (d4-org-min->string
-   (/ (reduce '+
-              (map 'list 'd4-org-string->min
-                   args))
+   (/ (reduce '+ (cl-map 'list 'd4-org-string->min args))
       (length args))))
 
 ;; --- custom functions
