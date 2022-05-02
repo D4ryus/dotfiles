@@ -3,6 +3,8 @@
   (message "Native compilation is available")
   (setq native-comp-deferred-compilation t))
 
+(setq gc-cons-threshold 1000000000)
+
 (package-initialize)
 
 (defvar backup-directory
