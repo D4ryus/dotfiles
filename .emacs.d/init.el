@@ -333,6 +333,11 @@
               ("C-c C-b" . ruby-send-buffer)
               ("C-c C-f" . ruby-load-current-file)))
 
+(use-package projectile
+  :init
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
 (use-package rg
   :init
   (global-set-key (kbd "C-x g") 'rg)
