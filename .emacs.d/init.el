@@ -208,7 +208,8 @@
                              tabulated-list-mode
                              term-mode
                              eshell-mode
-                             org-agenda-mode))
+                             org-agenda-mode
+                             rg-mode))
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
                              text-mode))
@@ -322,6 +323,12 @@
 (use-package ruler-mode)
 
 (use-package path-headerline-mode)
+
+(use-package rg
+  :init
+  (global-set-key (kbd "C-x g") 'rg)
+  (setq rg-executable
+        (expand-file-name ".cargo/bin/rg" (getenv "HOME"))))
 
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
@@ -688,12 +695,6 @@ daily now (11:40-12:00)"
         "rxvt-unicode-256color"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
-(global-set-key (kbd "C-x g")
-  (lambda ()
-    (interactive)
-    (grep (format "grep -nH '\\<%s\\>' -R ."
-                  (thing-at-point 'symbol)))))
 
 (setq-default
  ;; Up to 1 Gigabyte should be fine
