@@ -209,7 +209,8 @@
                              term-mode
                              eshell-mode
                              org-agenda-mode
-                             rg-mode))
+                             rg-mode
+                             inf-ruby-mode))
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
                              text-mode))
@@ -323,6 +324,14 @@
 (use-package ruler-mode)
 
 (use-package path-headerline-mode)
+
+(use-package inf-ruby
+  :config (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+  :bind (:map inf-ruby-minor-mode-map
+              ("C-c C-c" . ruby-send-definition)
+              ("C-c C-l" . ruby-send-line)
+              ("C-c C-b" . ruby-send-buffer)
+              ("C-c C-f" . ruby-load-current-file)))
 
 (use-package rg
   :init
