@@ -399,14 +399,14 @@ see: d4-org-min->string and d4-org-string->min"
 returns a \"hh:mm\" string
 see: d4-org-min->string and d4-org-string->min"
   (d4-org-min->string
-   (reduce '+ (cl-map 'list 'd4-org-string->min args))))
+   (cl-reduce '+ (cl-map 'list 'd4-org-string->min args))))
 
 (defun d4-org-avg (&rest args)
   "Average all given \"hh:mm\" strings.
 returns a \"hh:mm\" string
 see: d4-org-min->string and d4-org-string->min"
   (d4-org-min->string
-   (/ (reduce '+ (cl-map 'list 'd4-org-string->min args))
+   (/ (cl-reduce '+ (cl-map 'list 'd4-org-string->min args))
       (length args))))
 
 ;; --- custom functions
@@ -538,19 +538,19 @@ nil"
         (pos (point))
         (parents nil))
     (cl-flet ((filter (entry-string)
-                (let* ((depth (position #x20 entry-string))
-                       (entry (subseq entry-string (+ 1 depth)))
-                       (p-depth (length parents)))
-                  (cond
-                    ((> depth p-depth) (setf parents (cons entry parents)))
-                    ((= depth p-depth) (setf (car parents) entry))
-                    ((< depth p-depth) (setf parents
-                                             (cons entry
-                                                   (subseq parents
-                                                           (+ 1 (- p-depth depth)))))))
-                  (reduce (lambda (new accum)
-                            (concat accum "/" new))
-                          parents))))
+                      (let* ((depth (cl-position #x20 entry-string))
+                             (entry (cl-subseq entry-string (+ 1 depth)))
+                             (p-depth (length parents)))
+                        (cond
+                          ((> depth p-depth) (setf parents (cons entry parents)))
+                          ((= depth p-depth) (setf (car parents) entry))
+                          ((< depth p-depth) (setf parents
+                                                   (cons entry
+                                                         (cl-subseq parents
+                                                                    (+ 1 (- p-depth depth)))))))
+                        (cl-reduce (lambda (new accum)
+                                     (concat accum "/" new))
+                                   parents))))
              ;; TODO: goto 'clock-task-tree' then use 'tree as argument
              (org-map-entries (lambda ()
                                 (setf entries
@@ -558,12 +558,12 @@ nil"
                                                   (point))
                                             entries)))
                               nil scope))
-    (let ((entry (find (funcall selector "Clock into: >"
-                                (reverse
-                                 (mapcar 'car entries)))
-                       entries
-                       :key 'car
-                       :test 'equal)))
+    (let ((entry (cl-find (funcall selector "Clock into: >"
+                                   (reverse
+                                    (mapcar 'car entries)))
+                          entries
+                          :key 'car
+                          :test 'equal)))
       (if entry
           (save-excursion
            (goto-char (cdr entry))
@@ -593,20 +593,20 @@ caches results if files where not modified"
   (let ((current-time (d4-get-current-time))
         (date (calendar-current-date)))
     (sort
-     (delete-if 'null
-                (mapcar (lambda (entry)
-                          (let ((entry-start-time (d4-get-entry-time entry)))
-                            (when (and entry-start-time
-                                       (> (+ entry-start-time
-                                             (or (d4-get-entry-duration entry)
-                                                 (- (* 24 60) entry-start-time)))
-                                          current-time))
-                              entry)))
-                        (apply 'append
-                               (mapcar
-                                (lambda (agenda-file)
-                                  (org-agenda-get-day-entries agenda-file date))
-                                org-agenda-files))))
+     (cl-delete-if 'null
+                   (mapcar (lambda (entry)
+                             (let ((entry-start-time (d4-get-entry-time entry)))
+                               (when (and entry-start-time
+                                          (> (+ entry-start-time
+                                                (or (d4-get-entry-duration entry)
+                                                    (- (* 24 60) entry-start-time)))
+                                             current-time))
+                                 entry)))
+                           (apply 'append
+                                  (mapcar
+                                   (lambda (agenda-file)
+                                     (org-agenda-get-day-entries agenda-file date))
+                                   org-agenda-files))))
      (lambda (a b)
        (< (d4-get-entry-time a)
           (d4-get-entry-time b))))))
@@ -620,7 +620,7 @@ d4-last-{timestamp,date,result}"
                                       org-agenda-files))))
     (if (and d4-last-timestamp d4-last-date
              (<= last-modified d4-last-timestamp)
-             (equalp d4-last-date (calendar-current-date)))
+             (cl-equalp d4-last-date (calendar-current-date)))
         d4-last-result
         (setq d4-last-timestamp last-modified
               d4-last-date (calendar-current-date)
@@ -663,12 +663,12 @@ daily now (11:40-12:00)"
              do (push entry upcoming))
     (when upcoming
       (concat "["
-              (reduce (lambda (accum &optional new)
-                        (if new
-                            (concat accum ", " new)
-                            accum))
-                      (mapcar 'd4-format-agenda-entry
-                              (reverse upcoming)))
+              (cl-reduce (lambda (accum &optional new)
+                           (if new
+                               (concat accum ", " new)
+                               accum))
+                         (mapcar 'd4-format-agenda-entry
+                                 (reverse upcoming)))
               "]"))))
 
 ;; --- local config
