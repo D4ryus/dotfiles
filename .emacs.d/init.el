@@ -294,14 +294,6 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
-(use-package disable-mouse
-  :diminish disable-mouse-global-mode
-  :config
-  (mapc #'disable-mouse-in-keymap
-        (list evil-motion-state-map
-              evil-normal-state-map
-              evil-visual-state-map)))
-
 (use-package highlight-symbol
   :diminish highlight-symbol
   :config
