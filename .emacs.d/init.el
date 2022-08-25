@@ -241,11 +241,6 @@
                   (add-hook hook #'evil-paredit-mode))
                 d4-lisp-mode-hooks))
 
-(use-package rainbow-delimiters
-  :config (mapc (lambda (hook)
-                  (add-hook hook #'rainbow-delimiters-mode))
-                d4-lisp-mode-hooks))
-
 (use-package hydra)
 
 (use-package erc-hl-nicks)
