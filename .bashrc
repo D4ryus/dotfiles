@@ -57,7 +57,7 @@ et() {
                           (delete-file file))'
 }
 
-doit() {
+find-file() {
     emacsclient -n "$@"
 }
 
