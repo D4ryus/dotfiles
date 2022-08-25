@@ -328,28 +328,28 @@
 (use-package org-download)
 
 (use-package rg
+  :custom
+  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
   :init
-  (global-set-key (kbd "C-x g") 'rg)
-  (setq rg-executable
-        (expand-file-name ".cargo/bin/rg" (getenv "HOME"))))
+  (global-set-key (kbd "C-x g") 'rg))
 
 (use-package popper
   :ensure t
   :bind (("C-x /"  . popper-toggle-latest)
          ("C-x M-/" . popper-toggle-type))
+  :custom
+  (popper-reference-buffers '("\\*Messages\\*"
+                              "Output\\*$"
+                              "\\*Async Shell Command\\*"
+                              rg-mode
+                              grep-mode
+                              help-mode
+                              compilation-mode))
+  (popper-window-height
+   (lambda (win)
+     (let ((height (floor (frame-height) 3)))
+       (fit-window-to-buffer win height height))))
   :init
-  (setq popper-reference-buffers
-        '("\\*Messages\\*"
-          "Output\\*$"
-          "\\*Async Shell Command\\*"
-          rg-mode
-          grep-mode
-          help-mode
-          compilation-mode))
-  (setq popper-window-height
-        (lambda (win)
-          (let ((height (floor (frame-height) 3)))
-            (fit-window-to-buffer win height height))))
   (popper-mode +1)
   (popper-echo-mode +1))
 
