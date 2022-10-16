@@ -772,7 +772,7 @@ daily now (11:40-12:00)"
  org-clock-into-drawer t
  ;; Align text with headline
  org-hide-leading-stars nil
- org-ellipsis "⮷"
+ org-ellipsis " ⮷"
  ring-bell-function 'ignore
  ;; grep recursive inside current directory
  grep-command "grep -nH -R . -e "
