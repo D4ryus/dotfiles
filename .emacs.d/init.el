@@ -353,6 +353,8 @@
   (popper-mode +1)
   (popper-echo-mode +1))
 
+(use-package go-mode)
+
 ;; Inject display-buffer-use-some-window by overiding
 ;; next-error-no-select from emacs to prevent it from opening up
 ;; multiple windows while cycling through errors.
