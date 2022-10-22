@@ -333,6 +333,13 @@
   :init
   (global-set-key (kbd "C-x g") 'rg))
 
+(use-package ace-window
+  :custom
+  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (aw-dispatch-always nil)
+  :init
+  (global-set-key (kbd "M-o") 'ace-window))
+
 (use-package popper
   :ensure t
   :bind (("C-x /"  . popper-toggle-latest)
