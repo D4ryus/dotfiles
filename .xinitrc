@@ -31,6 +31,11 @@ if test -r "$HOME/.xresources.local"; then
     xrdb -merge "$HOME/.xresources.local"
 fi
 
+# From https://wiki.archlinux.org/title/HiDPI#X_Resources
+if test -n "$DPI_CONFIG"; then
+    xrdb -merge <(echo "Xft.dpi: $DPI_CONFIG")
+fi
+
 export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
 for var in DISPLAY XDG_SESSION_TYPE GDK_BACKEND; do
