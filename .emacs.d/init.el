@@ -215,9 +215,9 @@
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
                              text-mode))
+  :config
   (define-key evil-normal-state-map (kbd "M-.")
     'xref-find-definitions)
-  :config
   (evil-mode 1))
 
 (use-package evil-surround
