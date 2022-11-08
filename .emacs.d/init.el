@@ -210,6 +210,7 @@
                              eshell-mode
                              org-agenda-mode
                              rg-mode
+                             compilation-mode
                              inf-ruby-mode))
   (evil-normal-state-modes '(git-commit-mode
                              prog-mode
