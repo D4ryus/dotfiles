@@ -19,6 +19,7 @@ add_path () {
 
 export PATH="$(add_path "${HOME}/bin" "$PATH")"
 export PATH="$(add_path "${HOME}/.cargo/bin" "$PATH")"
+export PATH="$(add_path "${HOME}/go/bin" "$PATH")"
 export PAGER=less
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
