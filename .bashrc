@@ -5,15 +5,14 @@
 # vim:ts=4:sw=4:ai:ft=sh:
 
 add_path () {
-    # add $1 to $2 with a : in between, unless $2 already contains
-    # $1. If $2 is empty set it to $1
+    # return "$1:$2", unless $2 already contains $1. If $2 is empty, return $1
     if test -z "$2"; then
         echo "$1"
     else
         if [[ ":$2:" == *"$1"* ]]; then
             echo "$2"
         else
-            echo "$2:$1"
+            echo "$1:$2"
         fi
     fi
 }
