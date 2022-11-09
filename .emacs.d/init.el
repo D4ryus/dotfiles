@@ -394,6 +394,11 @@ like \\[next-error], but does not select the source buffer."
       (path-headerline-mode 1)
       (path-header-line-on))))
 
+(defun d4-toggle-indent-tabs-mode ()
+  (interactive)
+  (setq indent-tabs-mode
+        (not indent-tabs-mode)))
+
 (global-set-key
  (kbd "C-x t")
  (defhydra toggle ()
@@ -405,6 +410,7 @@ like \\[next-error], but does not select the source buffer."
    ("t" d4-toggle-trailing-whitespace "trailing whitespace")
    ("r" ruler-mode "ruler mode")
    ("h" d4-toggle-path-headerline-mode "path headerline mode")
+   ("i" d4-toggle-indent-tabs-mode "indent tabs")
    ("q" nil "cancel")))
 
 ;; --- org functions
