@@ -349,6 +349,7 @@
   (popper-reference-buffers '("\\*Messages\\*"
                               "Output\\*$"
                               "\\*Async Shell Command\\*"
+                              xref--xref-buffer-mode
                               rg-mode
                               grep-mode
                               help-mode
