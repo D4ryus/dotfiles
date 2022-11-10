@@ -290,14 +290,6 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
-(use-package highlight-symbol
-  :diminish highlight-symbol
-  :config
-  (setq highlight-symbol-idle-delay 0.5)
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (highlight-symbol-mode))))
-
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
