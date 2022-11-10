@@ -731,8 +731,6 @@ daily now (11:40-12:00)"
 
 ;; auto revert buffers
 (global-auto-revert-mode 1)
-;; show current function in modeline
-(which-function-mode)
 ;; always show matching parens
 (show-paren-mode)
 
