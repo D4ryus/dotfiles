@@ -84,8 +84,7 @@
 
 (use-package rainbow-mode
   :diminish rainbow-mode
-  :config (add-hook 'css-mode-hook
-                    (lambda () (rainbow-mode 1))))
+  :hook (css-mode))
 
 (use-package edit-color-stamp)
 
@@ -112,8 +111,7 @@
 
 (use-package trident-mode
   :diminish trident-mode
-  :config (add-hook 'lisp-mode-hook
-                    (lambda () (trident-mode 1))))
+  :hook (lisp-mode))
 
 (use-package company
   :diminish company-mode
@@ -278,10 +276,7 @@
               ("C-c" . lua-send-defun)))
 
 (use-package skewer-mode
-  :init
-  (add-hook 'js2-mode-hook #'skewer-mode)
-  (add-hook 'css-mode-hook #'skewer-css-mode)
-  (add-hook 'html-mode-hook #'skewer-html-mode))
+  :hook (js2-mode css-mode html-mode))
 
 (use-package eglot)
 
@@ -297,8 +292,7 @@
 (use-package wgrep)
 
 (use-package flycheck
-  :config
-  (add-hook 'prog-mode-hook 'flycheck-mode))
+  :hook (prog-mode))
 
 (use-package ruler-mode)
 
