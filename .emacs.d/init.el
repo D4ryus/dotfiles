@@ -41,8 +41,8 @@
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
   :bind (:map python-mode-map
-         ("C-c C-c" . python-shell-send-defun)
-         ("C-c C-k" . python-shell-send-buffer)))
+              ("C-c C-c" . python-shell-send-defun)
+              ("C-c C-k" . python-shell-send-buffer)))
 
 (use-package request)
 
@@ -117,22 +117,21 @@
 
 (use-package company
   :diminish company-mode
+  :bind (("C-x TAB" . company-complete)
+         :map company-active-map
+         ("\C-n"      . company-select-next)
+         ("\C-p"      . company-select-previous)
+         ("\C-d"      . company-show-doc-buffer)
+         ("<tab>"     . company-complete-selection)
+         ("TAB"       . company-complete-selection)
+         ("S-<tab>"   . company-complete-common)
+         ("<backtab>" . company-complete-common)
+         ([return]    . newline-and-indent)
+         ("RET"       . newline-and-indent))
   :custom
   (company-idle-delay nil)
   :config
-  (global-set-key (kbd "C-x TAB") 'company-complete)
-  (global-company-mode)
-  (mapc (lambda (kbd-fn)
-          (define-key company-active-map (car kbd-fn) (cdr kbd-fn)))
-        (list (cons (kbd "\C-n")      'company-select-next)
-              (cons (kbd "\C-p")      'company-select-previous)
-              (cons (kbd "\C-d")      'company-show-doc-buffer)
-              (cons (kbd "<tab>")     'company-complete-selection)
-              (cons (kbd "TAB")       'company-complete-selection)
-              (cons (kbd "S-<tab>")   'company-complete-common)
-              (cons (kbd "<backtab>") 'company-complete-common)
-              (cons [return]          'newline-and-indent)
-              (cons (kbd "RET")       'newline-and-indent))))
+  (global-company-mode))
 
 (use-package slime-company
   :custom
@@ -316,22 +315,20 @@
 (use-package projectile
   :init
   (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+  :bind-keymap ("C-c p" . projectile-command-map))
 
 (use-package org-download)
 
 (use-package rg
+  :bind ("C-x g" . rg)
   :custom
-  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
-  :init
-  (global-set-key (kbd "C-x g") 'rg))
+  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME"))))
 
 (use-package ace-window
+  :bind ("M-o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (aw-dispatch-always nil)
-  :init
-  (global-set-key (kbd "M-o") 'ace-window))
+  (aw-dispatch-always nil))
 
 (use-package popper
   :ensure t
