@@ -278,7 +278,9 @@
 (use-package skewer-mode
   :hook (js2-mode css-mode html-mode))
 
-(use-package eglot)
+(use-package eglot
+  :config
+  (add-hook 'go-mode-hook 'eglot-ensure))
 
 (use-package editorconfig
   :diminish editorconfig-mode
