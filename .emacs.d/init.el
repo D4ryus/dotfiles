@@ -64,10 +64,10 @@
                       :strike-through t
                       :foreground nil
                       :background nil)
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (whitespace-mode 1)
-              (setq show-trailing-whitespace t))))
+  :hook
+  (prog-mode . (lambda ()
+                 (whitespace-mode 1)
+                 (setq show-trailing-whitespace t))))
 
 (use-package eldoc
   :diminish eldoc-mode)
@@ -154,25 +154,24 @@
         slime-repl-history-remove-duplicates t
         slime-repl-history-trim-whitespaces t
         slime-inhibit-pipelining nil)
-  (add-hook 'slime-mode-hook
-            (lambda ()
-              ;; Should not be required, but slime-company broke
-              ;; somehow and is not activated automatically :/
-              (add-to-list 'company-backends 'company-slime)
-              (define-key evil-normal-state-local-map (kbd "M-.")
-                'slime-edit-definition)))
   (defun re-eval ()
     (interactive)
     (with-current-buffer (get-buffer "*slime-repl sbcl*")
-      (slime-repl-resend))))
+      (slime-repl-resend)))
+  :hook
+  (slime-mode . (lambda ()
+                  ;; Should not be required, but slime-company broke
+                  ;; somehow and is not activated automatically :/
+                  (add-to-list 'company-backends 'company-slime)
+                  (define-key evil-normal-state-local-map (kbd "M-.")
+                    'slime-edit-definition))))
 
 (use-package geiser
   :custom
   (geiser-active-implementations '(guile))
-  :config
-  (add-hook 'geiser-repl-mode-hook
-            (lambda ()
-              (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
+  :hook
+  (geiser-repl-mode . (lambda ()
+                        (define-key geiser-repl-mode-map (kbd "\C-d") 'geiser-repl-exit))))
 
 (use-package geiser-guile)
 
@@ -279,8 +278,8 @@
   :hook (js2-mode css-mode html-mode))
 
 (use-package eglot
-  :config
-  (add-hook 'go-mode-hook 'eglot-ensure))
+  :hook
+  (go-mode . eglot-ensure))
 
 (use-package editorconfig
   :diminish editorconfig-mode
@@ -301,7 +300,7 @@
 (use-package path-headerline-mode)
 
 (use-package inf-ruby
-  :config (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+  :hook (ruby-mode . inf-ruby-minor-mode)
   :bind (:map inf-ruby-minor-mode-map
               ("C-c C-c" . ruby-send-definition)
               ("C-c C-l" . ruby-send-line)
