@@ -346,7 +346,9 @@
   (popper-mode +1)
   (popper-echo-mode +1))
 
-(use-package go-mode)
+(use-package go-mode
+  :hook
+  (before-save . gofmt-before-save))
 
 ;; Inject display-buffer-use-some-window by overiding
 ;; next-error-no-select from emacs to prevent it from opening up
