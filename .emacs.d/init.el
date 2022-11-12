@@ -347,6 +347,8 @@
   (popper-echo-mode +1))
 
 (use-package go-mode
+  :custom
+  (gofmt-command "goimports")
   :hook
   (before-save . gofmt-before-save))
 
