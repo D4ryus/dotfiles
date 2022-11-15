@@ -347,6 +347,9 @@
   :hook
   (before-save . gofmt-before-save))
 
+(use-package fzf
+  :bind ("C-x p" . fzf))
+
 ;; Inject display-buffer-use-some-window by overiding
 ;; next-error-no-select from emacs to prevent it from opening up
 ;; multiple windows while cycling through errors.
