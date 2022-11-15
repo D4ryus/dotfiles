@@ -307,11 +307,6 @@
               ("C-c C-b" . ruby-send-buffer)
               ("C-c C-f" . ruby-load-current-file)))
 
-(use-package projectile
-  :init
-  (projectile-mode +1)
-  :bind-keymap ("C-c p" . projectile-command-map))
-
 (use-package org-download)
 
 (use-package rg
