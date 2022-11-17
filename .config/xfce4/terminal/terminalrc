@@ -34,4 +34,5 @@ ShortcutsNoMenukey=TRUE
 ShortcutsNoHelpkey=TRUE
 ShortcutsNoMnemonics=TRUE
 TitleMode=TERMINAL_TITLE_REPLACE
+MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
 
