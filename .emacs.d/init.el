@@ -240,30 +240,6 @@
 
 (use-package hydra)
 
-(use-package erc-hl-nicks)
-
-(use-package erc
-  :custom
-  (erc-remove-parsed-property nil)
-  (erc-track-exclude-types '("JOIN" "MODE" "NICK" "PART" "QUIT"
-                             "324" "329" "332" "333" "353" "477"))
-  (erc-enable-logging 'erc-log-all-but-server-buffers)
-  (erc-save-buffer-on-part t)
-  (erc-log-insert-log-on-open t)
-  (erc-input-line-position -1)
-  (erc-timestamp-format "%H:%M ")
-  (erc-insert-timestamp-function 'erc-insert-timestamp-left)
-  (erc-modules '(completion log hl-nicks autojoin button irccontrols
-                 list match menu move-to-prompt netsplit networks
-                 noncommands readonly ring sound stamp track))
-  :config
-  (erc-update-modules)
-  (erc-fill-disable)
-  (erc-hl-nicks-mode)
-  (erc-track-mode)
-  (erc-scrolltobottom-mode)
-  (erc-log-mode))
-
 (use-package js2-mode
   :mode "\\.js\\'")
 
