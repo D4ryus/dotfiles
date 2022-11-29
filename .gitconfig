@@ -11,7 +11,5 @@
 	status  = auto
 	branch  = auto
 	diff    = auto
-	branch  = auto
-	status  = auto
 [push]
 	default = matching
