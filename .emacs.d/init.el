@@ -730,6 +730,8 @@ daily now (11:40-12:00)"
  backup-directory-alist `(("." . ,backup-directory))
  ;; cache settings
  auto-save-file-name-transforms '((".*" "~/.cache/emacs/" t))
+ ;; disable blinking cursor
+ blink-cursor-mode nil
  ;; dont show tool-bar
  tool-bar-mode nil
  ;; dont show menu-bar
