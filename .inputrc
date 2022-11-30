@@ -1,0 +1,4 @@
+# man readline
+set blink-matching-paren on
+set colored-stats on
+set colored-completion-prefix on
