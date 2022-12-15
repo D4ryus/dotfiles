@@ -24,6 +24,7 @@ default_border normal 0
 hide_edge_borders smart
 for_window [class="Xfce4-terminal"] border normal 1
 for_window [class="Emacs"] border normal 1
+for_window [all] title_window_icon on
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
