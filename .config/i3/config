@@ -25,6 +25,9 @@ hide_edge_borders smart
 for_window [class="Xfce4-terminal"] border normal 1
 for_window [class="Emacs"] border normal 1
 for_window [all] title_window_icon on
+bindsym $mod+Shift+i move scratchpad
+bindsym $mod+i scratchpad show
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
