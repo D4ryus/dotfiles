@@ -193,7 +193,6 @@
                              elfeed-search-mode
                              elfeed-show-mode
                              geiser-repl-mode
-                             geiser-repl-mode
                              grep-mode
                              sldb-mode
                              slime-connection-list-mode
