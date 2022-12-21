@@ -157,6 +157,10 @@ if ! test "dumb" = "${TERM:-dumb}"; then
     __set_ps1
 fi
 
+if test -r ~/.reminder; then
+    cat ~/.reminder
+fi
+
 if test -r "${HOME}/.bashrc.local"; then
     source "${HOME}/.bashrc.local"
 fi
