@@ -286,7 +286,8 @@
 (use-package rg
   :bind ("C-x g" . rg-dwim-current-dir)
   :custom
-  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME"))))
+  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
+  (rg-group-result nil))
 
 (use-package ace-window
   :bind ("M-o" . ace-window)
