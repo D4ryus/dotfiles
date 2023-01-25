@@ -303,6 +303,7 @@
   (popper-reference-buffers '("\\*Messages\\*"
                               "Output\\*$"
                               "\\*Async Shell Command\\*"
+                              "\\*Flycheck errors\\*"
                               xref--xref-buffer-mode
                               rg-mode
                               grep-mode
