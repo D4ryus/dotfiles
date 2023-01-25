@@ -142,8 +142,8 @@ bindsym $mod+y exec dbus-send --print-reply --dest=net.d4ryus.Lock /net/d4ryus/L
 bindsym $mod+z exec pause-players.scm
 
 # Brightness keys
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # Volume keys
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+
