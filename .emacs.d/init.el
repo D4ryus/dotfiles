@@ -229,8 +229,7 @@
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
                 (append d4-lisp-mode-hooks
-                        '(slime-repl-mode-hook
-                          geiser-repl-mode-hook))))
+                        '(slime-repl-mode-hook))))
 
 (use-package evil-paredit
   :config (mapc (lambda (hook)
