@@ -78,9 +78,29 @@
   (setq undo-tree-history-directory-alist
         `(("." . ,backup-directory))))
 
-(use-package ivy
-  :diminish ivy-mode
-  :config (ivy-mode 1))
+(use-package vertico
+  :custom
+  (vertico-group-format nil)
+  (vertico-count 20)
+  :init (vertico-mode))
+
+(use-package marginalia
+  :init (marginalia-mode))
+
+(use-package consult
+  :bind (("C-x g" . consult-ripgrep-thing-at-point)
+         ("C-c c l" . consult-line)
+         ("C-c c b" . consult-buffer)
+         ("C-c c f" . consult-find)
+         ("C-c c i" . consult-imenu))
+  :init
+  (consult-customize
+   consult-ripgrep
+   :add-history (seq-some #'thing-at-point '(region symbol)))
+  (defalias 'consult-ripgrep-thing-at-point 'consult-ripgrep)
+  (consult-customize
+   consult-ripgrep-thing-at-point
+   :initial (thing-at-point 'symbol)))
 
 (use-package rainbow-mode
   :diminish rainbow-mode
