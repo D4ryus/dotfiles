@@ -305,7 +305,6 @@
 (use-package org-download)
 
 (use-package rg
-  :bind ("C-x g" . rg-dwim-current-dir)
   :custom
   (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
   (rg-group-result nil))
