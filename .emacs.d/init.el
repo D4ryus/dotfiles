@@ -93,7 +93,7 @@
          ("C-c c b" . consult-buffer)
          ("C-c c f" . consult-find)
          ("C-c c i" . consult-imenu))
-  :init
+  :config
   (consult-customize
    consult-ripgrep
    :add-history (seq-some #'thing-at-point '(region symbol)))
