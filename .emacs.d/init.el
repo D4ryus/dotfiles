@@ -287,8 +287,7 @@
 
 (use-package wgrep)
 
-(use-package flycheck
-  :hook (prog-mode))
+(use-package flycheck)
 
 (use-package ruler-mode)
 
