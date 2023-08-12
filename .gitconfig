@@ -7,7 +7,7 @@
 	unstage = reset HEAD --
 	df      = diff --cached
 	l       = log --all --graph --decorate --oneline
-        ru      = rebase -i @{u}
+        ru      = rebase --interactive --autostash @{u}
 [color]
 	status  = auto
 	branch  = auto
