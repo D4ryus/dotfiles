@@ -72,11 +72,11 @@
 (use-package eldoc
   :diminish eldoc-mode)
 
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :config (global-undo-tree-mode 1)
-  (setq undo-tree-history-directory-alist
-        `(("." . ,backup-directory))))
+(use-package undo-fu
+  :config
+  (setq undo-limit 67108864) ; 64mb
+  (setq undo-strong-limit 100663296) ; 96mb
+  (setq undo-outer-limit 1006632960)) ; 960mb
 
 (use-package vertico
   :custom
@@ -200,7 +200,7 @@
   :init
   (setq evil-want-keybinding nil)
   :custom
-  (evil-undo-system 'undo-tree)
+  (evil-undo-system 'undo-fu)
   (evil-want-C-i-jump nil)
   (evil-symbol-word-search t)
   (evil-intercept-maps nil)
