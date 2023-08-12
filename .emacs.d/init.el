@@ -88,8 +88,7 @@
   :init (marginalia-mode))
 
 (use-package consult
-  :bind (("C-x g" . consult-ripgrep-thing-at-point)
-         ("C-c c l" . consult-line)
+  :bind (("C-c c l" . consult-line)
          ("C-c c b" . consult-buffer)
          ("C-c c f" . consult-find)
          ("C-c c i" . consult-imenu))
@@ -304,6 +303,7 @@
 (use-package org-download)
 
 (use-package rg
+  :bind ("C-x g" . rg-dwim)
   :custom
   (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
   (rg-group-result nil))
