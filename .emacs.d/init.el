@@ -78,14 +78,9 @@
   (setq undo-strong-limit 100663296) ; 96mb
   (setq undo-outer-limit 1006632960)) ; 960mb
 
-(use-package vertico
-  :custom
-  (vertico-group-format nil)
-  (vertico-count 20)
-  :init (vertico-mode))
-
-(use-package marginalia
-  :init (marginalia-mode))
+(use-package ivy
+  :diminish ivy-mode
+  :config (ivy-mode))
 
 (use-package consult
   :bind (("C-c c l" . consult-line)
