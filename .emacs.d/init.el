@@ -246,11 +246,6 @@
                 (append d4-lisp-mode-hooks
                         '(slime-repl-mode-hook))))
 
-(use-package evil-paredit
-  :config (mapc (lambda (hook)
-                  (add-hook hook #'evil-paredit-mode))
-                d4-lisp-mode-hooks))
-
 (use-package hydra)
 
 (use-package js2-mode
