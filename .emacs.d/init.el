@@ -127,6 +127,8 @@
   :diminish trident-mode
   :hook (lisp-mode))
 
+(use-package web-mode)
+
 (use-package company
   :diminish company-mode
   :bind (("C-x TAB" . company-complete)
