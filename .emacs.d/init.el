@@ -763,6 +763,8 @@ daily now (11:40-12:00)"
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq-default
+ ;; Default background is black
+ frame-background-mode 'dark
  ;; Up to 1 Gigabyte should be fine
  gc-cons-threshold (ash 1 30)
  ;; No need to put active selection into PRIMARY
