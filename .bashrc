@@ -49,7 +49,7 @@ et() {
     local tmp
     if [[ "$1" != "-" ]]; then
         emacsclient -c -t -e "(find-file \"$1\")"
-        return 0
+        return $?
     fi
     tmp="$(mktemp /tmp/et-stdin-XXXXXX)";
     cat > "$tmp";
