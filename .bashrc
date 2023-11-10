@@ -38,6 +38,7 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias dmesg="dmesg --color"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias ff="find-file"
 
 # git autocompletion
 if test -r "${HOME}/.git-completion-bash"; then
