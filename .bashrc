@@ -48,7 +48,7 @@ fi
 et() {
     local tmp
     if [[ "$1" != "-" ]]; then
-        emacsclient -c -t -e "(find-file \"$1\")"
+        emacsclient --create-frame --tty "$@"
         return $?
     fi
     tmp="$(mktemp /tmp/et-stdin-XXXXXX)";
