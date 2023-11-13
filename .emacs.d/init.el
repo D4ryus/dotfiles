@@ -323,7 +323,7 @@
    (lambda (win)
      (let ((height (floor (frame-height) 3)))
        (fit-window-to-buffer win height height))))
-  :init
+  :config
   (popper-mode +1)
   (popper-echo-mode +1))
 
