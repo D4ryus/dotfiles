@@ -157,8 +157,7 @@
   (lisp-loop-indent-forms-like-keywords t)
   (lisp-indent-function 'common-lisp-indent-function)
   :config
-  (slime-setup '(slime-fancy
-                 slime-company
+  (slime-setup '(slime-company
                  slime-indentation
                  slime-compiler-notes-tree
                  slime-hyperdoc
