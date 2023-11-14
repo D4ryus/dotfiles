@@ -217,6 +217,7 @@
                              geiser-repl-mode
                              geiser-debug-mode
                              grep-mode
+                             help-mode
                              sldb-mode
                              slime-connection-list-mode
                              slime-fuzzy-completions-mode
