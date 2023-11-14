@@ -271,7 +271,11 @@
 
 (use-package eglot
   :hook
-  (go-mode . eglot-ensure))
+  (go-mode . eglot-ensure)
+  :custom
+  (eglot-events-buffer-size 0)
+  :config
+  (fset #'jsonrpc--log-event #'ignore))
 
 (use-package editorconfig
   :diminish editorconfig-mode
