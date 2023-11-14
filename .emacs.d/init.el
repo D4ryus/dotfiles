@@ -38,6 +38,13 @@
 
 (setq use-package-always-ensure t)
 
+(use-package emacs
+  :custom
+  (electric-pair-open-newline-between-pairs t)
+  (electric-pair-delete-adjacent-pairs t)
+  :hook
+  (prog-mode . electric-pair-mode))
+
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
   :bind (:map python-mode-map
