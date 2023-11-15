@@ -319,7 +319,6 @@
   (aw-dispatch-always nil))
 
 (use-package popper
-  :ensure t
   :bind (("C-x /"  . popper-toggle-latest)
          ("C-x M-/" . popper-toggle-type))
   :custom
