@@ -825,6 +825,8 @@ daily now (11:40-12:00)"
  grep-command "grep -nH -R . -e "
  ;; scroll single lines when cursor moves out of window
  scroll-conservatively 101
+ ;; Do not create .#<name> files
+ create-lockfiles nil
  ;; Disable vc-mode on tramp buffers
  vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
                               vc-ignore-dir-regexp
