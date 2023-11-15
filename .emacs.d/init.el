@@ -388,6 +388,12 @@
           (python-mode . python-ts-mode)
           (gdscript-mode . gdscript-ts-mode))))
 
+(use-package dtrt-indent
+  :custom
+  (dtrt-indent-run-after-smie t)
+  :config
+  (dtrt-indent-global-mode t))
+
 ;; Inject display-buffer-use-some-window by overiding
 ;; next-error-no-select from emacs to prevent it from opening up
 ;; multiple windows while cycling through errors.
