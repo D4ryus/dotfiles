@@ -825,6 +825,8 @@ daily now (11:40-12:00)"
  grep-command "grep -nH -R . -e "
  ;; scroll single lines when cursor moves out of window
  scroll-conservatively 101
+ ;; Speed up things by reading bigger chunks
+ read-process-output-max (* 4 1024 1024)
  ;; Do not create .#<name> files
  create-lockfiles nil
  ;; Disable vc-mode on tramp buffers
