@@ -314,6 +314,7 @@
 (use-package ace-window
   :bind ("M-o" . ace-window)
   :custom
+  (aw-scope 'frame)
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (aw-dispatch-always nil))
 
