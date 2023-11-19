@@ -808,6 +808,11 @@ daily now (11:40-12:00)"
  indicate-empty-lines t
  ;; dont break words by wrapping to new line
  word-wrap t
+ ;; indicator on left side when line is wrapped
+ wrap-prefix (propertize
+              "\N{ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS}"
+              'face '(:foreground "red"
+                      :background "#333"))
  ;; org-agenda dont show holidays
  org-agenda-include-diary nil
  org-tags-column 80
