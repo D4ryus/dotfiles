@@ -42,6 +42,7 @@
   :custom
   (electric-pair-open-newline-between-pairs t)
   (electric-pair-delete-adjacent-pairs t)
+  (help-enable-variable-value-editing t)
   :hook
   (prog-mode . electric-pair-mode))
 
