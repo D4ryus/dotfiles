@@ -347,7 +347,7 @@
   (before-save . gofmt-before-save))
 
 (use-package tree-sitter
-  :init (global-tree-sitter-mode)
+  :config (global-tree-sitter-mode)
   ;; Using prog-mode breaks with unsupported modes:
   ;: File mode specification error: (error No language registered for major mode ‘emacs-lisp-mode’)
   :hook (go-mode . tree-sitter-hl-mode))
