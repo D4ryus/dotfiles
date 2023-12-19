@@ -395,20 +395,13 @@
   :config
   (dtrt-indent-global-mode t))
 
-;; Inject display-buffer-use-some-window by overiding
-;; next-error-no-select from emacs to prevent it from opening up
-;; multiple windows while cycling through errors.
-(defun next-error-no-select (&optional n)
-  "Move point to the next error in the `next-error' buffer and highlight match.
-Prefix arg N says how many error messages to move forwards (or
-backwards, if negative).  Finds and highlights the source line
-like \\[next-error], but does not select the source buffer."
-  (interactive "p")
-  (save-selected-window
-   (let ((next-error-highlight next-error-highlight-no-select)
-         (display-buffer-overriding-action
-           '(display-buffer-use-some-window (inhibit-same-window . t))))
-     (next-error n))))
+(defun d4-inhibit-same-window-advice (original-function &rest args)
+  (let ((display-buffer-overriding-action
+          '(display-buffer-use-some-window (inhibit-same-window . t))))
+    (apply original-function args)))
+
+(advice-add 'compile-goto-error :around #'d4-inhibit-same-window-advice)
+(advice-add 'next-error :around #'d4-inhibit-same-window-advice)
 
 (defun d4-toggle-trailing-whitespace ()
   (interactive)
