@@ -761,8 +761,8 @@ daily now (11:40-12:00)"
 (setq-default
  ;; Default background is black
  frame-background-mode 'dark
- ;; Up to 1 Gigabyte should be fine
- gc-cons-threshold (ash 1 30)
+ ;; Up to 8 Mbyte should be fine
+ gc-cons-threshold (ash 1 23)
  ;; No need to put active selection into PRIMARY
  select-active-regions nil
  ;; Don't use popups
