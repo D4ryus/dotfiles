@@ -416,6 +416,53 @@
   :config
   (add-hook 'eshell-first-time-mode-hook #'eat-eshell-mode))
 
+(use-package general
+  :config
+  (general-evil-setup))
+
+(general-define-key
+ :prefix "SPC"
+ :keymaps 'normal
+
+ "" '(nil :which-key "General leader")
+
+ ;; Project
+ "p" '(:ignore t :which-key "Project prefix")
+ "p f" '(project-find-file :which-key "Project find file")
+ "p d" '(project-find-dir :which-key "Project find dir")
+
+ ;; FZF
+ "f" '(:ignore t :which-key "File prefix")
+ "f f" '(fzf :which-key "Fzf")
+
+ ;; Ripgrep
+ "r" '(:ignore t :which-key "Ripgrep prefix")
+ "r g" '(rg-dwim :which-key "Ripgrep dwim")
+
+ ;; MaGit
+ "m" '(:ignore t :which-key "Magit prefix")
+ "m s" '(magit-status :which-key "Magit Status")
+ "m l" '(magit-log :which-key "Magit Log")
+ "m b" '(magit-blame-addition :which-key "Magit Blame")
+
+ ;; Eglot
+ "e" '(:ignore t :which-key "Eglot prefix")
+ "e r" '(eglot-rename :which-key "Eglot Rename")
+ "e f" '(eglot-format :which-key "Eglot Format")
+ "e a" '(eglot-code-actions :which-key "Eglot Code Actions")
+
+ ;; Yasnippet
+ "y" '(company-yasnippet :which-key "Yasnippet")
+
+ ;; Save
+ "x" '(:ignore t :which-key "Emacs C-x prefix")
+ "x s" '(save-buffer :which-key "Save Buffer")
+ "x f" '(find-file :which-key "Find File")
+ "x b" '(switch-to-buffer :which-key "Switch to Buffer")
+
+ ;; News
+ "n" '(elfeed :which-key "Elfeed"))
+
 (defun d4-inhibit-same-window-advice (original-function &rest args)
   (let ((display-buffer-overriding-action
           '(display-buffer-use-some-window (inhibit-same-window . t))))
