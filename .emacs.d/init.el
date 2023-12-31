@@ -165,7 +165,7 @@
          ([return]    . newline-and-indent)
          ("RET"       . newline-and-indent))
   :custom
-  (company-idle-delay nil)
+  (company-idle-delay 0)
   :config
   (global-company-mode))
 
