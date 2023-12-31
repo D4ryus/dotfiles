@@ -147,7 +147,9 @@
   :diminish trident-mode
   :hook (lisp-mode))
 
-(use-package web-mode)
+(use-package web-mode
+  :mode "\\.erb\\'"
+  :mode "\\.html\\'")
 
 (use-package company
   :diminish company-mode
