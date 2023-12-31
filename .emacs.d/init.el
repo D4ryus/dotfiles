@@ -46,6 +46,10 @@
   :hook
   (prog-mode . electric-pair-mode))
 
+(use-package breadcrumb
+  :config
+  (breadcrumb-mode))
+
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
   :bind (:map python-mode-map
