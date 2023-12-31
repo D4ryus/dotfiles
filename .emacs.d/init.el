@@ -341,6 +341,7 @@
                               "Output\\*$"
                               "\\*Async Shell Command\\*"
                               "\\*Flycheck errors\\*"
+                              flymake-diagnostics-buffer-mode
                               xref--xref-buffer-mode
                               rg-mode
                               grep-mode
