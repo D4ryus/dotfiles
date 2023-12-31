@@ -50,6 +50,14 @@
   :config
   (breadcrumb-mode))
 
+(use-package emmet-mode
+  :config
+  (add-to-list 'emmet-css-major-modes 'css-ts-mode)
+  :bind (:map emmet-mode-keymap
+              (("C-M-j" . emmet-next-edit-point)
+               ("C-M-k" . emmet-prev-edit-point)))
+  :hook (sgml-mode css-ts-mode css-mode))
+
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
   :bind (:map python-mode-map
