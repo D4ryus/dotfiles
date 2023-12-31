@@ -36,6 +36,9 @@ if test -n "$DPI_CONFIG"; then
     xrdb -merge <(echo "Xft.dpi: $DPI_CONFIG")
 fi
 
+# Remap caps to esc
+setxkbmap -option caps:escape
+
 # Enable pixel-perfect scrolling in firefox
 export MOZ_USE_XINPUT2=1
 export XDG_SESSION_TYPE=x11
