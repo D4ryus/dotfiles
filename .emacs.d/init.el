@@ -290,6 +290,10 @@
   (go-mode . eglot-ensure)
   :custom
   (eglot-events-buffer-size 0)
+  (eglot-extend-to-xref t)
+  (eglot-sync-connect nil)
+  (eglot-confirm-server-initiated-edits nil)
+  (eglot-connect-timeout nil)
   :config
   (fset #'jsonrpc--log-event #'ignore))
 
