@@ -301,6 +301,9 @@
   :diminish editorconfig-mode
   :config (editorconfig-mode 1))
 
+;; Improves eldoc documentation
+(use-package markdown-mode)
+
 (use-package yaml-mode
   :mode "\\.yml\\'")
 
