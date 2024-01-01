@@ -315,8 +315,6 @@
 
 (use-package ruler-mode)
 
-(use-package path-headerline-mode)
-
 (use-package inf-ruby
   :hook (ruby-mode . inf-ruby-minor-mode)
   :bind (:map inf-ruby-minor-mode-map
