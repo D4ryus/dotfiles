@@ -150,6 +150,19 @@
   :mode "\\.erb\\'"
   :mode "\\.html\\'")
 
+(use-package yasnippet
+  :config
+  (add-to-list 'yas-snippet-dirs
+               (concat
+                (expand-file-name user-emacs-directory)
+                "lisp/yasnippet-treesitter-shim/snippets")))
+
+(defun company-yasnippet-or-completion ()
+  (interactive)
+  (let ((yas-fallback-behavior nil))
+    (unless (yas-expand)
+      (call-interactively #'company-complete-selection))))
+
 (use-package company
   :diminish company-mode
   :bind (("C-x TAB" . company-complete)
@@ -164,9 +177,15 @@
          ([return]    . newline-and-indent)
          ("RET"       . newline-and-indent))
   :custom
-  (company-idle-delay 0)
   (company-minimum-prefix-length 1)
+  (company-idle-delay
+   (lambda ()
+     ;; Do not override <tab> when inside snipped expansion
+     (if (yas-active-snippets 'all) nil 0)))
   :config
+  (keymap-substitute company-active-map
+                     'company-complete-selection
+                     'company-yasnippet-or-completion)
   (global-company-mode))
 
 (use-package slime-company
