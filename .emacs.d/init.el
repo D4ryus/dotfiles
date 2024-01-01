@@ -165,6 +165,7 @@
          ("RET"       . newline-and-indent))
   :custom
   (company-idle-delay 0)
+  (company-minimum-prefix-length 1)
   :config
   (global-company-mode))
 
