@@ -140,7 +140,6 @@
         magit-diff-highlight-indentation '(("" . tabs))))
 
 (use-package magit-todos
-  :config (magit-todos-mode)
   :custom (magit-todos-ignored-keywords '()))
 
 (use-package trident-mode
