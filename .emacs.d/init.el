@@ -98,6 +98,8 @@
   (setq undo-strong-limit 100663296) ; 96mb
   (setq undo-outer-limit 1006632960)) ; 960mb
 
+(use-package vundo)
+
 (use-package ivy
   :diminish ivy-mode
   :config (ivy-mode))
