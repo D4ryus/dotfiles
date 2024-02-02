@@ -94,7 +94,9 @@
                  (setq show-trailing-whitespace t))))
 
 (use-package eldoc
-  :diminish eldoc-mode)
+  :diminish eldoc-mode
+  :custom
+  (eldoc-echo-area-use-multiline-p nil))
 
 (use-package undo-fu
   :config
