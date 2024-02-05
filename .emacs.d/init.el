@@ -406,6 +406,10 @@
   :config
   (dtrt-indent-global-mode t))
 
+(use-package eat
+  :config
+  (add-hook 'eshell-first-time-mode-hook #'eat-eshell-mode))
+
 (defun d4-inhibit-same-window-advice (original-function &rest args)
   (let ((display-buffer-overriding-action
           '(display-buffer-use-some-window (inhibit-same-window . t))))
