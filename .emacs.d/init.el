@@ -46,6 +46,10 @@
   :hook
   (prog-mode . electric-pair-mode))
 
+(use-package xref
+  :custom
+  (xref-after-return-hook '(recenter xref-pulse-momentarily)))
+
 (use-package breadcrumb
   :config
   (breadcrumb-mode))
