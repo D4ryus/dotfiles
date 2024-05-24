@@ -165,9 +165,7 @@
   (company-minimum-prefix-length 1)
   (global-company-mode))
 
-(use-package slime-company
-  :custom
-  (slime-company-completion 'fuzzy))
+(use-package slime-company)
 
 (use-package slime
   :custom
