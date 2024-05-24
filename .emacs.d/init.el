@@ -162,19 +162,6 @@
   :mode "\\.erb\\'"
   :mode "\\.html\\'")
 
-(use-package yasnippet
-  :config
-  (add-to-list 'yas-snippet-dirs
-               (concat
-                (expand-file-name user-emacs-directory)
-                "lisp/yasnippet-treesitter-shim/snippets")))
-
-(defun company-yasnippet-or-completion ()
-  (interactive)
-  (let ((yas-fallback-behavior nil))
-    (unless (yas-expand)
-      (call-interactively #'company-complete-selection))))
-
 (use-package company
   :diminish company-mode
   :bind (("C-x TAB" . company-complete)
@@ -190,14 +177,6 @@
          ("RET"       . newline-and-indent))
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay
-   (lambda ()
-     ;; Do not override <tab> when inside snipped expansion
-     (if (yas-active-snippets 'all) nil 0)))
-  :config
-  (keymap-substitute company-active-map
-                     'company-complete-selection
-                     'company-yasnippet-or-completion)
   (global-company-mode))
 
 (use-package slime-company
@@ -454,9 +433,6 @@
  "e r" '(eglot-rename :which-key "Eglot Rename")
  "e f" '(eglot-format :which-key "Eglot Format")
  "e a" '(eglot-code-actions :which-key "Eglot Code Actions")
-
- ;; Yasnippet
- "y" '(company-yasnippet :which-key "Yasnippet")
 
  ;; Save
  "x" '(:ignore t :which-key "Emacs C-x prefix")
