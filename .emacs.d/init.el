@@ -114,20 +114,6 @@
   :diminish ivy-mode
   :config (ivy-mode))
 
-(use-package consult
-  :bind (("C-c c l" . consult-line)
-         ("C-c c b" . consult-buffer)
-         ("C-c c f" . consult-find)
-         ("C-c c i" . consult-imenu))
-  :config
-  (consult-customize
-   consult-ripgrep
-   :add-history (seq-some #'thing-at-point '(region symbol)))
-  (defalias 'consult-ripgrep-thing-at-point 'consult-ripgrep)
-  (consult-customize
-   consult-ripgrep-thing-at-point
-   :initial (thing-at-point 'symbol)))
-
 (use-package rainbow-mode
   :diminish rainbow-mode
   :hook (css-mode))
