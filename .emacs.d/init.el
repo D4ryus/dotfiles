@@ -150,6 +150,7 @@
 
 (use-package company
   :diminish company-mode
+  :hook (prog-mode . company-mode)
   :bind (("C-x TAB" . company-complete)
          :map company-active-map
          ("\C-n"      . company-select-next)
@@ -162,8 +163,7 @@
          ([return]    . newline-and-indent)
          ("RET"       . newline-and-indent))
   :custom
-  (company-minimum-prefix-length 1)
-  (global-company-mode))
+  (company-minimum-prefix-length 1))
 
 (use-package slime-company)
 
