@@ -211,43 +211,19 @@
 
 (use-package evil
   :init
+  (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
   :custom
   (evil-undo-system 'undo-fu)
   (evil-want-C-i-jump nil)
   (evil-symbol-word-search t)
-  (evil-intercept-maps nil)
-  (evil-overriding-maps nil)
-  (evil-disable-insert-state-bindings t)
-  (evil-motion-state-modes nil)
-  (evil-insert-state-modes '(dired-mode
-                             Custom-mode
-                             elfeed-search-mode
-                             elfeed-show-mode
-                             geiser-repl-mode
-                             geiser-debug-mode
-                             grep-mode
-                             help-mode
-                             sldb-mode
-                             slime-connection-list-mode
-                             slime-fuzzy-completions-mode
-                             slime-repl-mode
-                             slime-trace-dialog-mode
-                             special-mode
-                             tabulated-list-mode
-                             term-mode
-                             eshell-mode
-                             org-agenda-mode
-                             rg-mode
-                             compilation-mode
-                             inf-ruby-mode))
-  (evil-normal-state-modes '(git-commit-mode
-                             prog-mode
-                             text-mode))
   :config
-  (define-key evil-normal-state-map (kbd "M-.")
-    'xref-find-definitions)
   (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 
 (use-package evil-surround
   :config (global-evil-surround-mode t))
