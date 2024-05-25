@@ -297,7 +297,6 @@
 (use-package rg
   :bind ("C-x g" . rg-dwim)
   :custom
-  (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
   (rg-group-result nil))
 
 (use-package popper
