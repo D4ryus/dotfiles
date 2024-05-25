@@ -39,6 +39,9 @@ fi
 # Remap caps to esc
 setxkbmap -option caps:escape
 
+# Disable Palm rejection
+xinput set-prop 'PIXA3854:00 093A:0274 Touchpad' 321 0
+
 # Enable pixel-perfect scrolling in firefox
 export MOZ_USE_XINPUT2=1
 export XDG_SESSION_TYPE=x11
