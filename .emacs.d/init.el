@@ -355,7 +355,8 @@
 
 (general-define-key
  :prefix "SPC"
- :keymaps 'normal
+ :states 'normal
+ :keymaps 'override
 
  "" '(nil :which-key "General leader")
 
