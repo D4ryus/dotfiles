@@ -360,6 +360,10 @@
   :config
   (add-hook 'eshell-first-time-mode-hook #'eat-eshell-mode))
 
+(use-package direnv
+ :config
+ (direnv-mode))
+
 (use-package general
   :config
   (general-evil-setup))
