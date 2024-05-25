@@ -295,6 +295,11 @@
               ("C-c C-b" . ruby-send-buffer)
               ("C-c C-f" . ruby-load-current-file)))
 
+(use-package robe
+  :hook (enh-ruby-mode . robe-mode)
+  :hook (robe-mode . (lambda ()
+                       (add-to-list 'company-backends 'company-robe))))
+
 (use-package org-download)
 
 (use-package rg
