@@ -881,3 +881,5 @@ daily now (11:40-12:00)"
 (add-hook 'proced-mode-hook
           (lambda ()
             (proced-toggle-auto-update t)))
+
+(find-file-noselect "~/.emacs.d/init.el")
