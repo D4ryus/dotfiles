@@ -47,6 +47,8 @@
   :hook
   (prog-mode . electric-pair-mode))
 
+(global-set-key (kbd "M-o") 'other-window)
+
 (use-package mood-line
   :config (mood-line-mode))
 
@@ -301,13 +303,6 @@
   :custom
   (rg-executable (expand-file-name ".cargo/bin/rg" (getenv "HOME")))
   (rg-group-result nil))
-
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  :custom
-  (aw-scope 'frame)
-  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (aw-dispatch-always nil))
 
 (use-package popper
   :bind (("C-x /"  . popper-toggle-latest)
