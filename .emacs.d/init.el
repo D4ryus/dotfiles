@@ -254,9 +254,6 @@
   :bind (:map lua-prefix-mode-map
               ("C-c" . lua-send-defun)))
 
-(use-package skewer-mode
-  :hook (js2-mode css-mode html-mode))
-
 (use-package eglot
   :hook
   (go-mode . eglot-ensure)
