@@ -361,11 +361,6 @@
   :hook
   (before-save . gofmt-before-save))
 
-(use-package treesit-auto
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
-
 (use-package fzf
   :bind ("C-x p" . fzf))
 
