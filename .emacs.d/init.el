@@ -889,7 +889,11 @@ daily now (11:40-12:00)"
  ;; Disable vc-mode on tramp buffers
  vc-ignore-dir-regexp (format "\\(%s\\)\\|\\(%s\\)"
                               vc-ignore-dir-regexp
-                              tramp-file-name-regexp))
+                              tramp-file-name-regexp)
+ ;; Speed up redisplay, wont edit right-to-left
+ bidi-display-reordering 'left-to-right
+ bidi-paragraph-direction 'left-to-right
+ bidi-inhibit-bpa t)
 
 ;; copied from /r/emacs
 (defun d4-backup-scratch ()
