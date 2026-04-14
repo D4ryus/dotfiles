@@ -60,6 +60,8 @@
 (global-set-key (kbd "C-x C-n") 'd4-other-window-next-buffer)
 (global-set-key (kbd "C-x C-p") 'd4-other-window-previous-buffer)
 
+(use-package websocket)
+
 (use-package mood-line
   :config (mood-line-mode))
 
