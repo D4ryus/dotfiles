@@ -893,7 +893,45 @@ daily now (11:40-12:00)"
  ;; Speed up redisplay, wont edit right-to-left
  bidi-display-reordering 'left-to-right
  bidi-paragraph-direction 'left-to-right
- bidi-inhibit-bpa t)
+ bidi-inhibit-bpa t
+ mode-line-format
+ '("%e" ;; Shows error when near OOM
+   (:eval (propertize evil-mode-line-tag
+           'face `(foreground-color . ,(alist-get evil-state
+                                        '((emacs . "red")
+                                          (normal . "white")
+                                          (insert . "green")
+                                          (operator . "red")
+                                          (replace . "red")
+                                          (motion . "red")
+                                          (visual . "cyan"))
+                                        "blue"))))
+   (vc-mode ((:propertize
+              (:eval (vc-git--symbolic-ref buffer-file-name))
+              face (foreground-color . "orange"))
+             " "))
+   (:propertize (:eval (let ((host (file-remote-p default-directory 'host)))
+                         (if host (format "%s " host))))
+    face (foreground-color . "yellow"))
+   (:eval (apply 'propertize (buffer-name (current-buffer))
+           (when (buffer-modified-p) '(face bold))))
+
+   (:propertize (buffer-read-only " (Read only)")
+    face italic)
+   " "
+   "+%l:%C"
+   " "
+   "%I"
+   (:eval (when (region-active-p)
+            `(:propertize
+              ,(format " [lines: %s, chars: %s, words: %s]"
+                       (count-lines (region-beginning) (region-end))
+                       (- (region-end) (region-beginning))
+                       (count-words (region-beginning) (region-end)))
+              face (foreground-color . "cyan"))))
+   mode-line-format-right-align ;; Everything after this is right aligned
+   mode-line-modes
+   mode-line-misc-info))
 
 ;; copied from /r/emacs
 (defun d4-backup-scratch ()
