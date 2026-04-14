@@ -81,7 +81,7 @@
   :bind (:map emmet-mode-keymap
               (("C-M-j" . emmet-next-edit-point)
                ("C-M-k" . emmet-prev-edit-point)))
-  :hook (sgml-mode css-ts-mode css-mode))
+  :hook (sgml-mode css-ts-mode css-mode web-mode))
 
 (use-package python
   :config (setq python-shell-buffer-name "Python REPL")
