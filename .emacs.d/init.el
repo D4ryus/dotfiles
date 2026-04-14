@@ -255,7 +255,6 @@
     geiser-mode-hook))
 
 (use-package paredit
-  :diminish paredit-mode
   :config (mapc (lambda (hook)
                   (add-hook hook #'enable-paredit-mode))
                 (append d4-lisp-mode-hooks
