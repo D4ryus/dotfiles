@@ -871,6 +871,9 @@ daily now (11:40-12:00)"
  read-process-output-max (* 4 1024 1024)
  ;; Do not create .#<name> files
  create-lockfiles nil
+ ;; Fix initial connection not working due to invalid prompt which is
+ ;; caused since TERM=dump is not set (anymore?).
+ tramp-ssh-controlmaster-options "-o SetEnv=TERM=dumb -o ControlMaster=auto -o ControlPath=tramp.%%C -o ControlPersist=no"
  ;; Directly copy between two hosts
  tramp-use-scp-direct-remote-copying t
  ;; Disable vc-mode on tramp buffers
