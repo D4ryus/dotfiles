@@ -282,6 +282,7 @@
               ("C-c" . lua-send-defun)))
 
 (use-package eglot
+  :defer nil
   :hook
   (go-mode . eglot-ensure)
   :custom
@@ -393,50 +394,59 @@
 
 (use-package company-erlang)
 
+(use-package transient
+  :defer nil
+  :after (eglot))
+
+(defun shell-it ()
+  (interactive)
+  (let ((cmd (apply #'buffer-substring-no-properties
+                    (if (region-active-p)
+                        `(,(region-beginning) ,(region-end))
+                        `(,(line-beginning-position) ,(line-end-position))))))
+    (shell-command cmd)))
+
+(require 'eglot)
+(transient-define-prefix
+ d4-transient ()
+ "A demo transient menu."
+ [["Magit "
+   ("m s" "Status" magit-status)
+   ("m l" "Log" magit-log)
+   ("m b" "Blame" magit-blame-addition)]
+  ["Other Window"
+   ("o n" "Next Buffer" d4-other-window-next-buffer)
+   ("o p" "Previous Buffer" d4-other-window-previous-buffer)
+   ("o d" "Scroll Down" scroll-other-window)
+   ("o u" "Scroll Up" scroll-other-window-down)]
+  ["Eglot"
+   ("e r" "Rename" eglot-rename)
+   ("e f" "Format" eglot-format)
+   ("e a" "Code Actions" eglot-code-actions)]
+  ["Buffer"
+   ("x s" "Save" save-buffer)
+   ("x f" "Find File" find-file)
+   ("x b" "Switch to Buffer" switch-to-buffer)]]
+ [["Project"
+   ("p f" "Find file" project-find-file)
+   ("p d" "Find dir" project-find-dir)]
+  ["Ripgrep"
+   ("r g" "dwim" rg-dwim)]
+  ["FZF"
+   ("f f" "Fzf" fzf)]
+  ["Elfeed"
+   ("n" "Elfeed" elfeed)]
+  ["Shell"
+   ("i" "It" shell-it)]])
+
 (use-package general
+  :after (transient)
   :config
-  (general-evil-setup))
-
-(general-define-key
- :prefix "SPC"
- :states 'normal
- :keymaps 'override
-
- "" '(nil :which-key "General leader")
-
- ;; Project
- "p" '(:ignore t :which-key "Project prefix")
- "p f" '(project-find-file :which-key "Project find file")
- "p d" '(project-find-dir :which-key "Project find dir")
-
- ;; FZF
- "f" '(:ignore t :which-key "File prefix")
- "f f" '(fzf :which-key "Fzf")
-
- ;; Ripgrep
- "r" '(:ignore t :which-key "Ripgrep prefix")
- "r g" '(rg-dwim :which-key "Ripgrep dwim")
-
- ;; MaGit
- "m" '(:ignore t :which-key "Magit prefix")
- "m s" '(magit-status :which-key "Magit Status")
- "m l" '(magit-log :which-key "Magit Log")
- "m b" '(magit-blame-addition :which-key "Magit Blame")
-
- ;; Eglot
- "e" '(:ignore t :which-key "Eglot prefix")
- "e r" '(eglot-rename :which-key "Eglot Rename")
- "e f" '(eglot-format :which-key "Eglot Format")
- "e a" '(eglot-code-actions :which-key "Eglot Code Actions")
-
- ;; Save
- "x" '(:ignore t :which-key "Emacs C-x prefix")
- "x s" '(save-buffer :which-key "Save Buffer")
- "x f" '(find-file :which-key "Find File")
- "x b" '(switch-to-buffer :which-key "Switch to Buffer")
-
- ;; News
- "n" '(elfeed :which-key "Elfeed"))
+  (general-evil-setup)
+  (general-define-key
+   :states 'normal
+   :keymaps 'override
+   "SPC" 'd4-transient))
 
 (defun d4-inhibit-same-window-advice (original-function &rest args)
   (let ((display-buffer-overriding-action
