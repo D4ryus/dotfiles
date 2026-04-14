@@ -51,6 +51,19 @@
 
 (global-set-key (kbd "M-o") 'other-window)
 
+(defun d4-other-window-next-buffer ()
+  (interactive)
+  (with-selected-window (other-window-for-scrolling)
+    (next-buffer)))
+
+(defun d4-other-window-previous-buffer ()
+  (interactive)
+  (with-selected-window (other-window-for-scrolling)
+    (previous-buffer)))
+
+(global-set-key (kbd "C-x C-n") 'd4-other-window-next-buffer)
+(global-set-key (kbd "C-x C-p") 'd4-other-window-previous-buffer)
+
 (use-package mood-line
   :config (mood-line-mode))
 
