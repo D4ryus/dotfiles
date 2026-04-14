@@ -335,21 +335,20 @@
 (use-package popper
   :bind (("C-x /"  . popper-toggle-latest)
          ("C-x M-/" . popper-toggle-type))
-  :custom
-  (popper-reference-buffers '("\\*Messages\\*"
-                              "Output\\*$"
-                              "\\*Async Shell Command\\*"
-                              "\\*Flycheck errors\\*"
-                              flymake-diagnostics-buffer-mode
-                              xref--xref-buffer-mode
-                              rg-mode
-                              grep-mode
-                              help-mode
-                              compilation-mode))
-  (popper-window-height
-   (lambda (win)
-     (let ((height (floor (frame-height) 3)))
-       (fit-window-to-buffer win height height))))
+  :init
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "Output\\*$"
+          "\\*Async Shell Command\\*"
+          "\\*Flycheck errors\\*"
+          "\\*Flycheck errors\\*"
+          erlang-shell-mode
+          flymake-diagnostics-buffer-mode
+          xref--xref-buffer-mode
+          rg-mode
+          grep-mode
+          help-mode
+          compilation-mode))
   :config
   (popper-mode +1)
   (popper-echo-mode +1))
