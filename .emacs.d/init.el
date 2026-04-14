@@ -31,6 +31,11 @@
   (add-to-list 'package-archives
                '("gnu" . "http://elpa.gnu.org/packages/")))
 
+(when (>= emacs-major-version 30)
+  (setq
+   remote-file-name-inhibit-delete-by-moving-to-trash t
+   remote-file-name-inhibit-auto-save t))
+
 ;; use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
