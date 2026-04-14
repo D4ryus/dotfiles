@@ -891,13 +891,6 @@ daily now (11:40-12:00)"
                               vc-ignore-dir-regexp
                               tramp-file-name-regexp))
 
-(defun d4-recenter-bottom-hook (frame)
-  (when (eql (point) (point-max))
-    (recenter (window-body-height))))
-
-(add-to-list 'window-size-change-functions
-             'd4-recenter-bottom-hook)
-
 ;; copied from /r/emacs
 (defun d4-backup-scratch ()
   (with-current-buffer "*scratch*"
