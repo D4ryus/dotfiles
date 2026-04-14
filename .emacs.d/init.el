@@ -269,7 +269,8 @@
 
 (use-package hydra)
 
-(use-package js2-mode)
+(use-package js2-mode
+  :mode "\\.js\\'")
 
 (use-package lua-mode
   :mode "\\.lua\\'"
