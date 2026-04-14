@@ -3,6 +3,11 @@
 # file: ~/.bashrc
 # author: d4ryus - https://github.com/d4ryus/
 # vim:ts=4:sw=4:ai:ft=sh:
+if test "dumb" = "${TERM:-dumb}"; then
+    PROMPT_COMMAND=
+    PS1='> '
+    return 0
+fi
 
 add_path () {
     # return "$1:$2", unless $2 already contains $1. If $2 is empty, return $1
@@ -154,10 +159,8 @@ __set_ps1() {
     PS1+="] "
 }
 
-if ! test "dumb" = "${TERM:-dumb}"; then
-    PROMPT_COMMAND=__set_ps1
-    __set_ps1
-fi
+PROMPT_COMMAND=__set_ps1
+__set_ps1
 
 if test -r ~/.reminder; then
     cat ~/.reminder
