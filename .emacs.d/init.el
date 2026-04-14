@@ -258,6 +258,15 @@
                 (append d4-lisp-mode-hooks
                         '(slime-repl-mode-hook))))
 
+(use-package smartparens
+  :hook (prog-mode text-mode)
+  :config
+  (setq sp-base-key-bindings 'paredit)
+  (setq sp-autoskip-closing-pair 'always)
+  (setq sp-hybrid-kill-entire-symbol nil)
+  (sp-use-paredit-bindings)
+  (show-smartparens-global-mode +1))
+
 (use-package hydra)
 
 (use-package js2-mode)
