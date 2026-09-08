@@ -165,23 +165,30 @@
   :mode "\\.erb\\'"
   :mode "\\.html\\'")
 
-(use-package company
-  :diminish company-mode
-  :hook (prog-mode . company-mode)
-  :bind (("C-x TAB" . company-complete)
-         :map company-active-map
-         ("\C-n"      . company-select-next)
-         ("\C-p"      . company-select-previous)
-         ("\C-d"      . company-show-doc-buffer)
-         ("<tab>"     . company-complete-selection)
-         ("TAB"       . company-complete-selection)
-         ("S-<tab>"   . company-complete-common)
-         ("<backtab>" . company-complete-common)
-         ([return]    . newline-and-indent)
-         ("RET"       . newline-and-indent))
+(use-package corfu
+  :init
+  (global-corfu-mode)
+  :bind
+  (:map corfu-map
+        ("SPC" . corfu-insert-separator)
+        ("C-n" . corfu-next)
+        ("C-p" . corfu-previous)))
+
+(use-package corfu-popupinfo
+  :after corfu
+  :hook (corfu-mode . corfu-popupinfo-mode)
   :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0))
+  (corfu-popupinfo-delay '(0.4 . 0.4))
+  (corfu-popupinfo-hide nil)
+  :config
+  (corfu-popupinfo-mode))
+
+(use-package cape
+  :bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-elisp-block))
 
 (use-package slime-company)
 
