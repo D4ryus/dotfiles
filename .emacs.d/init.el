@@ -17,7 +17,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(require 'org-agenda)
+;; (require 'org-agenda)
 
 ;; --- package configuration
 
