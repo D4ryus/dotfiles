@@ -25,18 +25,25 @@ add_path () {
 export PATH="$(add_path "${HOME}/bin" "$PATH")"
 export PATH="$(add_path "${HOME}/.cargo/bin" "$PATH")"
 export PATH="$(add_path "${HOME}/go/bin" "$PATH")"
+if test -z "$GOPATH"; then
+    export GOPATH="${HOME}/go"
+fi
+if test -z "$SSH_AUTH_SOCK"; then
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi
+
+if test "$TERM" = "dumb"; then
+    PROMPT_COMMAND=
+    PS1='> '
+    return 0
+fi
+
 export PAGER=less
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT='%F %T '
-if test -z "$SSH_AUTH_SOCK"; then
-    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-fi
-if test -z "$GOPATH"; then
-    export GOPATH="${HOME}/go"
-fi
 
 alias tm="tmux attach -t"
 alias ls="ls --color=auto"
