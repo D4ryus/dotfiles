@@ -249,9 +249,6 @@
   :config
   (evil-collection-init))
 
-(use-package evil-surround
-  :config (global-evil-surround-mode t))
-
 (defvar d4-lisp-mode-hooks
   '(emacs-lisp-mode-hook
     lisp-mode-hook
