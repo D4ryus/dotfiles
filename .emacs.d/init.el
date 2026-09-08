@@ -157,9 +157,6 @@
         magit-diff-refine-hunk 'all
         magit-diff-highlight-indentation '(("" . tabs))))
 
-(use-package magit-todos
-  :custom (magit-todos-ignored-keywords '()))
-
 (use-package trident-mode
   :diminish trident-mode
   :hook (lisp-mode))
