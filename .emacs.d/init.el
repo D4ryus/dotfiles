@@ -286,7 +286,6 @@
               ("C-c" . lua-send-defun)))
 
 (use-package eglot
-  :defer nil
   :hook
   (go-mode . eglot-ensure)
   :custom
@@ -399,7 +398,6 @@
 (use-package company-erlang)
 
 (use-package transient
-  :defer nil
   :after (eglot))
 
 (defun shell-it ()
