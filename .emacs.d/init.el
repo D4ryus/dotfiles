@@ -197,16 +197,13 @@
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-elisp-block))
 
-(use-package slime-company)
-
 (use-package slime
   :custom
   (lisp-loop-indent-subclauses nil)
   (lisp-loop-indent-forms-like-keywords t)
   (lisp-indent-function 'common-lisp-indent-function)
   :config
-  (slime-setup '(slime-company
-                 slime-indentation
+  (slime-setup '(slime-indentation
                  slime-compiler-notes-tree
                  slime-hyperdoc
                  slime-xref-browser
@@ -220,14 +217,7 @@
   (defun re-eval ()
     (interactive)
     (with-current-buffer (get-buffer "*slime-repl sbcl*")
-      (slime-repl-resend)))
-  :hook
-  (slime-mode . (lambda ()
-                  ;; Should not be required, but slime-company broke
-                  ;; somehow and is not activated automatically :/
-                  (add-to-list 'company-backends 'company-slime)
-                  (define-key evil-normal-state-local-map (kbd "M-.")
-                    'slime-edit-definition))))
+      (slime-repl-resend))))
 
 (use-package geiser
   :custom
