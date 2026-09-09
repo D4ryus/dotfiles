@@ -166,7 +166,7 @@
   :mode "\\.html\\'")
 
 (use-package corfu
-  :init
+  :config
   (global-corfu-mode)
   :bind
   (:map corfu-map
@@ -192,7 +192,7 @@
 
 (use-package cape
   :bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
-  :init
+  :config
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-elisp-block))
@@ -351,7 +351,7 @@
 (use-package popper
   :bind (("C-x /"  . popper-toggle-latest)
          ("C-x M-/" . popper-toggle-type))
-  :init
+  :config
   (setq popper-reference-buffers
         '("\\*Messages\\*"
           "Output\\*$"
