@@ -168,20 +168,15 @@
 (use-package corfu
   :config
   (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  :custom
+  (corfu-popupinfo-delay '(0.4 . 0.4))
+  (corfu-popupinfo-hide nil)
   :bind
   (:map corfu-map
         ("SPC" . corfu-insert-separator)
         ("C-n" . corfu-next)
         ("C-p" . corfu-previous)))
-
-(use-package corfu-popupinfo
-  :after corfu
-  :hook (corfu-mode . corfu-popupinfo-mode)
-  :custom
-  (corfu-popupinfo-delay '(0.4 . 0.4))
-  (corfu-popupinfo-hide nil)
-  :config
-  (corfu-popupinfo-mode))
 
 (use-package corfu-candidate-overlay
   :after corfu
