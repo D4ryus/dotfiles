@@ -183,6 +183,13 @@
   :config
   (corfu-popupinfo-mode))
 
+(use-package corfu-candidate-overlay
+  :after corfu
+  :init
+  (require 'corfu-auto)
+  :config
+  (corfu-candidate-overlay-mode +1))
+
 (use-package cape
   :bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
   :init
