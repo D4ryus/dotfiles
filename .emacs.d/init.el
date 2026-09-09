@@ -230,6 +230,16 @@
 
 (use-package cider)
 
+(defun evil-set-terminal-cursor ()
+  (unless (display-graphic-p)
+    (send-string-to-terminal
+     (pcase evil-state
+       ('normal  "\e[2 q")
+       ('insert  "\e[6 q")
+       ('visual  "\e[2 q")
+       ('replace "\e[4 q")
+       (_        "\e[2 q")))))
+
 (use-package evil
   :init
   (setq evil-want-integration t)
@@ -239,6 +249,12 @@
   (evil-want-C-i-jump nil)
   (evil-symbol-word-search t)
   :config
+
+  (add-hook 'evil-normal-state-entry-hook  'evil-set-terminal-cursor)
+  (add-hook 'evil-insert-state-entry-hook  'evil-set-terminal-cursor)
+  (add-hook 'evil-visual-state-entry-hook  'evil-set-terminal-cursor)
+  (add-hook 'evil-replace-state-entry-hook 'evil-set-terminal-cursor)
+  (add-hook 'suspend-resume-hook           'evil-set-terminal-cursor)
   (evil-mode 1))
 
 (use-package evil-collection
