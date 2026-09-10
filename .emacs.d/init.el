@@ -306,7 +306,7 @@
 (use-package markdown-mode)
 
 (use-package yaml-mode
-  :mode "\\.yml\\'")
+  :mode ("\\.yml\\'" "\\.yaml\\'"))
 
 (use-package rust-mode)
 
