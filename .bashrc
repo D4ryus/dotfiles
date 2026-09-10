@@ -32,12 +32,6 @@ if test -z "$SSH_AUTH_SOCK"; then
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
-if test "$TERM" = "dumb"; then
-    PROMPT_COMMAND=
-    PS1='> '
-    return 0
-fi
-
 export PAGER=less
 export EDITOR=vim
 export HISTCONTROL=ignoreboth
