@@ -67,9 +67,6 @@
 
 (use-package websocket)
 
-(use-package mood-line
-  :config (mood-line-mode))
-
 (use-package xref
   :custom
   (xref-after-return-hook '(recenter xref-pulse-momentarily)))
