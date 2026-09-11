@@ -389,7 +389,7 @@
          ("\\.hrl?$" . erlang-mode)
          ("\\.app?$" . erlang-mode)
          ("\\.app.src?$" . erlang-mode)
-         ("\\Emakefile" . erlang-mode)))
+         ("Emakefile" . erlang-mode)))
 
 (use-package company-erlang)
 
