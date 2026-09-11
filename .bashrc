@@ -39,9 +39,6 @@ export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT='%F %T '
 
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-alias dmesg="dmesg --color"
 alias dotfiles="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias ff="find-file"
 
