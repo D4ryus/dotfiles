@@ -352,7 +352,6 @@
           grep-mode
           help-mode
           compilation-mode))
-  :config
   (popper-mode +1)
   (popper-echo-mode +1))
 
