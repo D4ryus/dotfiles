@@ -241,11 +241,7 @@
   (evil-want-C-i-jump nil)
   (evil-symbol-word-search t)
   :config
-  (add-hook 'evil-normal-state-entry-hook  'evil-set-terminal-cursor)
-  (add-hook 'evil-insert-state-entry-hook  'evil-set-terminal-cursor)
-  (add-hook 'evil-visual-state-entry-hook  'evil-set-terminal-cursor)
-  (add-hook 'evil-replace-state-entry-hook 'evil-set-terminal-cursor)
-  (add-hook 'suspend-resume-hook           'evil-set-terminal-cursor)
+  (add-hook 'post-command-hook 'evil-set-terminal-cursor)
   (evil-mode 1))
 
 (use-package evil-collection
