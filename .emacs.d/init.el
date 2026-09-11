@@ -333,6 +333,19 @@
   :custom
   (rg-group-result nil))
 
+(use-package flymake
+  :hook
+  (sh-base-mode . flymake-mode)
+  (ruby-base-mode . flymake-mode)
+  :custom
+  (flymake-margin-indicators-string
+   '((error "!" compilation-error)
+     (warning "?" compilation-warning)
+     (note "*" compilation-info)))
+  (flymake-show-diagnostics-at-end-of-line nil)
+  (flymake-no-changes-timeout nil)
+  (flymake-start-on-flymake-mode nil))
+
 (use-package popper
   :bind (("C-x /"  . popper-toggle-latest)
          ("C-x M-/" . popper-toggle-type))
