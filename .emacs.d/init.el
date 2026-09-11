@@ -324,9 +324,7 @@
               ("C-c C-f" . ruby-load-current-file)))
 
 (use-package robe
-  :hook (enh-ruby-mode . robe-mode)
-  :hook (robe-mode . (lambda ()
-                       (add-to-list 'company-backends 'company-robe))))
+  :hook (enh-ruby-mode . robe-mode))
 
 (use-package org-download)
 
@@ -390,8 +388,6 @@
          ("\\.app?$" . erlang-mode)
          ("\\.app.src?$" . erlang-mode)
          ("Emakefile" . erlang-mode)))
-
-(use-package company-erlang)
 
 (use-package transient
   :after (eglot))
