@@ -5,8 +5,6 @@
   (message "Native compilation is available")
   (setq native-comp-deferred-compilation t))
 
-(package-initialize)
-
 (defvar backup-directory
   (concat user-emacs-directory "backup/"))
 (catch 'file-already-exists
@@ -17,29 +15,15 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; (require 'org-agenda)
-
-;; --- package configuration
-
-(setq package-enable-at-startup nil)
-
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives
-               '("gnu" . "http://elpa.gnu.org/packages/")))
-
 (when (>= emacs-major-version 30)
   (setq
    remote-file-name-inhibit-delete-by-moving-to-trash t
    remote-file-name-inhibit-auto-save t))
 
-;; use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
 
 (require 'use-package)
 
