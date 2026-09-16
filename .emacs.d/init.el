@@ -531,6 +531,16 @@ see: d4-org-min->string and d4-org-string->min"
 
 ;; --- custom functions
 
+(defun setup-dotfiles ()
+  (interactive)
+  (setenv "GIT_DIR" (expand-file-name "~/.dotfiles"))
+  (setenv "GIT_WORK_TREE" (expand-file-name "~")))
+
+(defun teardown-dotfiles ()
+  (interactive)
+  (setenv "GIT_DIR")
+  (setenv "GIT_WORK_TREE"))
+
 (defun d4-to-bin (number)
   (apply 'concat
          (reverse
