@@ -47,6 +47,15 @@ if test -r "${HOME}/.git-completion-bash"; then
     source "${HOME}/.git-completion-bash"
 fi
 
+setup_dotfiles() {
+    export GIT_DIR="${HOME}/.dotfiles"
+    export GIT_WORK_TREE="${HOME}"
+}
+
+teardown_dotfiles() {
+    unset GIT_DIR GIT_WORK_TREE
+}
+
 et() {
     local tmp
     if [[ "$1" != "-" ]]; then
